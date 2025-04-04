@@ -5,7 +5,6 @@ import { PartnershipAdvantages } from "@/components/solution/brokers/Partnership
 import { PartnershipProgram } from "@/components/solution/brokers/PartnershipProgram"
 import { TrainingResources } from "@/components/solution/brokers/TrainingResources"
 import { CtaSection } from "@/components/solution/brokers/CtaSection"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function BrokersPage() {
   return (
@@ -15,7 +14,6 @@ export default function BrokersPage() {
       <PartnershipProgram />
       <TrainingResources />
       <CtaSection />
-      <SiteFooter />
     </main>
   )
 }
