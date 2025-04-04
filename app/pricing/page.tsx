@@ -5,7 +5,6 @@ import { PricingHero } from "@/components/pricing/PricingHero"
 import { PricingPlans } from "@/components/pricing/PricingPlans"
 import { FeatureComparison } from "@/components/pricing/FeatureComparison"
 import { FaqSection } from "@/components/pricing/FaqSection"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false)
@@ -20,7 +19,6 @@ export default function PricingPage() {
       <PricingPlans isAnnual={isAnnual} />
       <FeatureComparison />
       <FaqSection />
-      <SiteFooter />
     </main>
   )
 }

@@ -1,7 +1,5 @@
 "use client"
 
-import { CtaSection } from "@/components/platform/CtaSection"
-
 export default function PlatformIntegrationPage() {
   return (
     <main className="flex min-h-screen flex-col">
@@ -96,8 +94,6 @@ export default function PlatformIntegrationPage() {
           </div>
         </div>
       </section>
-
-      <CtaSection />
     </main>
   )
 } 

@@ -1,8 +1,5 @@
 "use client"
 
-import { TechnicalSpecsSection } from "@/components/platform/TechnicalSpecsSection"
-import { CtaSection } from "@/components/platform/CtaSection"
-
 export default function PlatformSecurityPage() {
   return (
     <main className="flex min-h-screen flex-col">
@@ -58,9 +55,6 @@ export default function PlatformSecurityPage() {
           </div>
         </div>
       </section>
-      
-      <TechnicalSpecsSection />
-      <CtaSection />
     </main>
   )
 } 

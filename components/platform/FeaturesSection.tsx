@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Shield, Smartphone, Zap } from "lucide-react"
+import { CheckCircle, Shield, Smartphone, Zap, Users, Clock, Bell, FileText } from "lucide-react"
 
 export function FeaturesSection() {
   const features = [
@@ -11,6 +11,8 @@ export function FeaturesSection() {
         "User-friendly mobile application for employees to track and manage their menstrual health.",
       features: ["Intuitive Cycle Tracking", "Personalized Insights", "Educational Resources"],
       color: "bg-[#167d83]",
+      image: "/placeholder.svg?height=300&width=400",
+      position: "right"
     },
     {
       icon: <Zap className="h-8 w-8 text-white" />,
@@ -19,6 +21,8 @@ export function FeaturesSection() {
         "Advanced analytics and machine learning providing personalized health recommendations.",
       features: ["Pattern Recognition", "Personalized Recommendations", "Predictive Analytics"],
       color: "bg-[#EE4C23]",
+      image: "/placeholder.svg?height=300&width=400",
+      position: "left"
     },
     {
       icon: <Shield className="h-8 w-8 text-white" />,
@@ -26,7 +30,18 @@ export function FeaturesSection() {
       description: "Comprehensive privacy settings giving users control over their health data.",
       features: ["Granular Sharing Controls", "Data Export Options", "Anonymous Insights"],
       color: "bg-[#167d83]",
+      image: "/placeholder.svg?height=300&width=400",
+      position: "right"
     },
+    {
+      icon: <Bell className="h-8 w-8 text-white" />,
+      title: "Smart Notifications",
+      description: "Customizable alerts and reminders to help users stay on top of their health.",
+      features: ["Personalized Reminders", "Appointment Alerts", "Medication Tracking"],
+      color: "bg-[#EE4C23]",
+      image: "/placeholder.svg?height=300&width=400",
+      position: "left"
+    }
   ]
 
   return (
@@ -49,49 +64,98 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        {/* Tab switching */}
-        <div className="features-showcase max-w-6xl mx-auto">
-          <div className="feature-content">
-            <div className="feature-panel active">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="feature-card bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl group"
-                  >
-                    <div className={`${feature.color} h-2 sm:h-3`}></div>
-                    <div className="p-5 sm:p-6">
-                      <div className="flex items-center mb-4">
-                        <div
-                          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${feature.color} flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          {feature.icon}
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-[#2c3e50] group-hover:text-[#167d83] transition-colors duration-300">{feature.title}</h3>
-                      </div>
-
-                      <p className="text-[#7f8c8d] text-sm sm:text-base mb-6">{feature.description}</p>
-
-                      <ul className="space-y-3 border-t border-gray-100 pt-4">
-                        {feature.features.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <CheckCircle
-                              className={`h-4 w-4 sm:h-5 sm:w-5 ${feature.color === "bg-[#167d83]" ? "text-[#167d83]" : "text-[#EE4C23]"} mr-2 mt-0.5 group-hover:scale-125 transition-transform duration-300`}
-                            />
-                            <span className="text-[#2c3e50] text-sm sm:text-base">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+        {/* Zigzag Layout */}
+        <div className="max-w-6xl mx-auto space-y-20 md:space-y-32">
+          {features.map((feature, index) => (
+            <div 
+              key={index} 
+              className={`flex flex-col ${feature.position === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
+            >
+              {/* Text content */}
+              <div className="w-full md:w-1/2 md:px-6 mb-8 md:mb-0">
+                <div className={`${feature.color} w-14 h-1 rounded-full mb-4`}></div>
+                
+                <div className="flex items-center mb-4">
+                  <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mr-4`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-[#2c3e50]">{feature.title}</h3>
+                </div>
+                
+                <p className="text-[#7f8c8d] mb-6">{feature.description}</p>
+                
+                <ul className="space-y-3">
+                  {feature.features.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircle className={`h-5 w-5 ${feature.color === "bg-[#167d83]" ? "text-[#167d83]" : "text-[#EE4C23]"} mr-3 flex-shrink-0`} />
+                      <span className="text-[#2c3e50]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              {/* Image/visual content */}
+              <div className="w-full md:w-1/2 md:px-6">
+                <div className="relative">
+                  {/* Decorative background */}
+                  <div className={`absolute inset-0 ${feature.color}/10 rounded-2xl transform ${index % 2 === 0 ? 'rotate-3' : '-rotate-3'} scale-105`}></div>
+                  
+                  {/* Main image */}
+                  <div className="relative overflow-hidden rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title} 
+                      className="w-full h-auto object-cover"
+                    />
+                    
+                    {/* Overlay gradient */}
+                    <div className={`absolute inset-0 bg-gradient-to-tr from-${feature.color === "bg-[#167d83]" ? "[#167d83]" : "[#EE4C23]"}/20 to-transparent mix-blend-overlay`}></div>
+                    
+                    {/* Feature indicator */}
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium shadow-md" style={{color: feature.color === "bg-[#167d83]" ? "#167d83" : "#EE4C23"}}>
+                      Featured
                     </div>
                   </div>
-                ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Bottom feature highlight */}
+        <div className="mt-16 sm:mt-24 max-w-4xl mx-auto bg-[#f8f9fa] rounded-2xl p-6 md:p-8 shadow-md">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/4 mb-6 md:mb-0 flex justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#167d83]/20 rounded-full blur-xl transform scale-150"></div>
+                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#167d83] to-[#0e5a5f] flex items-center justify-center">
+                  <FileText className="h-12 w-12 text-white" />
+                </div>
+              </div>
+            </div>
+            
+            <div className="md:w-3/4 md:pl-8">
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-3">Enterprise Reporting Dashboard</h3>
+              <p className="text-[#7f8c8d] mb-4">
+                Comprehensive analytics dashboard providing employers with anonymized, aggregated insights to better understand workforce health needs.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                  Anonymous Data Analysis
+                </span>
+                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                  Wellness Trend Reporting
+                </span>
+                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                  ROI Measurement Tools
+                </span>
               </div>
             </div>
           </div>
         </div>
         
         {/* Upcoming features teaser */}
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#f8f9fa] text-[#167d83] text-sm font-medium">
             <span className="mr-2">🚀</span> More features coming soon
           </div>

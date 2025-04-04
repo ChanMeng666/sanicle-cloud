@@ -3,7 +3,6 @@
 import { HeroSection } from "@/components/platform/HeroSection"
 import { FeaturesSection } from "@/components/platform/FeaturesSection"
 import { TechnicalSpecsSection } from "@/components/platform/TechnicalSpecsSection"
-import { CtaSection } from "@/components/platform/CtaSection"
 
 export default function PlatformOverviewPage() {
   return (
@@ -11,7 +10,6 @@ export default function PlatformOverviewPage() {
       <HeroSection />
       <FeaturesSection />
       <TechnicalSpecsSection />
-      <CtaSection />
     </main>
   )
 }

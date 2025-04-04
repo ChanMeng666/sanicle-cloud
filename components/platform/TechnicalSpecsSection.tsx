@@ -1,6 +1,7 @@
 "use client"
 
-import { CheckCircle, Shield } from "lucide-react"
+import { CheckCircle, Shield, Database, Lock, Monitor, Zap, Server } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function TechnicalSpecsSection() {
   const securityFeatures = [
@@ -11,6 +12,68 @@ export function TechnicalSpecsSection() {
     "Regular security audits and penetration testing",
     "Role-based access control",
   ]
+
+  const techSpecs = [
+    {
+      icon: <Shield className="h-6 w-6 text-white" />,
+      title: "Security",
+      description: "Enterprise-grade security protocols",
+      details: "HIPAA compliant, SOC 2 Type II certified",
+      color: "bg-[#167d83]"
+    },
+    {
+      icon: <Lock className="h-6 w-6 text-white" />,
+      title: "Privacy",
+      description: "Advanced data protection mechanisms",
+      details: "End-to-end encryption, secure data storage",
+      color: "bg-[#EE4C23]"
+    },
+    {
+      icon: <Database className="h-6 w-6 text-white" />,
+      title: "Scalability",
+      description: "Elastic cloud infrastructure",
+      details: "Auto-scaling, distributed data centers",
+      color: "bg-[#167d83]"
+    },
+    {
+      icon: <Monitor className="h-6 w-6 text-white" />,
+      title: "Reliability",
+      description: "99.9% uptime guarantee",
+      details: "24/7 monitoring and incident response",
+      color: "bg-[#EE4C23]"
+    },
+    {
+      icon: <Zap className="h-6 w-6 text-white" />,
+      title: "Performance",
+      description: "Optimized for speed and efficiency",
+      details: "<200ms response time, load balancing",
+      color: "bg-[#167d83]"
+    },
+    {
+      icon: <Server className="h-6 w-6 text-white" />,
+      title: "Integration",
+      description: "Easy connection with your systems",
+      details: "RESTful APIs, SSO authentication",
+      color: "bg-[#EE4C23]"
+    }
+  ];
+
+  // Predefined positions for the technical specs to avoid hydration mismatch
+  const positions = [
+    { top: "15%", left: "50%" },      // top
+    { top: "25%", left: "85%" },      // top right
+    { top: "50%", left: "95%" },      // right
+    { top: "75%", left: "85%" },      // bottom right
+    { top: "85%", left: "50%" },      // bottom
+    { top: "75%", left: "15%" },      // bottom left
+  ];
+
+  // Use client-side rendering for the circular layout
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 bg-[#f8f9fa] relative overflow-hidden">
@@ -29,106 +92,92 @@ export function TechnicalSpecsSection() {
           </p>
         </div>
 
-        {/* Interactive specifications showcase */}
-        <div className="specs-showcase max-w-5xl mx-auto">
-          <div className="specs-container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="specs-card bg-white rounded-xl shadow-md overflow-hidden transform hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="specs-header bg-[#167d83] text-white p-4 flex items-center">
-                <Shield className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-                <h3 className="text-lg sm:text-xl font-semibold">Security and Compliance</h3>
-              </div>
-
-              <div className="p-5 sm:p-6">
-                <div className="specs-progress-container mb-6">
-                  <div className="flex justify-between mb-1">
-                    <span className="text-xs sm:text-sm text-[#2c3e50] font-medium">HIPAA Compliance</span>
-                    <span className="text-xs sm:text-sm text-[#167d83] font-medium">100%</span>
-                  </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2 sm:h-2.5">
-                    <div className="bg-[#167d83] h-2 sm:h-2.5 rounded-full w-full transform origin-left transition-transform duration-1000 hover:scale-x-95"></div>
-                  </div>
-                </div>
-
-                <ul className="space-y-3">
-                  {securityFeatures.map((item, i) => (
-                    <li key={i} className="flex items-start group">
-                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#167d83] mr-2 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="text-[#2c3e50] text-xs sm:text-sm md:text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+        {/* Circular layout specs showcase */}
+        <div className="max-w-6xl mx-auto">
+          <div className="relative h-[600px] md:block">
+            {/* Center element */}
+            <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-white rounded-full shadow-lg items-center justify-center z-20">
+              <div className="text-center">
+                <div className="text-[#167d83] font-bold text-3xl">100%</div>
+                <div className="text-[#2c3e50] font-medium text-sm">HIPAA Compliant</div>
               </div>
             </div>
-
-            <div className="specs-card bg-white rounded-xl shadow-md overflow-hidden transform hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="specs-header bg-[#EE4C23] text-white p-4 flex items-center">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  className="h-5 w-5 sm:h-6 sm:w-6 mr-2"
-                >
-                  <path d="M17 6.1H3a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-8.9a3 3 0 0 0-3-3"/>
-                  <path d="M10 3v4"/>
-                  <path d="M14 3v4"/>
-                  <path d="M12 14v4"/>
-                  <path d="M12 14h4"/>
-                </svg>
-                <h3 className="text-lg sm:text-xl font-semibold">Scalable Infrastructure</h3>
-              </div>
-
-              <div className="p-5 sm:p-6">
-                <div className="specs-progress-container mb-6">
-                  <div className="flex justify-between mb-1">
-                    <span className="text-xs sm:text-sm text-[#2c3e50] font-medium">Uptime SLA</span>
-                    <span className="text-xs sm:text-sm text-[#EE4C23] font-medium">99.9%</span>
+            
+            {/* Connection lines (desktop only) */}
+            <div className="hidden md:block absolute left-1/2 top-1/2 w-[500px] h-[500px] border-2 border-dashed border-[#e6f5f6] rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+            
+            {/* Technical specs in circular layout (desktop) */}
+            {isMounted && (
+              <div className="hidden md:block">
+                {techSpecs.map((spec, index) => (
+                  <div 
+                    key={index}
+                    className="absolute transform -translate-x-1/2 -translate-y-1/2 w-44 transition-all duration-300 hover:scale-110"
+                    style={{ 
+                      top: positions[index].top, 
+                      left: positions[index].left 
+                    }}
+                  >
+                    <div className="bg-white rounded-xl shadow-md p-4 text-center">
+                      <div className={`${spec.color} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3`}>
+                        {spec.icon}
+                      </div>
+                      <h3 className="text-[#2c3e50] font-semibold mb-1">{spec.title}</h3>
+                      <p className="text-[#7f8c8d] text-xs mb-1">{spec.description}</p>
+                      <p className="text-[#167d83] text-xs font-medium">{spec.details}</p>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2 sm:h-2.5">
-                    <div className="bg-[#EE4C23] h-2 sm:h-2.5 rounded-full w-[99.9%] transform origin-left transition-transform duration-1000 hover:scale-x-95"></div>
+                ))}
+              </div>
+            )}
+            
+            {/* Mobile grid layout fallback */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+              {techSpecs.map((spec, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-4 flex items-start">
+                  <div className={`${spec.color} w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0`}>
+                    {spec.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-[#2c3e50] font-semibold mb-1">{spec.title}</h3>
+                    <p className="text-[#7f8c8d] text-xs mb-1">{spec.description}</p>
+                    <p className="text-[#167d83] text-xs font-medium">{spec.details}</p>
                   </div>
                 </div>
-
-                <ul className="space-y-3">
-                  {[
-                    "Auto-scaling elastic cloud architecture",
-                    "Distributed data centers for low-latency access",
-                    "Real-time data processing capability",
-                    "Automatic backup and recovery systems",
-                    "24/7 monitoring and incident response",
-                    "Load balancing for optimal performance",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start group">
-                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#EE4C23] mr-2 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="text-[#2c3e50] text-xs sm:text-sm md:text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Security features highlight */}
+        <div className="mt-12 md:mt-32 lg:mt-40 max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="md:flex">
+            <div className="md:w-1/3 bg-[#167d83] p-6 text-white flex flex-col justify-center">
+              <Shield className="h-12 w-12 mb-4" />
+              <h3 className="text-xl font-bold mb-2">Security First</h3>
+              <p className="text-white/80 text-sm">
+                We prioritize the protection of your sensitive health data with comprehensive security measures.
+              </p>
+            </div>
+            
+            <div className="md:w-2/3 p-6">
+              <h3 className="text-[#2c3e50] font-bold mb-4">Security Features</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+                {securityFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 flex-shrink-0" />
+                    <span className="text-sm text-[#2c3e50]">{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
         
-        {/* Technical advantage metrics */}
-        <div className="mt-12 md:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          <div className="stat-card bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300">
-            <div className="text-[#167d83] text-2xl sm:text-3xl font-bold mb-1">99.9%</div>
-            <div className="text-[#7f8c8d] text-xs sm:text-sm">Uptime</div>
-          </div>
-          <div className="stat-card bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300">
-            <div className="text-[#167d83] text-2xl sm:text-3xl font-bold mb-1">&lt;200ms</div>
-            <div className="text-[#7f8c8d] text-xs sm:text-sm">Response Time</div>
-          </div>
-          <div className="stat-card bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300">
-            <div className="text-[#167d83] text-2xl sm:text-3xl font-bold mb-1">100%</div>
-            <div className="text-[#7f8c8d] text-xs sm:text-sm">HIPAA Compliant</div>
-          </div>
-          <div className="stat-card bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300">
-            <div className="text-[#167d83] text-2xl sm:text-3xl font-bold mb-1">1M+</div>
-            <div className="text-[#7f8c8d] text-xs sm:text-sm">Processing Capacity/Hour</div>
+        {/* Technical metrics */}
+        <div className="mt-8 sm:mt-12 text-center">
+          <div className="inline-block px-4 py-2 bg-white shadow-md rounded-full text-sm text-[#167d83]">
+            <span className="font-semibold">1M+</span> Processing Capacity/Hour • <span className="font-semibold">&lt;200ms</span> Response Time • <span className="font-semibold">99.9%</span> Uptime
           </div>
         </div>
       </div>

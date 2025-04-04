@@ -3,8 +3,6 @@
 import { HeroSection } from "@/components/solution/employees/HeroSection"
 import { BenefitsSection } from "@/components/solution/employees/BenefitsSection"
 import { AppPreview } from "@/components/solution/employees/AppPreview"
-import { PrivacySection } from "@/components/solution/employees/PrivacySection"
-import { CtaSection } from "@/components/solution/employees/CtaSection"
 
 export default function EmployeesPage() {
   return (
@@ -12,8 +10,6 @@ export default function EmployeesPage() {
       <HeroSection />
       <BenefitsSection />
       <AppPreview />
-      <PrivacySection />
-      <CtaSection />
     </main>
   )
 }

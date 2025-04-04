@@ -1,115 +1,179 @@
 "use client"
 
-import { Sparkles, Star, Globe, Users, Award } from "lucide-react"
+import { Building, Droplet, Package, Globe, Award, BarChart } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function OurStory() {
+  const milestones = [
+    {
+      year: "2018",
+      title: "Beginning",
+      description: "Sanicle.cloud was born from a revolutionary idea to transform how organizations handle menstrual health. Our founders identified a critical gap in workplace wellness programs.",
+      icon: <Building className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#7209b7]",
+      accent: "border-[#7209b7]"
+    },
+    {
+      year: "2019",
+      title: "Seed Funding",
+      description: "We secured our initial seed funding of $2.5M from progressive investors who shared our vision for workplace transformation.",
+      icon: <Droplet className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#3a0ca3]", 
+      accent: "border-[#3a0ca3]"
+    },
+    {
+      year: "2020",
+      title: "Platform Launch",
+      description: "Despite global challenges, we successfully launched our platform, serving our first 10 enterprise clients and reaching over 5,000 employees.",
+      icon: <Package className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#4361ee]",
+      accent: "border-[#4361ee]"
+    },
+    {
+      year: "2021",
+      title: "Expansion",
+      description: "Expanded our operations across North America, partnering with 50+ benefits brokers to bring our solution to more organizations.",
+      icon: <Globe className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#4cc9f0]",
+      accent: "border-[#4cc9f0]"
+    },
+    {
+      year: "2022",
+      title: "Series A Funding",
+      description: "Raised $15M in Series A funding to accelerate product development and market expansion, validating our approach to workplace menstrual health.",
+      icon: <Award className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#f72585]",
+      accent: "border-[#f72585]"
+    },
+    {
+      year: "2023",
+      title: "Global Recognition",
+      description: "Named one of Fast Company's Most Innovative Companies in Workplace Wellness, now serving 200+ organizations and over 100,000 employees worldwide.",
+      icon: <BarChart className="h-6 w-6 md:h-8 md:w-8 text-white" />,
+      color: "bg-[#ff5e5b]",
+      accent: "border-[#ff5e5b]"
+    }
+  ]
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  }
+
   return (
-    <section className="w-full py-16 md:py-24 bg-[#f8f9fa] relative -mt-10 z-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[#167d83]/5 pattern-dots"></div>
-
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
-            Our Journey
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">The Story of Sanicle.cloud</h2>
-          <p className="text-lg text-[#7f8c8d]">From Concept to Innovation: How We're Transforming Workplace Health.</p>
-        </div>
-
-        <div className="relative">
-          {/* Timeline */}
-          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-[#e6f5f6] md:transform md:-translate-x-1/2"></div>
-
-          {[
-            {
-              year: "2022",
-              title: "Beginning",
-              description:
-                "Sanicle.cloud was founded by Dr. Chen and a team of healthcare professionals and technology experts who recognized a critical gap in workplace benefits: comprehensive support for women's menstrual health.",
-              icon: <Sparkles className="h-6 w-6 text-white" />,
-              position: "left",
-            },
-            {
-              year: "2022",
-              title: "Seed Funding",
-              description:
-                "Secured initial investment to develop the platform and build our core team, enabling us to turn our vision into reality.",
-              icon: <Star className="h-6 w-6 text-white" />,
-              position: "right",
-            },
-            {
-              year: "2023",
-              title: "Platform Launch",
-              description:
-                "Officially launched the Sanicle.cloud platform, partnering with our first corporate clients, marking a significant milestone in our journey.",
-              icon: <Globe className="h-6 w-6 text-white" />,
-              position: "left",
-            },
-            {
-              year: "2023",
-              title: "Expansion",
-              description:
-                "Grew to serve over 50 companies, expanded our team to 25 members, and extended our impact across multiple industries.",
-              icon: <Users className="h-6 w-6 text-white" />,
-              position: "right",
-            },
-            {
-              year: "2024",
-              title: "Series A Funding",
-              description:
-                "Raised substantial funding to accelerate growth and enhance platform capabilities, setting the foundation for our next phase of development.",
-              icon: <Award className="h-6 w-6 text-white" />,
-              position: "left",
-            },
-          ].map((milestone, index) => (
-            <div
-              key={index}
-              className={`relative mb-12 md:mb-24 pl-10 md:pl-0 ${
-                milestone.position === "left"
-                  ? "md:pr-12 md:text-right md:ml-0 md:mr-auto"
-                  : "md:pl-12 md:ml-auto md:mr-0"
-              } md:w-1/2`}
-            >
-              {/* Timeline dot */}
-              <div
-                className={`absolute left-0 md:left-auto ${
-                  milestone.position === "left" ? "md:right-0" : "md:left-0"
-                } top-0 w-10 h-10 rounded-full bg-[#167d83] flex items-center justify-center z-10 transform ${
-                  milestone.position === "left" ? "md:translate-x-1/2" : "md:-translate-x-1/2"
-                }`}
-              >
-                {milestone.icon}
-              </div>
-
-              {/* Content */}
-              <div
-                className={`bg-white p-6 rounded-xl shadow-lg ${
-                  milestone.position === "left" ? "md:rounded-r-none" : "md:rounded-l-none"
-                } transform transition-transform duration-500 hover:-translate-y-2`}
-              >
-                <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
-                  {milestone.year}
-                </div>
-                <h3 className="text-xl font-bold text-[#2c3e50] mb-2">{milestone.title}</h3>
-                <p className="text-[#7f8c8d]">{milestone.description}</p>
-              </div>
-
-              {/* Mobile connection line */}
-              <div className="absolute left-5 top-10 bottom-0 w-1 bg-[#e6f5f6] md:hidden"></div>
-            </div>
-          ))}
-        </div>
+    <section className="w-full py-16 md:py-24 bg-[#fcfcfc] relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-purple-100 rounded-full opacity-50 blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
       </div>
-      
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
-          <path
-            fill="#ffffff"
-            fillOpacity="1"
-            d="M0,32L48,37.3C96,43,192,53,288,80C384,107,480,149,576,154.7C672,160,768,128,864,112C960,96,1056,96,1152,90.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
+
+      <div className="container px-4 md:px-6 mx-auto relative z-10">
+        <div className="text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block px-4 py-1.5 bg-white text-[#4361ee] text-xs md:text-sm font-medium rounded-full shadow-sm mb-3">
+              Our Journey
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-3">The Sanicle Story</h2>
+            <p className="text-[#666666] max-w-2xl mx-auto">
+              From a simple idea to a global platform, our mission to revolutionize workplace menstrual health has come a long way.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div 
+          className="relative"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {/* Central timeline line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#7209b7] via-[#4361ee] to-[#ff5e5b] transform -translate-x-1/2 rounded-full"></div>
+          
+          {milestones.map((milestone, index) => (
+            <motion.div
+              key={index}
+              className={`flex flex-col md:flex-row items-center md:items-start mb-16 md:mb-24 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              variants={itemVariants}
+            >
+              {/* Year marker */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                <div className={`w-16 h-16 rounded-full border-4 border-white ${milestone.color} shadow-lg flex items-center justify-center`}>
+                  {milestone.icon}
+                </div>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-[#7209b7]/50 to-transparent"></div>
+              </div>
+              
+              {/* Content card */}
+              <div className={`w-full md:w-[45%] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div className={`h-2 ${milestone.color}`}></div>
+                  <div className="p-6">
+                    <div className="flex items-center mb-3">
+                      <div className={`px-3 py-1 rounded-full ${milestone.color} bg-opacity-10 text-sm font-semibold ${milestone.accent.replace('border', 'text')}`}>
+                        {milestone.year}
+                      </div>
+                      <h3 className="text-xl font-bold text-[#1a1a1a] ml-3">{milestone.title}</h3>
+                    </div>
+                    <p className="text-[#666666] leading-relaxed">{milestone.description}</p>
+                    
+                    {/* Additional achievement indicators */}
+                    {(milestone.title === "Platform Launch" || milestone.title === "Series A Funding") && (
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <div className="flex items-center">
+                          <div className={`w-3 h-3 rounded-full ${milestone.color}`}></div>
+                          <span className="ml-2 text-sm font-medium text-[#1a1a1a]">
+                            {milestone.title === "Platform Launch" ? "First 10 enterprise clients" : "Largest funding round to date"}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Connection line */}
+                <div className={`hidden md:block absolute top-8 ${
+                  index % 2 === 0 ? 'left-[45%] right-1/2' : 'right-[45%] left-1/2'
+                } h-0.5 bg-gradient-to-r ${
+                  index % 2 === 0 ? 'from-transparent to-' + milestone.color.replace('bg-', '') : 'from-' + milestone.color.replace('bg-', '') + ' to-transparent'
+                }`}></div>
+              </div>
+            </motion.div>
+          ))}
+          
+          {/* Future indicator */}
+          <motion.div 
+            className="flex justify-center"
+            variants={itemVariants}
+          >
+            <div className="bg-white rounded-xl shadow-md py-4 px-8 inline-flex items-center">
+              <span className="text-[#4361ee] font-semibold mr-2">The story continues</span>
+              <div className="relative w-16 h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-3/4 bg-gradient-to-r from-[#4361ee] to-[#ff5e5b] rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

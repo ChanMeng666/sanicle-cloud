@@ -4,7 +4,6 @@ import { BenefitsHero } from "@/components/platform/benefits/BenefitsHero"
 import { BenefitFeatures } from "@/components/platform/benefits/BenefitFeatures"
 import { BenefitComparison } from "@/components/platform/benefits/BenefitComparison"
 import { Testimonials } from "@/components/platform/benefits/Testimonials"
-import { CtaSection } from "@/components/platform/benefits/CtaSection"
 
 export default function BenefitsPage() {
   return (
@@ -13,7 +12,6 @@ export default function BenefitsPage() {
       <BenefitFeatures />
       <BenefitComparison />
       <Testimonials />
-      <CtaSection />
     </main>
   )
 }
