@@ -9,7 +9,7 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear()
   
   return (
-    <footer className="w-full bg-gradient-to-b from-beige-light to-white py-12 lg:py-20">
+    <footer className="w-full bg-gradient-to-b from-beige to-white py-12 lg:py-20">
       <div className="container px-4 md:px-6">
         {/* Top section - Brand and Subscribe */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 pb-12 border-b border-gray-200">
@@ -38,7 +38,7 @@ export function SiteFooter() {
                   <Mail className="h-4 w-4 text-slate" />
                 </div>
               </div>
-              <Button className="bg-gradient-to-r from-primary to-primary-light hover:from-primary-deep hover:to-primary text-white flex-shrink-0 shadow-button">
+              <Button variant="default" className="shadow-button">
                 Subscribe
               </Button>
             </div>

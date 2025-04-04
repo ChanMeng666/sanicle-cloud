@@ -32,24 +32,24 @@ export function ImplementationProcess() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-16 bg-[#f8f9fa] relative -mt-10 z-20 overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#e6f5f6] rounded-full opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#fef6e9] rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+    <section className="w-full py-12 md:py-16 bg-background relative -mt-10 z-20 overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-primary-pale rounded-full opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-beige rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-sm font-medium rounded-full mb-3">
+          <span className="inline-block px-3 py-1 bg-primary-pale text-primary text-sm font-medium rounded-full mb-3">
             Implementation Process
           </span>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Simple Implementation Process</h2>
-          <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-charcoal">Simple Implementation Process</h2>
+          <p className="text-slate mt-2 max-w-2xl mx-auto">
             Start using Sanicle.cloud with just a few simple steps.
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 md:transform md:-translate-x-1/2 bg-[#e6f5f6]"></div>
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 md:transform md:-translate-x-1/2 bg-primary-pale"></div>
 
           {steps.map((item, index) => (
             <div
@@ -59,7 +59,7 @@ export function ImplementationProcess() {
               } md:w-1/2`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-0 md:left-auto md:right-0 top-0 w-8 h-8 rounded-full bg-[#167d83] flex items-center justify-center z-10 transform -translate-x-1/2 md:translate-x-1/2">
+              <div className="absolute left-0 md:left-auto md:right-0 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10 transform -translate-x-1/2 md:translate-x-1/2">
                 {item.icon}
               </div>
 
@@ -67,15 +67,15 @@ export function ImplementationProcess() {
               <div
                 className={`bg-white p-6 rounded-lg shadow-md ${index % 2 === 0 ? "md:rounded-r-none" : "md:rounded-l-none"}`}
               >
-                <div className="inline-block w-8 h-8 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center text-lg font-bold mb-3">
+                <div className="inline-block w-8 h-8 rounded-full bg-primary-pale text-primary flex items-center justify-center text-lg font-bold mb-3">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-semibold text-[#2c3e50] mb-2">{item.title}</h3>
-                <p className="text-[#7f8c8d]">{item.description}</p>
+                <h3 className="text-lg font-semibold text-charcoal mb-2">{item.title}</h3>
+                <p className="text-slate">{item.description}</p>
               </div>
 
               {/* Connector line for mobile */}
-              <div className="absolute left-4 top-8 bottom-0 w-1 bg-[#e6f5f6] md:hidden"></div>
+              <div className="absolute left-4 top-8 bottom-0 w-1 bg-primary-pale md:hidden"></div>
             </div>
           ))}
         </div>

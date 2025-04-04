@@ -1,6 +1,7 @@
 "use client"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
 
 export function FaqSection() {
   const faqs = [
@@ -40,8 +41,8 @@ export function FaqSection() {
     <section className="w-full py-12 md:py-16 bg-white">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Frequently Asked Questions</h2>
-          <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-charcoal">Frequently Asked Questions</h2>
+          <p className="text-slate mt-2 max-w-2xl mx-auto">
             Answers to common questions about our pricing and subscriptions. If you have other questions, please feel free to contact us.
           </p>
         </div>
@@ -50,33 +51,27 @@ export function FaqSection() {
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg p-1">
-                <AccordionTrigger className="px-4 text-left font-medium text-[#2c3e50] hover:text-[#167d83]">
+                <AccordionTrigger className="px-4 text-left font-medium text-charcoal hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-4 pt-2 pb-4 text-[#7f8c8d]">{faq.answer}</AccordionContent>
+                <AccordionContent className="px-4 pt-2 pb-4 text-slate">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
 
-        <div className="text-center mt-10 bg-[#e6f5f6]/30 py-8 px-4 rounded-xl max-w-3xl mx-auto">
-          <h3 className="text-xl font-semibold text-[#2c3e50] mb-2">Have more questions?</h3>
-          <p className="text-[#7f8c8d] mb-4">
+        <div className="text-center mt-10 bg-primary-pale/30 py-8 px-4 rounded-xl max-w-3xl mx-auto">
+          <h3 className="text-xl font-semibold text-charcoal mb-2">Have more questions?</h3>
+          <p className="text-slate mb-4">
             Our team is ready to help you answer any questions about our products and pricing.
           </p>
           <div className="flex justify-center space-x-4">
-            <a
-              href="#"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#167d83] text-[#167d83] hover:bg-[#167d83] hover:text-white transition-colors"
-            >
+            <Button variant="outline" className="rounded-full">
               Contact Sales
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#167d83] text-[#167d83] hover:bg-[#167d83] hover:text-white transition-colors"
-            >
+            </Button>
+            <Button variant="outline" className="rounded-full">
               View Documentation
-            </a>
+            </Button>
           </div>
         </div>
       </div>

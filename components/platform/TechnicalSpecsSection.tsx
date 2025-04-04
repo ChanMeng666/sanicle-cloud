@@ -19,42 +19,42 @@ export function TechnicalSpecsSection() {
       title: "Security",
       description: "Enterprise-grade security protocols",
       details: "HIPAA compliant, SOC 2 Type II certified",
-      color: "bg-[#167d83]"
+      color: "bg-primary"
     },
     {
       icon: <Lock className="h-6 w-6 text-white" />,
       title: "Privacy",
       description: "Advanced data protection mechanisms",
       details: "End-to-end encryption, secure data storage",
-      color: "bg-[#EE4C23]"
+      color: "bg-secondary"
     },
     {
       icon: <Database className="h-6 w-6 text-white" />,
       title: "Scalability",
       description: "Elastic cloud infrastructure",
       details: "Auto-scaling, distributed data centers",
-      color: "bg-[#167d83]"
+      color: "bg-primary"
     },
     {
       icon: <Monitor className="h-6 w-6 text-white" />,
       title: "Reliability",
       description: "99.9% uptime guarantee",
       details: "24/7 monitoring and incident response",
-      color: "bg-[#EE4C23]"
+      color: "bg-secondary"
     },
     {
       icon: <Zap className="h-6 w-6 text-white" />,
       title: "Performance",
       description: "Optimized for speed and efficiency",
       details: "<200ms response time, load balancing",
-      color: "bg-[#167d83]"
+      color: "bg-primary"
     },
     {
       icon: <Server className="h-6 w-6 text-white" />,
       title: "Integration",
       description: "Easy connection with your systems",
       details: "RESTful APIs, SSO authentication",
-      color: "bg-[#EE4C23]"
+      color: "bg-secondary"
     }
   ];
 
@@ -76,7 +76,7 @@ export function TechnicalSpecsSection() {
   }, []);
 
   return (
-    <section className="w-full py-12 sm:py-16 md:py-24 bg-[#f8f9fa] relative overflow-hidden">
+    <section className="w-full py-12 sm:py-16 md:py-24 bg-primary-pale relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
@@ -86,8 +86,8 @@ export function TechnicalSpecsSection() {
       
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2c3e50]">Technical Specifications</h2>
-          <p className="text-[#7f8c8d] mt-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal">Technical Specifications</h2>
+          <p className="text-slate mt-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Enterprise-grade infrastructure designed for security, reliability, and scalability.
           </p>
         </div>
@@ -98,13 +98,13 @@ export function TechnicalSpecsSection() {
             {/* Center element */}
             <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-white rounded-full shadow-lg items-center justify-center z-20">
               <div className="text-center">
-                <div className="text-[#167d83] font-bold text-3xl">100%</div>
-                <div className="text-[#2c3e50] font-medium text-sm">HIPAA Compliant</div>
+                <div className="text-primary font-bold text-3xl">100%</div>
+                <div className="text-charcoal font-medium text-sm">HIPAA Compliant</div>
               </div>
             </div>
             
             {/* Connection lines (desktop only) */}
-            <div className="hidden md:block absolute left-1/2 top-1/2 w-[500px] h-[500px] border-2 border-dashed border-[#e6f5f6] rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-1/2 w-[500px] h-[500px] border-2 border-dashed border-primary-pale rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
             
             {/* Technical specs in circular layout (desktop) */}
             {isMounted && (
@@ -122,9 +122,9 @@ export function TechnicalSpecsSection() {
                       <div className={`${spec.color} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3`}>
                         {spec.icon}
                       </div>
-                      <h3 className="text-[#2c3e50] font-semibold mb-1">{spec.title}</h3>
-                      <p className="text-[#7f8c8d] text-xs mb-1">{spec.description}</p>
-                      <p className="text-[#167d83] text-xs font-medium">{spec.details}</p>
+                      <h3 className="text-charcoal font-semibold mb-1">{spec.title}</h3>
+                      <p className="text-slate text-xs mb-1">{spec.description}</p>
+                      <p className="text-primary text-xs font-medium">{spec.details}</p>
                     </div>
                   </div>
                 ))}
@@ -139,9 +139,9 @@ export function TechnicalSpecsSection() {
                     {spec.icon}
                   </div>
                   <div>
-                    <h3 className="text-[#2c3e50] font-semibold mb-1">{spec.title}</h3>
-                    <p className="text-[#7f8c8d] text-xs mb-1">{spec.description}</p>
-                    <p className="text-[#167d83] text-xs font-medium">{spec.details}</p>
+                    <h3 className="text-charcoal font-semibold mb-1">{spec.title}</h3>
+                    <p className="text-slate text-xs mb-1">{spec.description}</p>
+                    <p className="text-primary text-xs font-medium">{spec.details}</p>
                   </div>
                 </div>
               ))}
@@ -152,7 +152,7 @@ export function TechnicalSpecsSection() {
         {/* Security features highlight */}
         <div className="mt-12 md:mt-32 lg:mt-40 max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
           <div className="md:flex">
-            <div className="md:w-1/3 bg-[#167d83] p-6 text-white flex flex-col justify-center">
+            <div className="md:w-1/3 bg-primary p-6 text-white flex flex-col justify-center">
               <Shield className="h-12 w-12 mb-4" />
               <h3 className="text-xl font-bold mb-2">Security First</h3>
               <p className="text-white/80 text-sm">
@@ -161,12 +161,12 @@ export function TechnicalSpecsSection() {
             </div>
             
             <div className="md:w-2/3 p-6">
-              <h3 className="text-[#2c3e50] font-bold mb-4">Security Features</h3>
+              <h3 className="text-charcoal font-bold mb-4">Security Features</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
                 {securityFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 flex-shrink-0" />
-                    <span className="text-sm text-[#2c3e50]">{feature}</span>
+                    <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
+                    <span className="text-sm text-charcoal">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -176,7 +176,7 @@ export function TechnicalSpecsSection() {
         
         {/* Technical metrics */}
         <div className="mt-8 sm:mt-12 text-center">
-          <div className="inline-block px-4 py-2 bg-white shadow-md rounded-full text-sm text-[#167d83]">
+          <div className="inline-block px-4 py-2 bg-white shadow-md rounded-full text-sm text-primary">
             <span className="font-semibold">1M+</span> Processing Capacity/Hour • <span className="font-semibold">&lt;200ms</span> Response Time • <span className="font-semibold">99.9%</span> Uptime
           </div>
         </div>

@@ -5,7 +5,7 @@ import { ArrowRight, BarChart, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="w-full bg-gradient-to-r from-[#167d83] to-[#0e5a5f] py-12 sm:py-16 md:py-24 text-white overflow-hidden relative">
+    <section className="w-full bg-gradient-to-r from-primary to-primary-deep py-12 sm:py-16 md:py-24 text-white overflow-hidden relative">
       {/* Innovative background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
@@ -30,7 +30,7 @@ export function HeroSection() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium backdrop-blur-sm transform hover:scale-105 transition-transform duration-300 mb-2">
-              <span className="flex h-2 w-2 rounded-full bg-[#EE4C23] mr-2"></span>
+              <span className="flex h-2 w-2 rounded-full bg-secondary mr-2"></span>
               Platform Overview
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight">
@@ -41,7 +41,7 @@ export function HeroSection() {
               Sanicle.cloud offers a modular, end-to-end employee benefits platform with flexible menstrual health options, helping employers eliminate vendor fatigue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="bg-white text-[#167d83] hover:bg-white/90 hover:scale-105 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8">
+              <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8">
                 Explore Features <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -59,9 +59,9 @@ export function HeroSection() {
                 <img src="/placeholder.svg?height=500&width=500" alt="Platform dashboard" className="w-full" />
                 <div className="absolute top-0 left-0 right-0 h-6 bg-gray-100 flex items-center px-2">
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-error"></div>
+                    <div className="w-2 h-2 rounded-full bg-warning"></div>
+                    <div className="w-2 h-2 rounded-full bg-success"></div>
                   </div>
                 </div>
               </div>
@@ -69,24 +69,24 @@ export function HeroSection() {
               {/* Floating UI elements - responsive to different screen sizes */}
               <div className="hidden sm:block absolute top-1/4 -right-6 md:-right-12 z-30 bg-white rounded-lg shadow-lg p-3 transform rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 rounded-full bg-primary-pale text-primary flex items-center justify-center mr-2">
                     <Users className="h-4 w-4" />
                   </div>
                   <div className="text-xs">
-                    <p className="font-semibold text-[#2c3e50]">Users</p>
-                    <p className="text-[#7f8c8d]">1,234</p>
+                    <p className="font-semibold text-charcoal">Users</p>
+                    <p className="text-slate">1,234</p>
                   </div>
                 </div>
               </div>
 
               <div className="hidden sm:block absolute bottom-1/4 -left-6 md:-left-12 z-30 bg-white rounded-lg shadow-lg p-3 transform -rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 rounded-full bg-beige text-secondary flex items-center justify-center mr-2">
                     <BarChart className="h-4 w-4" />
                   </div>
                   <div className="text-xs">
-                    <p className="font-semibold text-[#2c3e50]">Analytics</p>
-                    <p className="text-[#7f8c8d]">Real-time</p>
+                    <p className="font-semibold text-charcoal">Analytics</p>
+                    <p className="text-slate">Real-time</p>
                   </div>
                 </div>
               </div>

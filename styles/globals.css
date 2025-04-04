@@ -10,55 +10,55 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; /* White */
     --foreground: 210 29% 24%; /* Charcoal */
-    --card: 37 100% 98%; /* Warm Beige */
+    --card: 37 70% 95%; /* Warm Beige */
     --card-foreground: 210 29% 24%; /* Charcoal */
-    --popover: 0 0% 100%;
+    --popover: 0 0% 100%; /* White */
     --popover-foreground: 210 29% 24%; /* Charcoal */
-    --primary: 179 66% 30%; /* Primary Teal */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 12 86% 54%; /* Accent Coral */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 184 37% 83%; /* Pale Teal */
+    --primary: 182 70% 30%; /* Primary Teal #167d83 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 12 86% 53%; /* Accent Coral #EE4C23 */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --muted: 184 37% 93%; /* Pale Teal #e6f5f6 */
     --muted-foreground: 199 9% 53%; /* Slate Grey */
-    --accent: 12 86% 76%; /* Coral Light */
-    --accent-foreground: 210 29% 24%;
-    --destructive: 4 81% 57%;  /* Error */
-    --destructive-foreground: 0 0% 100%;
-    --border: 179 66% 30% / 0.2; /* Primary Teal with opacity */
-    --input: 179 66% 30% / 0.2; /* Primary Teal with opacity */
-    --ring: 179 66% 30% / 0.7; /* Primary Teal with opacity */
-    --chart-1: 179 66% 30%; /* Primary Teal */
+    --accent: 12 84% 76%; /* Coral Light #f7a18c */
+    --accent-foreground: 210 29% 24%; /* Charcoal */
+    --destructive: 4 81% 57%; /* Error #e74c3c */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 182 70% 30% / 0.2; /* Primary Teal with opacity */
+    --input: 182 70% 30% / 0.2; /* Primary Teal with opacity */
+    --ring: 182 70% 30% / 0.7; /* Primary Teal with opacity */
+    --chart-1: 182 70% 30%; /* Primary Teal */
     --chart-2: 184 33% 49%; /* Light Teal */
-    --chart-3: 182 69% 21%; /* Deep Teal */
-    --chart-4: 12 86% 54%; /* Accent Coral */
-    --chart-5: 12 86% 76%; /* Coral Light */
+    --chart-3: 182 70% 23%; /* Deep Teal */
+    --chart-4: 12 86% 53%; /* Accent Coral */
+    --chart-5: 12 84% 76%; /* Coral Light */
     --radius: 0.5rem;
-    --sidebar-background: 184 37% 83%; /* Pale Teal */
+    --sidebar-background: 184 37% 93%; /* Pale Teal */
     --sidebar-foreground: 210 29% 24%; /* Charcoal */
-    --sidebar-primary: 179 66% 30%; /* Primary Teal */
+    --sidebar-primary: 182 70% 30%; /* Primary Teal */
     --sidebar-primary-foreground: 0 0% 100%; /* White */
-    --sidebar-accent: 12 86% 54%; /* Accent Coral */
+    --sidebar-accent: 12 86% 53%; /* Accent Coral */
     --sidebar-accent-foreground: 0 0% 100%; /* White */
-    --sidebar-border: 179 66% 30% / 0.2; /* Primary Teal with opacity */
-    --sidebar-ring: 179 66% 30%; /* Primary Teal */
+    --sidebar-border: 182 70% 30% / 0.2; /* Primary Teal with opacity */
+    --sidebar-ring: 182 70% 30%; /* Primary Teal */
   }
   
   .dark {
     --background: 210 29% 24%; /* Charcoal */
     --foreground: 0 0% 100%; /* White */
-    --card: 182 69% 21%; /* Deep Teal */
+    --card: 182 70% 23%; /* Deep Teal */
     --card-foreground: 0 0% 100%; /* White */
     --popover: 210 29% 24%; /* Charcoal */
     --popover-foreground: 0 0% 100%; /* White */
     --primary: 184 33% 49%; /* Light Teal */
     --primary-foreground: 210 29% 24%; /* Charcoal */
-    --secondary: 12 86% 76%; /* Coral Light */
+    --secondary: 12 84% 76%; /* Coral Light */
     --secondary-foreground: 210 29% 24%; /* Charcoal */
-    --muted: 182 69% 21%; /* Deep Teal */
+    --muted: 182 70% 23%; /* Deep Teal */
     --muted-foreground: 184 33% 49%; /* Light Teal */
-    --accent: 12 86% 54%; /* Accent Coral */
+    --accent: 12 86% 53%; /* Accent Coral */
     --accent-foreground: 0 0% 100%; /* White */
     --destructive: 4 81% 57%; /* Error */
     --destructive-foreground: 0 0% 100%; /* White */
@@ -66,15 +66,15 @@
     --input: 184 33% 49% / 0.3; /* Light Teal with opacity */
     --ring: 184 33% 49%; /* Light Teal */
     --chart-1: 184 33% 49%; /* Light Teal */
-    --chart-2: 179 66% 30%; /* Primary Teal */
-    --chart-3: 12 86% 54%; /* Accent Coral */
-    --chart-4: 12 86% 76%; /* Coral Light */
-    --chart-5: 37 100% 98%; /* Warm Beige */
-    --sidebar-background: 182 69% 21%; /* Deep Teal */
+    --chart-2: 182 70% 30%; /* Primary Teal */
+    --chart-3: 12 86% 53%; /* Accent Coral */
+    --chart-4: 12 84% 76%; /* Coral Light */
+    --chart-5: 37 70% 95%; /* Warm Beige */
+    --sidebar-background: 182 70% 23%; /* Deep Teal */
     --sidebar-foreground: 0 0% 100%; /* White */
     --sidebar-primary: 184 33% 49%; /* Light Teal */
     --sidebar-primary-foreground: 210 29% 24%; /* Charcoal */
-    --sidebar-accent: 12 86% 54%; /* Accent Coral */
+    --sidebar-accent: 12 86% 53%; /* Accent Coral */
     --sidebar-accent-foreground: 0 0% 100%; /* White */
     --sidebar-border: 184 33% 49% / 0.3; /* Light Teal with opacity */
     --sidebar-ring: 184 33% 49%; /* Light Teal */

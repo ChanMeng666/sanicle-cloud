@@ -8,11 +8,11 @@ export function EmployeeStoriesSection() {
       <div className="container px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
+            <div className="inline-block px-3 py-1 rounded-full bg-primary-pale text-primary text-sm font-medium mb-3">
               Employee Stories
             </div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#2c3e50]">Meet Our Team</h2>
-            <p className="text-[#7f8c8d] mt-3 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold text-charcoal">Meet Our Team</h2>
+            <p className="text-slate mt-3 max-w-2xl mx-auto">
               Hear from the people who make Sanicle.cloud an exceptional place to work.
             </p>
           </div>
@@ -25,7 +25,7 @@ export function EmployeeStoriesSection() {
                 story:
                   "I joined Sanicle.cloud because I wanted to work on a product that truly changes people's lives. Every day, I collaborate with talented people who are passionate about improving women's health in the workplace.",
                 image: "/placeholder.svg?height=400&width=300",
-                color: "from-[#167d83]",
+                color: "from-primary",
               },
               {
                 name: "Michael Li",
@@ -33,7 +33,7 @@ export function EmployeeStoriesSection() {
                 story:
                   "The engineering culture here is amazing. We're encouraged to innovate and solve meaningful problems while maintaining a healthy work-life balance. I've grown tremendously as an engineer since joining the team.",
                 image: "/placeholder.svg?height=400&width=300",
-                color: "from-[#EE4C23]",
+                color: "from-secondary",
               },
               {
                 name: "Emily Wang",
@@ -41,7 +41,7 @@ export function EmployeeStoriesSection() {
                 story:
                   "I've never worked at a company that cares so deeply about its customers and employees. The mission-driven culture makes every day meaningful, and I'm proud of the impact we're making.",
                 image: "/placeholder.svg?height=400&width=300",
-                color: "from-[#167d83]",
+                color: "from-primary",
               },
             ].map((person, index) => (
               <div key={index} className="relative group h-[500px] rounded-xl overflow-hidden">
@@ -58,7 +58,7 @@ export function EmployeeStoriesSection() {
                   <p className="text-white/80 mb-4">{person.role}</p>
                   <p className="text-white/90">{person.story}</p>
 
-                  <Button className="mt-4 bg-white text-[#167d83] hover:bg-white/90">Read Full Story</Button>
+                  <Button className="mt-4 bg-white text-primary hover:bg-white/90">Read Full Story</Button>
                 </div>
               </div>
             ))}

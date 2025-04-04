@@ -10,7 +10,7 @@ export function FeaturesSection() {
       description:
         "User-friendly mobile application for employees to track and manage their menstrual health.",
       features: ["Intuitive Cycle Tracking", "Personalized Insights", "Educational Resources"],
-      color: "bg-[#167d83]",
+      color: "bg-primary",
       image: "/placeholder.svg?height=300&width=400",
       position: "right"
     },
@@ -20,7 +20,7 @@ export function FeaturesSection() {
       description:
         "Advanced analytics and machine learning providing personalized health recommendations.",
       features: ["Pattern Recognition", "Personalized Recommendations", "Predictive Analytics"],
-      color: "bg-[#EE4C23]",
+      color: "bg-secondary",
       image: "/placeholder.svg?height=300&width=400",
       position: "left"
     },
@@ -29,7 +29,7 @@ export function FeaturesSection() {
       title: "Privacy Controls",
       description: "Comprehensive privacy settings giving users control over their health data.",
       features: ["Granular Sharing Controls", "Data Export Options", "Anonymous Insights"],
-      color: "bg-[#167d83]",
+      color: "bg-primary",
       image: "/placeholder.svg?height=300&width=400",
       position: "right"
     },
@@ -38,7 +38,7 @@ export function FeaturesSection() {
       title: "Smart Notifications",
       description: "Customizable alerts and reminders to help users stay on top of their health.",
       features: ["Personalized Reminders", "Appointment Alerts", "Medication Tracking"],
-      color: "bg-[#EE4C23]",
+      color: "bg-secondary",
       image: "/placeholder.svg?height=300&width=400",
       position: "left"
     }
@@ -47,19 +47,19 @@ export function FeaturesSection() {
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-bl-[100px] z-0"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-tr-[100px] z-0"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary-pale/50 rounded-bl-[100px] z-0"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-primary-pale/50 rounded-tr-[100px] z-0"></div>
       
       {/* Floating decorative elements */}
-      <div className="hidden md:block absolute top-1/4 right-10 h-16 w-16 bg-[#167d83]/10 rounded-full animate-float"></div>
-      <div className="hidden md:block absolute bottom-1/4 left-10 h-20 w-20 bg-[#EE4C23]/10 rounded-full animate-float animation-delay-1000"></div>
+      <div className="hidden md:block absolute top-1/4 right-10 h-16 w-16 bg-primary/10 rounded-full animate-float"></div>
+      <div className="hidden md:block absolute bottom-1/4 left-10 h-20 w-20 bg-secondary/10 rounded-full animate-float animation-delay-1000"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">
-            Platform <span className="text-[#167d83]">Features</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-4">
+            Platform <span className="text-primary">Features</span>
           </h2>
-          <p className="text-[#7f8c8d] text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-slate text-base sm:text-lg max-w-2xl mx-auto">
             Explore our comprehensive platform features providing all-round health support for female employees.
           </p>
         </div>
@@ -79,16 +79,16 @@ export function FeaturesSection() {
                   <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mr-4`}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2c3e50]">{feature.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-charcoal">{feature.title}</h3>
                 </div>
                 
-                <p className="text-[#7f8c8d] mb-6">{feature.description}</p>
+                <p className="text-slate mb-6">{feature.description}</p>
                 
                 <ul className="space-y-3">
                   {feature.features.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle className={`h-5 w-5 ${feature.color === "bg-[#167d83]" ? "text-[#167d83]" : "text-[#EE4C23]"} mr-3 flex-shrink-0`} />
-                      <span className="text-[#2c3e50]">{item}</span>
+                      <CheckCircle className={`h-5 w-5 ${feature.color === "bg-primary" ? "text-primary" : "text-secondary"} mr-3 flex-shrink-0`} />
+                      <span className="text-charcoal">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -109,10 +109,10 @@ export function FeaturesSection() {
                     />
                     
                     {/* Overlay gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-tr from-${feature.color === "bg-[#167d83]" ? "[#167d83]" : "[#EE4C23]"}/20 to-transparent mix-blend-overlay`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-tr from-${feature.color === "bg-primary" ? "primary" : "secondary"}/20 to-transparent mix-blend-overlay`}></div>
                     
                     {/* Feature indicator */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium shadow-md" style={{color: feature.color === "bg-[#167d83]" ? "#167d83" : "#EE4C23"}}>
+                    <div className={`absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium shadow-md ${feature.color === "bg-primary" ? "text-primary" : "text-secondary"}`}>
                       Featured
                     </div>
                   </div>
@@ -123,30 +123,30 @@ export function FeaturesSection() {
         </div>
         
         {/* Bottom feature highlight */}
-        <div className="mt-16 sm:mt-24 max-w-4xl mx-auto bg-[#f8f9fa] rounded-2xl p-6 md:p-8 shadow-md">
+        <div className="mt-16 sm:mt-24 max-w-4xl mx-auto bg-primary-pale rounded-2xl p-6 md:p-8 shadow-md">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/4 mb-6 md:mb-0 flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-[#167d83]/20 rounded-full blur-xl transform scale-150"></div>
-                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#167d83] to-[#0e5a5f] flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl transform scale-150"></div>
+                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-deep flex items-center justify-center">
                   <FileText className="h-12 w-12 text-white" />
                 </div>
               </div>
             </div>
             
             <div className="md:w-3/4 md:pl-8">
-              <h3 className="text-xl font-bold text-[#2c3e50] mb-3">Enterprise Reporting Dashboard</h3>
-              <p className="text-[#7f8c8d] mb-4">
+              <h3 className="text-xl font-bold text-charcoal mb-3">Enterprise Reporting Dashboard</h3>
+              <p className="text-slate mb-4">
                 Comprehensive analytics dashboard providing employers with anonymized, aggregated insights to better understand workforce health needs.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                <span className="inline-block px-3 py-1 bg-primary-pale text-primary text-xs font-medium rounded-full">
                   Anonymous Data Analysis
                 </span>
-                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                <span className="inline-block px-3 py-1 bg-primary-pale text-primary text-xs font-medium rounded-full">
                   Wellness Trend Reporting
                 </span>
-                <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-xs font-medium rounded-full">
+                <span className="inline-block px-3 py-1 bg-primary-pale text-primary text-xs font-medium rounded-full">
                   ROI Measurement Tools
                 </span>
               </div>
@@ -156,7 +156,7 @@ export function FeaturesSection() {
         
         {/* Upcoming features teaser */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#f8f9fa] text-[#167d83] text-sm font-medium">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-pale text-primary text-sm font-medium">
             <span className="mr-2">🚀</span> More features coming soon
           </div>
         </div>

@@ -5,25 +5,25 @@ import { QuoteIcon } from "lucide-react"
 export function FounderQuote() {
   return (
     <section className="w-full py-16 md:py-24 lg:py-28 bg-white relative -mt-20 z-20">
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-[#fef6e9]/50 filter blur-3xl animate-float-delay"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#e6f5f6]/50 filter blur-3xl animate-float"></div>
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-beige/50 filter blur-3xl animate-float-delay"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-primary-pale/50 filter blur-3xl animate-float"></div>
       
       <div className="container px-4 sm:px-6 md:px-8">
         <div className="max-w-5xl mx-auto relative">
           {/* Quote decoration */}
-          <div className="absolute -top-10 -left-10 text-8xl sm:text-9xl text-[#167d83]/10 font-serif hidden sm:block">
-            <QuoteIcon className="h-24 w-24 text-[#167d83]/20" />
+          <div className="absolute -top-10 -left-10 text-8xl sm:text-9xl text-primary/10 font-serif hidden sm:block">
+            <QuoteIcon className="h-24 w-24 text-primary/20" />
           </div>
-          <div className="absolute -bottom-10 -right-10 text-8xl sm:text-9xl text-[#167d83]/10 font-serif rotate-180 hidden sm:block">
-            <QuoteIcon className="h-24 w-24 text-[#167d83]/20" />
+          <div className="absolute -bottom-10 -right-10 text-8xl sm:text-9xl text-primary/10 font-serif rotate-180 hidden sm:block">
+            <QuoteIcon className="h-24 w-24 text-primary/20" />
           </div>
 
-          <div className="bg-gradient-to-br from-[#fef6e9] to-[#fef6e9]/80 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative z-10 border border-[#EE4C23]/10 animate-zoom-in">
+          <div className="bg-gradient-to-br from-beige to-beige/80 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative z-10 border border-secondary/10 animate-zoom-in">
             <div className="grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 relative">
                 <div className="mb-6 md:mb-0">
                   {/* Glow effect background */}
-                  <div className="absolute inset-0 bg-[#EE4C23]/10 rounded-full blur-3xl transform animate-pulse-opacity"></div>
+                  <div className="absolute inset-0 bg-secondary/10 rounded-full blur-3xl transform animate-pulse-opacity"></div>
                   
                   {/* Founder image */}
                   <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-xl w-40 h-40 sm:w-48 sm:h-48 mx-auto transform hover:scale-105 transition-transform duration-300">
@@ -38,8 +38,8 @@ export function FounderQuote() {
                   </div>
 
                   <div className="mt-6 text-center">
-                    <h3 className="text-xl font-bold text-[#2c3e50]">Dr. Chen</h3>
-                    <p className="text-[#EE4C23] font-medium">Founder & CEO</p>
+                    <h3 className="text-xl font-bold text-charcoal">Dr. Chen</h3>
+                    <p className="text-secondary font-medium">Founder & CEO</p>
                     <div className="flex justify-center mt-3 space-x-1">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
@@ -54,13 +54,13 @@ export function FounderQuote() {
               <div className="md:col-span-8">
                 <div className="relative">
                   {/* Small decorative line */}
-                  <div className="absolute top-0 left-0 w-16 h-1 bg-gradient-to-r from-[#167d83] to-[#EE4C23]"></div>
+                  <div className="absolute top-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-secondary"></div>
                 
-                  <p className="text-xl md:text-2xl lg:text-3xl text-[#2c3e50] italic font-light mb-6 mt-4 leading-relaxed">
+                  <p className="text-xl md:text-2xl lg:text-3xl text-charcoal italic font-light mb-6 mt-4 leading-relaxed">
                     "After years working in healthcare, witnessing firsthand how menstrual health issues affect women's professional lives, we set out to create a solution that addresses these challenges while offering employers innovative benefit options."
                   </p>
 
-                  <p className="text-[#7f8c8d] text-base md:text-lg leading-relaxed">
+                  <p className="text-slate text-base md:text-lg leading-relaxed">
                     Our mission is to transform workplace health environments by making menstrual health benefits accessible, comprehensive, and non-discriminatory. We believe that when women receive the support they need to manage menstrual health, everyone benefits — not just individual employees, but entire organizations.
                   </p>
                   

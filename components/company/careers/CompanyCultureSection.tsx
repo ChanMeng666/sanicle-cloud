@@ -60,25 +60,25 @@ export function CompanyCultureSection() {
     <section className="w-full py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
       <div className="container px-4 md:px-6 relative">
         {/* Decorative elements */}
-        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-[#167d83]/10 rounded-full blur-3xl opacity-70"></div>
-        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-[#EE4C23]/10 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl opacity-70"></div>
         
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           {/* Left content area */}
           <div className="lg:w-1/2 order-2 lg:order-1">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-pale text-primary text-sm font-medium mb-6">
               Company Culture
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2c3e50] mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-6 tracking-tight">
               Join a team driven by 
               <span className="relative inline-block">
                 values
-                <span className="absolute bottom-1 left-0 w-full h-2 bg-[#EE4C23]/20 -rotate-1"></span>
+                <span className="absolute bottom-1 left-0 w-full h-2 bg-secondary/20 -rotate-1"></span>
               </span>
             </h2>
 
-            <p className="text-lg text-[#7f8c8d] mb-8 leading-relaxed">
+            <p className="text-lg text-slate mb-8 leading-relaxed">
               At Sanicle.cloud, our culture is built on shared values and a sense of mission. We believe that by creating a diverse, inclusive, and vibrant work environment, we can unlock everyone's full potential and drive change in women's workplace health together.
             </p>
 
@@ -92,14 +92,14 @@ export function CompanyCultureSection() {
                     {value.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#2c3e50] text-lg mb-1.5">{value.title}</h3>
-                    <p className="text-[#7f8c8d] text-sm">{value.description}</p>
+                    <h3 className="font-semibold text-charcoal text-lg mb-1.5">{value.title}</h3>
+                    <p className="text-slate text-sm">{value.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Button className="bg-[#167d83] hover:bg-[#0e5a5f] text-white shadow-md hover:shadow-lg transition-all duration-300 px-6">
+            <Button className="bg-primary hover:bg-primary-dark text-white shadow-md hover:shadow-lg transition-all duration-300 px-6">
               Learn About Our Culture
             </Button>
           </div>
@@ -108,7 +108,7 @@ export function CompanyCultureSection() {
           <div className="lg:w-1/2 order-1 lg:order-2 relative">
             <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] bg-cover bg-center"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#167d83]/10 to-transparent mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay"></div>
               
               {/* Decorative overlapping images */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-lg overflow-hidden shadow-xl transform rotate-6 border-4 border-white">
@@ -127,9 +127,9 @@ export function CompanyCultureSection() {
                       <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-gray-300 flex-shrink-0"></div>
                     ))}
                   </div>
-                  <span className="text-xs text-[#2c3e50] font-medium">and 12 others</span>
+                  <span className="text-xs text-charcoal font-medium">and 12 others</span>
                 </div>
-                <p className="text-xs text-[#7f8c8d]">"This is a place where every member can feel belonging and growth"</p>
+                <p className="text-xs text-slate">"This is a place where every member can feel belonging and growth"</p>
               </div>
             </div>
           </div>
@@ -137,4 +137,4 @@ export function CompanyCultureSection() {
       </div>
     </section>
   )
-} 
+}

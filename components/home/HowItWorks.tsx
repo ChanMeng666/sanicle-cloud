@@ -1,6 +1,8 @@
 "use client"
 
 import { CheckCircle, Heart, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function HowItWorks() {
   const steps = [
@@ -31,12 +33,12 @@ export function HowItWorks() {
   ]
 
   return (
-    <section className="w-full py-12 sm:py-16 md:py-20 lg:py-24 bg-beige-light relative overflow-hidden">
+    <section className="w-full py-12 sm:py-16 md:py-20 lg:py-24 bg-beige relative overflow-hidden">
       <div className="absolute inset-0 bg-primary/5 pattern-dots"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-beige text-secondary text-sm font-medium mb-3">
+          <div className="inline-block px-3 py-1 rounded-full bg-beige-dark text-primary text-sm font-medium mb-3">
             Simple Process
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-2 md:mb-4">How Sanicle.cloud Works</h2>
@@ -78,12 +80,14 @@ export function HowItWorks() {
         
         {/* Special button for mobile devices */}
         <div className="mt-12 text-center md:hidden">
-          <a href="/platform/overview" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full shadow-button hover:shadow-button-hover transition-all duration-300">
-            Learn more about our platform
-            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          <Button asChild variant="default" size="lg" className="rounded-full">
+            <Link href="/platform/overview">
+              Learn more about our platform
+              <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

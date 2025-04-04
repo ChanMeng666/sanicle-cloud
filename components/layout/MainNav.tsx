@@ -198,13 +198,9 @@ export function MainNav() {
             <Button variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale">
               Log in
             </Button>
-            <Link href="/demo">
-              <Button variant="outline" className="text-charcoal border-primary hover:bg-primary-pale">
-                Request Demo
-              </Button>
-            </Link>
-            <Button className="bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white rounded-md shadow-button hover:shadow-button-hover">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <Button variant="default">
+              <span>Sign up</span>
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>

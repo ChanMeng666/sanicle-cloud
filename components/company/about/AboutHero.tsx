@@ -5,7 +5,7 @@ import { ArrowRight, Heart, Clock, Globe, ChevronDown, Star, Users } from "lucid
 
 export function AboutHero() {
   return (
-    <section className="w-full relative overflow-hidden bg-gradient-to-br from-[#167d83]/95 via-[#167d83]/85 to-[#126e73]/80 py-16 sm:py-20 lg:py-28">
+    <section className="w-full relative overflow-hidden bg-gradient-to-br from-primary/95 via-primary/85 to-primary-dark/80 py-16 sm:py-20 lg:py-28">
       {/* Background pattern - improve quality and brightness */}
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
       
@@ -15,8 +15,8 @@ export function AboutHero() {
       {/* Animated floating shapes - increase quantity and opacity variations */}
       <div className="absolute top-[15%] left-[20%] w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-white/10 animate-float"></div>
       <div className="absolute bottom-[15%] right-[20%] w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-white/15 animate-float-delay"></div>
-      <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-[#EE4C23]/10 animate-pulse"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-[#EE4C23]/15 animate-pulse delay-700"></div>
+      <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-secondary/10 animate-pulse"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-secondary/15 animate-pulse delay-700"></div>
 
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -30,7 +30,7 @@ export function AboutHero() {
               Transforming 
               <span className="relative z-10 ml-2">
                 <span className="relative z-10">Women's Health</span>
-                <span className="absolute -bottom-2 left-0 w-full h-4 bg-[#EE4C23]/40 -z-10 skew-x-3"></span>
+                <span className="absolute -bottom-2 left-0 w-full h-4 bg-secondary/40 -z-10 skew-x-3"></span>
               </span> <br className="hidden sm:block" />
               <span className="text-white/90 mt-2 block">in the Workplace</span>
             </h1>
@@ -40,7 +40,7 @@ export function AboutHero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
-              <Button size="lg" className="bg-[#EE4C23] hover:bg-[#d43d18] text-white font-medium px-6 py-6 rounded-xl transform hover:translate-y-[-2px] transition-all shadow-lg hover:shadow-xl">
+              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-medium px-6 py-6 rounded-xl transform hover:translate-y-[-2px] transition-all shadow-lg hover:shadow-xl">
                 Our Mission <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/15 font-medium px-6 py-6 rounded-xl backdrop-blur-sm transform hover:translate-y-[-2px] transition-all">
@@ -54,7 +54,7 @@ export function AboutHero() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white/80 bg-[#f8f9fa]/90 flex items-center justify-center text-[#167d83] text-xs font-bold shadow-md"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white/80 bg-[#f8f9fa]/90 flex items-center justify-center text-primary text-xs font-bold shadow-md"
                   >
                     {String.fromCharCode(64 + i)}
                   </div>
@@ -80,30 +80,30 @@ export function AboutHero() {
                   loading="lazy"
                 />
                 {/* Image overlay effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#167d83]/40 to-transparent mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent mix-blend-overlay"></div>
               </div>
 
               {/* Floating info cards - enhanced visual effects and responsiveness */}
               <div className="absolute top-0 -right-4 sm:-right-10 z-20 bg-white rounded-xl shadow-xl p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300 hidden sm:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-3 shadow-inner">
+                  <div className="w-10 h-10 rounded-full bg-primary-pale text-primary flex items-center justify-center mr-3 shadow-inner">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">Founded in 2022</p>
-                    <p className="text-sm text-[#7f8c8d]">Created by medical experts</p>
+                    <p className="font-semibold text-charcoal">Founded in 2022</p>
+                    <p className="text-sm text-slate">Created by medical experts</p>
                   </div>
                 </div>
               </div>
 
               <div className="absolute -bottom-4 sm:-bottom-10 -left-4 sm:-left-10 z-20 bg-white rounded-xl shadow-xl p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300 hidden sm:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-3 shadow-inner">
+                  <div className="w-10 h-10 rounded-full bg-beige text-secondary flex items-center justify-center mr-3 shadow-inner">
                     <Globe className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">Global Impact</p>
-                    <p className="text-sm text-[#7f8c8d]">Transforming workplaces</p>
+                    <p className="font-semibold text-charcoal">Global Impact</p>
+                    <p className="text-sm text-slate">Transforming workplaces</p>
                   </div>
                 </div>
               </div>
@@ -111,12 +111,12 @@ export function AboutHero() {
               {/* Additional data card */}
               <div className="absolute top-1/2 -right-4 sm:-right-16 z-20 bg-white rounded-xl shadow-xl p-4 transform rotate-3 hover:rotate-0 transition-transform duration-300 hidden md:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#f8e9fe] text-[#9c27b0] flex items-center justify-center mr-3 shadow-inner">
+                  <div className="w-10 h-10 rounded-full bg-accent-pale text-accent flex items-center justify-center mr-3 shadow-inner">
                     <Users className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">120k+</p>
-                    <p className="text-sm text-[#7f8c8d]">Active users</p>
+                    <p className="font-semibold text-charcoal">120k+</p>
+                    <p className="text-sm text-slate">Active users</p>
                   </div>
                 </div>
               </div>
@@ -145,4 +145,4 @@ export function AboutHero() {
       </div>
     </section>
   )
-} 
+}

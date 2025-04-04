@@ -38,7 +38,7 @@ const config = {
           light: "#f7a18c", // Coral Light
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
+          DEFAULT: "#e74c3c", // Error
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {

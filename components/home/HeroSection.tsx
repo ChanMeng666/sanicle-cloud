@@ -33,7 +33,7 @@ export function HeroSection() {
               Unlock data potential, simplify operations, and accelerate business innovation. Our cloud platform provides comprehensive, high-performance digital transformation services for enterprises.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary-light text-white shadow-button hover:shadow-button-hover">
+              <Button asChild size="lg" variant="coral-glow" className="rounded-full">
                 <Link href="/demo">Try Now</Link>
               </Button>
               <Button asChild size="lg" className="rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary">

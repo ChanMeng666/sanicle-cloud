@@ -8,7 +8,7 @@ export function CareerGrowthSection() {
       title: "Onboarding",
       description: "Start your journey with comprehensive training and immediate integration into our supportive team environment.",
       icon: <BookOpen className="h-6 w-6" />,
-      color: "bg-[#6a11cb]",
+      color: "bg-primary",
       textColor: "text-white",
       step: 1
     },
@@ -16,7 +16,7 @@ export function CareerGrowthSection() {
       title: "Mentorship",
       description: "Work directly with experienced team members who will guide your development and help you navigate your career path.",
       icon: <Users className="h-6 w-6" />,
-      color: "bg-[#005bea]",
+      color: "bg-primary-dark",
       textColor: "text-white",
       step: 2
     },
@@ -24,7 +24,7 @@ export function CareerGrowthSection() {
       title: "Skill Development",
       description: "Access continuous learning opportunities, professional development workshops, and industry certifications.",
       icon: <TrendingUp className="h-6 w-6" />,
-      color: "bg-[#00b8d9]",
+      color: "bg-secondary",
       textColor: "text-white",
       step: 3
     },
@@ -32,7 +32,7 @@ export function CareerGrowthSection() {
       title: "Leadership Training",
       description: "Develop management skills through our leadership program, preparing you for greater responsibilities and team leadership.",
       icon: <Target className="h-6 w-6" />,
-      color: "bg-[#36b37e]",
+      color: "bg-secondary-dark",
       textColor: "text-white",
       step: 4
     },
@@ -40,35 +40,35 @@ export function CareerGrowthSection() {
       title: "Career Advancement",
       description: "Progress through clear advancement paths with transparent promotion criteria and competitive compensation growth.",
       icon: <Award className="h-6 w-6" />,
-      color: "bg-[#ff5630]",
+      color: "bg-accent",
       textColor: "text-white",
       step: 5
     }
   ]
 
   const careerPath = [
-    { title: "Associate", years: "0-2 years", color: "#6a11cb" },
-    { title: "Senior", years: "2-4 years", color: "#005bea" },
-    { title: "Lead", years: "4-6 years", color: "#00b8d9" },
-    { title: "Manager", years: "6-8 years", color: "#36b37e" },
-    { title: "Director", years: "8+ years", color: "#ff5630" }
+    { title: "Associate", years: "0-2 years", color: "var(--primary)" },
+    { title: "Senior", years: "2-4 years", color: "var(--primary-dark)" },
+    { title: "Lead", years: "4-6 years", color: "var(--secondary)" },
+    { title: "Manager", years: "6-8 years", color: "var(--secondary-dark)" },
+    { title: "Director", years: "8+ years", color: "var(--accent)" }
   ]
 
   return (
     <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-purple-100 to-blue-100 rounded-bl-full opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-blue-100 to-teal-100 rounded-tr-full opacity-30"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-primary-pale to-primary-light rounded-bl-full opacity-30"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-primary-light to-beige rounded-tr-full opacity-30"></div>
       
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-[#6a11cb] to-[#005bea] text-white text-xs md:text-sm font-medium rounded-full shadow-sm mb-4">
+          <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-primary to-primary-light text-white text-xs md:text-sm font-medium rounded-full shadow-sm mb-4">
             Career Development
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
             Grow Your Career With Us
           </h2>
-          <p className="text-[#7f8c8d] text-lg">
+          <p className="text-slate text-lg">
             At Sanicle.cloud, we invest in your growth with clear progression paths and continuous learning opportunities.
           </p>
         </div>
@@ -95,7 +95,7 @@ export function CareerGrowthSection() {
               </div>
               
               <div className="p-6">
-                <p className="text-[#7f8c8d] mb-4">{step.description}</p>
+                <p className="text-slate mb-4">{step.description}</p>
                 <a 
                   href="#" 
                   className={`inline-flex items-center text-sm font-medium ${step.color.replace('bg-', 'text-')}`}
@@ -109,7 +109,7 @@ export function CareerGrowthSection() {
 
         {/* Career Path Visualization */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h3 className="text-2xl font-bold text-[#2c3e50] mb-6 text-center">Your Career Path at Sanicle.cloud</h3>
+          <h3 className="text-2xl font-bold text-charcoal mb-6 text-center">Your Career Path at Sanicle.cloud</h3>
           
           <div className="relative">
             {/* Path Line */}
@@ -125,8 +125,8 @@ export function CareerGrowthSection() {
                   >
                     <span className="text-white font-bold">{index + 1}</span>
                   </div>
-                  <h4 className="font-bold text-[#2c3e50] text-lg mb-1">{stage.title}</h4>
-                  <span className="text-sm text-[#7f8c8d]">{stage.years}</span>
+                  <h4 className="font-bold text-charcoal text-lg mb-1">{stage.title}</h4>
+                  <span className="text-sm text-slate">{stage.years}</span>
                 </div>
               ))}
             </div>
@@ -134,7 +134,7 @@ export function CareerGrowthSection() {
         </div>
 
         {/* Benefits Callout */}
-        <div className="bg-gradient-to-r from-[#6a11cb] to-[#005bea] rounded-xl shadow-lg p-8 text-white">
+        <div className="bg-gradient-to-r from-primary to-primary-light rounded-xl shadow-lg p-8 text-white">
           <div className="md:flex items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0">
               <h3 className="text-2xl font-bold mb-3">Ready to Start Your Journey?</h3>
@@ -143,7 +143,7 @@ export function CareerGrowthSection() {
             <div>
               <a 
                 href="/company/careers#openings" 
-                className="inline-block px-6 py-3 bg-white text-[#6a11cb] font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                className="inline-block px-6 py-3 bg-white text-primary font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 View Open Positions
               </a>

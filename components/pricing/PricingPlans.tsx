@@ -12,7 +12,7 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
     {
       title: "Starter",
       subtitle: "For small businesses",
-      icon: <Star className="h-5 w-5 text-[#167d83]" />,
+      icon: <Star className="h-5 w-5 text-primary" />,
       price: {
         monthly: "8",
         annual: "6",
@@ -25,13 +25,13 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
         "Email support",
       ],
       buttonText: "Get Started",
-      color: "#167d83",
+      variant: "primary",
       saveText: "Save $24 per employee per year",
     },
     {
       title: "Professional",
       subtitle: "For medium businesses",
-      icon: <Zap className="h-5 w-5 text-[#EE4C23]" />,
+      icon: <Zap className="h-5 w-5 text-secondary" />,
       price: {
         monthly: "12",
         annual: "10",
@@ -46,13 +46,13 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
       ],
       buttonText: "Get Professional",
       highlight: true,
-      color: "#EE4C23",
+      variant: "secondary",
       saveText: "Save $24 per employee per year",
     },
     {
       title: "Enterprise",
       subtitle: "For large organizations",
-      icon: <Shield className="h-5 w-5 text-[#167d83]" />,
+      icon: <Shield className="h-5 w-5 text-primary" />,
       price: {
         monthly: "Contact Us",
         annual: "Contact Us",
@@ -67,7 +67,7 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
         "24/7 technical support",
       ],
       buttonText: "Contact Sales",
-      color: "#167d83",
+      variant: "primary",
     },
   ]
 
@@ -86,7 +86,7 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
               features={plan.features}
               buttonText={plan.buttonText}
               highlight={plan.highlight}
-              color={plan.color}
+              variant={plan.variant as "primary" | "secondary"}
               saveText={isAnnual ? plan.saveText : undefined}
             />
           ))}
