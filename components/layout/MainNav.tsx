@@ -5,12 +5,14 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Menu, X } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
+import { useRouter } from 'next/navigation'
 
 export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
+  const router = useRouter()
   
   // Listen for scroll events to change navbar style and set CSS variables
   useEffect(() => {
@@ -143,6 +145,15 @@ export function MainNav() {
     setActiveDropdown(activeDropdown === title ? null : title)
   }
 
+  // Handle pricing click
+  const handlePricingClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    router.push('/pricing')
+    if (isMenuOpen) {
+      toggleMenu()
+    }
+  }
+
   return (
     <header ref={headerRef} className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
       <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6">
@@ -153,12 +164,20 @@ export function MainNav() {
           <nav className="flex items-center space-x-1">
             {navItems.map((item) => (
               <div key={item.title} className="relative group">
-                <button 
-                  className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
-                  onClick={() => toggleDropdown(item.title)}
-                >
-                  {item.title}
-                  {item.children.length > 0 && (
+                {item.title === "Pricing" ? (
+                  <a 
+                    href="#"
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center pricing-link"
+                    onClick={handlePricingClick}
+                  >
+                    {item.title}
+                  </a>
+                ) : item.children.length > 0 ? (
+                  <button 
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
+                    onClick={() => toggleDropdown(item.title)}
+                  >
+                    {item.title}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -173,8 +192,16 @@ export function MainNav() {
                     >
                       <path d="m6 9 6 6 6-6" />
                     </svg>
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <Link 
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center pricing-link"
+                    prefetch={true}
+                  >
+                    {item.title}
+                  </Link>
+                )}
                 {item.children.length > 0 && (
                   <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-0 mt-2 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-10 overflow-hidden">
                     <div className="p-2 divide-y divide-gray-50">
@@ -230,12 +257,20 @@ export function MainNav() {
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <div key={item.title} className="relative border-b border-gray-100 pb-3">
-                  <button 
-                    className="w-full flex justify-between items-center py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
-                    onClick={() => toggleDropdown(item.title)}
-                  >
-                    {item.title}
-                    {item.children.length > 0 && (
+                  {item.title === "Pricing" ? (
+                    <a 
+                      href="#"
+                      className="w-full block py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors pricing-link-mobile"
+                      onClick={handlePricingClick}
+                    >
+                      {item.title}
+                    </a>
+                  ) : item.children.length > 0 ? (
+                    <button 
+                      className="w-full flex justify-between items-center py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
+                      onClick={() => toggleDropdown(item.title)}
+                    >
+                      {item.title}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -252,8 +287,17 @@ export function MainNav() {
                       >
                         <path d="m6 9 6 6 6-6" />
                       </svg>
-                    )}
-                  </button>
+                    </button>
+                  ) : (
+                    <Link 
+                      href={item.href}
+                      className="w-full block py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors pricing-link-mobile"
+                      onClick={toggleMenu}
+                      prefetch={true}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
                   {item.children.length > 0 && activeDropdown === item.title && (
                     <div className="mt-3 ml-4 space-y-3 max-h-60 overflow-y-auto bg-primary-pale/30 p-3 rounded-md">
                       {item.children.map((child) => (
