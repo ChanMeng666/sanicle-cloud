@@ -37,46 +37,58 @@ export function FaqSection() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-16 bg-white">
+    <section className="w-full py-16 md:py-24 bg-white" id="faq">
       <div className="container px-4 md:px-6">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Frequently Asked Questions</h2>
-          <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto">
-            Answers to common questions about our pricing and subscriptions. If you have other questions, please feel free to contact us.
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4 inline-block">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">FAQ</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Get answers to the most common questions about our plans and services.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          <Accordion type="single" collapsible className="space-y-5">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg p-1">
-                <AccordionTrigger className="px-4 text-left font-medium text-[#2c3e50] hover:text-[#167d83]">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white"
+              >
+                <AccordionTrigger className="px-6 py-4 text-left font-medium text-slate-800 hover:text-primary data-[state=open]:text-primary data-[state=open]:bg-primary-pale/10 transition-all">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-4 pt-2 pb-4 text-[#7f8c8d]">{faq.answer}</AccordionContent>
+                <AccordionContent className="px-6 pt-2 pb-6 text-slate-600">
+                  <p className="leading-relaxed">{faq.answer}</p>
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
 
-        <div className="text-center mt-10 bg-[#e6f5f6]/30 py-8 px-4 rounded-xl max-w-3xl mx-auto">
-          <h3 className="text-xl font-semibold text-[#2c3e50] mb-2">Have more questions?</h3>
-          <p className="text-[#7f8c8d] mb-4">
-            Our team is ready to help you answer any questions about our products and pricing.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#167d83] text-[#167d83] hover:bg-[#167d83] hover:text-white transition-colors"
-            >
-              Contact Sales
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#167d83] text-[#167d83] hover:bg-[#167d83] hover:text-white transition-colors"
-            >
-              View Documentation
-            </a>
+        <div className="mt-16 bg-gradient-to-r from-primary-pale to-secondary-pale py-10 px-6 md:px-10 rounded-2xl max-w-4xl mx-auto shadow-sm" data-aos="fade-up" data-aos-delay="300">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">Still have questions?</h3>
+              <p className="text-slate-600">
+                We're here to help with any questions about our pricing and features.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm"
+              >
+                Contact Sales
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border border-primary text-primary hover:bg-primary-pale/50 transition-colors"
+              >
+                View Documentation
+              </a>
+            </div>
           </div>
         </div>
       </div>

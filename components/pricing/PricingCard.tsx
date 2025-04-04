@@ -35,43 +35,83 @@ export function PricingCard({
   color,
   saveText,
 }: PricingCardProps) {
+  // Determine the background and text colors based on the color prop
+  const getStyles = () => {
+    const styles = {
+      borderColor: 'border-slate-200',
+      colorAccent: '',
+      bgAccent: '',
+      buttonClasses: ''
+    };
+    
+    if (color === 'primary') {
+      styles.colorAccent = 'text-primary';
+      styles.bgAccent = 'bg-primary-pale';
+      styles.buttonClasses = highlight
+        ? 'bg-primary hover:bg-primary/90 text-white shadow-md' 
+        : 'bg-white border-2 border-primary text-primary hover:bg-primary-pale/50';
+    } else if (color === 'secondary') {
+      styles.colorAccent = 'text-secondary';
+      styles.bgAccent = 'bg-secondary-pale';
+      styles.buttonClasses = 'bg-secondary hover:bg-secondary/90 text-white shadow-md';
+    }
+    
+    return styles;
+  };
+  
+  const styles = getStyles();
+  
   return (
-    <div className={`flex-1 relative group ${highlight ? "transform scale-105 z-20" : ""}`}>
-      <div className="absolute inset-0 bg-black/5 rounded-2xl transform group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-      <Card className={`border-none ${highlight ? "shadow-2xl" : "shadow-lg"} h-full relative z-10 overflow-hidden transform transition-transform duration-500 group-hover:-translate-y-2`}>
-        <div className={`absolute top-0 left-0 right-0 h-2 bg-[${color}]`}></div>
+    <div className={`w-full relative ${highlight ? "lg:-mt-4 z-20" : ""}`}>
+      <Card className={`border-2 h-full ${highlight ? `${styles.borderColor} shadow-xl` : `${styles.borderColor} shadow-md`} 
+        overflow-hidden rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1`}
+      >
         {highlight && (
-          <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[${color}] text-white text-xs font-bold px-4 py-1 rounded-full`}>
-            {highlightLabel}
+          <div className="absolute -top-5 inset-x-0 flex justify-center">
+            <span className={`px-4 py-1.5 rounded-full text-white text-xs font-semibold ${color === 'primary' ? 'bg-primary' : 'bg-secondary'} shadow-md`}>
+              {highlightLabel}
+            </span>
           </div>
         )}
-        <CardHeader className={`pb-4 border-b ${highlight ? "pt-6" : ""}`}>
-          <CardTitle className="text-2xl font-bold text-[#2c3e50] flex items-center">
-            <div className={`w-10 h-10 rounded-full bg-[#e6f5f6] flex items-center justify-center mr-3`}>
+        
+        <CardHeader className={`px-6 pt-6 ${highlight ? "pt-8" : ""} pb-4 space-y-1 border-b ${styles.borderColor}`}>
+          <div className="flex items-center space-x-3 mb-2">
+            <div className={`w-10 h-10 rounded-full ${styles.bgAccent} flex items-center justify-center`}>
               {icon}
             </div>
-            {title}
-          </CardTitle>
-          <p className="text-[#7f8c8d]">{subtitle}</p>
-          <div className="mt-4 flex items-baseline">
-            <DollarSign className={`h-6 w-6 text-[${color}]`} />
-            <span className="text-4xl font-bold text-[#2c3e50]">{isAnnual ? price.annual : price.monthly}</span>
-            <span className="text-[#7f8c8d] ml-1">per employee/month</span>
+            <CardTitle className="text-2xl font-bold text-slate-800">{title}</CardTitle>
           </div>
-          {isAnnual && saveText && <div className="mt-1 text-sm text-[#EE4C23]">{saveText}</div>}
+          
+          <p className="text-slate-500 text-sm">{subtitle}</p>
+          
+          <div className="mt-4 flex items-baseline">
+            <DollarSign className={`h-5 w-5 ${styles.colorAccent}`} />
+            <span className="text-4xl font-bold text-slate-800">
+              {isAnnual ? price.annual : price.monthly}
+            </span>
+            <span className="text-slate-500 ml-2 text-sm">per employee/month</span>
+          </div>
+          
+          {isAnnual && saveText && (
+            <div className="mt-1 text-sm text-secondary font-medium">{saveText}</div>
+          )}
         </CardHeader>
-        <CardContent className="py-6">
+        
+        <CardContent className="px-6 py-6">
           <ul className="space-y-3">
             {features.map((feature, i) => (
               <li key={i} className="flex items-start">
-                <CheckCircle className={`h-5 w-5 text-[${color}] mr-2 mt-0.5`} />
-                <span className="text-[#2c3e50]">{feature}</span>
+                <CheckCircle className={`h-5 w-5 ${styles.colorAccent} mr-3 mt-0.5 flex-shrink-0`} />
+                <span className="text-slate-700">{feature}</span>
               </li>
             ))}
           </ul>
         </CardContent>
-        <CardFooter className="pt-2 pb-6">
-          <Button className={`w-full bg-[${color}] hover:bg-opacity-90 text-white`}>{buttonText}</Button>
+        
+        <CardFooter className="px-6 pt-2 pb-6">
+          <Button className={`w-full ${styles.buttonClasses}`}>
+            {buttonText}
+          </Button>
         </CardFooter>
       </Card>
     </div>

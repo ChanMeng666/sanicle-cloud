@@ -16,21 +16,23 @@ export const PricingToggle = ({
   }
 
   return (
-    <div className="flex items-center justify-center space-x-4">
-      <span className={`text-sm font-medium ${!isAnnual ? "text-[#167d83]" : "text-[#7f8c8d]"}`}>Monthly</span>
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:space-x-4">
+      <span className={`text-sm font-medium transition-colors duration-200 ${!isAnnual ? "text-primary font-semibold" : "text-slate-500"}`}>Monthly</span>
       <button
         onClick={handleToggle}
-        className="relative w-14 h-7 bg-[#e6f5f6] rounded-full p-1 transition-colors duration-300"
+        className="relative w-16 h-8 bg-primary-pale rounded-full p-1 transition-colors duration-300 shadow-inner"
+        aria-label={isAnnual ? "Switch to monthly billing" : "Switch to annual billing"}
       >
+        <span className="sr-only">{isAnnual ? "Switch to monthly billing" : "Switch to annual billing"}</span>
         <div
-          className={`absolute top-1 w-5 h-5 bg-[#167d83] rounded-full transition-transform duration-300 ${
-            isAnnual ? "translate-x-7" : "translate-x-0"
+          className={`absolute top-1 w-6 h-6 bg-primary rounded-full shadow transition-transform duration-300 ${
+            isAnnual ? "translate-x-8" : "translate-x-0"
           }`}
         ></div>
       </button>
       <div className="flex items-center">
-        <span className={`text-sm font-medium ${isAnnual ? "text-[#167d83]" : "text-[#7f8c8d]"}`}>Annual</span>
-        <span className="ml-2 text-xs font-medium text-white bg-[#EE4C23] px-2 py-1 rounded-full">Save 20%</span>
+        <span className={`text-sm font-medium transition-colors duration-200 ${isAnnual ? "text-primary font-semibold" : "text-slate-500"}`}>Annual</span>
+        <span className="ml-2 text-xs font-medium text-white bg-secondary px-2 py-1 rounded-full shadow-sm">Save 20%</span>
       </div>
     </div>
   )
@@ -38,40 +40,56 @@ export const PricingToggle = ({
 
 export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => void }) {
   return (
-    <section className="w-full py-16 md:py-24 relative overflow-hidden">
-      {/* Geometric background */}
-      <div className="absolute inset-0 bg-[#f8f9fa]"></div>
-      <div className="absolute top-0 left-0 w-full h-full">
-        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <polygon points="0,0 100,0 100,80 0,100" fill="#e6f5f6" opacity="0.5" />
-          <polygon points="0,100 100,80 100,100" fill="#fef6e9" opacity="0.5" />
-        </svg>
+    <section className="w-full py-16 md:py-28 relative overflow-hidden">
+      {/* Geometric background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white to-primary-pale/20"></div>
+      
+      {/* Abstract shapes */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-20 overflow-hidden">
+        <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 -right-24 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 left-1/3 w-72 h-72 bg-primary-light/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-4">
-            Flexible Pricing Options
+        <div className="max-w-4xl mx-auto text-center">
+          <div 
+            className="inline-block px-4 py-1.5 rounded-full bg-primary-pale text-primary text-sm font-medium mb-6 shadow-sm"
+            data-aos="fade-down" 
+            data-aos-delay="100"
+          >
+            Transparent Pricing for Every Business
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2c3e50] mb-6">
-            Simple Transparent Pricing
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light mb-8"
+            data-aos="fade-up" 
+            data-aos-delay="200"
+          >
+            Simple Plans for Your Organization
           </h1>
 
-          <p className="text-lg md:text-xl text-[#7f8c8d] mb-8 max-w-2xl mx-auto">
-            Choose the plan that best fits your organization's size and needs. All plans include our core menstrual health benefits platform.
+          <p 
+            className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed"
+            data-aos="fade-up" 
+            data-aos-delay="300"
+          >
+            Choose the plan that best fits your organization's size and needs. All plans include our core menstrual health benefits platform with top-tier security and support.
           </p>
 
-          <PricingToggle onToggle={onToggle} />
+          <div data-aos="fade-up" data-aos-delay="400">
+            <PricingToggle onToggle={onToggle} />
+          </div>
         </div>
       </div>
-      {/* Wave divider at the bottom of Hero Section */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+      
+      {/* Curved divider at the bottom of Hero Section */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" className="w-full h-auto">
           <path
             fill="#ffffff"
             fillOpacity="1"
-            d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,90.7C960,96,1056,96,1152,90.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,96L48,106.7C96,117,192,139,288,133.3C384,128,480,96,576,90.7C672,85,768,107,864,112C960,117,1056,107,1152,101.3C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
       </div>
