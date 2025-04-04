@@ -1,46 +1,45 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { BarChart, CheckCircle, Clock, Users } from "lucide-react"
+import { BarChart, CheckCircle, Clock, Download, Users } from "lucide-react"
 
 export function BenefitsSection() {
   return (
-    <section className="w-full py-12 md:py-16 bg-white relative -mt-10 z-20">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+    <section className="w-full py-16 md:py-24 bg-white relative z-20">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 md:mb-16">
           <div className="max-w-2xl">
-            <div className="w-16 h-1 bg-[#167d83] mb-4"></div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Benefits for Employers</h2>
-            <p className="text-[#7f8c8d] mt-2">
-              Discover how Sanicle.cloud can transform your workplace and provide tangible benefits for your
-              organization.
+            <div className="w-16 h-1.5 bg-[#167d83] mb-6 rounded-full"></div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2c3e50] leading-tight">企业福利解决方案</h2>
+            <p className="text-[#7f8c8d] mt-4 text-lg max-w-xl">
+              了解Sanicle.cloud如何转变您的工作场所，为您的组织提供明显的实际效益。
             </p>
           </div>
-          <div className="mt-4 md:mt-0">
-            <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6]">
-              Download Benefits Guide
+          <div className="mt-2">
+            <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] px-5 py-2.5 rounded-lg transition-all group flex items-center">
+              <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+              下载福利指南
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <div className="relative group">
-            <div className="absolute inset-0 bg-[#e6f5f6] rounded-lg transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-10"></div>
-            <div className="relative z-10 p-6 border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+            <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <Users className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#2c3e50] mb-4">Attract & Retain Talent</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">吸引并留住人才</h3>
               <p className="text-[#7f8c8d] mb-6">
-                Stand out in the job market with innovative benefits that demonstrate your commitment to women's
-                health.
+                通过创新的福利脱颖而出，展示您对女性健康的承诺。
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
-                {["Reduce turnover costs", "Attract diverse candidates", "Improve employee satisfaction"].map(
+                {["降低人员流动成本", "吸引多元化人才", "提高员工满意度"].map(
                   (item, i) => (
-                    <div key={i} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-[#2c3e50]">{item}</span>
+                    <div key={i} className="flex items-start group/item">
+                      <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
+                      <span className="text-[#2c3e50] group-hover/item:text-[#EE4C23] transition-colors">{item}</span>
                     </div>
                   ),
                 )}
@@ -48,48 +47,47 @@ export function BenefitsSection() {
             </div>
           </div>
 
-          <div className="relative group md:mt-12">
-            <div className="absolute inset-0 bg-[#e6f5f6] rounded-lg transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-10"></div>
-            <div className="relative z-10 p-6 border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6">
+          <div className="relative group md:mt-8 lg:mt-12">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+            <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <BarChart className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#2c3e50] mb-4">Increase Productivity</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">提高生产力</h3>
               <p className="text-[#7f8c8d] mb-6">
-                Support employees through menstrual health challenges to reduce absenteeism and improve focus.
+                通过月经健康支持减少缺勤，提高工作专注度。
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
                 {[
-                  "Reduce menstrual-related absences",
-                  "Improve workplace performance",
-                  "Support employee wellbeing",
+                  "减少月经相关缺勤",
+                  "提升工作表现",
+                  "支持员工健康",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-[#2c3e50]">{item}</span>
+                  <div key={i} className="flex items-start group/item">
+                    <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
+                    <span className="text-[#2c3e50] group-hover/item:text-[#EE4C23] transition-colors">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="relative group md:mt-24">
-            <div className="absolute inset-0 bg-[#e6f5f6] rounded-lg transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-10"></div>
-            <div className="relative z-10 p-6 border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6">
+          <div className="relative group md:mt-16 lg:mt-24">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+            <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <Clock className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#2c3e50] mb-4">Easy Implementation</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">轻松实施</h3>
               <p className="text-[#7f8c8d] mb-6">
-                Seamlessly integrate our platform with your existing benefits system with minimal administrative
-                burden.
+                无缝集成到现有福利系统，最小化管理负担。
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
-                {["Quick setup process", "Dedicated implementation support", "Minimal HR resources required"].map(
+                {["快速设置流程", "专属实施支持", "极少HR资源需求"].map(
                   (item, i) => (
-                    <div key={i} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-[#2c3e50]">{item}</span>
+                    <div key={i} className="flex items-start group/item">
+                      <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
+                      <span className="text-[#2c3e50] group-hover/item:text-[#EE4C23] transition-colors">{item}</span>
                     </div>
                   ),
                 )}
@@ -99,13 +97,13 @@ export function BenefitsSection() {
         </div>
       </div>
       
-      {/* 在Benefits Section底部添加波浪形分隔线 */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+      {/* 波浪形分隔线 */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto" preserveAspectRatio="none">
           <path
             fill="#f8f9fa"
             fillOpacity="1"
-            d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,69.3C672,85,768,107,864,101.3C960,96,1056,64,1152,48C1248,32,1344,32,1392,32L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,53.3C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
           ></path>
         </svg>
       </div>
