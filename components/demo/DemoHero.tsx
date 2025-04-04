@@ -1,34 +1,128 @@
 "use client"
 
+import { LucidePlayCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+
 export function DemoHero() {
   return (
-    <section className="w-full bg-gradient-to-r from-[#167d83] to-[#22c0c7] py-16 md:py-24 lg:py-32 text-white relative overflow-hidden">
-      {/* 装饰性背景元素 */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-teal-light via-primary to-primary-deep text-white">
+      {/* 几何背景装饰 */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/4 w-60 h-60 bg-secondary/10 rounded-full blur-2xl"></div>
+        
+        {/* 几何图形装饰 */}
+        <div className="absolute top-16 left-16 w-20 h-20 bg-white/10 rotate-45"></div>
+        <div className="absolute top-40 right-[20%] w-24 h-24 rounded-full border-4 border-white/10"></div>
+        <div className="absolute bottom-32 left-[10%] w-16 h-16 rounded-full border-4 border-secondary/20"></div>
+        
+        {/* 网格背景 - 增加不透明层提高对比度 */}
+        <div className="absolute inset-0 bg-primary/70"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      </div>
       
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center">
-          <div className="md:flex-1">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-medium mb-6 backdrop-blur-sm">
-              预约专属演示
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid md:grid-cols-12 gap-16 items-center">
+          <div className="md:col-span-6 relative">
+            <div className="absolute -left-16 top-0 w-12 h-12 bg-secondary rounded-lg animate-bounce-subtle"></div>
+            
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20 shadow-lg">
+                <div className="w-5 h-5 bg-secondary rounded-full mr-3 animate-pulse"></div>
+                <span className="font-medium">演示申请现已开放</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white drop-shadow-md">
+                探索<span className="text-coral-light relative inline-block mx-2 drop-shadow-md">
+                  云服务
+                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 12" preserveAspectRatio="none">
+                    <path d="M0,0 Q50,20 100,0" stroke="currentColor" strokeWidth="4" fill="none" className="text-secondary/40" />
+                  </svg>
+                </span>的无限可能
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-white max-w-lg drop-shadow-sm">
+                安排一场个性化演示，了解我们的云平台如何为您的业务带来革命性的改变。
+              </p>
+              
+              <div className="pt-4 flex items-center gap-4">
+                <Button asChild variant="secondary" size="lg" rounded="full" className="shadow-xl">
+                  <Link href="/form">立即预约</Link>
+                </Button>
+                
+                <Button asChild variant="ghost" size="lg" rounded="full" className="text-white border border-white/20 backdrop-blur-sm">
+                  <Link href="/video" className="flex items-center">
+                    <LucidePlayCircle className="mr-2 h-5 w-5" />
+                    观看产品视频
+                  </Link>
+                </Button>
+              </div>
+              
+              <div className="flex items-center gap-8 pt-6">
+                <div className="flex flex-col">
+                  <span className="text-3xl font-bold text-white drop-shadow-sm">15分钟</span>
+                  <span className="text-white text-sm">演示时长</span>
+                </div>
+                
+                <div className="h-12 w-px bg-white/20"></div>
+                
+                <div className="flex flex-col">
+                  <span className="text-3xl font-bold text-white drop-shadow-sm">1对1</span>
+                  <span className="text-white text-sm">专属咨询</span>
+                </div>
+                
+                <div className="h-12 w-px bg-white/20"></div>
+                
+                <div className="flex flex-col">
+                  <span className="text-3xl font-bold text-white drop-shadow-sm">免费</span>
+                  <span className="text-white text-sm">无任何费用</span>
+                </div>
+              </div>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-6 leading-tight">
-              亲身体验<span className="text-[#fef6e9]">Sanicle.cloud</span>
-            </h1>
-            <p className="text-white/90 text-lg md:text-xl max-w-xl mx-auto md:mx-0 leading-relaxed">
-              预约个性化演示，了解我们的平台如何改变您的工作场所福利并支持女性健康。
-            </p>
           </div>
           
-          <div className="hidden md:block md:flex-1 md:ml-10 lg:ml-16">
-            <div className="relative w-full aspect-[4/3] bg-white/10 rounded-lg backdrop-blur-sm overflow-hidden shadow-xl border border-white/20">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/70">
-                  <path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9 9 9 0 0 1 9 9z"></path>
-                  <path d="M9 8a1 1 0 0 1 1.5-.7l5 3a1 1 0 0 1 0 1.8l-5 3.5a1 1 0 0 1-1.5-.7V8z"></path>
-                </svg>
+          <div className="md:col-span-6 relative">
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-lg"></div>
+            
+            {/* 3D浮动设备模型 */}
+            <div className="relative mx-auto max-w-md transform perspective-1000 hover:scale-105 transition-transform duration-500">
+              <div className="relative z-20 bg-charcoal rounded-2xl shadow-2xl overflow-hidden border-4 border-white/10">
+                {/* 顶部栏 */}
+                <div className="bg-black/30 h-8 flex items-center px-4">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                </div>
+                
+                {/* 主屏幕内容 */}
+                <div className="p-4 bg-black/20 min-h-[300px]">
+                  <div className="h-10 mb-6 w-3/4 rounded bg-white/10 animate-pulse"></div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-primary/30 h-24 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-primary/80"></div>
+                    </div>
+                    <div className="bg-secondary/30 h-24 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-secondary/80"></div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 space-y-3">
+                    <div className="h-3 bg-white/10 rounded w-full"></div>
+                    <div className="h-3 bg-white/10 rounded w-5/6"></div>
+                    <div className="h-3 bg-white/10 rounded w-4/6"></div>
+                  </div>
+                </div>
               </div>
+              
+              {/* 反光效果 */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 z-30 pointer-events-none"></div>
+              
+              {/* 阴影 */}
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 h-10 bg-black/20 rounded-full blur-xl"></div>
             </div>
           </div>
         </div>

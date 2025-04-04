@@ -28,10 +28,14 @@ const config = {
         primary: {
           DEFAULT: "#167d83", // Primary Teal
           foreground: "hsl(var(--primary-foreground))",
+          deep: "#0e5a5f", // Deep Teal
+          light: "#7ac8cd", // Light Teal
+          pale: "#e6f5f6", // Pale Teal
         },
         secondary: {
           DEFAULT: "#EE4C23", // Accent Coral
           foreground: "hsl(var(--secondary-foreground))",
+          light: "#f7a18c", // Coral Light
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -53,19 +57,16 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom brand colors
-        teal: {
-          DEFAULT: "#167d83", // Primary Teal
-          deep: "#0e5a5f", // Deep Teal
-          light: "#7ac8cd", // Light Teal
-          pale: "#e6f5f6", // Pale Teal
-        },
-        coral: {
-          DEFAULT: "#EE4C23", // Accent Coral
-          light: "#f7a18c", // Coral Light
-        },
+        // 功能色
+        success: "#2ecc71", // Success green
+        warning: "#f1c40f", // Warning yellow
+        error: "#e74c3c", // Error red
+        info: "#3498db", // Info blue
+        // 新增更多背景色选项
         beige: {
           DEFAULT: "#fef6e9", // Warm Beige
+          light: "#fffdf9",
+          dark: "#f9ebd6",
         },
         charcoal: "#2c3e50", // Charcoal
         slate: "#7f8c8d", // Slate Grey
@@ -74,6 +75,8 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
       },
       keyframes: {
         "accordion-down": {
@@ -116,6 +119,14 @@ const config = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+        "rotate-slow": {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        "bounce-subtle": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -127,10 +138,20 @@ const config = {
         "slide-up": "slide-up 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.6s ease-out",
         "zoom-in": "zoom-in 0.5s ease-out",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
       },
       boxShadow: {
         'glow': '0 0 15px rgba(22, 125, 131, 0.5)',
         'coral-glow': '0 0 15px rgba(238, 76, 35, 0.5)',
+        'card': '0 4px 12px rgba(0, 0, 0, 0.05)',
+        'card-hover': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        'button': '0 2px 6px rgba(22, 125, 131, 0.25)',
+        'button-hover': '0 4px 12px rgba(22, 125, 131, 0.4)',
+      },
+      gridTemplateColumns: {
+        'auto-fill-250': 'repeat(auto-fill, minmax(250px, 1fr))',
+        'auto-fill-300': 'repeat(auto-fill, minmax(300px, 1fr))',
       },
     },
   },

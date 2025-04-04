@@ -1,18 +1,106 @@
-import type { ReactNode } from "react"
+import React from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
-interface FeatureCardProps {
-  icon: ReactNode
+type FeatureCardVariant = 
+  | "default" 
+  | "primary" 
+  | "secondary" 
+  | "outline" 
+  | "glass" 
+  | "gradient"
+  | "beige"
+  | "floating"
+
+type FeatureCardProps = {
+  icon?: React.ReactNode
   title: string
   description: string
+  variant?: FeatureCardVariant
+  className?: string
+  iconClassName?: string
+  animation?: "float" | "bounce" | "zoom" | "slide" | "rotate" | "none"
+  onClick?: () => void
 }
 
-export function FeatureCard({ icon, title, description }: FeatureCardProps) {
+export function FeatureCard({
+  icon,
+  title,
+  description,
+  variant = "default",
+  className,
+  iconClassName,
+  animation = "none",
+  onClick,
+}: FeatureCardProps) {
+  const cardVariant = variant === "floating" ? "default" : variant
+  
+  const animationClass = React.useMemo(() => {
+    switch (animation) {
+      case "float":
+        return "hover:-translate-y-2 transition-transform duration-300"
+      case "bounce":
+        return "group-hover:animate-bounce-subtle"
+      case "zoom":
+        return "hover:scale-105 transition-transform duration-300"
+      case "slide":
+        return "hover:translate-x-2 transition-transform duration-300"
+      case "rotate":
+        return "group-hover:animate-rotate-slow"
+      default:
+        return ""
+    }
+  }, [animation])
+  
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-start">
-      <div className="mb-4 p-2 bg-[#e6f5f6] rounded-md">{icon}</div>
-      <h3 className="text-xl font-semibold text-[#2c3e50] mb-2">{title}</h3>
-      <p className="text-[#7f8c8d]">{description}</p>
-    </div>
+    <Card 
+      variant={cardVariant}
+      className={cn(
+        "group overflow-hidden", 
+        variant === "floating" && "shadow-card hover:shadow-card-hover",
+        onClick && "cursor-pointer",
+        className
+      )} 
+      hover={variant === "floating"}
+      clickable={!!onClick}
+      onClick={onClick}
+    >
+      <CardHeader className="pb-2">
+        {icon && (
+          <div className={cn(
+            "flex items-center justify-center w-12 h-12 rounded-lg mb-4", 
+            variant === "primary" ? "bg-primary-deep text-white" : 
+            variant === "secondary" ? "bg-secondary text-white" :
+            variant === "outline" ? "border-2 border-primary text-primary" :
+            variant === "gradient" ? "bg-gradient-to-br from-primary to-primary-light text-white" :
+            variant === "glass" ? "bg-white/20 backdrop-blur-sm text-primary" :
+            variant === "beige" ? "bg-beige-dark text-secondary" :
+            "bg-primary/10 text-primary",
+            animationClass,
+            iconClassName
+          )}>
+            {icon}
+          </div>
+        )}
+        <CardTitle className={cn(
+          variant === "primary" || variant === "secondary" || variant === "gradient" 
+            ? "text-white" 
+            : "text-foreground"
+        )}>
+          {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className={cn(
+          "text-sm",
+          variant === "primary" || variant === "secondary" || variant === "gradient" 
+            ? "text-white/80" 
+            : "text-muted-foreground"
+        )}>
+          {description}
+        </p>
+      </CardContent>
+    </Card>
   )
 }
 

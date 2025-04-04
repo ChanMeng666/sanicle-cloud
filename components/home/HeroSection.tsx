@@ -1,106 +1,79 @@
 "use client"
 
+import React from "react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-24 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] via-white to-[#fef6e9]"></div>
-
-      {/* Animated background shapes */}
-      <div className="absolute top-10 md:top-20 left-10 md:left-20 w-32 md:w-64 h-32 md:h-64 rounded-full bg-[#167d83]/5 animate-pulse"></div>
-      <div className="absolute bottom-10 md:bottom-20 right-10 md:right-20 w-40 md:w-80 h-40 md:h-80 rounded-full bg-[#EE4C23]/5 animate-pulse delay-1000"></div>
-
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="grid gap-8 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-7 space-y-4 md:space-y-6">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium">
-              Revolutionizing Women's Health
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#2c3e50] leading-tight">
-              Empower Your <span className="text-[#167d83]">Workplace</span> with Menstrual Health Benefits
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-20 lg:py-28">
+      {/* 装饰元素 */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] right-[5%] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-[40%] left-[25%] w-40 h-40 bg-secondary/10 rounded-full blur-2xl"></div>
+        
+        {/* 网格背景 */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        
+        {/* 漂浮元素 */}
+        <div className="absolute top-[20%] right-[20%] w-24 h-24 bg-white/10 rounded-xl rotate-12 animate-float"></div>
+        <div className="absolute bottom-[25%] left-[15%] w-16 h-16 bg-secondary/20 rounded-full animate-float-delay"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-sm animate-slide-up">
+              云端解决方案<br />为您的业务赋能
             </h1>
-
-            <p className="text-base sm:text-lg text-[#7f8c8d] md:text-xl max-w-2xl">
-              Sanicle.cloud offers a modular, end-to-end employee benefits platform with flexible menstrual health
-              options, freeing employees from vendor fatigue and creating cost-effective benefits.
+            <p className="text-white/80 text-lg md:text-xl mb-8 max-w-lg animate-slide-up" style={{ animationDelay: "0.1s" }}>
+              释放数据潜力，简化运维管理，加速业务创新。我们的云平台为企业提供全方位、高效能的数字化转型服务。
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button size="lg" className="bg-[#EE4C23] hover:bg-[#d43d18] text-white rounded-full">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+              <Button asChild size="lg" rounded="full" variant="secondary">
+                <Link href="/demo">立即体验</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] rounded-full"
-              >
-                Watch Demo <Play className="ml-2 h-4 w-4" />
+              <Button asChild size="lg" rounded="full" variant="outline-secondary" className="border-white text-white hover:bg-white hover:text-primary">
+                <Link href="/solution">了解解决方案</Link>
               </Button>
-            </div>
-
-            <div className="flex items-center pt-4">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-[#e6f5f6] flex items-center justify-center text-[#167d83] text-xs font-bold"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="ml-4">
-                <p className="text-xs sm:text-sm text-[#7f8c8d]">
-                  Trusted by <span className="font-semibold text-[#2c3e50]">500+</span> companies worldwide
-                </p>
-              </div>
             </div>
           </div>
-
-          <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-            <div className="absolute inset-0 bg-[#167d83]/10 rounded-full blur-3xl"></div>
-
-            <div className="relative">
-              {/* Main image */}
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 mx-auto max-w-[80%] md:max-w-full">
-                <img
-                  src="/placeholder.svg?height=600&width=500"
-                  alt="Women in professional setting"
-                  className="w-full"
-                  width={500}
-                  height={600}
-                />
-              </div>
-
-              {/* Floating elements - 在移动设备上隐藏或调整位置 */}
-              <div className="hidden md:block absolute top-0 -right-10 z-20 bg-white rounded-lg shadow-lg p-3 md:p-4 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-2 md:mr-3">
-                    <Star className="h-4 w-4 md:h-5 md:w-5" />
+          
+          <div className="hidden lg:block relative">
+            <div className="relative z-10 animate-float">
+              <div className="relative w-full aspect-square max-w-lg mx-auto">
+                {/* 这里可以使用真实的产品截图或资产替换 */}
+                <div className="absolute inset-0 bg-white/90 rounded-2xl shadow-2xl overflow-hidden">
+                  <div className="w-full h-12 bg-gray-100 flex items-center px-4 border-b">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-[#2c3e50] text-sm md:text-base">97% Satisfaction</p>
-                    <p className="text-xs md:text-sm text-[#7f8c8d]">From our users</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hidden md:block absolute -bottom-10 -left-10 z-20 bg-white rounded-lg shadow-lg p-3 md:p-4 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-2 md:mr-3">
-                    <Users className="h-4 w-4 md:h-5 md:w-5" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#2c3e50] text-sm md:text-base">1,200+ Users</p>
-                    <p className="text-xs md:text-sm text-[#7f8c8d]">On waitlist</p>
+                  <div className="p-4">
+                    <div className="h-8 bg-gray-200 rounded-md w-3/4 mb-4"></div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div className="h-24 bg-primary-pale rounded-md flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-primary/80"></div>
+                      </div>
+                      <div className="h-24 bg-beige rounded-md flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-secondary/80"></div>
+                      </div>
+                    </div>
+                    <div className="h-8 bg-gray-200 rounded-md w-1/2 mb-4"></div>
+                    <div className="h-32 bg-gray-100 rounded-md"></div>
                   </div>
                 </div>
               </div>
             </div>
+            
+            {/* 装饰元素 */}
+            <div className="absolute top-1/4 -right-8 w-16 h-16 bg-secondary rounded-lg rotate-12 animate-float-delay blur-sm"></div>
+            <div className="absolute -bottom-6 left-1/4 w-20 h-20 bg-coral-light rounded-full animate-float blur-sm"></div>
           </div>
         </div>
       </div>
