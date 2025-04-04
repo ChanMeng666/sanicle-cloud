@@ -8,7 +8,7 @@ import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-16 sm:py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-16 sm:py-20 lg:py-28 w-full">
       {/* 装饰元素 */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
@@ -23,8 +23,8 @@ export function HeroSection() {
         <div className="absolute bottom-[25%] left-[15%] w-16 h-16 bg-secondary/20 rounded-full animate-float-delay hidden sm:block"></div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-white text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-sm animate-slide-up">
               云端解决方案<br />为您的业务赋能

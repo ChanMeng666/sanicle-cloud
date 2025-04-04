@@ -10,7 +10,9 @@ import { StatisticsSection } from "@/components/statistics-section"
 export default function Home() {
   return (
     <main className="flex flex-col items-center w-full overflow-x-hidden">
-      <HeroSection />
+      <div className="w-full">
+        <HeroSection />
+      </div>
       <ValueProposition />
       <HowItWorks />
       <StatisticsSection />

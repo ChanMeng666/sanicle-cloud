@@ -5,10 +5,7 @@ import { ArrowRight, Heart, Clock, Globe, ChevronDown, Star, Users } from "lucid
 
 export function AboutHero() {
   return (
-    <section className="w-full min-h-[90vh] relative flex items-center overflow-hidden">
-      {/* 渐变背景层 - 更加丰富的渐变色 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#167d83]/95 via-[#167d83]/85 to-[#126e73]/80"></div>
-      
+    <section className="w-full relative overflow-hidden bg-gradient-to-br from-[#167d83]/95 via-[#167d83]/85 to-[#126e73]/80 py-16 sm:py-20 lg:py-28">
       {/* 背景图案 - 提高质量和亮度 */}
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
       
@@ -21,8 +18,8 @@ export function AboutHero() {
       <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-[#EE4C23]/10 animate-pulse"></div>
       <div className="absolute bottom-1/3 left-1/3 w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-[#EE4C23]/15 animate-pulse delay-700"></div>
 
-      <div className="container px-4 sm:px-6 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
           {/* 文本内容区域 - 更好的响应式排版 */}
           <div className="lg:col-span-7 text-white">
             <div className="inline-flex items-center px-4 py-2 rounded-xl bg-white/20 backdrop-blur-md shadow-sm text-white text-sm font-medium mb-6 transform hover:scale-105 transition-transform duration-300">

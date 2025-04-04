@@ -8,8 +8,10 @@ import { Milestones } from "@/components/company/about/Milestones"
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col">
-      <AboutHero />
+    <main className="flex min-h-screen flex-col items-center w-full overflow-x-hidden">
+      <div className="w-full">
+        <AboutHero />
+      </div>
       <FounderQuote />
       <OurStory />
       <OurValues />
