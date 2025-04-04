@@ -33,6 +33,11 @@ export function MainNav() {
           description: "Gain a comprehensive understanding of the Sanicle.cloud platform."
         },
         {
+          title: "Benefits",
+          href: "/platform/benefits",
+          description: "Explore our comprehensive women's health benefits solutions."
+        },
+        {
           title: "Features",
           href: "/platform/features",
           description: "Explore the full suite of features available on our platform."
@@ -178,6 +183,11 @@ export function MainNav() {
             <Button variant="ghost" className="text-[#2c3e50] hover:text-[#167d83] hover:bg-[#e6f5f6]">
               Log in
             </Button>
+            <Link href="/demo">
+              <Button variant="outline" className="text-[#2c3e50] border-[#167d83] hover:bg-[#e6f5f6]">
+                Request Demo
+              </Button>
+            </Link>
             <Button className="bg-gradient-to-r from-[#EE4C23] to-[#f07457] hover:from-[#d43d18] hover:to-[#e55a3d] text-white rounded-md">
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -252,6 +262,11 @@ export function MainNav() {
               <Button variant="outline" className="w-full justify-center py-6 text-[#2c3e50] border-[#167d83] hover:bg-[#e6f5f6]">
                 Log in
               </Button>
+              <Link href="/demo" className="w-full" onClick={toggleMenu}>
+                <Button variant="outline" className="w-full justify-center py-6 text-[#2c3e50] border-[#167d83] hover:bg-[#e6f5f6]">
+                  Request Demo
+                </Button>
+              </Link>
               <Button className="w-full justify-center py-6 bg-gradient-to-r from-[#EE4C23] to-[#f07457] hover:from-[#d43d18] hover:to-[#e55a3d] text-white">
                 Get Started <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

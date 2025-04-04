@@ -5,7 +5,6 @@ import { BenefitFeatures } from "@/components/platform/benefits/BenefitFeatures"
 import { BenefitComparison } from "@/components/platform/benefits/BenefitComparison"
 import { Testimonials } from "@/components/platform/benefits/Testimonials"
 import { CtaSection } from "@/components/platform/benefits/CtaSection"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function BenefitsPage() {
   return (
@@ -15,7 +14,6 @@ export default function BenefitsPage() {
       <BenefitComparison />
       <Testimonials />
       <CtaSection />
-      <SiteFooter />
     </main>
   )
 }
