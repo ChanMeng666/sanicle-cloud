@@ -4,7 +4,6 @@ import { HeroSection } from "@/components/platform/HeroSection"
 import { FeaturesSection } from "@/components/platform/FeaturesSection"
 import { TechnicalSpecsSection } from "@/components/platform/TechnicalSpecsSection"
 import { CtaSection } from "@/components/platform/CtaSection"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function PlatformOverviewPage() {
   return (
@@ -13,7 +12,6 @@ export default function PlatformOverviewPage() {
       <FeaturesSection />
       <TechnicalSpecsSection />
       <CtaSection />
-      <SiteFooter />
     </main>
   )
 }
