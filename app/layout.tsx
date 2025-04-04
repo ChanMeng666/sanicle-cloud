@@ -1,8 +1,8 @@
 import type React from "react"
-import "@/app/globals.css"
+import "@/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { MainNav } from "@/components/main-nav"
-import { SiteFooter } from "@/components/site-footer"
+import { MainNav } from "@/components/layout/MainNav"
+import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export const metadata = {
   title: "Sanicle.cloud - Revolutionizing Women's Workplace Health",
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light">
           <div className="relative flex min-h-screen flex-col">
@@ -30,7 +30,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
