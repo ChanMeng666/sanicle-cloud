@@ -8,7 +8,13 @@ export const metadata = {
   title: "Sanicle.cloud - Revolutionizing Women's Workplace Health",
   description:
     "A B2B-B2G platform dedicated to transforming women's workplace wellbeing through menstrual health benefits.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 }
 
 export default function RootLayout({
@@ -18,11 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light">
           <div className="relative flex min-h-screen flex-col">
             <MainNav />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 w-full">{children}</div>
             <SiteFooter />
           </div>
         </ThemeProvider>

@@ -48,33 +48,38 @@ export function ValueProposition() {
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative">
-      <div className="container px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+    <section className="w-full py-12 md:py-20 lg:py-24 bg-white relative">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-[#fef6e9] text-[#EE4C23] text-sm font-medium mb-3">
             Our Mission
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">
             Transforming Women's Workplace Wellbeing
           </h2>
-          <p className="text-lg text-[#7f8c8d]">
+          <p className="text-base md:text-lg text-[#7f8c8d]">
             We're a B2B-B2G platform dedicated to creating healthier, more inclusive workplaces through comprehensive
             menstrual health support.
           </p>
         </div>
 
-        {/* 六边形网格布局 */}
+        {/* 响应式六边形网格布局 */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
             {features.map((feature, index) => (
               <div key={index} className="flex justify-center">
-                <div className="hexagon w-64 h-72 relative">
-                  <div className={`hexagon-inner ${feature.color} p-6 flex flex-col items-center text-center`}>
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                <div className="feature-hexagon relative w-full max-w-[280px] aspect-[1/1.2] overflow-visible mx-auto">
+                  <div className={`${feature.color} h-full w-full p-5 flex flex-col items-center text-center rounded-2xl md:rounded-3xl`} 
+                       style={{
+                         clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                       }}>
+                    <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-3 mt-6 md:mt-8">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                    <p className="text-white/90 text-sm">{feature.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2">{feature.title}</h3>
+                    <p className="text-white/90 text-xs md:text-sm px-2 line-clamp-4 md:line-clamp-none">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               </div>
