@@ -10,7 +10,7 @@ export function FounderQuote() {
       
       <div className="container px-4 sm:px-6 md:px-8">
         <div className="max-w-5xl mx-auto relative">
-          {/* 引号装饰 */}
+          {/* Quote decoration */}
           <div className="absolute -top-10 -left-10 text-8xl sm:text-9xl text-[#167d83]/10 font-serif hidden sm:block">
             <QuoteIcon className="h-24 w-24 text-[#167d83]/20" />
           </div>
@@ -22,24 +22,24 @@ export function FounderQuote() {
             <div className="grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 relative">
                 <div className="mb-6 md:mb-0">
-                  {/* 发光效果背景 */}
+                  {/* Glow effect background */}
                   <div className="absolute inset-0 bg-[#EE4C23]/10 rounded-full blur-3xl transform animate-pulse-opacity"></div>
                   
-                  {/* 创始人图片 */}
+                  {/* Founder image */}
                   <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-xl w-40 h-40 sm:w-48 sm:h-48 mx-auto transform hover:scale-105 transition-transform duration-300">
                     <img
                       src="/placeholder.svg?height=200&width=200"
-                      alt="陈博士"
+                      alt="Dr. Chen"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    {/* 图片叠加渐变 */}
+                    {/* Image overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   </div>
 
                   <div className="mt-6 text-center">
-                    <h3 className="text-xl font-bold text-[#2c3e50]">陈博士</h3>
-                    <p className="text-[#EE4C23] font-medium">创始人 & CEO</p>
+                    <h3 className="text-xl font-bold text-[#2c3e50]">Dr. Chen</h3>
+                    <p className="text-[#EE4C23] font-medium">Founder & CEO</p>
                     <div className="flex justify-center mt-3 space-x-1">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
@@ -53,22 +53,22 @@ export function FounderQuote() {
 
               <div className="md:col-span-8">
                 <div className="relative">
-                  {/* 小装饰线条 */}
+                  {/* Small decorative line */}
                   <div className="absolute top-0 left-0 w-16 h-1 bg-gradient-to-r from-[#167d83] to-[#EE4C23]"></div>
                 
                   <p className="text-xl md:text-2xl lg:text-3xl text-[#2c3e50] italic font-light mb-6 mt-4 leading-relaxed">
-                    "在医疗领域工作多年后，亲眼目睹了月经健康问题如何影响女性的职业生活，我们着手创建一个解决方案，既能解决这些挑战，同时又能为雇主提供创新的福利选择。"
+                    "After years working in healthcare, witnessing firsthand how menstrual health issues affect women's professional lives, we set out to create a solution that addresses these challenges while offering employers innovative benefit options."
                   </p>
 
                   <p className="text-[#7f8c8d] text-base md:text-lg leading-relaxed">
-                    我们的使命是通过使月经健康福利变得可及、全面且无歧视，从而改变工作场所的健康环境。我们相信，当女性获得所需的支持来管理月经健康时，每个人都会受益 — 不仅仅是员工个人，还有整个组织。
+                    Our mission is to transform workplace health environments by making menstrual health benefits accessible, comprehensive, and non-discriminatory. We believe that when women receive the support they need to manage menstrual health, everyone benefits — not just individual employees, but entire organizations.
                   </p>
                   
-                  {/* 签名效果 */}
+                  {/* Signature effect */}
                   <div className="mt-6 flex justify-end">
                     <img 
                       src="/placeholder.svg?height=60&width=150" 
-                      alt="陈博士签名" 
+                      alt="Dr. Chen's signature" 
                       className="h-12 opacity-80"
                       loading="lazy"
                     />
@@ -80,7 +80,7 @@ export function FounderQuote() {
         </div>
       </div>
       
-      {/* 底部波浪形分隔线 - 更平滑的过渡 */}
+      {/* Bottom wave divider - smoother transition */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

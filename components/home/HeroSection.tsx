@@ -9,16 +9,16 @@ import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-16 sm:py-20 lg:py-28 w-full">
-      {/* 装饰元素 */}
+      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute top-[40%] left-[25%] w-40 h-40 bg-secondary/10 rounded-full blur-2xl"></div>
         
-        {/* 网格背景 */}
+        {/* Grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         
-        {/* 漂浮元素 */}
+        {/* Floating elements */}
         <div className="absolute top-[20%] right-[20%] w-24 h-24 bg-white/10 rounded-xl rotate-12 animate-float hidden sm:block"></div>
         <div className="absolute bottom-[25%] left-[15%] w-16 h-16 bg-secondary/20 rounded-full animate-float-delay hidden sm:block"></div>
       </div>
@@ -27,17 +27,17 @@ export function HeroSection() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-white text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-sm animate-slide-up">
-              云端解决方案<br />为您的业务赋能
+              Cloud Solutions<br />Empowering Your Business
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 mx-auto lg:mx-0 max-w-lg animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              释放数据潜力，简化运维管理，加速业务创新。我们的云平台为企业提供全方位、高效能的数字化转型服务。
+              Unlock data potential, simplify operations, and accelerate business innovation. Our cloud platform provides comprehensive, high-performance digital transformation services for enterprises.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
               <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary-light text-white shadow-button hover:shadow-button-hover">
-                <Link href="/demo">立即体验</Link>
+                <Link href="/demo">Try Now</Link>
               </Button>
               <Button asChild size="lg" className="rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary">
-                <Link href="/solution">了解解决方案</Link>
+                <Link href="/solution">Explore Solutions</Link>
               </Button>
             </div>
           </div>
@@ -45,7 +45,7 @@ export function HeroSection() {
           <div className="hidden lg:block relative mt-8 lg:mt-0">
             <div className="relative z-10 animate-float">
               <div className="relative w-full aspect-square max-w-lg mx-auto">
-                {/* 这里可以使用真实的产品截图或资产替换 */}
+                {/* Real product screenshots or assets can be used here */}
                 <div className="absolute inset-0 bg-white/95 rounded-2xl shadow-card-hover overflow-hidden">
                   <div className="w-full h-12 bg-gray-100 flex items-center px-4 border-b">
                     <div className="flex gap-2">
@@ -71,12 +71,12 @@ export function HeroSection() {
               </div>
             </div>
             
-            {/* 装饰元素 */}
+            {/* Decorative elements */}
             <div className="absolute top-1/4 -right-8 w-16 h-16 bg-secondary rounded-lg rotate-12 animate-float-delay blur-sm"></div>
             <div className="absolute -bottom-6 left-1/4 w-20 h-20 bg-secondary-light rounded-full animate-float blur-sm"></div>
           </div>
           
-          {/* 移动端显示的简化版UI界面 */}
+          {/* Simplified UI interface for mobile display */}
           <div className="lg:hidden relative w-full max-w-[280px] mx-auto mt-8">
             <div className="relative aspect-square bg-white/95 rounded-xl shadow-card-hover overflow-hidden">
               <div className="w-full h-8 bg-gray-100 flex items-center px-3 border-b">
@@ -110,7 +110,7 @@ export function HeroSection() {
         <ChevronDown className="h-5 w-5 text-white" />
       </div>
 
-      {/* 使用斜线分隔符 */}
+      {/* Slanted divider */}
       <div className="absolute bottom-0 left-0 right-0 h-12 md:h-16 bg-white transform -skew-y-2"></div>
     </section>
   )

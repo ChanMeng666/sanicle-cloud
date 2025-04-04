@@ -8,39 +8,39 @@ export function OurValues() {
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-[#fef6e9] text-[#EE4C23] text-sm font-medium mb-3">
-            我们的价值观
+            Our Values
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">我们所坚持的</h2>
-          <p className="text-lg text-[#7f8c8d]">指导Sanicle.cloud一切行动的原则。</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">What We Stand For</h2>
+          <p className="text-lg text-[#7f8c8d]">The principles that guide everything we do at Sanicle.cloud.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
               icon: <Heart className="h-10 w-10 text-white" />,
-              title: "同理心与理解",
+              title: "Empathy and Understanding",
               description:
-                "我们以同情心和对工作场所独特挑战的深刻理解来处理女性健康问题。",
+                "We approach women's health issues with compassion and a deep understanding of the unique challenges in the workplace.",
               color: "from-[#EE4C23] to-[#d43d18]",
             },
             {
               icon: <Users className="h-10 w-10 text-white" />,
-              title: "包容性与多样性",
+              title: "Inclusivity and Diversity",
               description:
-                "我们相信创造支持所有女性的解决方案，认可经验和需求的多样性。",
+                "We believe in creating solutions that support all women, recognizing the diversity of experiences and needs.",
               color: "from-[#167d83] to-[#0e5a5f]",
             },
             {
               icon: <Award className="h-10 w-10 text-white" />,
-              title: "创新与卓越",
+              title: "Innovation and Excellence",
               description:
-                "我们不断突破医疗技术的可能性边界，提供卓越的解决方案。",
+                "We constantly push the boundaries of what's possible in healthcare technology, delivering solutions of excellence.",
               color: "from-[#EE4C23] to-[#d43d18]",
             },
           ].map((value, index) => (
             <div key={index} className="perspective-1000">
               <div className="relative h-[400px] w-full transform-style-3d transition-transform duration-1000 hover:rotate-y-180">
-                {/* 卡片正面 */}
+                {/* Card front */}
                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl">
                   <div
                     className={`bg-gradient-to-br ${value.color} h-full w-full p-8 flex flex-col items-center justify-center text-center`}
@@ -53,13 +53,13 @@ export function OurValues() {
                   </div>
                 </div>
 
-                {/* 卡片背面 */}
+                {/* Card back */}
                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl rotate-y-180">
                   <div className="bg-white h-full w-full p-8 flex flex-col items-center justify-center text-center">
                     <h3 className="text-2xl font-bold text-[#2c3e50] mb-4">{value.title}</h3>
                     <p className="text-[#7f8c8d] mb-6">{value.description}</p>
                     <p className="text-[#7f8c8d] italic">
-                      "这一价值观指导我们的产品开发、客户服务和团队文化方法。"
+                      "This value guides our approach to product development, customer service, and team culture."
                     </p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ export function OurValues() {
         </div>
       </div>
       
-      {/* 波浪形分隔线 */}
+      {/* Wave separator */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

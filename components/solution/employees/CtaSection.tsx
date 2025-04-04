@@ -6,7 +6,7 @@ import { Users, Send, ChevronRight } from "lucide-react"
 export function CtaSection() {
   return (
     <section className="w-full py-16 md:py-24 bg-gradient-to-br from-primary-pale via-beige-light to-beige relative overflow-hidden">
-      {/* 背景装饰 */}
+      {/* Background decorations */}
       <div className="absolute top-0 right-0 opacity-10">
         <svg width="400" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="75" cy="25" r="60" stroke="currentColor" strokeWidth="0.5" />
@@ -25,9 +25,9 @@ export function CtaSection() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-charcoal">让我们一起提升女性健康福利</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-charcoal">Let's Enhance Women's Health Benefits Together</h2>
             <p className="text-slate max-w-2xl mx-auto text-lg">
-              通过Sanicle.cloud，您可以获得前所未有的健康支持和资源，改善您的工作生活平衡。
+              Through Sanicle.cloud, you can access unprecedented health support and resources to improve your work-life balance.
             </p>
           </div>
           
@@ -39,17 +39,17 @@ export function CtaSection() {
                     <Send className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-charcoal">立即注册</h3>
-                    <p className="text-slate text-sm">在几分钟内开始您的健康之旅</p>
+                    <h3 className="text-xl font-semibold text-charcoal">Sign Up Now</h3>
+                    <p className="text-slate text-sm">Start your health journey in minutes</p>
                   </div>
                 </div>
 
                 <p className="text-slate mb-6">
-                  如果您的雇主已经提供Sanicle.cloud作为福利，您可以立即注册并开始使用我们全面的健康服务。
+                  If your employer already offers Sanicle.cloud as a benefit, you can register immediately and start using our comprehensive health services.
                 </p>
 
                 <Button variant="default" className="w-full group">
-                  创建账户 <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Create Account <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
             </div>
@@ -61,24 +61,24 @@ export function CtaSection() {
                     <Users className="h-5 w-5 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-charcoal">向您的公司推荐</h3>
-                    <p className="text-slate text-sm">帮助所有员工获得更好的福利</p>
+                    <h3 className="text-xl font-semibold text-charcoal">Recommend to Your Company</h3>
+                    <p className="text-slate text-sm">Help all employees get better benefits</p>
                   </div>
                 </div>
 
                 <p className="text-slate mb-6">
-                  您的雇主尚未提供Sanicle.cloud福利？帮助我们联系您的人力资源部门，为您和您的同事争取这项重要的福利。
+                  Your employer doesn't offer Sanicle.cloud benefits yet? Help us connect with your HR department to secure this important benefit for you and your colleagues.
                 </p>
 
                 <Button variant="secondary" className="w-full group">
-                  发送推荐 <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Send Recommendation <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
             </div>
           </div>
           
           <div className="text-center mt-12 md:mt-16">
-            <p className="text-slate text-sm md:text-base mb-4">已受到全球众多企业的信任</p>
+            <p className="text-slate text-sm md:text-base mb-4">Trusted by companies worldwide</p>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
               <div className="h-8 w-20 bg-primary/10 rounded-md"></div>
               <div className="h-8 w-20 bg-primary/10 rounded-md"></div>

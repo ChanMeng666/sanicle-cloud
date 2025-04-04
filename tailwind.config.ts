@@ -57,12 +57,12 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // 功能色
+        // Functional colors
         success: "#2ecc71", // Success green
         warning: "#f1c40f", // Warning yellow
         error: "#e74c3c", // Error red
         info: "#3498db", // Info blue
-        // 新增更多背景色选项
+        // Additional background color options
         beige: {
           DEFAULT: "#fef6e9", // Warm Beige
           light: "#fffdf9",

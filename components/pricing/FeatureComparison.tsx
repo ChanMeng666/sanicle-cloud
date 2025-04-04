@@ -58,75 +58,75 @@ export function FeatureComparisonItem({
 export function FeatureComparison() {
   const features = [
     {
-      category: "平台功能",
+      category: "Platform Features",
       items: [
         {
-          feature: "月经健康跟踪",
+          feature: "Menstrual Health Tracking",
           starter: true,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "症状记录",
+          feature: "Symptom Recording",
           starter: true,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "健康教育资源",
+          feature: "Health Education Resources",
           starter: true,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "AI辅助健康预测",
+          feature: "AI-Assisted Health Predictions",
           starter: false,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "个性化健康建议",
+          feature: "Personalized Health Recommendations",
           starter: false,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "健康专家咨询",
+          feature: "Health Expert Consultation",
           starter: false,
-          professional: "限量",
-          enterprise: "无限",
+          professional: "Limited",
+          enterprise: "Unlimited",
         },
       ],
     },
     {
-      category: "管理功能",
+      category: "Management Features",
       items: [
         {
-          feature: "员工使用仪表板",
-          starter: "基础",
-          professional: "高级",
-          enterprise: "企业级",
+          feature: "Employee Usage Dashboard",
+          starter: "Basic",
+          professional: "Advanced",
+          enterprise: "Enterprise",
         },
         {
-          feature: "数据报告与分析",
-          starter: "基础",
-          professional: "高级",
-          enterprise: "自定义",
+          feature: "Data Reports & Analytics",
+          starter: "Basic",
+          professional: "Advanced",
+          enterprise: "Custom",
         },
         {
-          feature: "团队管理",
+          feature: "Team Management",
           starter: false,
           professional: true,
           enterprise: true,
         },
         {
-          feature: "API访问",
+          feature: "API Access",
           starter: false,
           professional: false,
           enterprise: true,
         },
         {
-          feature: "白标选项",
+          feature: "White-Label Options",
           starter: false,
           professional: false,
           enterprise: true,
@@ -134,28 +134,28 @@ export function FeatureComparison() {
       ],
     },
     {
-      category: "支持与服务",
+      category: "Support & Services",
       items: [
         {
-          feature: "电子邮件支持",
-          starter: "工作日",
+          feature: "Email Support",
+          starter: "Business Days",
           professional: "24/5",
           enterprise: "24/7",
         },
         {
-          feature: "电话支持",
+          feature: "Phone Support",
           starter: false,
-          professional: "工作日",
+          professional: "Business Days",
           enterprise: "24/7",
         },
         {
-          feature: "培训和入职指导",
-          starter: "自助",
-          professional: "远程",
-          enterprise: "现场",
+          feature: "Training and Onboarding",
+          starter: "Self-Service",
+          professional: "Remote",
+          enterprise: "On-Site",
         },
         {
-          feature: "专属客户经理",
+          feature: "Dedicated Account Manager",
           starter: false,
           professional: false,
           enterprise: true,
@@ -168,18 +168,18 @@ export function FeatureComparison() {
     <section className="w-full py-12 md:py-16 bg-[#f8f9fa]">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">特性比较</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Feature Comparison</h2>
           <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto">
-            详细比较各个价格计划所包含的功能，选择最适合您组织的选项。
+            Compare all features included in each pricing plan to choose the option that best fits your organization.
           </p>
         </div>
 
         <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-6xl mx-auto">
           <div className="grid grid-cols-4 bg-[#e6f5f6]/30 p-4">
-            <div className="text-[#2c3e50] font-semibold">特性</div>
-            <div className="text-center font-semibold text-[#2c3e50]">入门版</div>
-            <div className="text-center font-semibold text-[#2c3e50] bg-[#e6f5f6]/50 py-2 rounded">专业版</div>
-            <div className="text-center font-semibold text-[#2c3e50]">企业版</div>
+            <div className="text-[#2c3e50] font-semibold">Feature</div>
+            <div className="text-center font-semibold text-[#2c3e50]">Starter</div>
+            <div className="text-center font-semibold text-[#2c3e50] bg-[#e6f5f6]/50 py-2 rounded">Professional</div>
+            <div className="text-center font-semibold text-[#2c3e50]">Enterprise</div>
           </div>
 
           {features.map((featureGroup, groupIndex) => (

@@ -111,9 +111,9 @@
   }
 }
 
-/* 响应式断点 */
+/* Responsive breakpoints */
 @media (max-width: 640px) {
-  /* 移动端样式 */
+  /* Mobile styles */
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -164,7 +164,7 @@
   background-size: 20px 20px;
 }
 
-/* 六边形样式优化 */
+/* Hexagon style optimizations */
 .feature-hexagon {
   transition: transform 0.3s ease;
 }
@@ -191,7 +191,7 @@
   }
 }
 
-/* 旧的六边形样式，保留以兼容 */
+/* Legacy hexagon styles, kept for compatibility */
 .hexagon {
   position: relative;
   width: 100%;

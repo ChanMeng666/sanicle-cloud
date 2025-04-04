@@ -6,13 +6,13 @@ import { ArrowRight, Heart, Clock, Globe, ChevronDown, Star, Users } from "lucid
 export function AboutHero() {
   return (
     <section className="w-full relative overflow-hidden bg-gradient-to-br from-[#167d83]/95 via-[#167d83]/85 to-[#126e73]/80 py-16 sm:py-20 lg:py-28">
-      {/* 背景图案 - 提高质量和亮度 */}
+      {/* Background pattern - improve quality and brightness */}
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
       
-      {/* 背景纹理 */}
+      {/* Background texture */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMzFhMSAxIDAgMSAxIDAgMiAxIDEgMCAwIDEgMC0yem05LTE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnptMCAxNGExIDEgMCAxIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bS05IDE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnptLTkgMGExIDEgMCAxIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTAtMTRhMSAxIDAgMSAxIDAgMiAxIDEgMCAwIDEgMC0yem0wLTE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')] opacity-10"></div>
 
-      {/* 动画漂浮形状 - 增加数量和透明度变化 */}
+      {/* Animated floating shapes - increase quantity and opacity variations */}
       <div className="absolute top-[15%] left-[20%] w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-white/10 animate-float"></div>
       <div className="absolute bottom-[15%] right-[20%] w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-white/15 animate-float-delay"></div>
       <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-[#EE4C23]/10 animate-pulse"></div>
@@ -20,35 +20,35 @@ export function AboutHero() {
 
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
-          {/* 文本内容区域 - 更好的响应式排版 */}
+          {/* Text content area - better responsive typography */}
           <div className="lg:col-span-7 text-white">
             <div className="inline-flex items-center px-4 py-2 rounded-xl bg-white/20 backdrop-blur-md shadow-sm text-white text-sm font-medium mb-6 transform hover:scale-105 transition-transform duration-300">
-              <Heart className="h-4 w-4 mr-2 text-[#ff6b6b]" /> 我们的故事
+              <Heart className="h-4 w-4 mr-2 text-[#ff6b6b]" /> Our Story
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
-              改变 
+              Transforming 
               <span className="relative z-10 ml-2">
-                <span className="relative z-10">女性健康</span>
+                <span className="relative z-10">Women's Health</span>
                 <span className="absolute -bottom-2 left-0 w-full h-4 bg-[#EE4C23]/40 -z-10 skew-x-3"></span>
               </span> <br className="hidden sm:block" />
-              <span className="text-white/90 mt-2 block">在工作场所</span>
+              <span className="text-white/90 mt-2 block">in the Workplace</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-              Sanicle.cloud致力于通过创新的月经健康福利方案，彻底改变组织机构为女性健康提供支持的方式，构建更加包容和健康的工作环境。
+              Sanicle.cloud is dedicated to revolutionizing how organizations support women's health through innovative menstrual health benefit solutions, creating more inclusive and healthier work environments.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <Button size="lg" className="bg-[#EE4C23] hover:bg-[#d43d18] text-white font-medium px-6 py-6 rounded-xl transform hover:translate-y-[-2px] transition-all shadow-lg hover:shadow-xl">
-                我们的使命 <ArrowRight className="ml-2 h-4 w-4" />
+                Our Mission <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/15 font-medium px-6 py-6 rounded-xl backdrop-blur-sm transform hover:translate-y-[-2px] transition-all">
-                加入我们团队
+                Join Our Team
               </Button>
             </div>
             
-            {/* 添加信任徽章 */}
+            {/* Trust badges */}
             <div className="mt-12 flex items-center">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
@@ -62,36 +62,36 @@ export function AboutHero() {
               </div>
               <div className="ml-4">
                 <p className="text-xs sm:text-sm text-white/80">
-                  获得 <span className="font-semibold text-white">500+</span> 企业的信任
+                  Trusted by <span className="font-semibold text-white">500+</span> companies
                 </p>
               </div>
             </div>
           </div>
 
-          {/* 图片展示区域 - 响应式调整和视觉增强 */}
+          {/* Image showcase area - responsive adjustments and visual enhancements */}
           <div className="lg:col-span-5 relative mt-8 lg:mt-0">
             <div className="relative">
-              {/* 主图 - 增加响应式控制和视觉效果 */}
+              {/* Main image - increased responsive control and visual effects */}
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white/20 backdrop-blur-md mx-auto lg:mx-0 max-w-sm sm:max-w-md">
                 <img 
                   src="/placeholder.svg?height=600&width=500" 
-                  alt="多元化团队成员" 
+                  alt="Diverse team members" 
                   className="w-full object-cover"
                   loading="lazy"
                 />
-                {/* 图片叠加效果 */}
+                {/* Image overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#167d83]/40 to-transparent mix-blend-overlay"></div>
               </div>
 
-              {/* 悬浮信息卡片 - 增强视觉效果和响应式 */}
+              {/* Floating info cards - enhanced visual effects and responsiveness */}
               <div className="absolute top-0 -right-4 sm:-right-10 z-20 bg-white rounded-xl shadow-xl p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300 hidden sm:block">
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-3 shadow-inner">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">成立于2022年</p>
-                    <p className="text-sm text-[#7f8c8d]">由医疗专家创立</p>
+                    <p className="font-semibold text-[#2c3e50]">Founded in 2022</p>
+                    <p className="text-sm text-[#7f8c8d]">Created by medical experts</p>
                   </div>
                 </div>
               </div>
@@ -102,21 +102,21 @@ export function AboutHero() {
                     <Globe className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">全球影响力</p>
-                    <p className="text-sm text-[#7f8c8d]">改变工作环境</p>
+                    <p className="font-semibold text-[#2c3e50]">Global Impact</p>
+                    <p className="text-sm text-[#7f8c8d]">Transforming workplaces</p>
                   </div>
                 </div>
               </div>
               
-              {/* 增加一个数据卡片 */}
+              {/* Additional data card */}
               <div className="absolute top-1/2 -right-4 sm:-right-16 z-20 bg-white rounded-xl shadow-xl p-4 transform rotate-3 hover:rotate-0 transition-transform duration-300 hidden md:block">
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-[#f8e9fe] text-[#9c27b0] flex items-center justify-center mr-3 shadow-inner">
                     <Users className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2c3e50]">12万+</p>
-                    <p className="text-sm text-[#7f8c8d]">活跃用户</p>
+                    <p className="font-semibold text-[#2c3e50]">120k+</p>
+                    <p className="text-sm text-[#7f8c8d]">Active users</p>
                   </div>
                 </div>
               </div>
@@ -125,15 +125,15 @@ export function AboutHero() {
         </div>
       </div>
 
-      {/* 滚动指示器 - 视觉增强 */}
+      {/* Scroll indicator - visual enhancement */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white animate-bounce">
-        <p className="text-sm mb-2 font-light tracking-wider">向下滚动探索</p>
+        <p className="text-sm mb-2 font-light tracking-wider">Scroll to explore</p>
         <div className="w-8 h-12 rounded-full border-2 border-white/40 flex items-center justify-center">
           <ChevronDown className="h-5 w-5" />
         </div>
       </div>
       
-      {/* 波浪形分隔线 - 更加平滑的过渡 */}
+      {/* Wave divider - smoother transition */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

@@ -16,9 +16,9 @@ export function SuccessMessage() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/10 rounded-full animate-pulse-opacity" style={{ animationDelay: "1s" }}></div>
       </div>
       
-      <h3 className="text-2xl md:text-3xl font-bold text-charcoal mb-4">感谢您的请求！</h3>
+      <h3 className="text-2xl md:text-3xl font-bold text-charcoal mb-4">Thank You for Your Request!</h3>
       <p className="text-slate text-lg mb-8 max-w-md mx-auto">
-        我们已收到您的演示请求。我们的客户成功团队将在<span className="font-medium text-primary">24小时内</span>与您联系安排详细的演示。
+        We have received your demo request. Our customer success team will contact you within <span className="font-medium text-primary">24 hours</span> to arrange a detailed demonstration.
       </p>
 
       <Card variant="beige" className="mb-8 max-w-lg mx-auto">
@@ -27,10 +27,10 @@ export function SuccessMessage() {
             <div className="bg-secondary/20 h-10 w-10 rounded-lg flex items-center justify-center text-secondary mr-3">
               <Calendar className="h-5 w-5" />
             </div>
-            <span className="text-charcoal font-semibold">您的下一步</span>
+            <span className="text-charcoal font-semibold">Your Next Steps</span>
           </div>
           <p className="text-slate leading-relaxed">
-            请查看您的邮箱，您将收到一封确认邮件，其中包含一个日历邀请链接，您可以选择适合您的时间。
+            Please check your email. You will receive a confirmation email containing a calendar invite link where you can select a time that works for you.
           </p>
         </div>
       </Card>
@@ -39,19 +39,19 @@ export function SuccessMessage() {
         <Button asChild size="lg" variant="default" rounded="lg" className="shadow-lg">
           <Link href="/" className="flex items-center">
             <Home className="h-5 w-5 mr-2" />
-            返回首页
+            Return to Home
           </Link>
         </Button>
         <Button asChild size="lg" variant="soft" rounded="lg">
           <Link href="/resources" className="flex items-center">
             <Book className="h-5 w-5 mr-2" />
-            探索资源
+            Explore Resources
           </Link>
         </Button>
       </div>
       
       <div className="mt-8 text-sm text-slate/80 max-w-md mx-auto">
-        <p>如有任何问题，请联系我们的客户服务团队：<span className="text-primary">support@sanicle.cloud</span></p>
+        <p>If you have any questions, please contact our customer service team: <span className="text-primary">support@sanicle.cloud</span></p>
       </div>
     </div>
   )

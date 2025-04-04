@@ -12,21 +12,21 @@ export function MainNav() {
   const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   
-  // 监听滚动事件改变导航栏样式和设置CSS变量
+  // Listen for scroll events to change navbar style and set CSS variables
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      // 设置滚动偏移量作为CSS变量
+      // Set scroll offset as CSS variable
       document.documentElement.style.setProperty('--scroll-offset', `${window.scrollY}px`);
       
-      // 更新header高度
+      // Update header height
       if (headerRef.current) {
         const headerHeight = headerRef.current.offsetHeight;
         document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
       }
     }
     
-    // 初始设置header高度
+    // Initial header height setup
     if (headerRef.current) {
       const headerHeight = headerRef.current.offsetHeight;
       document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
@@ -41,7 +41,7 @@ export function MainNav() {
     }
   }, [])
 
-  // 导航项
+  // Navigation items
   const navItems = [
     {
       title: "Platform",
@@ -128,7 +128,7 @@ export function MainNav() {
     }
   ]
 
-  // 切换菜单
+  // Toggle menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     if (!isMenuOpen) {
@@ -138,7 +138,7 @@ export function MainNav() {
     }
   }
 
-  // 切换下拉菜单
+  // Toggle dropdown menu
   const toggleDropdown = (title: string) => {
     setActiveDropdown(activeDropdown === title ? null : title)
   }
@@ -209,7 +209,7 @@ export function MainNav() {
           </div>
         </div>
         
-        {/* 移动端菜单按钮 */}
+        {/* Mobile menu button */}
         <button
           className="lg:hidden ml-auto p-2 text-charcoal hover:text-primary focus:outline-none"
           onClick={toggleMenu}
@@ -223,7 +223,7 @@ export function MainNav() {
         </button>
       </div>
       
-      {/* 移动端菜单 - 修复全屏显示和滚动问题 */}
+      {/* Mobile menu - fixed full-screen display with scroll fix */}
       {isMenuOpen && (
         <div className="lg:hidden fixed left-0 right-0 top-0 z-40 bg-white shadow-lg overflow-y-auto h-[calc(100vh-var(--header-height,64px))]" style={{ top: 'var(--header-height, 64px)' }}>
           <div className="container px-4 py-6 pb-24">

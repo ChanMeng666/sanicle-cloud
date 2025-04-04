@@ -5,18 +5,18 @@ import { Button } from "@/components/ui/button"
 export function Testimonials() {
   const testimonials = [
     {
-      quote: "Sanicle.cloud已经改变了我们公司对女性健康福利的处理方式。该平台直观易用，我们的员工都很喜欢。自从实施该计划以来，我们的员工满意度和留任率都有了显著提高。",
+      quote: "Sanicle.cloud has transformed how our company handles women's health benefits. The platform is intuitive and user-friendly, and our employees love it. Since implementing this program, we have seen significant improvements in employee satisfaction and retention rates.",
       name: "Sarah Johnson",
-      title: "人力资源总监，Tech Solutions Inc.",
+      title: "HR Director, Tech Solutions Inc.",
       initials: "SJ",
       bgColor: "bg-[#fef6e9]",
       accentColor: "text-[#EE4C23]",
       avatarBg: "bg-[#167d83]",
     },
     {
-      quote: "对月经健康的全面处理方法显著改善了我们女性员工的工作场所健康状况，减少了缺勤率。",
+      quote: "The comprehensive approach to menstrual health has significantly improved workplace wellness for our female employees, reducing absenteeism.",
       name: "Michael Chen",
-      title: "福利经理，Global Enterprises",
+      title: "Benefits Manager, Global Enterprises",
       initials: "MC",
       bgColor: "bg-[#e6f5f6]",
       accentColor: "text-[#167d83]",
@@ -29,13 +29,13 @@ export function Testimonials() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">客户评价</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Customer Testimonials</h2>
             <p className="text-[#7f8c8d] mt-2">
-              听听那些通过Sanicle.cloud改变了工作场所的组织的声音。
+              Hear from organizations that have transformed their workplace through Sanicle.cloud.
             </p>
           </div>
           <Button variant="outline" className="mt-4 md:mt-0 border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6]">
-            查看所有评价
+            View All Testimonials
           </Button>
         </div>
 
@@ -81,7 +81,7 @@ export function Testimonials() {
           </div>
         </div>
       </div>
-      {/* 在Testimonials底部添加波浪形分隔线 */}
+      {/* Wave separator at the bottom of Testimonials */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

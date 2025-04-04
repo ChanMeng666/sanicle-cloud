@@ -32,7 +32,7 @@ export function DemoRequestForm() {
 
   return (
     <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-beige via-beige-light to-white relative overflow-hidden">
-      {/* 装饰背景元素 */}
+      {/* Decorative background elements */}
       <div className="absolute top-0 inset-x-0 h-32 bg-pattern-dots opacity-20"></div>
       <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/5 blur-xl"></div>
       <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-secondary/5 blur-xl"></div>
@@ -40,10 +40,10 @@ export function DemoRequestForm() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-            预约您的<span className="text-primary relative">专属演示<span className="absolute bottom-1 -z-10 left-0 w-full h-3 bg-primary/10"></span></span>
+            Book Your <span className="text-primary relative">Personalized Demo<span className="absolute bottom-1 -z-10 left-0 w-full h-3 bg-primary/10"></span></span>
           </h2>
           <p className="text-slate text-lg max-w-2xl mx-auto">
-            填写以下表单，我们的产品专家将尽快与您联系，安排一次个性化演示，展示我们的平台如何满足您的需求。
+            Fill out the form below, and our product experts will contact you promptly to arrange a personalized demonstration showcasing how our platform can meet your needs.
           </p>
         </div>
         
@@ -52,7 +52,7 @@ export function DemoRequestForm() {
             <Card variant={formSubmitted ? "gradient" : "default"} className="overflow-hidden border-primary/10">
               {!formSubmitted ? (
                 <>
-                  {/* 进度步骤 */}
+                  {/* Progress steps */}
                   <div className="bg-gradient-to-r from-beige to-white p-5 border-b border-primary/10">
                     <div className="flex justify-between">
                       {[1, 2, 3].map((i) => (
@@ -67,7 +67,7 @@ export function DemoRequestForm() {
                             {i}
                           </div>
                           <span className={`text-xs ${step >= i ? "text-primary font-medium" : "text-slate"}`}>
-                            {i === 1 ? "个人信息" : i === 2 ? "公司详情" : "您的偏好"}
+                            {i === 1 ? "Personal Info" : i === 2 ? "Company Details" : "Your Preferences"}
                           </span>
                         </div>
                       ))}
@@ -80,7 +80,7 @@ export function DemoRequestForm() {
                     </div>
                   </div>
 
-                  {/* 表单步骤 */}
+                  {/* Form steps */}
                   <form onSubmit={handleSubmit} className="p-6 md:p-8">
                     {step === 1 && <FormStep1 onNext={nextStep} />}
                     {step === 2 && <FormStep2 onNext={nextStep} onPrev={prevStep} />}
@@ -100,30 +100,30 @@ export function DemoRequestForm() {
                   <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
                     <Calendar className="h-5 w-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-charcoal">为什么选择演示？</h3>
+                  <h3 className="text-xl font-semibold text-charcoal">Why Choose a Demo?</h3>
                 </div>
                 
                 <ul className="space-y-5">
                   {[
                     {
                       icon: <Users className="h-5 w-5" />,
-                      text: "了解我们平台如何满足您的特定需求",
+                      text: "Understand how our platform can meet your specific needs",
                     },
                     {
                       icon: <ArrowRight className="h-5 w-5" />,
-                      text: "看到我们的服务和功能的实际操作",
+                      text: "See our services and features in action",
                     },
                     {
                       icon: <Building className="h-5 w-5" />,
-                      text: "了解实施过程和所需资源",
+                      text: "Learn about implementation process and required resources",
                     },
                     {
                       icon: <CheckCircle className="h-5 w-5" />,
-                      text: "提问并获得实时回答",
+                      text: "Ask questions and get real-time answers",
                     },
                     {
                       icon: <Clock className="h-5 w-5" />,
-                      text: "讨论价格和ROI分析",
+                      text: "Discuss pricing and ROI analysis",
                     },
                   ].map((point, i) => (
                     <li key={i} className="flex items-start group">
@@ -140,23 +140,23 @@ export function DemoRequestForm() {
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary-pale to-beige border border-primary/20 flex items-center justify-center mr-3">
                       <img
                         src="/placeholder.svg?height=40&width=40"
-                        alt="客户顾问"
+                        alt="Customer Advisor"
                         className="w-10 h-10 rounded-full"
                       />
                     </div>
                     <div>
-                      <p className="font-semibold text-charcoal">客户顾问</p>
-                      <p className="text-sm text-slate">产品专家</p>
+                      <p className="font-semibold text-charcoal">Customer Advisor</p>
+                      <p className="text-sm text-slate">Product Expert</p>
                     </div>
                   </div>
                   <Card variant="outline" className="p-4 border-primary/20">
                     <p className="text-sm text-slate italic">
-                      "我将亲自引导您了解我们的平台，并确保您获得所有必要的信息，以便评估我们的服务是否适合您的组织。"
+                      "I'll personally guide you through our platform and ensure you have all the necessary information to evaluate if our services are right for your organization."
                     </p>
                   </Card>
                   
                   <Button variant="soft" size="lg" className="w-full mt-4" rounded="lg">
-                    <span>查看客户评价</span>
+                    <span>View Customer Reviews</span>
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
                 </div>

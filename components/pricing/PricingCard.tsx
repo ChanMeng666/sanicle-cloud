@@ -31,7 +31,7 @@ export function PricingCard({
   features,
   buttonText,
   highlight = false,
-  highlightLabel = "最受欢迎",
+  highlightLabel = "Most Popular",
   color,
   saveText,
 }: PricingCardProps) {
@@ -56,7 +56,7 @@ export function PricingCard({
           <div className="mt-4 flex items-baseline">
             <DollarSign className={`h-6 w-6 text-[${color}]`} />
             <span className="text-4xl font-bold text-[#2c3e50]">{isAnnual ? price.annual : price.monthly}</span>
-            <span className="text-[#7f8c8d] ml-1">每位员工/月</span>
+            <span className="text-[#7f8c8d] ml-1">per employee/month</span>
           </div>
           {isAnnual && saveText && <div className="mt-1 text-sm text-[#EE4C23]">{saveText}</div>}
         </CardHeader>

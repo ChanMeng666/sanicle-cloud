@@ -51,21 +51,21 @@ export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => voi
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-4">
-            灵活的价格选项
+            Flexible Pricing Options
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2c3e50] mb-6">
-            简单透明的价格
+            Simple Transparent Pricing
           </h1>
 
           <p className="text-lg md:text-xl text-[#7f8c8d] mb-8 max-w-2xl mx-auto">
-            选择最适合您组织规模和需求的计划。所有计划均包含我们的核心月经健康福利平台。
+            Choose the plan that best fits your organization's size and needs. All plans include our core menstrual health benefits platform.
           </p>
 
           <PricingToggle onToggle={onToggle} />
         </div>
       </div>
-      {/* 在Hero Section底部添加波浪形分隔线 */}
+      {/* Wave divider at the bottom of Hero Section */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

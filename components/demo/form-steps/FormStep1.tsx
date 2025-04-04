@@ -16,16 +16,16 @@ export function FormStep1({ onNext }: FormStep1Props) {
         <span className="w-8 h-8 rounded-full bg-[#e6f5f6] flex items-center justify-center mr-3 text-[#167d83]">
           <User className="h-4 w-4" />
         </span>
-        您的信息
+        Your Information
       </h2>
       
       <div className="grid md:grid-cols-2 gap-5">
         <div className="space-y-2">
-          <Label htmlFor="firstName" className="text-[#5d6b78] font-medium">名字</Label>
+          <Label htmlFor="firstName" className="text-[#5d6b78] font-medium">First Name</Label>
           <div className="relative">
             <Input 
               id="firstName" 
-              placeholder="输入您的名字" 
+              placeholder="Enter your first name" 
               required 
               className="pl-10 border-gray-200 focus:border-[#167d83] focus:ring-[#167d83] rounded-lg" 
             />
@@ -35,11 +35,11 @@ export function FormStep1({ onNext }: FormStep1Props) {
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="lastName" className="text-[#5d6b78] font-medium">姓氏</Label>
+          <Label htmlFor="lastName" className="text-[#5d6b78] font-medium">Last Name</Label>
           <div className="relative">
             <Input 
               id="lastName" 
-              placeholder="输入您的姓氏" 
+              placeholder="Enter your last name" 
               required 
               className="pl-10 border-gray-200 focus:border-[#167d83] focus:ring-[#167d83] rounded-lg" 
             />
@@ -51,7 +51,7 @@ export function FormStep1({ onNext }: FormStep1Props) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-[#5d6b78] font-medium">工作邮箱</Label>
+        <Label htmlFor="email" className="text-[#5d6b78] font-medium">Work Email</Label>
         <div className="relative">
           <Input 
             id="email" 
@@ -67,11 +67,11 @@ export function FormStep1({ onNext }: FormStep1Props) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone" className="text-[#5d6b78] font-medium">电话号码</Label>
+        <Label htmlFor="phone" className="text-[#5d6b78] font-medium">Phone Number</Label>
         <div className="relative">
           <Input 
             id="phone" 
-            placeholder="您的电话号码" 
+            placeholder="Your phone number" 
             className="pl-10 border-gray-200 focus:border-[#167d83] focus:ring-[#167d83] rounded-lg" 
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -86,7 +86,7 @@ export function FormStep1({ onNext }: FormStep1Props) {
           onClick={onNext}
           className="bg-gradient-to-r from-[#167d83] to-[#22c0c7] hover:from-[#0e5a5f] hover:to-[#17a0a6] text-white px-6 py-2.5 h-auto rounded-lg"
         >
-          下一步 <ArrowRight className="ml-2 h-4 w-4" />
+          Next <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </div>

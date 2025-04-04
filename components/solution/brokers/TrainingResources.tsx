@@ -8,11 +8,11 @@ export function TrainingResources() {
       <div className="container px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
           <span className="inline-block px-4 py-1.5 bg-[#fef6e9] text-[#EE4C23] text-xs md:text-sm font-medium rounded-full mb-3 shadow-sm">
-            合作伙伴资源
+            Partner Resources
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#2c3e50] mb-3">培训和支持</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#2c3e50] mb-3">Training and Support</h2>
           <p className="text-[#7f8c8d] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            我们提供全面的资源和培训，确保您拥有成功所需的一切。
+            We provide comprehensive resources and training to ensure you have everything needed for success.
           </p>
         </div>
 
@@ -25,16 +25,16 @@ export function TrainingResources() {
                   <FileText className="h-8 w-8 text-[#167d83]" />
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">销售工具包</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">Sales Toolkit</h3>
               <p className="text-[#7f8c8d] text-center mb-6 text-sm md:text-base leading-relaxed">
-                获取您需要的所有资源，向您的客户有效地展示和销售Sanicle.cloud。
+                Get all the resources you need to effectively present and sell Sanicle.cloud to your clients.
               </p>
               <div className="space-y-3">
                 {[
-                  "销售演示和脚本",
-                  "客户提案模板",
-                  "常见问题解答和反对意见处理",
-                  "竞争性定位指南",
+                  "Sales presentations and scripts",
+                  "Client proposal templates",
+                  "FAQs and objection handling",
+                  "Competitive positioning guide",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#167d83] mr-3"></div>
@@ -53,16 +53,16 @@ export function TrainingResources() {
                   <BookOpen className="h-8 w-8 text-[#EE4C23]" />
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">学习中心</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">Learning Center</h3>
               <p className="text-[#7f8c8d] text-center mb-6 text-sm md:text-base leading-relaxed">
-                通过我们丰富的培训资源和认证计划提升您的专业知识。
+                Enhance your expertise through our rich training resources and certification programs.
               </p>
               <div className="space-y-3">
                 {[
-                  "在线课程和网络研讨会",
-                  "合作伙伴认证计划",
-                  "产品知识培训",
-                  "行业趋势和洞察",
+                  "Online courses and webinars",
+                  "Partner certification program",
+                  "Product knowledge training",
+                  "Industry trends and insights",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#EE4C23] mr-3"></div>
@@ -81,16 +81,16 @@ export function TrainingResources() {
                   <Briefcase className="h-8 w-8 text-[#167d83]" />
                 </div>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">业务支持</h3>
+              <h3 className="text-lg md:text-xl font-semibold text-[#2c3e50] text-center mb-4">Business Support</h3>
               <p className="text-[#7f8c8d] text-center mb-6 text-sm md:text-base leading-relaxed">
-                获得专业的业务和技术支持，以确保您和您的客户的成功。
+                Get professional business and technical support to ensure success for you and your clients.
               </p>
               <div className="space-y-3">
                 {[
-                  "专属合作伙伴经理",
-                  "客户实施协助",
-                  "营销和共同品牌支持",
-                  "自动化报告和佣金跟踪",
+                  "Dedicated partner manager",
+                  "Client implementation assistance",
+                  "Marketing and co-branding support",
+                  "Automated reporting and commission tracking",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-[#167d83] mr-3"></div>

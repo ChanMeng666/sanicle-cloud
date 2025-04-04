@@ -7,10 +7,10 @@ import Link from "next/link"
 export function HeroSection() {
   return (
     <section className="w-full py-24 md:py-32 relative overflow-hidden bg-beige">
-      {/* 装饰背景 */}
+      {/* Background decoration */}
       <div className="absolute inset-0 pattern-dots opacity-30"></div>
 
-      {/* 圆形装饰 */}
+      {/* Circular decorations */}
       <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary/10"></div>
       <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-secondary/10"></div>
       
@@ -19,26 +19,26 @@ export function HeroSection() {
           <div className="md:col-span-7 space-y-6">
             <div className="bg-primary/10 text-primary rounded-full px-4 py-2 inline-flex items-center gap-2 font-medium">
               <CheckCircle className="h-5 w-5" />
-              企业级解决方案
+              Enterprise Solutions
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal leading-tight">
-              为您的业务提供<span className="text-primary relative">
-                量身定制
+              Cloud services <span className="text-primary relative">
+                tailored
                 <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary/20 -z-10"></span>
-              </span>的云服务
+              </span> for your business
             </h1>
             
             <p className="text-slate text-lg md:text-xl max-w-2xl">
-              我们提供专业的云端解决方案，满足不同行业和规模企业的需求，帮助您加速数字化转型，提升业务效率。
+              We provide professional cloud solutions that meet the needs of businesses across different industries and scales, helping you accelerate digital transformation and improve operational efficiency.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild size="lg" variant="default" rounded="lg" className="shadow-lg">
-                <Link href="/demo">免费体验 <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                <Link href="/demo">Free Trial <ArrowRight className="ml-2 h-5 w-5" /></Link>
               </Button>
               <Button asChild size="lg" variant="soft" rounded="lg">
-                <Link href="/pricing">查看方案与定价</Link>
+                <Link href="/pricing">View Plans & Pricing</Link>
               </Button>
             </div>
 
@@ -48,7 +48,7 @@ export function HeroSection() {
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="font-semibold text-charcoal">500+</h3>
-                <p className="text-sm text-slate">企业用户信赖</p>
+                <p className="text-sm text-slate">Trusted by Businesses</p>
               </div>
               
               <div className="bg-white rounded-xl p-4 shadow-sm border border-primary/10">
@@ -56,15 +56,15 @@ export function HeroSection() {
                   <BarChart className="h-5 w-5 text-secondary" />
                 </div>
                 <h3 className="font-semibold text-charcoal">99.9%</h3>
-                <p className="text-sm text-slate">服务可用性</p>
+                <p className="text-sm text-slate">Service Availability</p>
               </div>
               
               <div className="hidden md:block bg-white rounded-xl p-4 shadow-sm border border-primary/10">
                 <div className="w-10 h-10 rounded-full bg-beige-dark flex items-center justify-center mb-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-charcoal">定制化</h3>
-                <p className="text-sm text-slate">灵活配置方案</p>
+                <h3 className="font-semibold text-charcoal">Customizable</h3>
+                <p className="text-sm text-slate">Flexible Configuration</p>
               </div>
             </div>
           </div>
@@ -72,7 +72,7 @@ export function HeroSection() {
           <div className="md:col-span-5 relative">
             <div className="relative z-10 bg-white rounded-xl shadow-xl p-6 border border-primary/5 transform hover:-rotate-1 transition-transform duration-300">
               <div className="absolute -top-6 -right-6 bg-primary text-white rounded-lg py-2 px-4 shadow-lg">
-                企业解决方案
+                Business Solutions
               </div>
               
               <div className="space-y-4">
@@ -81,8 +81,8 @@ export function HeroSection() {
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">需求分析</h3>
-                    <p className="text-sm text-slate">根据您的业务需求提供专业咨询</p>
+                    <h3 className="font-semibold text-charcoal">Needs Analysis</h3>
+                    <p className="text-sm text-slate">Professional consultation based on your business needs</p>
                   </div>
                 </div>
                 
@@ -95,8 +95,8 @@ export function HeroSection() {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">方案设计</h3>
-                    <p className="text-sm text-slate">为您量身定制完整解决方案</p>
+                    <h3 className="font-semibold text-charcoal">Solution Design</h3>
+                    <p className="text-sm text-slate">Custom-tailored complete solution for you</p>
                   </div>
                 </div>
                 
@@ -109,8 +109,8 @@ export function HeroSection() {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">实施部署</h3>
-                    <p className="text-sm text-slate">专业团队高效实施和部署</p>
+                    <h3 className="font-semibold text-charcoal">Implementation</h3>
+                    <p className="text-sm text-slate">Efficient implementation by professional team</p>
                   </div>
                 </div>
                 
@@ -123,8 +123,8 @@ export function HeroSection() {
                     4
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">运维支持</h3>
-                    <p className="text-sm text-slate">7x24小时全天候技术支持</p>
+                    <h3 className="font-semibold text-charcoal">Support</h3>
+                    <p className="text-sm text-slate">24/7 technical support</p>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export function HeroSection() {
         </div>
       </div>
       
-      {/* 波浪形底部 */}
+      {/* Wave bottom */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

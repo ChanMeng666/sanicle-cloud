@@ -35,8 +35,8 @@ export function HowItWorks() {
       <div className="absolute inset-0 bg-primary/5 pattern-dots"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-primary-pale text-primary text-sm font-medium mb-3">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block px-3 py-1 rounded-full bg-beige text-secondary text-sm font-medium mb-3">
             Simple Process
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-2 md:mb-4">How Sanicle.cloud Works</h2>
@@ -46,9 +46,9 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* 创新的步骤图 - 适配移动端和桌面端 */}
+        {/* Innovative step diagram - responsive for mobile and desktop */}
         <div className="relative max-w-5xl mx-auto">
-          {/* 连接线 - 桌面端水平，移动端垂直 */}
+          {/* Connection lines - horizontal on desktop, vertical on mobile */}
           <div className="hidden md:block absolute left-1/2 top-1/2 w-[80%] h-1 bg-primary-pale transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
           <div className="md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-1 bg-primary-pale transform -translate-x-1/2 rounded-full"></div>
 
@@ -76,7 +76,7 @@ export function HowItWorks() {
           </div>
         </div>
         
-        {/* 移动端特殊按钮 */}
+        {/* Special button for mobile devices */}
         <div className="mt-12 text-center md:hidden">
           <a href="/platform/overview" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full shadow-button hover:shadow-button-hover transition-all duration-300">
             Learn more about our platform

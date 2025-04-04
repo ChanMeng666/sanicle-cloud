@@ -7,26 +7,26 @@ export function ImplementationProcess() {
   const steps = [
     {
       step: 1,
-      title: "初步咨询",
-      description: "我们将讨论您的具体需求，为您的组织量身定制解决方案。",
+      title: "Initial Consultation",
+      description: "We'll discuss your specific needs and tailor solutions for your organization.",
       icon: <Briefcase className="h-6 w-6 text-white" />,
     },
     {
       step: 2,
-      title: "方案选择",
-      description: "从我们灵活的方案中选择，找到最适合您的预算和员工的完美选择。",
+      title: "Plan Selection",
+      description: "Choose from our flexible plans to find the perfect option for your budget and employees.",
       icon: <Building className="h-6 w-6 text-white" />,
     },
     {
       step: 3,
-      title: "员工注册",
-      description: "我们提供所有必要的材料，向您的员工介绍这项福利。",
+      title: "Employee Enrollment",
+      description: "We provide all necessary materials to introduce this benefit to your employees.",
       icon: <Users className="h-6 w-6 text-white" />,
     },
     {
       step: 4,
-      title: "持续支持",
-      description: "我们的团队提供持续的支持和定期的使用报告。",
+      title: "Ongoing Support",
+      description: "Our team provides continuous support and regular usage reports.",
       icon: <Award className="h-6 w-6 text-white" />,
     },
   ]
@@ -39,11 +39,11 @@ export function ImplementationProcess() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 bg-[#e6f5f6] text-[#167d83] text-sm font-medium rounded-full mb-3">
-            实施流程
+            Implementation Process
           </span>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">简单的实施流程</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Simple Implementation Process</h2>
           <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto">
-            只需几个简单的步骤，即可开始使用Sanicle.cloud。
+            Start using Sanicle.cloud with just a few simple steps.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export function ImplementationProcess() {
           ))}
         </div>
       </div>
-      {/* 在Implementation Process底部添加波浪形分隔线 */}
+      {/* Wave separator at the bottom of Implementation Process */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

@@ -6,50 +6,50 @@ export function FeaturesSection() {
   const features = [
     {
       icon: <Smartphone className="h-8 w-8 text-white" />,
-      title: "移动应用",
+      title: "Mobile Application",
       description:
-        "用户友好的移动应用程序，供员工跟踪和管理他们的月经健康。",
-      features: ["直观的周期跟踪", "个性化见解", "教育资源"],
+        "User-friendly mobile application for employees to track and manage their menstrual health.",
+      features: ["Intuitive Cycle Tracking", "Personalized Insights", "Educational Resources"],
       color: "bg-[#167d83]",
     },
     {
       icon: <Zap className="h-8 w-8 text-white" />,
-      title: "AI驱动的洞察",
+      title: "AI-Driven Insights",
       description:
-        "先进的分析和机器学习，提供个性化的健康建议。",
-      features: ["模式识别", "个性化推荐", "预测分析"],
+        "Advanced analytics and machine learning providing personalized health recommendations.",
+      features: ["Pattern Recognition", "Personalized Recommendations", "Predictive Analytics"],
       color: "bg-[#EE4C23]",
     },
     {
       icon: <Shield className="h-8 w-8 text-white" />,
-      title: "隐私控制",
-      description: "全面的隐私设置，让用户控制自己的健康数据。",
-      features: ["细粒度共享控制", "数据导出选项", "匿名洞察"],
+      title: "Privacy Controls",
+      description: "Comprehensive privacy settings giving users control over their health data.",
+      features: ["Granular Sharing Controls", "Data Export Options", "Anonymous Insights"],
       color: "bg-[#167d83]",
     },
   ]
 
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden">
-      {/* 背景装饰 */}
+      {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-bl-[100px] z-0"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-tr-[100px] z-0"></div>
       
-      {/* 浮动装饰元素 */}
+      {/* Floating decorative elements */}
       <div className="hidden md:block absolute top-1/4 right-10 h-16 w-16 bg-[#167d83]/10 rounded-full animate-float"></div>
       <div className="hidden md:block absolute bottom-1/4 left-10 h-20 w-20 bg-[#EE4C23]/10 rounded-full animate-float animation-delay-1000"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">
-            平台<span className="text-[#167d83]">功能</span>
+            Platform <span className="text-[#167d83]">Features</span>
           </h2>
           <p className="text-[#7f8c8d] text-base sm:text-lg max-w-2xl mx-auto">
-            探索我们全面的平台功能，为女性员工提供全方位的健康支持。
+            Explore our comprehensive platform features providing all-round health support for female employees.
           </p>
         </div>
 
-        {/* 标签切换 */}
+        {/* Tab switching */}
         <div className="features-showcase max-w-6xl mx-auto">
           <div className="feature-content">
             <div className="feature-panel active">
@@ -90,10 +90,10 @@ export function FeaturesSection() {
           </div>
         </div>
         
-        {/* 后续功能预告 */}
+        {/* Upcoming features teaser */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#f8f9fa] text-[#167d83] text-sm font-medium">
-            <span className="mr-2">🚀</span> 更多功能即将推出
+            <span className="mr-2">🚀</span> More features coming soon
           </div>
         </div>
       </div>

@@ -17,48 +17,48 @@ export function BenefitsSection() {
   const benefits = [
     {
       icon: <HeartPulse className="h-6 w-6 text-[#EE4C23]" />,
-      title: "全面医疗保险",
-      description: "包括健康、牙科和视力保险，以及专门的生殖和女性健康福利。",
+      title: "Comprehensive Health Insurance",
+      description: "Includes health, dental, and vision insurance, with specialized reproductive and women's health benefits.",
     },
     {
       icon: <Laptop className="h-6 w-6 text-[#EE4C23]" />,
-      title: "远程工作灵活性",
-      description: "混合工作环境，支持在家和办公室工作的平衡。",
+      title: "Remote Work Flexibility",
+      description: "Hybrid work environment supporting a balance of home and office work.",
     },
     {
       icon: <GraduationCap className="h-6 w-6 text-[#EE4C23]" />,
-      title: "持续学习预算",
-      description: "年度学习预算，用于课程、研讨会和专业发展。",
+      title: "Continuous Learning Budget",
+      description: "Annual learning budget for courses, workshops, and professional development.",
     },
     {
       icon: <CalendarDays className="h-6 w-6 text-[#EE4C23]" />,
-      title: "无限带薪休假",
-      description: "灵活的休假政策，让你可以在需要时休息和恢复活力。",
+      title: "Unlimited Paid Time Off",
+      description: "Flexible vacation policy allowing you to rest and recharge when needed.",
     },
     {
       icon: <PiggyBank className="h-6 w-6 text-[#EE4C23]" />,
-      title: "有竞争力的薪酬",
-      description: "与行业标准相当的薪酬，以及员工股权激励计划。",
+      title: "Competitive Compensation",
+      description: "Compensation comparable to industry standards, with employee equity incentive plans.",
     },
     {
       icon: <Bike className="h-6 w-6 text-[#EE4C23]" />,
-      title: "健康与福利",
-      description: "健身房会员资格补贴，以及身心健康应用程序订阅。",
+      title: "Health and Wellness",
+      description: "Gym membership subsidies and subscriptions to mental wellness applications.",
     },
     {
       icon: <Leaf className="h-6 w-6 text-[#EE4C23]" />,
-      title: "带薪志愿服务",
-      description: "每年有带薪志愿服务时间，用于支持你关心的事业。",
+      title: "Paid Volunteer Time",
+      description: "Annual paid volunteer hours to support causes you care about.",
     },
     {
       icon: <Baby className="h-6 w-6 text-[#EE4C23]" />,
-      title: "育儿假福利",
-      description: "慷慨的带薪产假和陪产假政策，支持新父母。",
+      title: "Parental Leave Benefits",
+      description: "Generous paid maternity and paternity leave policies supporting new parents.",
     },
     {
       icon: <Globe className="h-6 w-6 text-[#EE4C23]" />,
-      title: "年度团队旅行",
-      description: "公司资助的旅行，促进团队联系和文化交流。",
+      title: "Annual Team Retreats",
+      description: "Company-sponsored retreats to foster team connections and cultural exchange.",
     },
   ]
 
@@ -67,20 +67,20 @@ export function BenefitsSection() {
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#fff0eb] text-[#EE4C23] text-sm font-medium mb-6">
-            员工福利
+            Employee Benefits
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold text-[#2c3e50] tracking-tight mb-6">
-            我们为员工提供的
+            Our Employee
             <span className="relative inline-block mx-2">
-              福利
+              Benefits
               <span className="absolute bottom-2 left-0 w-full h-3 bg-[#167d83]/20 -rotate-1 rounded"></span>
             </span>
-            超乎想象
+            Go Beyond Expectations
           </h2>
           
           <p className="text-lg text-[#7f8c8d] max-w-2xl mx-auto leading-relaxed">
-            在Sanicle.cloud，我们理解员工的健康和幸福对于个人和组织成功的重要性。我们提供全面的福利和津贴，支持您的整体健康、个人成长和职业发展。
+            At Sanicle.cloud, we understand the importance of employee health and happiness for both personal and organizational success. We offer comprehensive benefits and allowances supporting your overall wellbeing, personal growth, and career development.
           </p>
         </div>
 
@@ -113,17 +113,17 @@ export function BenefitsSection() {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#167d83] to-[#0e5a5f]"></div>
             
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">您准备好加入我们了吗？</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Are You Ready to Join Us?</h3>
               <p className="text-white/80 mb-8 max-w-xl mx-auto">
-                浏览当前的职位空缺，找到适合您技能和激情的理想工作。
+                Browse our current job openings to find the ideal position that matches your skills and passion.
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button size="lg" className="bg-white text-[#167d83] hover:bg-gray-100 shadow-lg">
-                  浏览职位
+                  Browse Positions
                 </Button>
                 <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                  了解更多福利
+                  Learn More About Benefits
                 </Button>
               </div>
             </div>

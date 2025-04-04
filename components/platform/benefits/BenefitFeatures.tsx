@@ -10,31 +10,31 @@ export function BenefitFeatures() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
             <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
-              全面覆盖
+              Comprehensive Coverage
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#2c3e50] mb-3">探索我们的福利</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#2c3e50] mb-3">Explore Our Benefits</h2>
             <p className="text-[#7f8c8d] mt-2 max-w-2xl mx-auto text-sm md:text-base">
-              点击每项福利，了解更多关于我们平台如何在工作场所支持月经健康的信息。
+              Click on each benefit to learn more about how our platform supports menstrual health in the workplace.
             </p>
           </div>
 
           <div className="space-y-4 md:space-y-6">
             <BenefitAccordion
-              title="高级周期追踪"
+              title="Advanced Cycle Tracking"
               icon={<Calendar className="h-5 w-5" />}
               defaultOpen={true}
             >
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <p className="text-[#7f8c8d] mb-4 text-sm md:text-base">
-                    我们的平台提供先进的周期追踪功能，配合AI驱动的洞察，帮助员工了解自己的月经模式并预测即将到来的周期。
+                    Our platform offers advanced cycle tracking features coupled with AI-driven insights to help employees understand their menstrual patterns and predict upcoming cycles.
                   </p>
                   <ul className="space-y-2 md:space-y-3">
                     {[
-                      "个性化周期预测",
-                      "症状追踪和分析",
-                      "模式识别以获取健康洞察",
-                      "私密和安全的数据存储",
+                      "Personalized cycle predictions",
+                      "Symptom tracking and analysis",
+                      "Pattern recognition for health insights",
+                      "Private and secure data storage",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -47,33 +47,33 @@ export function BenefitFeatures() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#167d83] to-[#22c0c7] rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
                     src="/placeholder.svg?height=300&width=300"
-                    alt="周期追踪界面"
+                    alt="Cycle tracking interface"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
                 </div>
               </div>
             </BenefitAccordion>
 
-            <BenefitAccordion title="月经产品获取" icon={<Gift className="h-5 w-5" />}>
+            <BenefitAccordion title="Menstrual Product Access" icon={<Gift className="h-5 w-5" />}>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div className="order-2 md:order-1 relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#EE4C23] to-[#ff6347] rounded-lg opacity-10 blur-lg transform -rotate-2"></div>
                   <img
                     src="/placeholder.svg?height=300&width=300"
-                    alt="月经产品"
+                    alt="Menstrual products"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
                 </div>
                 <div className="order-1 md:order-2">
                   <p className="text-[#7f8c8d] mb-4 text-sm md:text-base">
-                    员工可以通过我们的平台获取各种月经产品，提供灵活的津贴和配送选项。
+                    Employees can access various menstrual products through our platform, with flexible allowance and delivery options.
                   </p>
                   <ul className="space-y-2 md:space-y-3">
                     {[
-                      "每月产品津贴",
-                      "多种产品选择",
-                      "环保替代品",
-                      "便捷的家庭或办公室配送",
+                      "Monthly product allowance",
+                      "Multiple product options",
+                      "Eco-friendly alternatives",
+                      "Convenient home or office delivery",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -85,18 +85,18 @@ export function BenefitFeatures() {
               </div>
             </BenefitAccordion>
 
-            <BenefitAccordion title="教育资源" icon={<BookOpen className="h-5 w-5" />}>
+            <BenefitAccordion title="Educational Resources" icon={<BookOpen className="h-5 w-5" />}>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <p className="text-[#7f8c8d] mb-4 text-sm md:text-base">
-                    我们的平台提供全面的月经健康、荷尔蒙疾病和工作场所调适的教育资源。
+                    Our platform provides comprehensive educational resources on menstrual health, hormonal conditions, and workplace accommodations.
                   </p>
                   <ul className="space-y-2 md:space-y-3">
                     {[
-                      "专家审核的文章和指南",
-                      "视频教程和网络研讨会",
-                      "特定疾病信息（PCOS、子宫内膜异位症等）",
-                      "工作场所调适资源",
+                      "Expert-reviewed articles and guides",
+                      "Video tutorials and webinars",
+                      "Condition-specific information (PCOS, endometriosis, etc.)",
+                      "Workplace accommodation resources",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -109,33 +109,33 @@ export function BenefitFeatures() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#167d83] to-[#22c0c7] rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
                     src="/placeholder.svg?height=300&width=300"
-                    alt="教育资源"
+                    alt="Educational resources"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
                 </div>
               </div>
             </BenefitAccordion>
 
-            <BenefitAccordion title="专家支持" icon={<Users className="h-5 w-5" />}>
+            <BenefitAccordion title="Expert Support" icon={<Users className="h-5 w-5" />}>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div className="order-2 md:order-1 relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#EE4C23] to-[#ff6347] rounded-lg opacity-10 blur-lg transform -rotate-2"></div>
                   <img
                     src="/placeholder.svg?height=300&width=300"
-                    alt="专家支持"
+                    alt="Expert support"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
                 </div>
                 <div className="order-1 md:order-2">
                   <p className="text-[#7f8c8d] mb-4 text-sm md:text-base">
-                    员工可以获取月经健康问题的专家支持，包括与医疗专业人士的咨询。
+                    Employees can access expert support for menstrual health issues, including consultations with healthcare professionals.
                   </p>
                   <ul className="space-y-2 md:space-y-3">
                     {[
-                      "与医疗提供者的虚拟咨询",
-                      "快速问题的聊天支持",
-                      "个性化建议",
-                      "需要时转介给专科医生",
+                      "Virtual consultations with healthcare providers",
+                      "Chat support for quick questions",
+                      "Personalized recommendations",
+                      "Referrals to specialists when needed",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -147,20 +147,20 @@ export function BenefitFeatures() {
               </div>
             </BenefitAccordion>
 
-            <BenefitAccordion title="隐私与安全" icon={<Shield className="h-5 w-5" />}>
+            <BenefitAccordion title="Privacy and Security" icon={<Shield className="h-5 w-5" />}>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <p className="text-[#7f8c8d] mb-4 text-sm md:text-base">
-                    您的健康数据在我们符合HIPAA标准的平台上保持私密和安全。
+                    Your health data remains private and secure on our HIPAA-compliant platform.
                   </p>
                   <ul className="space-y-2 md:space-y-3">
                     {[
-                      "符合HIPAA标准，提供最大保护",
-                      "未经同意不共享雇主数据",
-                      "带加密的安全云存储",
-                      "在征得同意的情况下匿名数据用于洞察",
-                      "多因素身份验证以确保安全访问",
-                      "用户可控制数据访问、编辑和删除",
+                      "HIPAA-compliant for maximum protection",
+                      "No employer data sharing without consent",
+                      "Secure cloud storage with encryption",
+                      "Anonymous data for insights only with consent",
+                      "Multi-factor authentication for secure access",
+                      "User control over data access, editing, and deletion",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -173,7 +173,7 @@ export function BenefitFeatures() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#167d83] to-[#22c0c7] rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
                     src="/placeholder.svg?height=300&width=300"
-                    alt="隐私和安全"
+                    alt="Privacy and security"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
                 </div>

@@ -13,10 +13,10 @@ export function JobSearchSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] tracking-tight mb-4">
-              寻找你的理想职位
+              Find Your Ideal Position
             </h2>
             <p className="text-[#7f8c8d] mt-3 max-w-2xl mx-auto text-lg">
-              探索我们各部门和地点的开放职位
+              Explore open positions across our departments and locations
             </p>
           </div>
 
@@ -26,7 +26,7 @@ export function JobSearchSection() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#7f8c8d] h-4 w-4" />
                 <input
                   type="text"
-                  placeholder="搜索职位..."
+                  placeholder="Search positions..."
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#167d83] focus:border-transparent text-sm"
                 />
               </div>
@@ -37,28 +37,28 @@ export function JobSearchSection() {
                 onClick={() => setFiltersVisible(!filtersVisible)}
               >
                 {filtersVisible ? <X className="h-4 w-4" /> : <Filter className="h-4 w-4" />}
-                {filtersVisible ? "关闭" : "筛选"}
+                {filtersVisible ? "Close" : "Filter"}
               </Button>
             </div>
 
             <div className="grid md:grid-cols-5">
-              {/* 筛选侧边栏 - 在移动端可切换显示 */}
+              {/* Filter sidebar - toggleable on mobile */}
               <div className={`${filtersVisible ? 'block' : 'hidden'} md:block md:col-span-2 bg-[#f8f9fa] p-6 border-r border-gray-200`}>
                 <div className="hidden md:block mb-6">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#7f8c8d] h-4 w-4" />
                     <input
                       type="text"
-                      placeholder="搜索职位..."
+                      placeholder="Search positions..."
                       className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#167d83] focus:border-transparent"
                     />
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">部门</h3>
+                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">Department</h3>
                   <div className="space-y-3">
-                    {["所有部门", "工程", "产品", "市场营销", "运营", "人力资源", "设计"].map(
+                    {["All Departments", "Engineering", "Product", "Marketing", "Operations", "HR", "Design"].map(
                       (dept, index) => (
                         <div key={index} className="flex items-center">
                           <input
@@ -77,9 +77,9 @@ export function JobSearchSection() {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">地点</h3>
+                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">Location</h3>
                   <div className="space-y-3">
-                    {["所有地点", "远程", "纽约市", "旧金山", "伦敦"].map(
+                    {["All Locations", "Remote", "New York", "San Francisco", "London"].map(
                       (loc, index) => (
                         <div key={index} className="flex items-center">
                           <input
@@ -98,9 +98,9 @@ export function JobSearchSection() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">工作类型</h3>
+                  <h3 className="text-lg font-semibold text-[#2c3e50] mb-4">Job Type</h3>
                   <div className="space-y-3">
-                    {["所有类型", "全职", "兼职", "合同", "实习"].map((type, index) => (
+                    {["All Types", "Full-time", "Part-time", "Contract", "Internship"].map((type, index) => (
                       <div key={index} className="flex items-center">
                         <input
                           type="checkbox"
@@ -121,19 +121,19 @@ export function JobSearchSection() {
                     className="w-full bg-[#167d83] hover:bg-[#0e5a5f] text-white"
                     onClick={() => setFiltersVisible(false)}
                   >
-                    应用筛选条件
+                    Apply Filters
                   </Button>
                 </div>
               </div>
 
-              {/* 地图和职位列表 */}
+              {/* Map and job listings */}
               <div className={`${filtersVisible ? 'hidden' : 'block'} md:block md:col-span-3 p-6`}>
                 <div className="mb-8 relative h-48 md:h-64 lg:h-80 bg-[#e6f5f6] rounded-xl overflow-hidden shadow-inner">
-                  {/* 这里在实际应用中会是一个真实地图 */}
+                  {/* This would be a real map in actual application */}
                   <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center opacity-80"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#167d83]/10 to-transparent"></div>
 
-                  {/* 位置标记 */}
+                  {/* Location markers */}
                   <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="relative">
                       <div className="w-6 h-6 bg-[#167d83] rounded-full flex items-center justify-center text-white text-xs font-medium shadow-lg">
@@ -163,12 +163,12 @@ export function JobSearchSection() {
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-bold text-[#2c3e50]">10个开放职位</h3>
+                  <h3 className="text-xl font-bold text-[#2c3e50]">10 Open Positions</h3>
                   <div className="hidden md:block">
                     <select className="text-sm border border-gray-200 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#167d83] bg-white">
-                      <option>最新发布</option>
-                      <option>按部门</option>
-                      <option>按地点</option>
+                      <option>Newest First</option>
+                      <option>By Department</option>
+                      <option>By Location</option>
                     </select>
                   </div>
                 </div>
@@ -176,38 +176,38 @@ export function JobSearchSection() {
                 <div className="space-y-4">
                   {[
                     {
-                      title: "高级前端工程师",
-                      department: "工程",
-                      location: "远程",
-                      type: "全职",
-                      posted: "2天前",
+                      title: "Senior Frontend Engineer",
+                      department: "Engineering",
+                      location: "Remote",
+                      type: "Full-time",
+                      posted: "2 days ago",
                       color: "border-l-[#167d83]",
                       bgHover: "hover:bg-[#f7fdfd]",
                     },
                     {
-                      title: "产品经理",
-                      department: "产品",
-                      location: "纽约市",
-                      type: "全职",
-                      posted: "1周前",
+                      title: "Product Manager",
+                      department: "Product",
+                      location: "New York",
+                      type: "Full-time",
+                      posted: "1 week ago",
                       color: "border-l-[#EE4C23]",
                       bgHover: "hover:bg-[#fff9f8]",
                     },
                     {
-                      title: "内容营销专员",
-                      department: "市场营销",
-                      location: "远程",
-                      type: "全职",
-                      posted: "3天前",
+                      title: "Content Marketing Specialist",
+                      department: "Marketing",
+                      location: "Remote",
+                      type: "Full-time",
+                      posted: "3 days ago",
                       color: "border-l-[#167d83]",
                       bgHover: "hover:bg-[#f7fdfd]",
                     },
                     {
-                      title: "用户体验/界面设计师",
-                      department: "设计",
-                      location: "旧金山",
-                      type: "全职",
-                      posted: "刚刚",
+                      title: "UX/UI Designer",
+                      department: "Design",
+                      location: "San Francisco",
+                      type: "Full-time",
+                      posted: "Just now",
                       color: "border-l-[#EE4C23]",
                       bgHover: "hover:bg-[#fff9f8]",
                       new: true,
@@ -223,7 +223,7 @@ export function JobSearchSection() {
                             <h4 className="font-semibold text-[#2c3e50] text-lg">{job.title}</h4>
                             {job.new && (
                               <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                                新
+                                New
                               </span>
                             )}
                           </div>
@@ -247,7 +247,7 @@ export function JobSearchSection() {
                       </div>
                       <div className="mt-4 flex justify-end">
                         <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] transition-all duration-300">
-                          查看详情 <ChevronRight className="ml-1 h-4 w-4" />
+                          View Details <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ export function JobSearchSection() {
 
                 <div className="mt-8 flex justify-center">
                   <Button className="bg-gradient-to-r from-[#167d83] to-[#22c0c7] hover:from-[#0e5a5f] hover:to-[#17a0a6] text-white shadow-md hover:shadow-lg transition-all duration-300 px-6 py-2.5">
-                    查看所有职位
+                    View All Positions
                   </Button>
                 </div>
               </div>

@@ -9,50 +9,50 @@ export function CareerGrowthSection() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block px-3 py-1 rounded-full bg-[#fef6e9] text-[#EE4C23] text-sm font-medium mb-3">
-              职业发展
+              Career Development
             </div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#2c3e50]">你与我们的旅程</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#2c3e50]">Your Journey With Us</h2>
             <p className="text-[#7f8c8d] mt-3 max-w-2xl mx-auto">
-              我们致力于帮助你在专业和个人方面成长。
+              We're dedicated to helping you grow both professionally and personally.
             </p>
           </div>
 
           <div className="relative">
-            {/* 时间线 */}
+            {/* Timeline */}
             <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-[#e6f5f6] transform -translate-x-1/2"></div>
 
             {[
               {
-                title: "入职培训",
-                description: "全面的入职计划，帮助你成功起步。",
+                title: "Onboarding",
+                description: "Comprehensive onboarding program to help you start successfully.",
                 icon: <Users className="h-6 w-6 text-white" />,
                 color: "bg-[#167d83]",
                 position: "left",
               },
               {
-                title: "导师制",
-                description: "与经验丰富的团队成员一对一指导。",
+                title: "Mentorship",
+                description: "One-on-one guidance with experienced team members.",
                 icon: <Star className="h-6 w-6 text-white" />,
                 color: "bg-[#EE4C23]",
                 position: "right",
               },
               {
-                title: "技能发展",
-                description: "定期研讨会和学习机会，构建新技能。",
+                title: "Skill Development",
+                description: "Regular workshops and learning opportunities to build new skills.",
                 icon: <Zap className="h-6 w-6 text-white" />,
                 color: "bg-[#167d83]",
                 position: "left",
               },
               {
-                title: "领导力培训",
-                description: "通过专业培训项目为领导角色做准备。",
+                title: "Leadership Training",
+                description: "Preparation for leadership roles through specialized training programs.",
                 icon: <Award className="h-6 w-6 text-white" />,
                 color: "bg-[#EE4C23]",
                 position: "right",
               },
               {
-                title: "职业晋升",
-                description: "清晰的晋升路径和定期绩效评估。",
+                title: "Career Advancement",
+                description: "Clear promotion paths and regular performance evaluations.",
                 icon: <Sparkles className="h-6 w-6 text-white" />,
                 color: "bg-[#167d83]",
                 position: "left",
@@ -64,7 +64,7 @@ export function CareerGrowthSection() {
                   item.position === "left" ? "pr-12 text-right ml-0 mr-auto" : "pl-12 ml-auto mr-0"
                 } w-1/2`}
               >
-                {/* 时间线点 */}
+                {/* Timeline dot */}
                 <div
                   className={`absolute ${
                     item.position === "left" ? "right-0" : "left-0"
@@ -75,7 +75,7 @@ export function CareerGrowthSection() {
                   {item.icon}
                 </div>
 
-                {/* 内容 */}
+                {/* Content */}
                 <div
                   className={`bg-white p-6 rounded-xl shadow-lg ${
                     item.position === "left" ? "rounded-r-none" : "rounded-l-none"

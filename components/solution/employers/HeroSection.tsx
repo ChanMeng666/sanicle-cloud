@@ -15,26 +15,26 @@ export function HeroSection() {
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium shadow-sm">
                 <span className="flex items-center">
                   <Users className="h-4 w-4 mr-2" />
-                  为企业量身定制
+                  Tailored for Businesses
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2c3e50] leading-tight">
-                为您的<span className="text-[#167d83] relative">员工团队
+                Comprehensive benefits for <span className="text-[#167d83] relative">your team
                   <svg className="absolute bottom-0 left-0 w-full h-2 text-[#167d83]/20" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 25 9, 50 5 Q 75 1, 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>
-                </span>提供全面福利
+                </span>
               </h1>
               <p className="text-lg text-[#7f8c8d] max-w-xl">
-                通过提供满足女性员工独特需求的创新健康福利，吸引并留住顶尖人才。
+                Attract and retain top talent by providing innovative health benefits that meet the unique needs of female employees.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Button className="bg-[#EE4C23] hover:bg-[#d43d18] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  立即开始 <ArrowRight className="ml-2 h-4 w-4" />
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] px-6 py-2.5 rounded-lg transition-all">
-                  预约演示
+                  Schedule a Demo
                 </Button>
               </div>
 
@@ -44,7 +44,7 @@ export function HeroSection() {
                     <Users className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-sm text-[#7f8c8d] font-medium">员工留存率提升</div>
+                    <div className="text-sm text-[#7f8c8d] font-medium">Employee Retention Increase</div>
                     <div className="text-xl font-bold text-[#2c3e50]">+24%</div>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ export function HeroSection() {
                     <BarChart className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-sm text-[#7f8c8d] font-medium">缺勤率降低</div>
+                    <div className="text-sm text-[#7f8c8d] font-medium">Absenteeism Reduction</div>
                     <div className="text-xl font-bold text-[#2c3e50]">-32%</div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ export function HeroSection() {
                 </div>
                 <img
                   src="/placeholder.svg?height=500&width=500"
-                  alt="员工福利仪表板"
+                  alt="Employee Benefits Dashboard"
                   className="w-full object-cover"
                 />
               </div>
@@ -85,7 +85,7 @@ export function HeroSection() {
                     <Users className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#2c3e50]">员工满意度</p>
+                    <p className="font-medium text-[#2c3e50]">Employee Satisfaction</p>
                     <p className="text-[#EE4C23] font-bold text-lg">↑ 94%</p>
                   </div>
                 </div>
@@ -97,14 +97,14 @@ export function HeroSection() {
                     <BarChart className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#2c3e50]">投资回报率</p>
+                    <p className="font-medium text-[#2c3e50]">ROI</p>
                     <p className="text-[#167d83] font-bold text-lg">↑ 320%</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* 装饰性元素 */}
+            {/* Decorative elements */}
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#167d83]/10 rounded-full blur-3xl"></div>
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#EE4C23]/10 rounded-full blur-3xl"></div>
           </div>

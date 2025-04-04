@@ -16,14 +16,14 @@ export function BenefitsHero() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col items-center text-center mb-8 md:mb-12">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#167d83]/10 text-[#167d83] text-sm font-medium mb-4">
-              <Gift className="h-4 w-4 mr-2" /> 全面福利套餐
+              <Gift className="h-4 w-4 mr-2" /> Comprehensive Benefits Package
             </div>
 
             <div className="relative">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#2c3e50] leading-tight mb-4 md:mb-6">
-                改变您的 <br className="md:hidden" />
+                Transform Your <br className="md:hidden" />
                 <span className="relative inline-block">
-                  <span className="relative z-10 text-[#167d83]">工作场所健康</span>
+                  <span className="relative z-10 text-[#167d83]">Workplace Health</span>
                   <span className="absolute bottom-2 left-0 w-full h-3 md:h-4 bg-[#EE4C23]/20 -z-10 transform -rotate-1"></span>
                 </span>
               </h1>
@@ -38,19 +38,19 @@ export function BenefitsHero() {
             </div>
 
             <p className="text-lg md:text-xl text-[#7f8c8d] max-w-2xl mx-auto mb-6 md:mb-8 px-2">
-              探索我们革命性的月经健康福利方法，改善员工健康，减少缺勤，创造更具包容性的工作场所。
+              Explore our revolutionary approach to menstrual health benefits that improves employee wellbeing, reduces absenteeism, and creates a more inclusive workplace.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-[#EE4C23] to-[#ff6347] hover:from-[#d43d18] hover:to-[#e54c2a] text-white rounded-full px-6 md:px-8 shadow-md">
-                立即开始 <ArrowRight className="ml-2 h-4 w-4" />
+                Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] rounded-full px-6 md:px-8"
               >
-                预约演示
+                Schedule Demo
               </Button>
             </div>
           </div>
@@ -59,24 +59,24 @@ export function BenefitsHero() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-16">
             {[
               {
-                title: "健康追踪",
-                description: "先进的周期追踪与AI驱动的洞察",
+                title: "Health Tracking",
+                description: "Advanced cycle tracking with AI-powered insights",
                 icon: <Heart className="h-6 w-6 md:h-8 md:w-8 text-white" />,
                 color: "bg-gradient-to-r from-[#EE4C23] to-[#ff6347]",
                 rotation: "rotate-1 md:rotate-2",
                 shadow: "shadow-[#EE4C23]/20"
               },
               {
-                title: "产品获取",
-                description: "月经产品每月配送",
+                title: "Product Access",
+                description: "Monthly delivery of menstrual products",
                 icon: <Gift className="h-6 w-6 md:h-8 md:w-8 text-white" />,
                 color: "bg-gradient-to-r from-[#167d83] to-[#22c0c7]",
                 rotation: "rotate-0",
                 shadow: "shadow-[#167d83]/20"
               },
               {
-                title: "专家支持",
-                description: "获取医疗专业人士帮助",
+                title: "Expert Support",
+                description: "Access to healthcare professionals",
                 icon: <Users className="h-6 w-6 md:h-8 md:w-8 text-white" />,
                 color: "bg-gradient-to-r from-[#EE4C23] to-[#ff6347]",
                 rotation: "-rotate-1 md:-rotate-2",

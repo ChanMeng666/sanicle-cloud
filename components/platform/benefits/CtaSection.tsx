@@ -6,11 +6,11 @@ import { ArrowRight, Heart, Shield, Calendar } from "lucide-react"
 export function CtaSection() {
   return (
     <section className="w-full py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#167d83] to-[#0e5a5f] text-white relative overflow-hidden">
-      {/* 背景装饰 */}
+      {/* Background decorations */}
       <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-white rounded-full opacity-5 blur-xl"></div>
       <div className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-white rounded-full opacity-5 blur-xl"></div>
 
-      {/* 漂浮图标 */}
+      {/* Floating icons */}
       <div className="absolute top-1/4 left-1/5 w-10 h-10 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center animate-float">
         <Heart className="h-5 w-5 sm:h-8 sm:w-8 text-white/30" />
       </div>
@@ -24,45 +24,45 @@ export function CtaSection() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium mb-6">
-            <span className="mr-2">🚀</span> 轻松开始使用
+            <span className="mr-2">🚀</span> Get Started Easily
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-            今天就改变您的<span className="text-[#7ac8cd]">工作场所健康</span>
+            Transform Your <span className="text-[#7ac8cd]">Workplace Health</span> Today
           </h2>
 
           <p className="text-white/80 mb-6 md:mb-8 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            加入越来越多重视工作场所女性健康的前瞻性公司行列。
+            Join the growing number of forward-thinking companies prioritizing women's health in the workplace.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8">
             <Button size="lg" className="w-full sm:w-auto bg-white text-[#167d83] hover:bg-white/90 rounded-full px-6 sm:px-8 shadow-lg">
-              立即开始 <ArrowRight className="ml-2 h-4 w-4" />
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="w-full sm:w-auto border-white text-white hover:bg-white/10 rounded-full px-6 sm:px-8"
             >
-              预约演示
+              Schedule Demo
             </Button>
           </div>
 
           <div className="mt-8 md:mt-12 flex flex-wrap justify-center gap-2 sm:gap-4">
             <div className="bg-white/10 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-white text-xs sm:text-sm">无需信用卡</span>
+              <span className="text-white text-xs sm:text-sm">No Credit Card Required</span>
             </div>
             <div className="bg-white/10 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-white text-xs sm:text-sm">14天免费试用</span>
+              <span className="text-white text-xs sm:text-sm">14-Day Free Trial</span>
             </div>
             <div className="bg-white/10 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-white text-xs sm:text-sm">随时取消</span>
+              <span className="text-white text-xs sm:text-sm">Cancel Anytime</span>
             </div>
           </div>
         </div>
       </div>
       
-      {/* 底部波浪 */}
+      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path
@@ -73,7 +73,7 @@ export function CtaSection() {
         </svg>
       </div>
       
-      {/* CSS动画 */}
+      {/* CSS animations */}
       <style jsx global>{`
         @keyframes float {
           0%, 100% { transform: translateY(0); }

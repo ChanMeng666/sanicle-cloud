@@ -12,23 +12,23 @@ export function PartnershipAdvantages() {
           <div className="max-w-2xl">
             <div className="flex items-center mb-2">
               <div className="h-px w-6 bg-[#167d83] mr-2"></div>
-              <span className="text-[#167d83] text-sm font-medium">合作优势</span>
+              <span className="text-[#167d83] text-sm font-medium">Partnership Benefits</span>
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#2c3e50] mb-3">合作伙伴优势</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#2c3e50] mb-3">Partner Advantages</h2>
             <p className="text-[#7f8c8d] text-sm md:text-base leading-relaxed">
-              了解与Sanicle.cloud合作如何增强您的福利产品组合并发展您的业务。
+              Learn how partnering with Sanicle.cloud enhances your benefits portfolio and grows your business.
             </p>
           </div>
           <Button variant="link" className="text-[#167d83] p-0 mt-4 md:mt-0 font-medium hover:text-[#0e5a5f] transition-colors duration-200 flex items-center">
-            查看所有优势 <ChevronRight className="ml-1 h-4 w-4" />
+            View All Benefits <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
 
         <Tabs defaultValue="revenue" className="w-full">
           <TabsList className="grid grid-cols-3 max-w-xs sm:max-w-sm mx-auto mb-8 bg-[#f8f9fa] p-1 rounded-lg">
-            <TabsTrigger value="revenue" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">收入</TabsTrigger>
-            <TabsTrigger value="offerings" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">产品组合</TabsTrigger>
-            <TabsTrigger value="support" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">支持</TabsTrigger>
+            <TabsTrigger value="revenue" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">Revenue</TabsTrigger>
+            <TabsTrigger value="offerings" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">Portfolio</TabsTrigger>
+            <TabsTrigger value="support" className="rounded-md data-[state=active]:bg-white data-[state=active]:text-[#167d83] data-[state=active]:shadow transition-all duration-200">Support</TabsTrigger>
           </TabsList>
 
           <div className="overflow-hidden rounded-2xl">
@@ -41,12 +41,12 @@ export function PartnershipAdvantages() {
                     </div>
                   </div>
                   <div className="lg:w-2/3">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">收入机会</h3>
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">Revenue Opportunities</h3>
                     <p className="text-[#7f8c8d] mb-6 text-center lg:text-left">
-                      通过有竞争力的佣金结构和推荐奖金扩大您的收入来源。
+                      Expand your revenue streams with competitive commission structures and referral bonuses.
                     </p>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                      {["有竞争力的佣金率", "循环收入模式", "基于绩效的奖励"].map(
+                      {["Competitive commission rates", "Recurring revenue model", "Performance-based incentives"].map(
                         (item, i) => (
                           <div key={i} className="flex items-start bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
                             <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -69,12 +69,12 @@ export function PartnershipAdvantages() {
                     </div>
                   </div>
                   <div className="lg:w-2/3">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">差异化产品</h3>
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">Differentiated Products</h3>
                     <p className="text-[#7f8c8d] mb-6 text-center lg:text-left">
-                      通过解决关键但服务不足的需求的创新福利，在市场中脱颖而出。
+                      Stand out in the market with innovative benefits that address key but underserved needs.
                     </p>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                      {["独特的价值主张", "不断增长的市场需求", "全面的解决方案"].map(
+                      {["Unique value proposition", "Growing market demand", "Comprehensive solution"].map(
                         (item, i) => (
                           <div key={i} className="flex items-start bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
                             <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />
@@ -97,12 +97,12 @@ export function PartnershipAdvantages() {
                     </div>
                   </div>
                   <div className="lg:w-2/3">
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">专属支持</h3>
+                    <h3 className="text-xl md:text-2xl font-semibold text-[#2c3e50] mb-4 text-center lg:text-left">Dedicated Support</h3>
                     <p className="text-[#7f8c8d] mb-6 text-center lg:text-left">
-                      获得全面支持，帮助您有效销售和实施我们的解决方案。
+                      Get comprehensive support to help you effectively sell and implement our solutions.
                     </p>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-                      {["专属合作伙伴经理", "销售和营销资源", "实施协助"].map(
+                      {["Dedicated partner manager", "Sales and marketing resources", "Implementation assistance"].map(
                         (item, i) => (
                           <div key={i} className="flex items-start bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
                             <CheckCircle className="h-5 w-5 text-[#167d83] mr-2 mt-0.5 flex-shrink-0" />

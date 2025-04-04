@@ -11,7 +11,7 @@ export function SiteFooter() {
   return (
     <footer className="w-full bg-gradient-to-b from-beige-light to-white py-12 lg:py-20">
       <div className="container px-4 md:px-6">
-        {/* 顶部部分 - 品牌和订阅 */}
+        {/* Top section - Brand and Subscribe */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 pb-12 border-b border-gray-200">
           <div className="max-w-sm">
             <Link href="/" className="inline-block">
@@ -45,7 +45,7 @@ export function SiteFooter() {
           </div>
         </div>
         
-        {/* 中间部分 - 链接 */}
+        {/* Middle section - Links */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="font-semibold text-charcoal mb-5 text-lg">Platform</h3>
@@ -162,7 +162,7 @@ export function SiteFooter() {
           </div>
         </div>
         
-        {/* 社交媒体和联系信息 */}
+        {/* Social media and contact information */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
           <div className="mb-6 md:mb-0">
             <p className="text-slate text-sm">

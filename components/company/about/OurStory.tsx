@@ -10,54 +10,54 @@ export function OurStory() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
-            我们的旅程
+            Our Journey
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">Sanicle.cloud的故事</h2>
-          <p className="text-lg text-[#7f8c8d]">从理念到创新：我们如何改变工作场所健康。</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">The Story of Sanicle.cloud</h2>
+          <p className="text-lg text-[#7f8c8d]">From Concept to Innovation: How We're Transforming Workplace Health.</p>
         </div>
 
         <div className="relative">
-          {/* 时间线 */}
+          {/* Timeline */}
           <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-[#e6f5f6] md:transform md:-translate-x-1/2"></div>
 
           {[
             {
               year: "2022",
-              title: "起步",
+              title: "Beginning",
               description:
-                "Sanicle.cloud由陈博士和一支医疗专业人士及技术专家团队创立，他们认识到工作场所福利中一个关键的空白：全面支持女性月经健康。",
+                "Sanicle.cloud was founded by Dr. Chen and a team of healthcare professionals and technology experts who recognized a critical gap in workplace benefits: comprehensive support for women's menstrual health.",
               icon: <Sparkles className="h-6 w-6 text-white" />,
               position: "left",
             },
             {
               year: "2022",
-              title: "种子轮融资",
+              title: "Seed Funding",
               description:
-                "获得了初始投资，用于开发平台和建立核心团队，使我们能够将愿景变为现实。",
+                "Secured initial investment to develop the platform and build our core team, enabling us to turn our vision into reality.",
               icon: <Star className="h-6 w-6 text-white" />,
               position: "right",
             },
             {
               year: "2023",
-              title: "平台发布",
+              title: "Platform Launch",
               description:
-                "Sanicle.cloud平台正式发布，与我们的首批企业客户合作，标志着我们旅程中的一个重要里程碑。",
+                "Officially launched the Sanicle.cloud platform, partnering with our first corporate clients, marking a significant milestone in our journey.",
               icon: <Globe className="h-6 w-6 text-white" />,
               position: "left",
             },
             {
               year: "2023",
-              title: "扩张",
+              title: "Expansion",
               description:
-                "发展到服务超过50家公司，团队扩大到25名成员，拓展我们在多个行业的影响力。",
+                "Grew to serve over 50 companies, expanded our team to 25 members, and extended our impact across multiple industries.",
               icon: <Users className="h-6 w-6 text-white" />,
               position: "right",
             },
             {
               year: "2024",
-              title: "A轮融资",
+              title: "Series A Funding",
               description:
-                "筹集了大量资金，用于加速增长和增强平台功能，为我们的下一阶段发展奠定基础。",
+                "Raised substantial funding to accelerate growth and enhance platform capabilities, setting the foundation for our next phase of development.",
               icon: <Award className="h-6 w-6 text-white" />,
               position: "left",
             },
@@ -70,7 +70,7 @@ export function OurStory() {
                   : "md:pl-12 md:ml-auto md:mr-0"
               } md:w-1/2`}
             >
-              {/* 时间线点 */}
+              {/* Timeline dot */}
               <div
                 className={`absolute left-0 md:left-auto ${
                   milestone.position === "left" ? "md:right-0" : "md:left-0"
@@ -81,7 +81,7 @@ export function OurStory() {
                 {milestone.icon}
               </div>
 
-              {/* 内容 */}
+              {/* Content */}
               <div
                 className={`bg-white p-6 rounded-xl shadow-lg ${
                   milestone.position === "left" ? "md:rounded-r-none" : "md:rounded-l-none"
@@ -94,14 +94,14 @@ export function OurStory() {
                 <p className="text-[#7f8c8d]">{milestone.description}</p>
               </div>
 
-              {/* 移动端连接线 */}
+              {/* Mobile connection line */}
               <div className="absolute left-5 top-10 bottom-0 w-1 bg-[#e6f5f6] md:hidden"></div>
             </div>
           ))}
         </div>
       </div>
       
-      {/* 波浪形分隔线 */}
+      {/* Wave divider */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path

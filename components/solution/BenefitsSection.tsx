@@ -10,15 +10,15 @@ export function BenefitsSection() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 md:mb-16">
           <div className="max-w-2xl">
             <div className="w-16 h-1.5 bg-[#167d83] mb-6 rounded-full"></div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2c3e50] leading-tight">企业福利解决方案</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2c3e50] leading-tight">Enterprise Benefits Solutions</h2>
             <p className="text-[#7f8c8d] mt-4 text-lg max-w-xl">
-              了解Sanicle.cloud如何转变您的工作场所，为您的组织提供明显的实际效益。
+              Learn how Sanicle.cloud transforms your workplace, providing tangible practical benefits for your organization.
             </p>
           </div>
           <div className="mt-2">
             <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] px-5 py-2.5 rounded-lg transition-all group flex items-center">
               <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
-              下载福利指南
+              Download Benefits Guide
             </Button>
           </div>
         </div>
@@ -30,12 +30,12 @@ export function BenefitsSection() {
               <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <Users className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">吸引并留住人才</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Attract and Retain Talent</h3>
               <p className="text-[#7f8c8d] mb-6">
-                通过创新的福利脱颖而出，展示您对女性健康的承诺。
+                Stand out with innovative benefits, demonstrating your commitment to women's health.
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
-                {["降低人员流动成本", "吸引多元化人才", "提高员工满意度"].map(
+                {["Reduce turnover costs", "Attract diverse talent", "Increase employee satisfaction"].map(
                   (item, i) => (
                     <div key={i} className="flex items-start group/item">
                       <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
@@ -53,15 +53,15 @@ export function BenefitsSection() {
               <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <BarChart className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">提高生产力</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Improve Productivity</h3>
               <p className="text-[#7f8c8d] mb-6">
-                通过月经健康支持减少缺勤，提高工作专注度。
+                Reduce absenteeism and improve work focus through menstrual health support.
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
                 {[
-                  "减少月经相关缺勤",
-                  "提升工作表现",
-                  "支持员工健康",
+                  "Reduce menstrual-related absences",
+                  "Enhance work performance",
+                  "Support employee health",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start group/item">
                     <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
@@ -78,12 +78,12 @@ export function BenefitsSection() {
               <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
                 <Clock className="h-8 w-8 text-[#167d83]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">轻松实施</h3>
+              <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Easy Implementation</h3>
               <p className="text-[#7f8c8d] mb-6">
-                无缝集成到现有福利系统，最小化管理负担。
+                Seamlessly integrate into existing benefits systems with minimal administrative burden.
               </p>
               <div className="space-y-3 border-t border-gray-100 pt-4">
-                {["快速设置流程", "专属实施支持", "极少HR资源需求"].map(
+                {["Quick setup process", "Dedicated implementation support", "Minimal HR resource requirements"].map(
                   (item, i) => (
                     <div key={i} className="flex items-start group/item">
                       <CheckCircle className="h-5 w-5 text-[#167d83] mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-[#EE4C23] transition-colors" />
@@ -97,7 +97,7 @@ export function BenefitsSection() {
         </div>
       </div>
       
-      {/* 波浪形分隔线 */}
+      {/* Wave separator */}
       <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto" preserveAspectRatio="none">
           <path
