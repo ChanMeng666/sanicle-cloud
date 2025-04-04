@@ -5,7 +5,6 @@ import { FounderQuote } from "@/components/company/about/FounderQuote"
 import { OurStory } from "@/components/company/about/OurStory"
 import { OurValues } from "@/components/company/about/OurValues"
 import { Milestones } from "@/components/company/about/Milestones"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function AboutPage() {
   return (
@@ -15,7 +14,6 @@ export default function AboutPage() {
       <OurStory />
       <OurValues />
       <Milestones />
-      <SiteFooter />
     </main>
   )
 }

@@ -84,10 +84,53 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '25%': { transform: 'translateY(-10px) translateX(10px)' },
+          '50%': { transform: 'translateY(-20px) translateX(0)' },
+          '75%': { transform: 'translateY(-10px) translateX(-10px)' },
+        },
+        "float-delay": {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '25%': { transform: 'translateY(10px) translateX(-10px)' },
+          '50%': { transform: 'translateY(20px) translateX(0)' },
+          '75%': { transform: 'translateY(10px) translateX(10px)' },
+        },
+        "pulse-opacity": {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.8' },
+        },
+        "scale-up-down": {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+        },
+        "slide-up": {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        "slide-in-right": {
+          '0%': { transform: 'translateX(20px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        "zoom-in": {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 8s ease-in-out infinite",
+        "float-delay": "float-delay 8s ease-in-out infinite",
+        "pulse-opacity": "pulse-opacity 3s ease-in-out infinite",
+        "scale-up-down": "scale-up-down 5s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "slide-in-right": "slide-in-right 0.6s ease-out",
+        "zoom-in": "zoom-in 0.5s ease-out",
+      },
+      boxShadow: {
+        'glow': '0 0 15px rgba(22, 125, 131, 0.5)',
+        'coral-glow': '0 0 15px rgba(238, 76, 35, 0.5)',
       },
     },
   },
