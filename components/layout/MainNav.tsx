@@ -64,19 +64,14 @@ export function MainNav() {
           description: "Tailored solutions for companies of all sizes to improve workplace health."
         },
         {
-          title: "For Healthcare Providers",
-          href: "/solution/healthcare-providers",
+          title: "For Employees",
+          href: "/solution/employees",
           description: "Connect with employer networks and expand your women's health services."
         },
         {
-          title: "For Benefits Brokers",
-          href: "/solution/benefits-brokers",
+          title: "For Brokers",
+          href: "/solution/brokers",
           description: "Add innovative menstrual health offerings to your benefits portfolio."
-        },
-        {
-          title: "For Government",
-          href: "/solution/government",
-          description: "Implement comprehensive women's health initiatives for public sector employees."
         }
       ]
     },

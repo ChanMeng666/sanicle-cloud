@@ -87,21 +87,15 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/solution/healthcare-providers" className="text-[#7f8c8d] hover:text-[#167d83] text-sm flex items-center transition-colors duration-200">
+                <Link href="/solution/employees" className="text-[#7f8c8d] hover:text-[#167d83] text-sm flex items-center transition-colors duration-200">
                   <span className="h-1 w-1 bg-[#7f8c8d] rounded-full inline-block mr-2"></span>
-                  For Healthcare Providers
+                  For Employees
                 </Link>
               </li>
               <li>
-                <Link href="/solution/benefits-brokers" className="text-[#7f8c8d] hover:text-[#167d83] text-sm flex items-center transition-colors duration-200">
+                <Link href="/solution/brokers" className="text-[#7f8c8d] hover:text-[#167d83] text-sm flex items-center transition-colors duration-200">
                   <span className="h-1 w-1 bg-[#7f8c8d] rounded-full inline-block mr-2"></span>
-                  For Benefits Brokers
-                </Link>
-              </li>
-              <li>
-                <Link href="/solution/government" className="text-[#7f8c8d] hover:text-[#167d83] text-sm flex items-center transition-colors duration-200">
-                  <span className="h-1 w-1 bg-[#7f8c8d] rounded-full inline-block mr-2"></span>
-                  For Government
+                  For Brokers
                 </Link>
               </li>
             </ul>
