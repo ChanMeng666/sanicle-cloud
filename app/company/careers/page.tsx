@@ -8,7 +8,6 @@ import { CareerGrowthSection } from "@/components/company/careers/CareerGrowthSe
 import { EmployeeStoriesSection } from "@/components/company/careers/EmployeeStoriesSection"
 import { HiringProcessSection } from "@/components/company/careers/HiringProcessSection"
 import { CareerCtaSection } from "@/components/company/careers/CareerCtaSection"
-import { SiteFooter } from "@/components/layout/SiteFooter"
 
 export default function CareersPage() {
   return (
@@ -21,7 +20,6 @@ export default function CareersPage() {
       <EmployeeStoriesSection />
       <HiringProcessSection />
       <CareerCtaSection />
-      <SiteFooter />
     </main>
   )
 }
