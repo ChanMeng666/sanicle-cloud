@@ -2,7 +2,6 @@
 
 import { HeroSection } from "@/components/home/HeroSection"
 import { ValueProposition } from "@/components/home/ValueProposition"
-import { HowItWorks } from "@/components/home/HowItWorks"
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
         <HeroSection />
       </div>
       <ValueProposition />
-      <HowItWorks />
     </main>
   )
 }

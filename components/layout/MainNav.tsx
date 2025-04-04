@@ -41,38 +41,12 @@ export function MainNav() {
     }
   }, [])
 
-  // Navigation items
+  // Navigation items - 简化后的导航结构
   const navItems = [
     {
       title: "Platform",
-      href: "/platform",
-      children: [
-        {
-          title: "Overview",
-          href: "/platform/overview",
-          description: "Gain a comprehensive understanding of the Sanicle.cloud platform."
-        },
-        {
-          title: "Benefits",
-          href: "/platform/benefits",
-          description: "Explore our comprehensive women's health benefits solutions."
-        },
-        {
-          title: "Features",
-          href: "/platform/features",
-          description: "Explore the full suite of features available on our platform."
-        },
-        {
-          title: "Security",
-          href: "/platform/security",
-          description: "Learn about our robust security measures to protect sensitive health data."
-        },
-        {
-          title: "Integration",
-          href: "/platform/integration",
-          description: "Discover how seamlessly our platform integrates with your existing systems."
-        }
-      ]
+      href: "/platform/overview",
+      children: []
     },
     {
       title: "Solutions",
@@ -81,17 +55,17 @@ export function MainNav() {
         {
           title: "For Employers",
           href: "/solution/employers",
-          description: "Tailored solutions for companies of all sizes to improve workplace health."
+          description: "Explore our implementation process for businesses."
         },
         {
           title: "For Employees",
           href: "/solution/employees",
-          description: "Connect with employer networks and expand your women's health services."
+          description: "Preview our app for employee benefits."
         },
         {
           title: "For Brokers",
           href: "/solution/brokers",
-          description: "Add innovative menstrual health offerings to your benefits portfolio."
+          description: "Learn about our partnership programs."
         }
       ]
     },
@@ -107,22 +81,12 @@ export function MainNav() {
         {
           title: "About Us",
           href: "/company/about",
-          description: "Learn about our mission, values, and the team behind Sanicle.cloud."
+          description: "Learn about our story and milestones."
         },
         {
           title: "Careers",
           href: "/company/careers",
-          description: "Join our team and help revolutionize women's workplace health."
-        },
-        {
-          title: "Blog",
-          href: "/company/blog",
-          description: "Read the latest insights on women's health, workplace wellness, and more."
-        },
-        {
-          title: "Contact",
-          href: "/company/contact",
-          description: "Get in touch with our team for questions, demos, or partnerships."
+          description: "Find job opportunities and employee stories."
         }
       ]
     }
@@ -153,12 +117,12 @@ export function MainNav() {
           <nav className="flex items-center space-x-1">
             {navItems.map((item) => (
               <div key={item.title} className="relative group">
-                <button 
-                  className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
-                  onClick={() => toggleDropdown(item.title)}
-                >
-                  {item.title}
-                  {item.children.length > 0 && (
+                {item.children.length > 0 ? (
+                  <button 
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
+                    onClick={() => toggleDropdown(item.title)}
+                  >
+                    {item.title}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -173,8 +137,15 @@ export function MainNav() {
                     >
                       <path d="m6 9 6 6 6-6" />
                     </svg>
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <Link 
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
+                  >
+                    {item.title}
+                  </Link>
+                )}
                 {item.children.length > 0 && (
                   <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-0 mt-2 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-10 overflow-hidden">
                     <div className="p-2 divide-y divide-gray-50">
@@ -195,12 +166,8 @@ export function MainNav() {
             ))}
           </nav>
           <div className="ml-6 flex items-center space-x-4">
-            <Button variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale">
-              Log in
-            </Button>
-            <Button variant="default">
-              <span>Sign up</span>
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale">
+              <Link href="/demo">Request Demo</Link>
             </Button>
           </div>
         </div>
@@ -226,62 +193,64 @@ export function MainNav() {
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <div key={item.title} className="relative border-b border-gray-100 pb-3">
-                  <button 
-                    className="w-full flex justify-between items-center py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
-                    onClick={() => toggleDropdown(item.title)}
-                  >
-                    {item.title}
-                    {item.children.length > 0 && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={`ml-1 h-5 w-5 transition-transform ${
-                          activeDropdown === item.title ? "transform rotate-180 text-primary" : ""
-                        }`}
+                  {item.children.length > 0 ? (
+                    <>
+                      <button 
+                        className="w-full flex justify-between items-center py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
+                        onClick={() => toggleDropdown(item.title)}
                       >
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                    )}
-                  </button>
-                  {item.children.length > 0 && activeDropdown === item.title && (
-                    <div className="mt-3 ml-4 space-y-3 max-h-60 overflow-y-auto bg-primary-pale/30 p-3 rounded-md">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.title}
-                          href={child.href}
-                          className="block py-2 border-l-2 border-primary pl-4 hover:bg-white/80 rounded-r-md transition-all"
-                          onClick={toggleMenu}
+                        {item.title}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className={`ml-1 h-5 w-5 transition-transform ${
+                            activeDropdown === item.title ? "transform rotate-180 text-primary" : ""
+                          }`}
                         >
-                          <span className="block text-sm font-medium text-charcoal">{child.title}</span>
-                          <span className="block mt-1 text-xs text-slate">{child.description}</span>
-                        </Link>
-                      ))}
-                    </div>
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </button>
+
+                      {activeDropdown === item.title && (
+                        <div className="mt-2 pl-4 space-y-2">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.title}
+                              href={child.href}
+                              className="block py-2 text-sm hover:text-primary transition-colors"
+                              onClick={toggleMenu}
+                            >
+                              {child.title}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
+                      onClick={toggleMenu}
+                    >
+                      {item.title}
+                    </Link>
                   )}
                 </div>
               ))}
-            </nav>
-            
-            <div className="mt-8 flex flex-col space-y-4 pb-16">
-              <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale">
-                Log in
-              </Button>
-              <Link href="/demo" className="w-full" onClick={toggleMenu}>
-                <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale">
-                  Request Demo
+              
+              <div className="pt-6">
+                <Button asChild className="w-full justify-center" onClick={toggleMenu}>
+                  <Link href="/demo">Request Demo</Link>
                 </Button>
-              </Link>
-              <Button className="w-full justify-center py-5 bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white shadow-button">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+              </div>
+            </nav>
           </div>
         </div>
       )}
