@@ -26,6 +26,9 @@ export function HeroSection() {
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-white text-center lg:text-left">
+            <div className="mb-6 flex justify-center lg:justify-start">
+              <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-16 sm:h-20" />
+            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-sm animate-slide-up">
               Revolutionizing Womens' Workplace Health.
             </h1>

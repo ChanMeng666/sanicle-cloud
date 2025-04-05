@@ -15,7 +15,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 pb-12 border-b border-gray-200">
           <div className="max-w-sm">
             <Link href="/" className="inline-block">
-              <span className="font-bold text-2xl bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Sanicle.cloud</span>
+              <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-12" />
             </Link>
             <p className="text-slate mt-4 text-sm leading-relaxed">
               Revolutionizing workplace wellbeing through comprehensive menstrual health support for modern organizations.

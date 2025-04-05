@@ -157,8 +157,8 @@ export function MainNav() {
   return (
     <header ref={headerRef} className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
       <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6">
-        <Link href="/" className="font-bold text-2xl text-gradient bg-gradient-to-r from-primary to-primary-light flex-none">
-          Sanicle.cloud
+        <Link href="/" className="flex-none">
+          <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-10 sm:h-12" />
         </Link>
         <div className="hidden lg:flex ml-auto items-center gap-1">
           <nav className="flex items-center space-x-1">
