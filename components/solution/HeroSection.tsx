@@ -1,145 +1,140 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, BarChart, CheckCircle, Users } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight, BarChart, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="w-full py-24 md:py-32 relative overflow-hidden bg-beige">
-      {/* Background decoration */}
-      <div className="absolute inset-0 pattern-dots opacity-30"></div>
+    <section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
+      {/* 渐变背景代替纯色背景 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-teal-50/90 to-white z-0"></div>
+      
+      {/* 添加网格背景 */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] z-0"></div>
 
-      {/* Leaf decorations */}
-      <div className="absolute -top-32 -right-32 w-64 h-64">
+      {/* 大型装饰叶片元素 */}
+      <div className="absolute top-0 right-0 -mr-20 w-[600px] h-[600px] opacity-[0.08] transform -rotate-12 z-0">
         <img 
           src="/logo/leave-green.svg" 
-          alt="Leaf decoration" 
-          className="w-full h-full opacity-20 transform rotate-45"
+          alt="Decorative leaf" 
+          className="w-full h-full"
         />
       </div>
-      <div className="absolute -bottom-32 -left-32 w-80 h-80">
+      <div className="absolute bottom-0 left-0 -ml-20 w-[400px] h-[400px] opacity-[0.06] transform rotate-12 z-0">
         <img 
           src="/logo/leave-pink.svg" 
-          alt="Leaf decoration" 
-          className="w-full h-full opacity-20 transform -rotate-15"
+          alt="Decorative leaf" 
+          className="w-full h-full"
         />
       </div>
       
-      <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7 space-y-6">
-            <div className="bg-primary/10 text-primary rounded-full px-4 py-2 inline-flex items-center gap-2 font-medium">
-              <CheckCircle className="h-5 w-5" />
-              Enterprise Solutions
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal leading-tight">
-              Cloud services <span className="text-primary relative">
-                tailored
-                <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary/20 -z-10"></span>
-              </span> for your business
-            </h1>
-            
-            <p className="text-slate text-lg md:text-xl max-w-2xl">
-              We provide professional cloud solutions that meet the needs of businesses across different industries and scales, helping you accelerate digital transformation and improve operational efficiency.
-            </p>
+      {/* 荧光效果 */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full opacity-[0.05] blur-[100px] z-0"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-secondary rounded-full opacity-[0.05] blur-[100px] z-0"></div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild size="lg" variant="default" rounded="lg" className="shadow-lg">
-                <Link href="/demo">Free Trial <ArrowRight className="ml-2 h-5 w-5" /></Link>
-              </Button>
-              <Button asChild size="lg" variant="soft" rounded="lg">
-                <Link href="/pricing">View Plans & Pricing</Link>
-              </Button>
-            </div>
+      <div className="container relative z-10 px-4 sm:px-6 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="py-4 sm:py-8 flex flex-col justify-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium shadow-sm">
+                <span className="flex items-center">
+                  <Users className="h-4 w-4 mr-2" />
+                  Tailored for Businesses
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-800 leading-tight">
+                Comprehensive benefits for <span className="text-primary relative">your team
+                  <svg className="absolute bottom-0 left-0 w-full h-2 text-primary/20" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 25 9, 50 5 Q 75 1, 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
+                  </svg>
+                </span>
+              </h1>
+              <p className="text-lg text-neutral-600 max-w-xl">
+                Attract and retain top talent by providing innovative health benefits that meet the unique needs of female employees.
+              </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
-                  <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
-                  <Users className="h-5 w-5 text-primary relative z-10" />
-                </div>
-                <h3 className="font-semibold text-charcoal">500+</h3>
-                <p className="text-sm text-slate">Trusted by Businesses</p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <Button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 px-6 py-2.5 rounded-full transition-all">
+                  Schedule a Demo
+                </Button>
               </div>
-              
-              <div className="bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
-                  <img src="/logo/leave-pink.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
-                  <BarChart className="h-5 w-5 text-secondary relative z-10" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
+                <div className="flex items-center p-3 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow transition-all">
+                  <div className="w-12 h-12 relative mr-4">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Users className="h-6 w-6 text-primary" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-neutral-500 font-medium">Employee Retention Increase</div>
+                    <div className="text-xl font-bold text-neutral-800">+24%</div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-charcoal">99.9%</h3>
-                <p className="text-sm text-slate">Service Availability</p>
-              </div>
-              
-              <div className="hidden md:block bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
-                  <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
-                  <CheckCircle className="h-5 w-5 text-primary relative z-10" />
+                <div className="flex items-center p-3 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow transition-all">
+                  <div className="w-12 h-12 relative mr-4">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BarChart className="h-6 w-6 text-secondary" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-neutral-500 font-medium">Absenteeism Reduction</div>
+                    <div className="text-xl font-bold text-neutral-800">-32%</div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-charcoal">Customizable</h3>
-                <p className="text-sm text-slate">Flexible Configuration</p>
               </div>
             </div>
           </div>
 
-          <div className="md:col-span-5 relative">
-            <div className="relative z-10 bg-white rounded-xl shadow-xl p-6 border border-primary/5 transform hover:-rotate-1 transition-transform duration-300">
-              <div className="absolute -top-6 -right-6 bg-primary text-white rounded-lg py-2 px-4 shadow-lg">
-                Business Solutions
+          <div className="hidden md:flex items-center justify-center py-8 relative">
+            <div className="relative mx-auto">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-75 blur-lg"></div>
+              <div className="relative bg-white rounded-xl overflow-hidden border shadow-lg transform transition-transform hover:scale-[1.02] duration-300">
+                <div className="h-10 bg-neutral-50 border-b flex items-center px-4">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-[#f87171]"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#facc15]"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#4ade80]"></div>
+                  </div>
+                </div>
+                <img
+                  src="/placeholder.svg?height=500&width=500"
+                  alt="Employee Benefits Dashboard"
+                  className="w-full object-cover"
+                />
               </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-3">
-                    1
+
+              <div className="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-lg rotate-6 hover:rotate-3 transition-transform duration-300">
+                <div className="flex items-center text-sm">
+                  <div className="w-10 h-10 relative mr-3">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Users className="h-5 w-5 text-primary" />
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">Needs Analysis</h3>
-                    <p className="text-sm text-slate">Professional consultation based on your business needs</p>
+                    <p className="font-medium text-neutral-800">Employee Satisfaction</p>
+                    <p className="text-secondary font-bold text-lg">↑ 94%</p>
                   </div>
                 </div>
-                
-                <div className="w-full h-1 bg-gray-100 relative">
-                  <div className="absolute top-0 left-0 h-full w-3/4 bg-primary rounded-full"></div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-white font-bold mr-3">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-charcoal">Solution Design</h3>
-                    <p className="text-sm text-slate">Custom-tailored complete solution for you</p>
-                  </div>
-                </div>
-                
-                <div className="w-full h-1 bg-gray-100 relative">
-                  <div className="absolute top-0 left-0 h-full w-1/2 bg-primary-light rounded-full"></div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white font-bold mr-3">
-                    3
+              </div>
+
+              <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-4 shadow-lg -rotate-6 hover:-rotate-3 transition-transform duration-300">
+                <div className="flex items-center text-sm">
+                  <div className="w-10 h-10 relative mr-3">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BarChart className="h-5 w-5 text-secondary" />
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal">Implementation</h3>
-                    <p className="text-sm text-slate">Efficient implementation by professional team</p>
-                  </div>
-                </div>
-                
-                <div className="w-full h-1 bg-gray-100 relative">
-                  <div className="absolute top-0 left-0 h-full w-1/4 bg-secondary rounded-full"></div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-secondary-light flex items-center justify-center text-white font-bold mr-3">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-charcoal">Support</h3>
-                    <p className="text-sm text-slate">24/7 technical support</p>
+                    <p className="font-medium text-neutral-800">ROI</p>
+                    <p className="text-primary font-bold text-lg">↑ 320%</p>
                   </div>
                 </div>
               </div>
@@ -148,13 +143,13 @@ export function HeroSection() {
         </div>
       </div>
       
-      {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
+      {/* 波浪分隔线替代斜切分隔线 */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
           <path
             fill="#ffffff"
             fillOpacity="1"
-            d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,90.7C960,96,1056,96,1152,90.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
           ></path>
         </svg>
       </div>

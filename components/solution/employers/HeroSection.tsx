@@ -6,61 +6,81 @@ import { ArrowRight, BarChart, Users } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f8f9fa] to-[#e6f5f6] clip-path-slant z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-teal-50/90 to-white z-0"></div>
+      
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] z-0"></div>
+
+      <div className="absolute top-0 right-0 -mr-20 w-[600px] h-[600px] opacity-[0.08] transform -rotate-12 z-0">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Decorative leaf" 
+          className="w-full h-full"
+        />
+      </div>
+      <div className="absolute bottom-0 left-0 -ml-20 w-[400px] h-[400px] opacity-[0.06] transform rotate-12 z-0">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Decorative leaf" 
+          className="w-full h-full"
+        />
+      </div>
+      
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full opacity-[0.05] blur-[100px] z-0"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-secondary rounded-full opacity-[0.05] blur-[100px] z-0"></div>
 
       <div className="container relative z-10 px-4 sm:px-6 mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="py-4 sm:py-8 flex flex-col justify-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium shadow-sm">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium shadow-sm">
                 <span className="flex items-center">
                   <Users className="h-4 w-4 mr-2" />
                   Tailored for Businesses
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2c3e50] leading-tight">
-                Comprehensive benefits for <span className="text-[#167d83] relative">your team
-                  <svg className="absolute bottom-0 left-0 w-full h-2 text-[#167d83]/20" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-800 leading-tight">
+                Comprehensive benefits for <span className="text-primary relative">your team
+                  <svg className="absolute bottom-0 left-0 w-full h-2 text-primary/20" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 25 9, 50 5 Q 75 1, 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>
                 </span>
               </h1>
-              <p className="text-lg text-[#7f8c8d] max-w-xl">
+              <p className="text-lg text-neutral-600 max-w-xl">
                 Attract and retain top talent by providing innovative health benefits that meet the unique needs of female employees.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button className="bg-[#EE4C23] hover:bg-[#d43d18] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <Button className="bg-secondary hover:bg-secondary/90 text-white px-6 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] px-6 py-2.5 rounded-lg transition-all">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 px-6 py-2.5 rounded-full transition-all">
                   Schedule a Demo
                 </Button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
-                <div className="flex items-center p-3 rounded-lg bg-white/70 backdrop-blur-sm shadow-sm hover:shadow transition-all">
+                <div className="flex items-center p-3 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow transition-all">
                   <div className="w-12 h-12 relative mr-4">
                     <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Users className="h-6 w-6 text-[#167d83]" />
+                      <Users className="h-6 w-6 text-primary" />
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-[#7f8c8d] font-medium">Employee Retention Increase</div>
-                    <div className="text-xl font-bold text-[#2c3e50]">+24%</div>
+                    <div className="text-sm text-neutral-500 font-medium">Employee Retention Increase</div>
+                    <div className="text-xl font-bold text-neutral-800">+24%</div>
                   </div>
                 </div>
-                <div className="flex items-center p-3 rounded-lg bg-white/70 backdrop-blur-sm shadow-sm hover:shadow transition-all">
+                <div className="flex items-center p-3 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow transition-all">
                   <div className="w-12 h-12 relative mr-4">
                     <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <BarChart className="h-6 w-6 text-[#EE4C23]" />
+                      <BarChart className="h-6 w-6 text-secondary" />
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-[#7f8c8d] font-medium">Absenteeism Reduction</div>
-                    <div className="text-xl font-bold text-[#2c3e50]">-32%</div>
+                    <div className="text-sm text-neutral-500 font-medium">Absenteeism Reduction</div>
+                    <div className="text-xl font-bold text-neutral-800">-32%</div>
                   </div>
                 </div>
               </div>
@@ -69,9 +89,9 @@ export function HeroSection() {
 
           <div className="hidden md:flex items-center justify-center py-8 relative">
             <div className="relative mx-auto">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#167d83] to-[#EE4C23] opacity-75 blur-lg"></div>
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-75 blur-lg"></div>
               <div className="relative bg-white rounded-xl overflow-hidden border shadow-lg transform transition-transform hover:scale-[1.02] duration-300">
-                <div className="h-10 bg-[#f8f9fa] border-b flex items-center px-4">
+                <div className="h-10 bg-neutral-50 border-b flex items-center px-4">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#f87171]"></div>
                     <div className="w-3 h-3 rounded-full bg-[#facc15]"></div>
@@ -90,12 +110,12 @@ export function HeroSection() {
                   <div className="w-10 h-10 relative mr-3">
                     <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Users className="h-5 w-5 text-[#167d83]" />
+                      <Users className="h-5 w-5 text-primary" />
                     </div>
                   </div>
                   <div>
-                    <p className="font-medium text-[#2c3e50]">Employee Satisfaction</p>
-                    <p className="text-[#EE4C23] font-bold text-lg">↑ 94%</p>
+                    <p className="font-medium text-neutral-800">Employee Satisfaction</p>
+                    <p className="text-secondary font-bold text-lg">↑ 94%</p>
                   </div>
                 </div>
               </div>
@@ -105,26 +125,28 @@ export function HeroSection() {
                   <div className="w-10 h-10 relative mr-3">
                     <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <BarChart className="h-5 w-5 text-[#EE4C23]" />
+                      <BarChart className="h-5 w-5 text-secondary" />
                     </div>
                   </div>
                   <div>
-                    <p className="font-medium text-[#2c3e50]">ROI</p>
-                    <p className="text-[#167d83] font-bold text-lg">↑ 320%</p>
+                    <p className="font-medium text-neutral-800">ROI</p>
+                    <p className="text-primary font-bold text-lg">↑ 320%</p>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -bottom-10 -right-10">
-              <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-40 h-40 opacity-20 blur-xl" />
-            </div>
-            <div className="absolute -top-10 -left-10">
-              <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-40 h-40 opacity-20 blur-xl" />
-            </div>
           </div>
         </div>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+          ></path>
+        </svg>
       </div>
     </section>
   )
