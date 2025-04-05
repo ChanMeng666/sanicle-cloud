@@ -57,28 +57,47 @@ export function CompanyCultureSection() {
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
-      <div className="container px-4 md:px-6 relative">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-[#167d83]/10 rounded-full blur-3xl opacity-70"></div>
-        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-[#EE4C23]/10 rounded-full blur-3xl opacity-70"></div>
-        
+    <section className="w-full py-16 md:py-24 lg:py-32 bg-white relative z-20 overflow-hidden">
+      {/* Top transition from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white/80 to-white pointer-events-none"></div>
+      
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute inset-0 pattern-dots opacity-10"></div>
+      
+      {/* Background leaf decorations */}
+      <div className="absolute top-20 left-0 w-64 h-64 opacity-10 hidden lg:block">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-full h-full rotate-45" />
+      </div>
+      <div className="absolute bottom-20 right-0 w-80 h-80 opacity-10 hidden lg:block">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full -rotate-12" />
+      </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-70"></div>
+      <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl opacity-70"></div>
+      
+      {/* Colored pencil line decorations */}
+      <div className="absolute top-32 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+      <div className="absolute bottom-40 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           {/* Left content area */}
           <div className="lg:w-1/2 order-2 lg:order-1">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               Company Culture
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2c3e50] mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6 tracking-tight">
               Join a team driven by 
               <span className="relative inline-block">
                 values
-                <span className="absolute bottom-1 left-0 w-full h-2 bg-[#EE4C23]/20 -rotate-1"></span>
+                <span className="absolute bottom-1 left-0 w-full h-2 bg-secondary/20 -rotate-1"></span>
               </span>
             </h2>
 
-            <p className="text-lg text-[#7f8c8d] mb-8 leading-relaxed">
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
               At Sanicle.cloud, our culture is built on shared values and a sense of mission. We believe that by creating a diverse, inclusive, and vibrant work environment, we can unlock everyone's full potential and drive change in women's workplace health together.
             </p>
 
@@ -92,14 +111,14 @@ export function CompanyCultureSection() {
                     {value.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#2c3e50] text-lg mb-1.5">{value.title}</h3>
-                    <p className="text-[#7f8c8d] text-sm">{value.description}</p>
+                    <h3 className="font-semibold text-slate-800 text-lg mb-1.5">{value.title}</h3>
+                    <p className="text-slate-600 text-sm">{value.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Button className="bg-[#167d83] hover:bg-[#0e5a5f] text-white shadow-md hover:shadow-lg transition-all duration-300 px-6">
+            <Button className="bg-primary hover:bg-primary-dark text-white shadow-md hover:shadow-lg transition-all duration-300 px-6">
               Learn About Our Culture
             </Button>
           </div>
@@ -108,15 +127,31 @@ export function CompanyCultureSection() {
           <div className="lg:w-1/2 order-1 lg:order-2 relative">
             <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] bg-cover bg-center"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#167d83]/10 to-transparent mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay"></div>
+              
+              {/* Leaf decorations around the image */}
+              <div className="absolute -top-6 -left-6 w-16 h-16 opacity-70">
+                <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-full h-full" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-12 h-12 opacity-70 rotate-180">
+                <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full" />
+              </div>
               
               {/* Decorative overlapping images */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-lg overflow-hidden shadow-xl transform rotate-6 border-4 border-white">
                 <div className="w-full h-full bg-[url('/placeholder.svg?height=200&width=200')] bg-cover bg-center"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-primary/20"></div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 opacity-30">
+                  <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-full h-full" />
+                </div>
               </div>
               
               <div className="absolute -top-4 -left-4 w-24 h-24 rounded-lg overflow-hidden shadow-xl transform -rotate-6 border-4 border-white">
                 <div className="w-full h-full bg-[url('/placeholder.svg?height=150&width=150')] bg-cover bg-center"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-secondary/20"></div>
+                <div className="absolute -bottom-2 -left-2 w-8 h-8 opacity-30">
+                  <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full" />
+                </div>
               </div>
               
               {/* Floating card */}
@@ -127,13 +162,24 @@ export function CompanyCultureSection() {
                       <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-gray-300 flex-shrink-0"></div>
                     ))}
                   </div>
-                  <span className="text-xs text-[#2c3e50] font-medium">and 12 others</span>
+                  <span className="text-xs text-slate-800 font-medium">and 12 others</span>
                 </div>
-                <p className="text-xs text-[#7f8c8d]">"This is a place where every member can feel belonging and growth"</p>
+                <p className="text-xs text-slate-600">"This is a place where every member can feel belonging and growth"</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Wave divider for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" className="w-full h-auto">
+          <path
+            fill="#f8fafc"
+            fillOpacity="1"
+            d="M0,96L48,85.3C96,75,192,53,288,58.7C384,64,480,96,576,101.3C672,107,768,85,864,74.7C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </div>
     </section>
   )
