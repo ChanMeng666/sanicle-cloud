@@ -35,7 +35,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <div className="relative flex min-h-screen flex-col">
             <MainNav />
-            <div className="z-[1] relative">
+            <div className="z-[1] relative pt-16 sm:pt-20">
               <main className="flex-1 w-full">{children}</main>
             </div>
             <SiteFooter />

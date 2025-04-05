@@ -155,7 +155,7 @@ export function MainNav() {
   }
 
   return (
-    <header ref={headerRef} className={`sticky top-0 z-[9999] w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
+    <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
       {/* 添加背景叶片装饰 */}
       <div className="absolute top-0 right-0 -mr-4 -mt-6 opacity-5 hidden lg:block">
         <img src="/logo/leave-green.svg" alt="" className="w-20 h-20 transform rotate-45" />
@@ -283,7 +283,7 @@ export function MainNav() {
         
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute inset-x-0 top-full h-screen bg-white lg:hidden pt-6 pb-20 overflow-y-auto z-[9990]">
+          <div className="fixed inset-x-0 top-16 sm:top-20 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] bg-white lg:hidden pt-6 pb-20 overflow-y-auto z-[9990]">
             <div className="px-4 sm:px-6">
               <nav className="grid gap-y-8 mb-8">
                 {navItems.map((item) => (

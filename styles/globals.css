@@ -7,6 +7,7 @@ html, body {
   overflow-x: hidden;
   max-width: 100%;
   position: relative;
+  scroll-padding-top: var(--header-height, 4rem);
 }
 
 @layer utilities {
@@ -52,47 +53,15 @@ html, body {
     --sidebar-accent-foreground: 0 0% 100%; /* 白色 */
     --sidebar-border: 183 73% 30% / 0.2; /* 品牌青绿色透明 */
     --sidebar-ring: 183 73% 30%; /* 品牌青绿色 */
+    --header-height: 4rem;
   }
   
-  .dark {
-    --background: 220 17% 17%; /* 近黑色 */
-    --foreground: 0 0% 100%; /* 白色 */
-    --card: 183 80% 21%; /* 深青绿色 */
-    --card-foreground: 0 0% 100%; /* 白色 */
-    --popover: 220 17% 17%; /* 近黑色 */
-    --popover-foreground: 0 0% 100%; /* 白色 */
-    --primary: 183 33% 52%; /* 浅青绿色 */
-    --primary-foreground: 220 17% 17%; /* 近黑色 */
-    --secondary: 12 86% 76%; /* 浅珊瑚红 */
-    --secondary-foreground: 220 17% 17%; /* 近黑色 */
-    --tertiary: 15 58% 95%; /* 浅珊瑚色/米色 */
-    --tertiary-foreground: 220 17% 17%; /* 近黑色 */
-    --muted: 183 80% 21%; /* 深青绿色 */
-    --muted-foreground: 183 33% 52%; /* 浅青绿色 */
-    --accent: 12 86% 53%; /* 珊瑚红 */
-    --accent-foreground: 0 0% 100%; /* 白色 */
-    --destructive: 0 84% 60%; /* 错误红 */
-    --destructive-foreground: 0 0% 100%; /* 白色 */
-    --border: 183 33% 52% / 0.3; /* 浅青绿色透明 */
-    --input: 183 33% 52% / 0.3; /* 浅青绿色透明 */
-    --ring: 183 33% 52%; /* 浅青绿色 */
-    --chart-1: 183 33% 52%; /* 浅青绿色 */
-    --chart-2: 183 73% 30%; /* 品牌青绿色 */
-    --chart-3: 12 86% 53%; /* 珊瑚红 */
-    --chart-4: 12 86% 76%; /* 浅珊瑚红 */
-    --chart-5: 15 58% 95%; /* 浅珊瑚色/米色 */
-    --sidebar-background: 183 80% 21%; /* 深青绿色 */
-    --sidebar-foreground: 0 0% 100%; /* 白色 */
-    --sidebar-primary: 183 33% 52%; /* 浅青绿色 */
-    --sidebar-primary-foreground: 220 17% 17%; /* 近黑色 */
-    --sidebar-accent: 12 86% 53%; /* 珊瑚红 */
-    --sidebar-accent-foreground: 0 0% 100%; /* 白色 */
-    --sidebar-border: 183 33% 52% / 0.3; /* 浅青绿色透明 */
-    --sidebar-ring: 183 33% 52%; /* 浅青绿色 */
+  @media (min-width: 640px) {
+    :root {
+      --header-height: 5rem;
+    }
   }
-}
-
-@layer base {
+  
   * {
     @apply border-border;
   }
@@ -119,6 +88,12 @@ html, body {
   
   h4 {
     @apply text-xl md:text-2xl;
+  }
+  
+  .dark {
+    --background: 220 17% 17%; /* 近黑色 */
+    --foreground: 0 0% 100%; /* 白色 */
+    /* 保留原有的暗色主题样式 */
   }
 }
 

@@ -31,7 +31,7 @@ export default function PlatformIntegrationPage() {
               return (
                 <img 
                   key={index} 
-                  src="/logo/leave-black.svg" 
+                  src="/logo/leave-coral.svg" 
                   alt="Leaf pattern" 
                   className={`w-8 h-8 opacity-${opacityValue} transform rotate-${rotateValue}`}
                 />

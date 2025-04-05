@@ -52,7 +52,7 @@ export function FaqSection() {
         <img src="/logo/leave-pink.svg" alt="Decorative leaf" className="w-80 h-80 transform -rotate-12" />
       </div>
       <div className="absolute top-1/3 left-10 opacity-10 hidden lg:block">
-        <img src="/logo/leave-black.svg" alt="Decorative leaf" className="w-40 h-40 transform rotate-90" />
+        <img src="/logo/leave-coral.svg" alt="Decorative leaf" className="w-40 h-40 transform rotate-90" />
       </div>
       <div className="absolute bottom-1/4 right-10 opacity-10 hidden lg:block">
         <img src="/logo/leave-white.svg" alt="Decorative leaf" className="w-48 h-48 transform -rotate-45" />

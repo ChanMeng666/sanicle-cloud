@@ -109,7 +109,7 @@ export function TeamSection() {
       <div className="container px-4 md:px-6 relative z-10 pt-32">
         <div className="text-center mb-10 relative">
           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-20">
-            <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-24 h-24" />
+            <img src="/logo/leave-coral.svg" alt="Leaf decoration" className="w-24 h-24" />
           </div>
           <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800">Our Team</h2>
           <p className="text-neutral-600 mt-2">

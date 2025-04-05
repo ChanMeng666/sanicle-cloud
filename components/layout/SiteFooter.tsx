@@ -18,7 +18,7 @@ export function SiteFooter() {
         <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-80 h-80 transform -rotate-12" />
       </div>
       <div className="absolute bottom-10 right-1/4 opacity-5 hidden lg:block">
-        <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-32 h-32 transform rotate-90" />
+        <img src="/logo/leave-coral.svg" alt="Leaf decoration" className="w-32 h-32 transform rotate-90" />
       </div>
       
       <div className="container px-4 md:px-6 relative z-10">
