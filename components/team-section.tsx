@@ -64,6 +64,12 @@ export function TeamSection() {
       bio: "Expertise in Technology Business Management and a human-centered approach to driving digital transformation.",
       avatar: "WE",
     },
+    {
+      name: "Chan Meng",
+      role: "Senior AI/ML Infrastructure Engineer",
+      bio: "Full-stack developer leading AI-powered solutions for women's workplace health, with expertise in cloud-native architecture and mentorship for women in STEM.",
+      avatar: "CM",
+    },
   ]
 
   return (
