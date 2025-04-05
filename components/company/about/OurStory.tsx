@@ -4,29 +4,41 @@ import { Sparkles, Star, Globe, Users, Award } from "lucide-react"
 
 export function OurStory() {
   return (
-    <section className="w-full py-16 md:py-24 bg-[#f8f9fa] relative -mt-10 z-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[#167d83]/5 pattern-dots"></div>
+    <section className="w-full py-16 md:py-24 bg-slate-50 relative -mt-10 z-20 overflow-hidden">
+      {/* Top transition from the previous section */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50/80 to-slate-50 pointer-events-none"></div>
+      
+      {/* Background patterns */}
+      <div className="absolute inset-0 pattern-dots opacity-15"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
-      {/* 添加叶片背景装饰 */}
+      {/* Leaf background decorations */}
       <div className="absolute top-10 right-10 hidden lg:block">
         <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-32 h-32 opacity-10 rotate-45" />
       </div>
       <div className="absolute bottom-40 left-10 hidden lg:block">
         <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-24 h-24 opacity-10 -rotate-12" />
       </div>
+      <div className="absolute top-1/2 right-1/3 hidden lg:block">
+        <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-40 h-40 opacity-10 rotate-90" />
+      </div>
+      
+      {/* Colored pencil line decorations */}
+      <div className="absolute top-28 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent"></div>
+      <div className="absolute bottom-32 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/15 to-transparent"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3">
+          <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
             Our Journey
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2c3e50] mb-4">The Story of Sanicle.cloud</h2>
-          <p className="text-lg text-[#7f8c8d]">From Concept to Innovation: How We're Transforming Workplace Health.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">The Story of Sanicle.cloud</h2>
+          <p className="text-lg text-slate-600">From Concept to Innovation: How We're Transforming Workplace Health.</p>
         </div>
 
         <div className="relative">
           {/* Timeline */}
-          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-[#e6f5f6] md:transform md:-translate-x-1/2"></div>
+          <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-primary/15 md:transform md:-translate-x-1/2"></div>
 
           {[
             {
@@ -83,7 +95,7 @@ export function OurStory() {
                   : "md:pl-12 md:ml-auto md:mr-0"
               } md:w-1/2`}
             >
-              {/* Timeline dot - 叶片形状替换圆形 */}
+              {/* Timeline dot - leaf shape instead of circle */}
               <div
                 className={`absolute left-0 md:left-auto ${
                   milestone.position === "left" ? "md:right-0" : "md:left-0"
@@ -103,11 +115,11 @@ export function OurStory() {
                 </div>
               </div>
 
-              {/* Content - 添加叶片装饰 */}
+              {/* Content - Add leaf decorations */}
               <div
                 className={`bg-white p-6 rounded-xl shadow-lg ${
                   milestone.position === "left" ? "md:rounded-r-none" : "md:rounded-l-none"
-                } transform transition-transform duration-500 hover:-translate-y-2 relative overflow-hidden`}
+                } transform transition-transform duration-500 hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm border border-primary/5`}
               >
                 <div className="absolute top-0 right-0 w-16 h-16 opacity-5">
                   <img 
@@ -116,27 +128,27 @@ export function OurStory() {
                     className="w-full h-full" 
                   />
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-[#e6f5f6] text-[#167d83] text-sm font-medium mb-3 relative">
+                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3 relative">
                   {milestone.year}
                 </div>
-                <h3 className="text-xl font-bold text-[#2c3e50] mb-2">{milestone.title}</h3>
-                <p className="text-[#7f8c8d]">{milestone.description}</p>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">{milestone.title}</h3>
+                <p className="text-slate-600">{milestone.description}</p>
               </div>
 
               {/* Mobile connection line */}
-              <div className="absolute left-5 top-10 bottom-0 w-1 bg-[#e6f5f6] md:hidden"></div>
+              <div className="absolute left-5 top-10 bottom-0 w-1 bg-primary/15 md:hidden"></div>
             </div>
           ))}
         </div>
       </div>
       
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+      {/* Wave divider for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" className="w-full h-auto">
           <path
             fill="#ffffff"
             fillOpacity="1"
-            d="M0,32L48,37.3C96,43,192,53,288,80C384,107,480,149,576,154.7C672,160,768,128,864,112C960,96,1056,96,1152,90.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,32L48,32C96,32,192,32,288,48C384,64,480,96,576,106.7C672,117,768,107,864,96C960,85,1056,75,1152,74.7C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
       </div>
