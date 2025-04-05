@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users } from "lucide-react"
+import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users, Brain, Sun } from "lucide-react"
 
 export function ValueProposition() {
   const features = [
@@ -8,36 +8,43 @@ export function ValueProposition() {
       icon: <Users className="h-10 w-10 text-white" />,
       title: "Empowering HR Managers",
       description:
-        "We provide HR with tools and resources to address menstrual health, including benefits management and educational materials.",
+        "We provide HR with tools and resources to address women's health comprehensively, including menstrual health, menopause, and mental wellbeing benefits management.",
       color: "bg-primary",
     },
     {
       icon: <Heart className="h-10 w-10 text-white" />,
       title: "Tackling Hormonal Imbalances",
       description:
-        "Sanicle.cloud offers support for conditions like PMS and PCOS, allowing women to manage their health effectively on the job.",
+        "Sanicle.cloud offers support for conditions like PMS, PCOS, and menopause symptoms, allowing women to manage their health effectively on the job.",
       color: "bg-secondary",
     },
     {
       icon: <Network className="h-10 w-10 text-white" />,
       title: "Building A Strong Network",
       description:
-        "We connect employers with leading healthcare providers, ensuring access to quality care for female employees.",
+        "We connect employers with leading healthcare providers, ensuring access to quality care for female employees across all life stages.",
       color: "bg-primary",
     },
     {
-      icon: <CheckCircle className="h-10 w-10 text-white" />,
-      title: "Improving Workplace Well-being",
+      icon: <Sun className="h-10 w-10 text-white" />,
+      title: "Supporting Menopause Transition",
       description:
-        "Our platform promotes overall well-being through comprehensive menstrual health support and resources.",
+        "Our platform provides resources, support, and workplace accommodations for women experiencing menopause, helping them thrive professionally during this transition.",
       color: "bg-secondary",
+    },
+    {
+      icon: <Brain className="h-10 w-10 text-white" />,
+      title: "Prioritizing Mental Wellbeing",
+      description:
+        "We integrate mental health support specifically designed for women, addressing the unique psychological aspects connected to hormonal health.",
+      color: "bg-primary",
     },
     {
       icon: <ShieldIcon className="h-10 w-10 text-white" />,
       title: "Ensuring Data Privacy",
       description:
-        "We prioritize the security and privacy of sensitive health data with enterprise-grade protection.",
-      color: "bg-primary",
+        "We prioritize the security and privacy of sensitive health data with enterprise-grade protection across all health domains.",
+      color: "bg-secondary",
     },
     {
       icon: <LockIcon className="h-10 w-10 text-white" />,

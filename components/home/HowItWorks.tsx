@@ -28,25 +28,25 @@ export function HowItWorks() {
     {
       number: 1,
       title: "Redeem Access Code",
-      description: "Use your unique code to access Sanicle.cloud's resources.",
+      description: "Use your unique code to access Sanicle.cloud's comprehensive women's health resources.",
       icon: <Users className="h-6 w-6 text-white" />,
     },
     {
       number: 2,
       title: "Self-Guided Resources",
-      description: "Explore a comprehensive library of articles, guides, and videos on menstrual and menopause health.",
+      description: "Explore our library of articles, guides, and videos on menstrual health, menopause management, and mental wellbeing.",
       icon: <Heart className="h-6 w-6 text-white" />,
     },
     {
       number: 3,
-      title: "OBGYN AI Support & Expert Consultations",
-      description: "Get AI-trained OBGYN guidance or schedule video consultations with OBGYNs, gynecologists, and other menstrual and wellness experts.",
+      title: "Expert AI Support & Consultations",
+      description: "Get AI guidance or schedule consultations with OBGYNs, menopause specialists, and mental health professionals tailored to your needs.",
       icon: <CheckCircle className="h-6 w-6 text-white" />,
     },
     {
       number: 4,
-      title: "Product Recommendations",
-      description: "Discover personalized period and menopause solutions to suit your needs.",
+      title: "Personalized Solutions",
+      description: "Discover personalized recommendations for your unique needs—whether for period care, menopause symptoms, or mental wellbeing support.",
       icon: <CheckCircle className="h-6 w-6 text-white" />,
     },
   ]

@@ -30,7 +30,7 @@ export function HeroSection() {
               Revolutionizing Womens' Workplace Health.
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 mx-auto lg:mx-0 max-w-lg animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              Sanicle.cloud offers a modular, end to end employee benefits platform with flexible menstrual health options. This frees employees from vendor fatigue and creates cost effective, attractive benefits that prioritize female well-being.
+              Sanicle.cloud offers a modular, end-to-end employee benefits platform with comprehensive women's health options - from menstrual care to menopause management and mental wellbeing. This frees employees from vendor fatigue and creates cost-effective, attractive benefits that prioritize female well-being at every life stage.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
               <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary-light text-white shadow-button hover:shadow-button-hover">

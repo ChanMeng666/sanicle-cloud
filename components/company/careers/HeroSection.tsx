@@ -27,7 +27,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-            We're continually seeking exceptional individuals eager to help transform how we access and finance healthcare. Join us on this journey!
+            We're continually seeking exceptional individuals eager to help transform how women access comprehensive healthcare support - from menstrual health and menopause management to mental wellbeing. Join us on this mission to support women through every life stage!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

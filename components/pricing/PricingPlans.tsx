@@ -19,6 +19,8 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
       },
       features: [
         "Personalized Cycle Management",
+        "Basic Menopause Resource Center",
+        "Mental Health Self-Assessment Tools",
         "AI Chatbot - Ask Sani",
         "Financial Wellness & Support",
       ],
@@ -37,9 +39,12 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
       },
       features: [
         "Basic plus this:",
+        "Advanced Menopause Symptom Tracking",
+        "Mental Health Professional Directory",
+        "Workplace Accommodation Guides",
         "Educational Resources",
         "Social Impact & Employee Rewards",
-        "Menstrual Syndrome Identification Support",
+        "Health Symptom Identification Support",
       ],
       buttonText: "Get Premium",
       highlight: true,
@@ -58,6 +63,8 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
       features: [
         "Premium plus this:",
         "Personalized Training and Consulting",
+        "Custom Mental Health Programs",
+        "Menopause Workplace Policy Development",
         "Custom Features",
       ],
       buttonText: "Contact Sales",

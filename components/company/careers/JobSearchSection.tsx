@@ -183,7 +183,7 @@ export function JobSearchSection() {
                       posted: "Just now",
                       color: "border-l-[#167d83]",
                       bgHover: "hover:bg-[#f7fdfd]",
-                      description: "Sanicle is seeking a Senior Data Scientist to join its core team.",
+                      description: "Sanicle is seeking a Senior Data Scientist to join its core team to develop predictive models for women's health patterns across all life stages.",
                       contact: "Please email your CV to jobs@sanicle.cloud"
                     },
                     {
@@ -194,7 +194,18 @@ export function JobSearchSection() {
                       posted: "Just now",
                       color: "border-l-[#EE4C23]",
                       bgHover: "hover:bg-[#fff9f8]",
-                      description: "Sanicle is seeking a sales representative to join its core team.",
+                      description: "Sanicle is seeking a sales representative to join its core team to promote our comprehensive women's health platform to corporate clients.",
+                      contact: "Please email your CV to jobs@sanicle.cloud"
+                    },
+                    {
+                      title: "Mental Health Content Specialist",
+                      department: "Health Education",
+                      location: "Remote",
+                      type: "Full-time",
+                      posted: "New",
+                      color: "border-l-[#167d83]",
+                      bgHover: "hover:bg-[#f7fdfd]",
+                      description: "Join our team to develop evidence-based content on women's mental health in the workplace, with focus on hormonal transitions.",
                       contact: "Please email your CV to jobs@sanicle.cloud"
                     },
                   ].map((job, index) => (
