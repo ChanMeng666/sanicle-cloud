@@ -6,31 +6,35 @@ import Link from "next/link"
 
 export function DemoHero() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-teal-light via-primary to-primary-deep text-white">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-primary-light via-primary to-primary-dark text-white">
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      <div className="absolute inset-0 pattern-dots opacity-15"></div>
+      
       {/* Leaf background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -right-10">
-          <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-80 h-80 opacity-30 blur-3xl" />
+          <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-80 h-80 opacity-30 blur-3xl animate-float" />
         </div>
         <div className="absolute bottom-0 left-1/4">
-          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-60 h-60 opacity-30 blur-2xl" />
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-60 h-60 opacity-30 blur-2xl animate-float-delay" />
         </div>
         
         {/* Leaf shape decorations */}
         <div className="absolute top-16 left-16">
-          <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-20 h-20 opacity-20 rotate-45" />
+          <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-20 h-20 opacity-20 rotate-45 animate-float" />
         </div>
         <div className="absolute top-40 right-[20%]">
-          <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-24 h-24 opacity-20" />
+          <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-24 h-24 opacity-20 animate-float-delay" />
         </div>
         <div className="absolute bottom-32 left-[10%]">
-          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-16 h-16 opacity-20" />
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-16 h-16 opacity-20 animate-float" />
         </div>
-        
-        {/* Grid background - added opacity layer for better contrast */}
-        <div className="absolute inset-0 bg-primary/70"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       </div>
+      
+      {/* Colored pencil line decorations */}
+      <div className="absolute top-32 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+      <div className="absolute bottom-60 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-12 gap-16 items-center">
@@ -48,7 +52,7 @@ export function DemoHero() {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white drop-shadow-md">
-                Explore <span className="text-coral-light relative inline-block mx-2 drop-shadow-md">
+                Explore <span className="text-secondary relative inline-block mx-2 drop-shadow-md">
                   Cloud Services
                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 12" preserveAspectRatio="none">
                     <path d="M0,0 Q50,20 100,0" stroke="currentColor" strokeWidth="4" fill="none" className="text-secondary/40" />
@@ -61,11 +65,11 @@ export function DemoHero() {
               </p>
               
               <div className="pt-4 flex items-center gap-4">
-                <Button asChild variant="secondary" size="lg" rounded="full" className="shadow-xl">
+                <Button asChild variant="secondary" size="lg" rounded="full" className="shadow-xl hover:translate-y-[-2px] transition-transform">
                   <Link href="/form">Book Now</Link>
                 </Button>
                 
-                <Button asChild variant="ghost" size="lg" rounded="full" className="text-white border border-white/20 backdrop-blur-sm">
+                <Button asChild variant="ghost" size="lg" rounded="full" className="text-white border border-white/20 backdrop-blur-sm hover:bg-white/10">
                   <Link href="/video" className="flex items-center">
                     <LucidePlayCircle className="mr-2 h-5 w-5" />
                     Watch Product Video
@@ -73,7 +77,7 @@ export function DemoHero() {
                 </Button>
               </div>
               
-              <div className="flex items-center gap-8 pt-6">
+              <div className="flex flex-wrap items-center gap-8 pt-6">
                 <div className="flex flex-col">
                   <span className="text-3xl font-bold text-white drop-shadow-sm">15 mins</span>
                   <span className="text-white text-sm">Demo Duration</span>
@@ -98,7 +102,7 @@ export function DemoHero() {
           
           <div className="md:col-span-6 relative">
             <div className="absolute -top-10 -right-10">
-              <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-32 h-32 opacity-20 blur-lg" />
+              <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-32 h-32 opacity-20 blur-lg animate-float-delay" />
             </div>
             
             {/* 3D floating device model */}
@@ -150,8 +154,27 @@ export function DemoHero() {
               {/* Shadow */}
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 h-10 bg-black/20 rounded-full blur-xl"></div>
             </div>
+            
+            {/* Floating decorative elements */}
+            <div className="absolute -bottom-5 -right-5 w-20 h-20 opacity-60">
+              <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full rotate-45" />
+            </div>
+            <div className="absolute -top-8 -left-8 w-16 h-16 opacity-60">
+              <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-full h-full -rotate-12" />
+            </div>
           </div>
         </div>
+      </div>
+      
+      {/* Wave divider for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" className="w-full h-auto">
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,90.7C960,96,1056,96,1152,90.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </div>
     </section>
   )
