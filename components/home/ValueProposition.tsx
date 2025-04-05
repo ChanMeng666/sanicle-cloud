@@ -80,7 +80,7 @@ export function ValueProposition() {
       title: "Building A Strong Network",
       description:
         "We connect employers with leading healthcare providers, ensuring access to quality care for female employees across all life stages.",
-      color: "bg-primary",
+      color: "bg-teal-600",
       leafColor: "green"
     },
     {
@@ -88,7 +88,7 @@ export function ValueProposition() {
       title: "Supporting Menopause Transition",
       description:
         "Our platform provides resources, support, and workplace accommodations for women experiencing menopause, helping them thrive professionally during this transition.",
-      color: "bg-secondary",
+      color: "bg-coral-600",
       leafColor: "pink"
     },
     {
@@ -96,7 +96,7 @@ export function ValueProposition() {
       title: "Prioritizing Mental Wellbeing",
       description:
         "We integrate mental health support specifically designed for women, addressing the unique psychological aspects connected to hormonal health.",
-      color: "bg-primary",
+      color: "bg-teal-500",
       leafColor: "green"
     },
     {
@@ -104,14 +104,14 @@ export function ValueProposition() {
       title: "Ensuring Data Privacy",
       description:
         "We prioritize the security and privacy of sensitive health data with enterprise-grade protection across all health domains.",
-      color: "bg-secondary",
+      color: "bg-coral-500",
       leafColor: "pink"
     },
     {
       icon: <LockIcon className="h-10 w-10 text-white" />,
       title: "Seamless Integration",
       description: "Our platform integrates with existing HR systems for a smooth implementation process.",
-      color: "bg-secondary",
+      color: "bg-neutral-700",
       leafColor: "white"
     },
   ]
@@ -131,7 +131,7 @@ export function ValueProposition() {
             <img src="/logo/leave-green.svg" alt="" className="w-24 h-24" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Sanicle.cloud is a comprehensive solution.</h2>
-          <p className="text-base md:text-lg text-slate">
+          <p className="text-base md:text-lg text-neutral-600">
             We're a B2B-B2G platform dedicated to transforming women's workplace wellbeing. Here's how:
           </p>
         </div>
@@ -214,8 +214,8 @@ export function ValueProposition() {
           
           {/* Scroll indicator */}
           <div className="flex justify-center mt-2 items-center space-x-1">
-            <div className="text-xs text-gray-500">Scroll for more</div>
-            <ChevronRight className="h-3 w-3 text-gray-500 animate-pulse" />
+            <div className="text-xs text-neutral-500">Scroll for more</div>
+            <ChevronRight className="h-3 w-3 text-neutral-500 animate-pulse" />
           </div>
         </div>
       </div>

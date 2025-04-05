@@ -179,7 +179,7 @@ export function MainNav() {
                 {item.title === "Pricing" ? (
                   <a 
                     href="#"
-                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center pricing-link"
+                    className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center pricing-link"
                     onClick={handlePricingClick}
                   >
                     {item.title}
@@ -187,7 +187,7 @@ export function MainNav() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
+                    className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center"
                   >
                     {item.title}
                     {item.children.length > 0 && (
@@ -214,15 +214,15 @@ export function MainNav() {
                         <Link
                           key={child.title}
                           href={child.href}
-                          className="block px-4 py-3 rounded-md hover:bg-primary-pale transition-colors relative z-10 group"
+                          className="block px-4 py-3 rounded-md hover:bg-teal-50 transition-colors relative z-10 group"
                         >
                           <div className="flex items-center">
                             <div className="w-6 h-6 relative mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                               <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
                             </div>
                             <div>
-                              <span className="block text-sm font-medium text-charcoal">{child.title}</span>
-                              <span className="block mt-1 text-xs text-slate">{child.description}</span>
+                              <span className="block text-sm font-medium text-neutral-800">{child.title}</span>
+                              <span className="block mt-1 text-xs text-neutral-500">{child.description}</span>
                             </div>
                           </div>
                         </Link>
@@ -234,151 +234,111 @@ export function MainNav() {
             ))}
           </nav>
           <div className="ml-6 flex items-center space-x-4">
-            <Button variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale relative group">
+            <Button variant="ghost" className="text-neutral-800 hover:text-primary hover:bg-teal-50 relative group">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                 <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
               </div>
               <span className="relative z-10">Log in</span>
             </Button>
             <Link href="/demo">
-              <Button variant="outline" className="text-charcoal border-primary hover:bg-primary-pale relative group">
+              <Button variant="outline" className="text-neutral-800 border-primary hover:bg-teal-50 relative group">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                   <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
                 </div>
                 <span className="relative z-10">Request Demo</span>
               </Button>
             </Link>
-            <Button className="bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white rounded-md shadow-button hover:shadow-button-hover relative group">
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
-              </div>
-              <span className="relative z-10 flex items-center">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Button>
+            <Link href="/demo">
+              <Button className="bg-primary hover:bg-teal-700 text-white group relative">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
+                </div>
+                <span className="relative z-10 mr-2">Get Started</span>
+                <ArrowRight className="h-4 w-4 relative z-10" />
+              </Button>
+            </Link>
           </div>
         </div>
         
         {/* Mobile menu button */}
-        <button
-          className="lg:hidden ml-auto p-2 text-charcoal hover:text-primary focus:outline-none relative"
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          <div className="absolute inset-0 opacity-10">
-            <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
-          </div>
-          <span className="relative z-10">
+        <div className="ml-auto flex items-center lg:hidden">
+          <Link href="/demo">
+            <Button className="mr-2 bg-primary hover:bg-teal-700 text-white text-sm hidden sm:flex">
+              <span className="mr-1">Get Started</span>
+              <ArrowRight className="h-3 w-3" />
+            </Button>
+          </Link>
+          <Button
+            onClick={toggleMenu}
+            variant="ghost"
+            className="text-neutral-800 p-2"
+          >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
             )}
-          </span>
-        </button>
-      </div>
-      
-      {/* Mobile menu - fixed full-screen display with scroll fix */}
-      {isMenuOpen && (
-        <div className="lg:hidden fixed left-0 right-0 top-0 z-[9990] bg-white shadow-lg overflow-y-auto h-[calc(100vh-var(--header-height,64px))]" style={{ top: 'var(--header-height, 64px)' }}>
-          {/* 叶片背景装饰 */}
-          <div className="absolute top-10 right-10 opacity-5 transform">
-            <img src="/logo/leave-green.svg" alt="" className="w-40 h-40 transform rotate-45" />
-          </div>
-          <div className="absolute bottom-20 left-10 opacity-5 transform">
-            <img src="/logo/leave-pink.svg" alt="" className="w-40 h-40 transform -rotate-12" />
-          </div>
-          
-          <div className="container px-4 py-6 pb-24 relative z-10">
-            <nav className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <div key={item.title} className="border-b border-gray-100 pb-3">
-                  {item.title === "Pricing" ? (
-                    <a
-                      href="#"
-                      className="text-charcoal hover:text-primary text-lg font-medium flex items-center justify-between"
-                      onClick={handlePricingClick}
+          </Button>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="absolute inset-x-0 top-full h-screen bg-white lg:hidden pt-6 pb-20 overflow-y-auto z-[9990]">
+            <div className="px-4 sm:px-6">
+              <nav className="grid gap-y-8 mb-8">
+                {navItems.map((item) => (
+                  <div key={item.title} className="relative group">
+                    <div
+                      className="flex items-center justify-between py-2 -mx-3 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
+                      onClick={() => toggleDropdown(item.title)}
                     >
                       <div className="flex items-center">
-                        <div className="w-5 h-5 mr-2 opacity-30">
-                          <img src="/logo/leave-pink.svg" alt="" className="w-full h-full" />
-                        </div>
-                        {item.title}
+                        <span className="text-base font-medium">{item.title}</span>
                       </div>
-                    </a>
-                  ) : (
-                    <>
-                      <div 
-                        className="text-charcoal hover:text-primary text-lg font-medium flex items-center justify-between cursor-pointer"
-                        onClick={() => toggleDropdown(item.title)}
-                      >
-                        <div className="flex items-center">
-                          <div className="w-5 h-5 mr-2 opacity-30">
-                            <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
-                          </div>
-                          {item.title}
-                        </div>
-                        {item.children.length > 0 && (
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transform transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''}`}>
-                            <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        )}
-                      </div>
-                      {item.children.length > 0 && activeDropdown === item.title && (
-                        <div className="mt-3 pl-7 space-y-2">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.title}
-                              href={child.href}
-                              className="block py-2 text-slate hover:text-primary text-base transition-colors group"
-                              onClick={toggleMenu}
-                            >
-                              <div className="flex items-center">
-                                <div className="w-4 h-4 relative mr-2 opacity-30">
-                                  <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
-                                </div>
-                                <div>
-                                  <span className="font-medium">{child.title}</span>
-                                  <p className="text-xs text-slate mt-1">{child.description}</p>
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
+                      {item.children.length > 0 && (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transform transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''}`}>
+                          <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
                       )}
-                    </>
-                  )}
-                </div>
-              ))}
-            </nav>
-            
-            <div className="mt-8 flex flex-col space-y-4 pb-16">
-              <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale group relative">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
-                </div>
-                <span className="relative z-10">Log in</span>
-              </Button>
-              <Link href="/demo" className="w-full" onClick={toggleMenu}>
-                <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale group relative">
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                    <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+                    </div>
+                    
+                    {item.children.length > 0 && activeDropdown === item.title && (
+                      <div className="mt-2 pl-4 space-y-2">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.title}
+                            href={child.href}
+                            className="block py-2 text-neutral-600 hover:text-primary"
+                            onClick={toggleMenu}
+                          >
+                            <div className="flex items-center">
+                              <div className="w-4 h-4 relative mr-2 opacity-70">
+                                <img src="/logo/leave-green.svg" alt="" className="absolute inset-0 w-full h-full" />
+                              </div>
+                              <span>{child.title}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <span className="relative z-10">Request Demo</span>
+                ))}
+              </nav>
+              
+              <div className="pt-6 border-t border-gray-200 flex flex-col space-y-4">
+                <Button variant="outline" className="w-full justify-center text-neutral-800 border-primary">
+                  Log in
                 </Button>
-              </Link>
-              <Button className="w-full justify-center py-5 bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white shadow-button group relative">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
-                </div>
-                <span className="relative z-10 flex items-center justify-center">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </span>
-              </Button>
+                <Link href="/demo" className="w-full">
+                  <Button variant="default" className="w-full justify-center bg-primary hover:bg-teal-700 text-white">
+                    Request Demo
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   )
 } 

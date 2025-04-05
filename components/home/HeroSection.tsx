@@ -8,7 +8,7 @@ import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-16 sm:py-20 lg:py-28 w-full">
+    <section className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-primary to-teal-400 py-16 sm:py-20 lg:py-28 w-full">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-64 h-64">
@@ -66,10 +66,10 @@ export function HeroSection() {
               Sanicle.cloud offers a modular, end-to-end employee benefits platform with comprehensive women's health options - from menstrual care to menopause management and mental wellbeing. This frees employees from vendor fatigue and creates cost-effective, attractive benefits that prioritize female well-being at every life stage.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary-light text-white shadow-button hover:shadow-button-hover">
+              <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-coral-400 text-white shadow-md hover:shadow-lg transition-all duration-300">
                 <Link href="/demo">Try Now</Link>
               </Button>
-              <Button asChild size="lg" className="rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary">
+              <Button asChild size="lg" className="rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300">
                 <Link href="/solution">Explore Solutions</Link>
               </Button>
             </div>
@@ -80,7 +80,7 @@ export function HeroSection() {
               <div className="relative w-full aspect-square max-w-lg mx-auto">
                 {/* Real product screenshots or assets can be used here */}
                 <div className="absolute inset-0 bg-white/95 rounded-2xl shadow-card-hover overflow-hidden">
-                  <div className="w-full h-12 bg-gray-100 flex items-center px-4 border-b">
+                  <div className="w-full h-12 bg-neutral-100 flex items-center px-4 border-b">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-error"></div>
                       <div className="w-3 h-3 rounded-full bg-warning"></div>
@@ -88,17 +88,17 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div className="p-4">
-                    <div className="h-8 bg-gray-200 rounded-md w-3/4 mb-4"></div>
+                    <div className="h-8 bg-neutral-200 rounded-md w-3/4 mb-4"></div>
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="h-24 bg-primary-pale rounded-md flex items-center justify-center">
+                      <div className="h-24 bg-teal-50 rounded-md flex items-center justify-center">
                         <div className="w-8 h-8 rounded-full bg-primary/80"></div>
                       </div>
-                      <div className="h-24 bg-beige rounded-md flex items-center justify-center">
+                      <div className="h-24 bg-tertiary rounded-md flex items-center justify-center">
                         <div className="w-8 h-8 rounded-full bg-secondary/80"></div>
                       </div>
                     </div>
-                    <div className="h-8 bg-gray-200 rounded-md w-1/2 mb-4"></div>
-                    <div className="h-32 bg-gray-100 rounded-md"></div>
+                    <div className="h-8 bg-neutral-200 rounded-md w-1/2 mb-4"></div>
+                    <div className="h-32 bg-neutral-100 rounded-md"></div>
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export function HeroSection() {
           {/* Simplified UI interface for mobile display */}
           <div className="lg:hidden relative w-full max-w-[280px] mx-auto mt-8">
             <div className="relative aspect-square bg-white/95 rounded-xl shadow-card-hover overflow-hidden">
-              <div className="w-full h-8 bg-gray-100 flex items-center px-3 border-b">
+              <div className="w-full h-8 bg-neutral-100 flex items-center px-3 border-b">
                 <div className="flex gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-error"></div>
                   <div className="w-2 h-2 rounded-full bg-warning"></div>
@@ -132,17 +132,17 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="p-3">
-                <div className="h-6 bg-gray-200 rounded w-2/3 mb-3"></div>
+                <div className="h-6 bg-neutral-200 rounded w-2/3 mb-3"></div>
                 <div className="grid grid-cols-2 gap-3 mb-3">
-                  <div className="aspect-square bg-primary-pale rounded flex items-center justify-center">
+                  <div className="aspect-square bg-teal-50 rounded flex items-center justify-center">
                     <div className="w-6 h-6 rounded-full bg-primary/80"></div>
                   </div>
-                  <div className="aspect-square bg-beige rounded flex items-center justify-center">
+                  <div className="aspect-square bg-tertiary rounded flex items-center justify-center">
                     <div className="w-6 h-6 rounded-full bg-secondary/80"></div>
                   </div>
                 </div>
-                <div className="h-6 bg-gray-200 rounded w-1/2 mb-3"></div>
-                <div className="h-24 bg-gray-100 rounded"></div>
+                <div className="h-6 bg-neutral-200 rounded w-1/2 mb-3"></div>
+                <div className="h-24 bg-neutral-100 rounded"></div>
               </div>
             </div>
           </div>

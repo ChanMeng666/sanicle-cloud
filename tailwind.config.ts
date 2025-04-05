@@ -26,16 +26,20 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#167d83", // Primary Teal
+          DEFAULT: "#167D83", // 品牌青绿色
           foreground: "hsl(var(--primary-foreground))",
-          deep: "#0e5a5f", // Deep Teal
-          light: "#7ac8cd", // Light Teal
-          pale: "#e6f5f6", // Pale Teal
+          deep: "#0A6066", // 深青绿色
+          light: "#5AACB0", // 浅青绿色
+          pale: "#E0F2F3", // 淡青绿色
         },
         secondary: {
-          DEFAULT: "#EE4C23", // Accent Coral
+          DEFAULT: "#EE4C23", // 珊瑚红
           foreground: "hsl(var(--secondary-foreground))",
-          light: "#f7a18c", // Coral Light
+          light: "#F39180", // 浅珊瑚红
+        },
+        tertiary: {
+          DEFAULT: "#F9ECE8", // 浅珊瑚色/米色
+          deep: "#F0D9D1", // 深一点的米色
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -57,19 +61,48 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Functional colors
-        success: "#2ecc71", // Success green
-        warning: "#f1c40f", // Warning yellow
-        error: "#e74c3c", // Error red
-        info: "#3498db", // Info blue
-        // Additional background color options
-        beige: {
-          DEFAULT: "#fef6e9", // Warm Beige
-          light: "#fffdf9",
-          dark: "#f9ebd6",
+        // 功能色
+        success: "#2ECC71", // 成功绿
+        warning: "#F39C12", // 警告黄
+        error: "#E74C3C", // 错误红
+        info: "#3498DB", // 信息蓝
+        // 次要色
+        neutral: {
+          50: "#FAFAFA", // 近白色
+          100: "#F5F5F5", // 非常浅灰
+          200: "#E5E5E5", // 浅灰
+          300: "#D4D4D4", // 中浅灰
+          400: "#A3A3A3", // 中灰
+          500: "#737373", // 中深灰
+          600: "#525252", // 深灰
+          700: "#404040", // 非常深灰
+          800: "#262626", // 近黑灰
+          900: "#171717", // 近黑色
         },
-        charcoal: "#2c3e50", // Charcoal
-        slate: "#7f8c8d", // Slate Grey
+        teal: {
+          50: "#EFFAFA", // 最浅青
+          100: "#DEF5F5", // 非常浅青
+          200: "#BDEAEB", // 浅青
+          300: "#88D9DB", // 中浅青
+          400: "#5AACB0", // 中青
+          500: "#167D83", // 品牌青
+          600: "#0A6066", // 深青
+          700: "#074F54", // 非常深青
+          800: "#053B3F", // 极深青
+          900: "#032A2D", // 近黑青
+        },
+        coral: {
+          50: "#FDF5F3", // 最浅珊瑚
+          100: "#F9ECE8", // 非常浅珊瑚
+          200: "#F7D9D0", // 浅珊瑚
+          300: "#F5C5B7", // 中浅珊瑚
+          400: "#F39180", // 中珊瑚
+          500: "#EE4C23", // 珊瑚红
+          600: "#D83A14", // 深珊瑚
+          700: "#B22F10", // 非常深珊瑚
+          800: "#8C250D", // 极深珊瑚
+          900: "#661B09", // 近黑珊瑚
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
