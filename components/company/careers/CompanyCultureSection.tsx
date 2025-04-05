@@ -126,7 +126,7 @@ export function CompanyCultureSection() {
           {/* Right image area */}
           <div className="lg:w-1/2 order-1 lg:order-2 relative">
             <div className="relative w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl mx-auto lg:mx-0">
-              <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=800')] bg-cover bg-center"></div>
+              <div className="absolute inset-0 bg-[url('/images/12_31_09.png')] bg-cover bg-center"></div>
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay"></div>
               
               {/* Leaf decorations around the image */}
@@ -139,7 +139,7 @@ export function CompanyCultureSection() {
               
               {/* Decorative overlapping images */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-lg overflow-hidden shadow-xl transform rotate-6 border-4 border-white">
-                <div className="w-full h-full bg-[url('/placeholder.svg?height=200&width=200')] bg-cover bg-center"></div>
+                <div className="w-full h-full bg-[url('/images/12_32_28.png')] bg-cover bg-center"></div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-primary/20"></div>
                 <div className="absolute -top-2 -right-2 w-8 h-8 opacity-30">
                   <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-full h-full" />
