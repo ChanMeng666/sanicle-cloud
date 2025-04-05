@@ -15,7 +15,23 @@ export function TechnicalSpecsSection() {
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 bg-[#f8f9fa] relative overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-8 gap-12 p-10">
+          {[...Array(48)].map((_, index) => {
+            const opacityValue = index % 3 === 0 ? '30' : '60';
+            const rotateValue = (index * 7.5) % 360;
+            
+            return (
+              <img 
+                key={index} 
+                src="/logo/leave-black.svg" 
+                alt="Leaf pattern"
+                className={`w-6 h-6 opacity-${opacityValue} transform rotate-${rotateValue}`}
+              />
+            );
+          })}
+        </div>
+      </div>
       
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-full h-24 bg-gradient-to-b from-white to-transparent"></div>

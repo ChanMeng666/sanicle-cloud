@@ -46,9 +46,15 @@ export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => voi
       
       {/* Abstract shapes */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20 overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 -right-24 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 left-1/3 w-72 h-72 bg-primary-light/30 rounded-full blur-3xl"></div>
+        <div className="absolute -top-24 -left-24">
+          <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-70 blur-3xl" />
+        </div>
+        <div className="absolute top-1/2 -right-24">
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-80 h-80 opacity-70 blur-3xl" />
+        </div>
+        <div className="absolute -bottom-24 left-1/3">
+          <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-72 h-72 opacity-70 blur-3xl" />
+        </div>
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
@@ -81,6 +87,14 @@ export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => voi
             <PricingToggle onToggle={onToggle} />
           </div>
         </div>
+      </div>
+      
+      {/* Add small leaf decorations */}
+      <div className="absolute top-20 right-20 hidden lg:block">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-12 h-12 opacity-30 rotate-45" />
+      </div>
+      <div className="absolute bottom-40 left-20 hidden lg:block">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-16 h-16 opacity-30 -rotate-12" />
       </div>
       
       {/* Curved divider at the bottom of Hero Section */}

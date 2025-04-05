@@ -9,22 +9,39 @@ export function HeroSection() {
       {/* Innovative background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full">
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="circuit-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M0,0 L10,0 L10,10 L0,10 Z" fill="none" stroke="white" strokeWidth="0.5" />
-                <circle cx="0" cy="0" r="1" fill="white" />
-                <circle cx="10" cy="10" r="1" fill="white" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
-          </svg>
+          <div className="grid grid-cols-5 gap-10 p-10">
+            {[...Array(25)].map((_, index) => {
+              const opacityValue = index % 2 === 0 ? '30' : '70';
+              const rotateValue = (index * 15) % 360;
+              
+              return (
+                <img 
+                  key={index} 
+                  src="/logo/leave-white.svg" 
+                  alt="Leaf pattern"
+                  className={`w-8 h-8 opacity-${opacityValue} transform rotate-${rotateValue}`}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* Dynamic background elements */}
-      <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 bg-white/5 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 bg-white/5 rounded-full blur-xl animate-pulse delay-1000"></div>
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48">
+        <img 
+          src="/logo/leave-white.svg" 
+          alt="Leaf background" 
+          className="w-full h-full opacity-30 animate-pulse"
+        />
+      </div>
+      <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64">
+        <img 
+          src="/logo/leave-white.svg" 
+          alt="Leaf background" 
+          className="w-full h-full opacity-30 animate-pulse delay-1000"
+        />
+      </div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
@@ -101,9 +118,22 @@ export function HeroSection() {
 
       {/* Innovative separator design */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-12 sm:h-16">
-          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="#ffffff"></path>
-        </svg>
+        <div className="relative h-12 sm:h-16 overflow-hidden">
+          <div className="absolute bottom-0 w-full flex justify-between">
+            {[...Array(12)].map((_, index) => (
+              <img 
+                key={index} 
+                src="/logo/leave-white.svg" 
+                alt="Leaf separator" 
+                className="w-12 h-12 opacity-30 transform"
+                style={{ transform: `translateY(-${index % 2 ? '25%' : '50%'}) rotate(${index * 30}deg)` }}
+              />
+            ))}
+          </div>
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-12 sm:h-16">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="#ffffff"></path>
+          </svg>
+        </div>
       </div>
 
       {/* Add global styles */}

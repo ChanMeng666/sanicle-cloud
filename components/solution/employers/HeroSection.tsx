@@ -40,8 +40,11 @@ export function HeroSection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
                 <div className="flex items-center p-3 rounded-lg bg-white/70 backdrop-blur-sm shadow-sm hover:shadow transition-all">
-                  <div className="w-12 h-12 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-4 shadow-inner">
-                    <Users className="h-6 w-6" />
+                  <div className="w-12 h-12 relative mr-4">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Users className="h-6 w-6 text-[#167d83]" />
+                    </div>
                   </div>
                   <div>
                     <div className="text-sm text-[#7f8c8d] font-medium">Employee Retention Increase</div>
@@ -49,8 +52,11 @@ export function HeroSection() {
                   </div>
                 </div>
                 <div className="flex items-center p-3 rounded-lg bg-white/70 backdrop-blur-sm shadow-sm hover:shadow transition-all">
-                  <div className="w-12 h-12 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-4 shadow-inner">
-                    <BarChart className="h-6 w-6" />
+                  <div className="w-12 h-12 relative mr-4">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BarChart className="h-6 w-6 text-[#EE4C23]" />
+                    </div>
                   </div>
                   <div>
                     <div className="text-sm text-[#7f8c8d] font-medium">Absenteeism Reduction</div>
@@ -81,8 +87,11 @@ export function HeroSection() {
 
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-lg rotate-6 hover:rotate-3 transition-transform duration-300">
                 <div className="flex items-center text-sm">
-                  <div className="w-10 h-10 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-3 shadow-inner">
-                    <Users className="h-5 w-5" />
+                  <div className="w-10 h-10 relative mr-3">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Users className="h-5 w-5 text-[#167d83]" />
+                    </div>
                   </div>
                   <div>
                     <p className="font-medium text-[#2c3e50]">Employee Satisfaction</p>
@@ -93,8 +102,11 @@ export function HeroSection() {
 
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-4 shadow-lg -rotate-6 hover:-rotate-3 transition-transform duration-300">
                 <div className="flex items-center text-sm">
-                  <div className="w-10 h-10 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-3 shadow-inner">
-                    <BarChart className="h-5 w-5" />
+                  <div className="w-10 h-10 relative mr-3">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BarChart className="h-5 w-5 text-[#EE4C23]" />
+                    </div>
                   </div>
                   <div>
                     <p className="font-medium text-[#2c3e50]">ROI</p>
@@ -105,8 +117,12 @@ export function HeroSection() {
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#167d83]/10 rounded-full blur-3xl"></div>
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#EE4C23]/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-10 -right-10">
+              <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-40 h-40 opacity-20 blur-xl" />
+            </div>
+            <div className="absolute -top-10 -left-10">
+              <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-40 h-40 opacity-20 blur-xl" />
+            </div>
           </div>
         </div>
       </div>

@@ -155,15 +155,27 @@ export function MainNav() {
   }
 
   return (
-    <header ref={headerRef} className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
-      <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6">
-        <Link href="/" className="flex-none">
-          <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-10 sm:h-12" />
+    <header ref={headerRef} className={`sticky top-0 z-[9999] w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
+      {/* 添加背景叶片装饰 */}
+      <div className="absolute top-0 right-0 -mr-4 -mt-6 opacity-5 hidden lg:block">
+        <img src="/logo/leave-green.svg" alt="" className="w-20 h-20 transform rotate-45" />
+      </div>
+      <div className="absolute bottom-0 left-0 -ml-3 -mb-6 opacity-5 hidden lg:block">
+        <img src="/logo/leave-pink.svg" alt="" className="w-16 h-16 transform -rotate-12" />
+      </div>
+      
+      <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6 relative">
+        <Link href="/" className="flex-none relative">
+          {/* 为logo添加叶片背景装饰 */}
+          <div className="absolute -left-3 -bottom-3 opacity-10">
+            <img src="/logo/leave-green.svg" alt="" className="w-12 h-12 transform -rotate-12" />
+          </div>
+          <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-10 sm:h-12 relative z-10" />
         </Link>
         <div className="hidden lg:flex ml-auto items-center gap-1">
           <nav className="flex items-center space-x-1">
             {navItems.map((item) => (
-              <div key={item.title} className="relative group">
+              <div key={item.title} className="relative group" style={{ isolation: 'isolate' }}>
                 {item.title === "Pricing" ? (
                   <a 
                     href="#"
@@ -172,47 +184,47 @@ export function MainNav() {
                   >
                     {item.title}
                   </a>
-                ) : item.children.length > 0 ? (
-                  <button 
-                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
-                    onClick={() => toggleDropdown(item.title)}
-                  >
-                    {item.title}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
                 ) : (
-                  <Link 
+                  <Link
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center pricing-link"
-                    prefetch={true}
+                    className="px-4 py-2 text-sm font-medium text-charcoal hover:text-primary hover:bg-primary-pale rounded-md transition-colors flex items-center"
                   >
                     {item.title}
+                    {item.children.length > 0 && (
+                      <span className="ml-1">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-200 group-hover:rotate-180">
+                          <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    )}
                   </Link>
                 )}
                 {item.children.length > 0 && (
-                  <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-0 mt-2 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-10 overflow-hidden">
-                    <div className="p-2 divide-y divide-gray-50">
+                  <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-[9990] overflow-hidden">
+                    <div className="p-2 divide-y divide-gray-50 relative">
+                      {/* 叶片装饰 */}
+                      <div className="absolute top-0 right-0 opacity-5">
+                        <img src="/logo/leave-green.svg" alt="" className="w-16 h-16 transform rotate-45" />
+                      </div>
+                      <div className="absolute bottom-0 left-0 opacity-5">
+                        <img src="/logo/leave-pink.svg" alt="" className="w-12 h-12 transform -rotate-12" />
+                      </div>
+                      
                       {item.children.map((child) => (
                         <Link
                           key={child.title}
                           href={child.href}
-                          className="block px-4 py-3 rounded-md hover:bg-primary-pale transition-colors"
+                          className="block px-4 py-3 rounded-md hover:bg-primary-pale transition-colors relative z-10 group"
                         >
-                          <span className="block text-sm font-medium text-charcoal">{child.title}</span>
-                          <span className="block mt-1 text-xs text-slate">{child.description}</span>
+                          <div className="flex items-center">
+                            <div className="w-6 h-6 relative mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
+                            </div>
+                            <div>
+                              <span className="block text-sm font-medium text-charcoal">{child.title}</span>
+                              <span className="block mt-1 text-xs text-slate">{child.description}</span>
+                            </div>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -222,112 +234,146 @@ export function MainNav() {
             ))}
           </nav>
           <div className="ml-6 flex items-center space-x-4">
-            <Button variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale">
-              Log in
+            <Button variant="ghost" className="text-charcoal hover:text-primary hover:bg-primary-pale relative group">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
+              </div>
+              <span className="relative z-10">Log in</span>
             </Button>
             <Link href="/demo">
-              <Button variant="outline" className="text-charcoal border-primary hover:bg-primary-pale">
-                Request Demo
+              <Button variant="outline" className="text-charcoal border-primary hover:bg-primary-pale relative group">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                  <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+                </div>
+                <span className="relative z-10">Request Demo</span>
               </Button>
             </Link>
-            <Button className="bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white rounded-md shadow-button hover:shadow-button-hover">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <Button className="bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white rounded-md shadow-button hover:shadow-button-hover relative group">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
+              </div>
+              <span className="relative z-10 flex items-center">
+                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              </span>
             </Button>
           </div>
         </div>
         
         {/* Mobile menu button */}
         <button
-          className="lg:hidden ml-auto p-2 text-charcoal hover:text-primary focus:outline-none"
+          className="lg:hidden ml-auto p-2 text-charcoal hover:text-primary focus:outline-none relative"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          <div className="absolute inset-0 opacity-10">
+            <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+          </div>
+          <span className="relative z-10">
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </span>
         </button>
       </div>
       
       {/* Mobile menu - fixed full-screen display with scroll fix */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed left-0 right-0 top-0 z-40 bg-white shadow-lg overflow-y-auto h-[calc(100vh-var(--header-height,64px))]" style={{ top: 'var(--header-height, 64px)' }}>
-          <div className="container px-4 py-6 pb-24">
+        <div className="lg:hidden fixed left-0 right-0 top-0 z-[9990] bg-white shadow-lg overflow-y-auto h-[calc(100vh-var(--header-height,64px))]" style={{ top: 'var(--header-height, 64px)' }}>
+          {/* 叶片背景装饰 */}
+          <div className="absolute top-10 right-10 opacity-5 transform">
+            <img src="/logo/leave-green.svg" alt="" className="w-40 h-40 transform rotate-45" />
+          </div>
+          <div className="absolute bottom-20 left-10 opacity-5 transform">
+            <img src="/logo/leave-pink.svg" alt="" className="w-40 h-40 transform -rotate-12" />
+          </div>
+          
+          <div className="container px-4 py-6 pb-24 relative z-10">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <div key={item.title} className="relative border-b border-gray-100 pb-3">
+                <div key={item.title} className="border-b border-gray-100 pb-3">
                   {item.title === "Pricing" ? (
-                    <a 
+                    <a
                       href="#"
-                      className="w-full block py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors pricing-link-mobile"
+                      className="text-charcoal hover:text-primary text-lg font-medium flex items-center justify-between"
                       onClick={handlePricingClick}
                     >
-                      {item.title}
+                      <div className="flex items-center">
+                        <div className="w-5 h-5 mr-2 opacity-30">
+                          <img src="/logo/leave-pink.svg" alt="" className="w-full h-full" />
+                        </div>
+                        {item.title}
+                      </div>
                     </a>
-                  ) : item.children.length > 0 ? (
-                    <button 
-                      className="w-full flex justify-between items-center py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors"
-                      onClick={() => toggleDropdown(item.title)}
-                    >
-                      {item.title}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={`ml-1 h-5 w-5 transition-transform ${
-                          activeDropdown === item.title ? "transform rotate-180 text-primary" : ""
-                        }`}
-                      >
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                    </button>
                   ) : (
-                    <Link 
-                      href={item.href}
-                      className="w-full block py-3 text-base font-medium text-charcoal hover:text-primary rounded-md transition-colors pricing-link-mobile"
-                      onClick={toggleMenu}
-                      prefetch={true}
-                    >
-                      {item.title}
-                    </Link>
-                  )}
-                  {item.children.length > 0 && activeDropdown === item.title && (
-                    <div className="mt-3 ml-4 space-y-3 max-h-60 overflow-y-auto bg-primary-pale/30 p-3 rounded-md">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.title}
-                          href={child.href}
-                          className="block py-2 border-l-2 border-primary pl-4 hover:bg-white/80 rounded-r-md transition-all"
-                          onClick={toggleMenu}
-                        >
-                          <span className="block text-sm font-medium text-charcoal">{child.title}</span>
-                          <span className="block mt-1 text-xs text-slate">{child.description}</span>
-                        </Link>
-                      ))}
-                    </div>
+                    <>
+                      <div 
+                        className="text-charcoal hover:text-primary text-lg font-medium flex items-center justify-between cursor-pointer"
+                        onClick={() => toggleDropdown(item.title)}
+                      >
+                        <div className="flex items-center">
+                          <div className="w-5 h-5 mr-2 opacity-30">
+                            <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+                          </div>
+                          {item.title}
+                        </div>
+                        {item.children.length > 0 && (
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transform transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''}`}>
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </div>
+                      {item.children.length > 0 && activeDropdown === item.title && (
+                        <div className="mt-3 pl-7 space-y-2">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.title}
+                              href={child.href}
+                              className="block py-2 text-slate hover:text-primary text-base transition-colors group"
+                              onClick={toggleMenu}
+                            >
+                              <div className="flex items-center">
+                                <div className="w-4 h-4 relative mr-2 opacity-30">
+                                  <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
+                                </div>
+                                <div>
+                                  <span className="font-medium">{child.title}</span>
+                                  <p className="text-xs text-slate mt-1">{child.description}</p>
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
             </nav>
             
             <div className="mt-8 flex flex-col space-y-4 pb-16">
-              <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale">
-                Log in
+              <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale group relative">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
+                </div>
+                <span className="relative z-10">Log in</span>
               </Button>
               <Link href="/demo" className="w-full" onClick={toggleMenu}>
-                <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale">
-                  Request Demo
+                <Button variant="outline" className="w-full justify-center py-5 text-charcoal border-primary hover:bg-primary-pale group relative">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                    <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+                  </div>
+                  <span className="relative z-10">Request Demo</span>
                 </Button>
               </Link>
-              <Button className="w-full justify-center py-5 bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white shadow-button">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+              <Button className="w-full justify-center py-5 bg-gradient-to-r from-secondary to-secondary-light hover:from-secondary hover:to-secondary text-white shadow-button group relative">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
+                </div>
+                <span className="relative z-10 flex items-center justify-center">
+                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </span>
               </Button>
             </div>
           </div>

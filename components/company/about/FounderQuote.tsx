@@ -5,8 +5,12 @@ import { QuoteIcon } from "lucide-react"
 export function FounderQuote() {
   return (
     <section className="w-full py-16 md:py-24 lg:py-28 bg-white relative -mt-20 z-20">
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-[#fef6e9]/50 filter blur-3xl animate-float-delay"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#e6f5f6]/50 filter blur-3xl animate-float"></div>
+      <div className="absolute top-1/4 right-1/4">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-30 blur-3xl animate-float-delay" />
+      </div>
+      <div className="absolute bottom-1/4 left-1/4">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-96 h-96 opacity-30 blur-3xl animate-float" />
+      </div>
       
       <div className="container px-4 sm:px-6 md:px-8">
         <div className="max-w-5xl mx-auto relative">
@@ -18,23 +22,38 @@ export function FounderQuote() {
             <QuoteIcon className="h-24 w-24 text-[#167d83]/20" />
           </div>
 
-          <div className="bg-gradient-to-br from-[#fef6e9] to-[#fef6e9]/80 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative z-10 border border-[#EE4C23]/10 animate-zoom-in">
+          <div className="bg-gradient-to-br from-[#fef6e9] to-[#fef6e9]/80 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative z-10 border border-[#EE4C23]/10 animate-zoom-in overflow-hidden">
+            {/* 添加叶片背景装饰 */}
+            <div className="absolute top-0 left-0 -rotate-12">
+              <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-24 h-24 opacity-20" />
+            </div>
+            <div className="absolute bottom-0 right-0 rotate-45">
+              <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-24 h-24 opacity-20" />
+            </div>
+            
             <div className="grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 relative">
                 <div className="mb-6 md:mb-0">
-                  {/* Glow effect background */}
-                  <div className="absolute inset-0 bg-[#EE4C23]/10 rounded-full blur-3xl transform animate-pulse-opacity"></div>
+                  {/* 叶片形状背景效果 */}
+                  <div className="absolute inset-0 transform animate-pulse-opacity">
+                    <img src="/logo/leave-pink.svg" alt="Leaf glow effect" className="w-full h-full opacity-30 blur-3xl" />
+                  </div>
                   
-                  {/* Founder image */}
-                  <div className="relative z-10 rounded-full overflow-hidden border-4 border-white shadow-xl w-40 h-40 sm:w-48 sm:h-48 mx-auto transform hover:scale-105 transition-transform duration-300">
-                    <img
-                      src="/placeholder.svg?height=200&width=200"
-                      alt="Dr. Chen"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    {/* Image overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  {/* Founder image with leaf frame */}
+                  <div className="relative z-10 overflow-hidden w-40 h-40 sm:w-48 sm:h-48 mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <div className="absolute inset-0 z-20 pointer-events-none">
+                      <img src="/logo/leave-white.svg" alt="Leaf frame" className="w-full h-full absolute inset-0" />
+                    </div>
+                    <div className="absolute inset-[12%] rounded-full overflow-hidden border-4 border-white shadow-xl z-10">
+                      <img
+                        src="/placeholder.svg?height=200&width=200"
+                        alt="Dr. Chen"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      {/* Image overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
                   </div>
 
                   <div className="mt-6 text-center">
@@ -64,8 +83,9 @@ export function FounderQuote() {
                     Our mission is to transform workplace health environments by making menstrual health benefits accessible, comprehensive, and non-discriminatory. We believe that when women receive the support they need to manage menstrual health, everyone benefits — not just individual employees, but entire organizations.
                   </p>
                   
-                  {/* Signature effect */}
-                  <div className="mt-6 flex justify-end">
+                  {/* Signature with leaf decoration */}
+                  <div className="mt-6 flex justify-end items-center">
+                    <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-8 h-8 opacity-30 mr-2" />
                     <img 
                       src="/placeholder.svg?height=60&width=150" 
                       alt="Dr. Chen's signature" 

@@ -7,8 +7,12 @@ export function HeroSection() {
   return (
     <section className="w-full py-12 md:py-20 lg:py-24 bg-gradient-to-br from-white to-[#f8f9fa] relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#e6f5f6] rounded-full opacity-20 blur-3xl transform translate-x-1/4 -translate-y-1/4"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-[#fef6e9] rounded-full opacity-20 blur-3xl transform -translate-x-1/4 translate-y-1/4"></div>
+      <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-[50vw] h-[50vw] opacity-20 blur-3xl" />
+      </div>
+      <div className="absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-[33vw] h-[33vw] opacity-20 blur-3xl" />
+      </div>
       
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -59,8 +63,11 @@ export function HeroSection() {
 
             <div className="bg-white p-4 rounded-xl shadow-md transform hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center">
-                <div className="bg-[#e6f5f6] p-2 rounded-full mr-3">
-                  <DollarSign className="h-6 w-6 text-[#167d83]" />
+                <div className="relative w-10 h-10 mr-3">
+                  <img src="/logo/leave-green.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <DollarSign className="h-6 w-6 text-[#167d83]" />
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#2c3e50] text-sm md:text-base">Commission</h3>
@@ -71,8 +78,11 @@ export function HeroSection() {
 
             <div className="bg-white p-4 rounded-xl shadow-md transform hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <div className="flex items-center">
-                <div className="bg-[#fef6e9] p-2 rounded-full mr-3">
-                  <Handshake className="h-6 w-6 text-[#EE4C23]" />
+                <div className="relative w-10 h-10 mr-3">
+                  <img src="/logo/leave-pink.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Handshake className="h-6 w-6 text-[#EE4C23]" />
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#2c3e50] text-sm md:text-base">Partners</h3>

@@ -32,12 +32,36 @@ export function FeaturesSection() {
   return (
     <section className="w-full py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-bl-[100px] z-0"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 rounded-tr-[100px] z-0"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 z-0">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Leaf decoration" 
+          className="absolute top-10 right-10 w-32 h-32 opacity-10 transform rotate-45"
+        />
+      </div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#f8f9fa] opacity-50 z-0">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Leaf decoration" 
+          className="absolute bottom-10 left-10 w-32 h-32 opacity-10 transform -rotate-45"
+        />
+      </div>
       
       {/* Floating decorative elements */}
-      <div className="hidden md:block absolute top-1/4 right-10 h-16 w-16 bg-[#167d83]/10 rounded-full animate-float"></div>
-      <div className="hidden md:block absolute bottom-1/4 left-10 h-20 w-20 bg-[#EE4C23]/10 rounded-full animate-float animation-delay-1000"></div>
+      <div className="hidden md:block absolute top-1/4 right-10">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Leaf decoration" 
+          className="h-16 w-16 opacity-20 animate-float"
+        />
+      </div>
+      <div className="hidden md:block absolute bottom-1/4 left-10">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Leaf decoration" 
+          className="h-20 w-20 opacity-20 animate-float animation-delay-1000"
+        />
+      </div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-10 md:mb-16">

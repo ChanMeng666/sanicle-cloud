@@ -12,12 +12,20 @@ export function HeroSection() {
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-pattern-dots opacity-20"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-pattern-dots opacity-20"></div>
         
-        <div className="absolute top-[10%] right-[10%] w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
-        <div className="absolute bottom-[15%] left-[10%] w-80 h-80 rounded-full bg-secondary/5 blur-3xl"></div>
+        <div className="absolute top-[10%] right-[10%]">
+          <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-20 blur-xl" />
+        </div>
+        <div className="absolute bottom-[15%] left-[10%]">
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-80 h-80 opacity-20 blur-xl" />
+        </div>
         
         {/* Floating elements */}
-        <div className="absolute top-[30%] right-[25%] w-16 h-16 bg-primary/10 rounded-xl rotate-12 animate-float"></div>
-        <div className="absolute bottom-[20%] left-[20%] w-12 h-12 bg-secondary/10 rounded-full animate-float-delay"></div>
+        <div className="absolute top-[30%] right-[25%]">
+          <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-16 h-16 opacity-10 rotate-12 animate-float" />
+        </div>
+        <div className="absolute bottom-[20%] left-[20%]">
+          <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-12 h-12 opacity-20 animate-float-delay" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -52,22 +60,31 @@ export function HeroSection() {
             
             <div className="grid grid-cols-3 gap-4 mt-12 max-w-md mx-auto lg:mx-0">
               <div className="bg-white rounded-lg p-4 shadow-sm border border-primary/10 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-primary-pale flex items-center justify-center mb-2 mx-auto">
-                  <Heart className="h-5 w-5 text-primary" />
+                <div className="w-10 h-10 relative mx-auto mb-2">
+                  <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Heart className="h-5 w-5 text-primary" />
+                  </div>
                 </div>
                 <p className="text-center text-sm text-slate">Personalized Health Plans</p>
               </div>
               
               <div className="bg-white rounded-lg p-4 shadow-sm border border-primary/10 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-beige flex items-center justify-center mb-2 mx-auto">
-                  <Smartphone className="h-5 w-5 text-secondary" />
+                <div className="w-10 h-10 relative mx-auto mb-2">
+                  <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Smartphone className="h-5 w-5 text-secondary" />
+                  </div>
                 </div>
                 <p className="text-center text-sm text-slate">Multi-platform Support</p>
               </div>
               
               <div className="bg-white rounded-lg p-4 shadow-sm border border-primary/10 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-secondary-light/20 flex items-center justify-center mb-2 mx-auto">
-                  <Shield className="h-5 w-5 text-secondary" />
+                <div className="w-10 h-10 relative mx-auto mb-2">
+                  <img src="/logo/leave-white.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Shield className="h-5 w-5 text-secondary" />
+                  </div>
                 </div>
                 <p className="text-center text-sm text-slate">Data Security Guarantee</p>
               </div>
@@ -77,7 +94,9 @@ export function HeroSection() {
           <div className="hidden lg:block relative">
             <div className="relative z-10 perspective-1000 transform hover:scale-[1.02] transition-all duration-500">
               <div className="relative bg-white p-4 rounded-2xl shadow-xl border-8 border-white/80 overflow-hidden">
-                <div className="absolute -top-8 -right-8 w-20 h-20 bg-secondary rounded-full opacity-10 blur-lg"></div>
+                <div className="absolute -top-8 -right-8">
+                  <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-20 h-20 opacity-10 blur-lg" />
+                </div>
                 
                 {/* App interface simulation */}
                 <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl overflow-hidden">
@@ -140,8 +159,11 @@ export function HeroSection() {
                 {/* Floating elements */}
                 <div className="absolute -top-6 -right-6 bg-white rounded-lg p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-300 z-20">
                   <div className="flex items-center text-sm">
-                    <div className="w-8 h-8 rounded-full bg-primary-pale text-primary flex items-center justify-center mr-2">
-                      <Heart className="h-4 w-4" />
+                    <div className="w-8 h-8 relative mr-2">
+                      <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Heart className="h-4 w-4 text-primary" />
+                      </div>
                     </div>
                     <span className="font-medium text-charcoal">Health Improvement <span className="text-secondary font-bold">90%</span></span>
                   </div>
@@ -149,8 +171,11 @@ export function HeroSection() {
                 
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-lg p-3 shadow-lg -rotate-6 hover:rotate-0 transition-transform duration-300 z-20">
                   <div className="flex items-center text-sm">
-                    <div className="w-8 h-8 rounded-full bg-secondary-light/30 text-secondary flex items-center justify-center mr-2">
-                      <Shield className="h-4 w-4" />
+                    <div className="w-8 h-8 relative mr-2">
+                      <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Shield className="h-4 w-4 text-secondary" />
+                      </div>
                     </div>
                     <span className="font-medium text-charcoal">Data Protection <span className="text-primary font-bold">100%</span></span>
                   </div>
@@ -159,8 +184,12 @@ export function HeroSection() {
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-primary/10 rounded-full -z-10 animate-pulse-opacity"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 border-2 border-secondary/10 rounded-full -z-10 animate-pulse-opacity" style={{ animationDelay: "1s" }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
+              <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-10 animate-pulse-opacity" />
+            </div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10" style={{ animationDelay: "1s" }}>
+              <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-80 h-80 opacity-10 animate-pulse-opacity" style={{ animationDelay: "1s" }} />
+            </div>
           </div>
         </div>
       </div>

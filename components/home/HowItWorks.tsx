@@ -76,16 +76,34 @@ export function HowItWorks() {
                   style={{ zIndex: 10 }}
                 >
                   <div className="relative">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300">
-                      <span className="text-white text-lg sm:text-xl font-bold">{step.number}</span>
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 relative bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300 overflow-hidden">
+                      <img 
+                        src="/logo/leave-white.svg" 
+                        alt="Leaf background" 
+                        className="absolute w-full h-full opacity-20"
+                      />
+                      <span className="text-white text-lg sm:text-xl font-bold relative z-10">{step.number}</span>
                     </div>
-                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-full animate-pulse-opacity"></div>
+                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 animate-pulse-opacity">
+                      <img 
+                        src="/logo/leave-green.svg" 
+                        alt="Leaf decoration" 
+                        className="w-full h-full opacity-20"
+                      />
+                    </div>
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-sm sm:text-base text-slate max-w-[220px]">{step.description}</p>
 
-                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 rounded-full items-center justify-center shadow-sm">
-                    {step.icon}
+                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 items-center justify-center shadow-sm relative overflow-hidden">
+                    <img 
+                      src="/logo/leave-white.svg" 
+                      alt="Leaf background" 
+                      className="absolute w-full h-full opacity-30"
+                    />
+                    <div className="relative z-10">
+                      {step.icon}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -109,16 +127,34 @@ export function HowItWorks() {
                   style={{ zIndex: 10 }}
                 >
                   <div className="relative">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300">
-                      <span className="text-white text-lg sm:text-xl font-bold">{step.number}</span>
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 relative bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300 overflow-hidden">
+                      <img 
+                        src="/logo/leave-white.svg" 
+                        alt="Leaf background" 
+                        className="absolute w-full h-full opacity-20"
+                      />
+                      <span className="text-white text-lg sm:text-xl font-bold relative z-10">{step.number}</span>
                     </div>
-                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-full animate-pulse-opacity"></div>
+                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 animate-pulse-opacity">
+                      <img 
+                        src="/logo/leave-green.svg" 
+                        alt="Leaf decoration" 
+                        className="w-full h-full opacity-20"
+                      />
+                    </div>
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-sm sm:text-base text-slate max-w-[220px]">{step.description}</p>
 
-                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 rounded-full items-center justify-center shadow-sm">
-                    {step.icon}
+                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 items-center justify-center shadow-sm relative overflow-hidden">
+                    <img 
+                      src="/logo/leave-white.svg" 
+                      alt="Leaf background" 
+                      className="absolute w-full h-full opacity-30"
+                    />
+                    <div className="relative z-10">
+                      {step.icon}
+                    </div>
                   </div>
                 </div>
               ))}

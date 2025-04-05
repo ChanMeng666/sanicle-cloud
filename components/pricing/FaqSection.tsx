@@ -37,9 +37,26 @@ export function FaqSection() {
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white" id="faq">
-      <div className="container px-4 md:px-6">
-        <div className="text-center mb-12" data-aos="fade-up">
+    <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden" id="faq">
+      {/* 背景叶片装饰 */}
+      <div className="absolute top-0 right-0 opacity-5 -mt-20 -mr-20 hidden md:block">
+        <img src="/logo/leave-green.svg" alt="" className="w-96 h-96 transform rotate-45" />
+      </div>
+      <div className="absolute bottom-0 left-0 opacity-5 -mb-20 -ml-20 hidden md:block">
+        <img src="/logo/leave-pink.svg" alt="" className="w-80 h-80 transform -rotate-12" />
+      </div>
+      <div className="absolute top-1/3 left-10 opacity-5 hidden lg:block">
+        <img src="/logo/leave-black.svg" alt="" className="w-40 h-40 transform rotate-90" />
+      </div>
+      <div className="absolute bottom-1/4 right-10 opacity-5 hidden lg:block">
+        <img src="/logo/leave-white.svg" alt="" className="w-48 h-48 transform -rotate-45" />
+      </div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="text-center mb-12 relative" data-aos="fade-up">
+          <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-full opacity-20">
+            <img src="/logo/leave-green.svg" alt="" className="w-24 h-24" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4 inline-block">
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">FAQ</span>
           </h2>
@@ -54,23 +71,42 @@ export function FaqSection() {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`} 
-                className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white"
+                className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-shadow group"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-medium text-slate-800 hover:text-primary data-[state=open]:text-primary data-[state=open]:bg-primary-pale/10 transition-all">
-                  {faq.question}
+                <AccordionTrigger className="px-6 py-4 text-left font-medium text-slate-800 hover:text-primary data-[state=open]:text-primary data-[state=open]:bg-primary-pale/20 transition-all relative">
+                  <div className="absolute left-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100 transition-opacity">
+                    <img src={index % 2 === 0 ? "/logo/leave-green.svg" : "/logo/leave-pink.svg"} alt="" className="w-4 h-4" />
+                  </div>
+                  <span className="pl-1">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pt-2 pb-6 text-slate-600">
-                  <p className="leading-relaxed">{faq.answer}</p>
+                <AccordionContent className="px-6 pt-2 pb-6 text-slate-600 relative">
+                  <div className="absolute right-6 bottom-6 opacity-5">
+                    <img src={index % 2 === 0 ? "/logo/leave-pink.svg" : "/logo/leave-green.svg"} alt="" className="w-16 h-16 transform rotate-12" />
+                  </div>
+                  <p className="leading-relaxed relative z-10">{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-primary-pale to-secondary-pale py-10 px-6 md:px-10 rounded-2xl max-w-4xl mx-auto shadow-sm" data-aos="fade-up" data-aos-delay="300">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 bg-gradient-to-r from-primary-pale to-secondary-pale py-10 px-6 md:px-10 rounded-2xl max-w-4xl mx-auto shadow-sm relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+          {/* CTA 叶片装饰 */}
+          <div className="absolute top-0 right-0 opacity-10 transform -rotate-12">
+            <img src="/logo/leave-pink.svg" alt="" className="w-32 h-32" />
+          </div>
+          <div className="absolute bottom-0 left-0 opacity-10 transform rotate-45">
+            <img src="/logo/leave-green.svg" alt="" className="w-24 h-24" />
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">Still have questions?</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+                <span className="hidden md:inline-block mr-3 opacity-70">
+                  <img src="/logo/leave-black.svg" alt="" className="w-6 h-6" />
+                </span>
+                Still have questions?
+              </h3>
               <p className="text-slate-600">
                 We're here to help with any questions about our pricing and features.
               </p>
@@ -78,15 +114,21 @@ export function FaqSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm group relative overflow-hidden"
               >
-                Contact Sales
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
+                </div>
+                <span className="relative z-10">Contact Sales</span>
               </a>
               <a
                 href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border border-primary text-primary hover:bg-primary-pale/50 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border border-primary text-primary hover:bg-primary-pale/50 transition-colors group relative overflow-hidden"
               >
-                View Documentation
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <img src="/logo/leave-green.svg" alt="" className="w-full h-full object-cover" />
+                </div>
+                <span className="relative z-10">View Documentation</span>
               </a>
             </div>
           </div>

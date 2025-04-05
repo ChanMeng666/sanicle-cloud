@@ -8,9 +8,27 @@ export function CtaSection() {
     <section className="w-full py-12 sm:py-16 md:py-24 bg-gradient-to-br from-[#167d83] to-[#0d4c4f] text-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-lg animate-pulse delay-1000"></div>
-        <div className="absolute bottom-12 left-1/3 w-24 h-24 bg-white/10 rounded-full blur-md animate-float"></div>
+        <div className="absolute -top-24 -left-24 w-64 h-64">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-20 animate-pulse"
+          />
+        </div>
+        <div className="absolute top-1/2 right-1/4 w-48 h-48">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-10 animate-pulse delay-1000"
+          />
+        </div>
+        <div className="absolute bottom-12 left-1/3 w-24 h-24">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-20 animate-float"
+          />
+        </div>
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
@@ -61,17 +79,25 @@ export function CtaSection() {
           <div className="mt-12 sm:mt-16">
             <p className="text-white/60 text-xs sm:text-sm mb-6">Trusted by industry leading companies</p>
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
-              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white h-full w-20 sm:w-24 rounded"></div>
+              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 relative">
+                <div className="bg-white h-full w-20 sm:w-24 rounded flex items-center justify-center">
+                  <img src="/logo/leave-green.svg" alt="Company logo" className="h-4 sm:h-5 absolute" />
+                </div>
               </div>
-              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white h-full w-20 sm:w-24 rounded"></div>
+              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 relative">
+                <div className="bg-white h-full w-20 sm:w-24 rounded flex items-center justify-center">
+                  <img src="/logo/leave-green.svg" alt="Company logo" className="h-4 sm:h-5 absolute" />
+                </div>
               </div>
-              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white h-full w-20 sm:w-24 rounded"></div>
+              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 relative">
+                <div className="bg-white h-full w-20 sm:w-24 rounded flex items-center justify-center">
+                  <img src="/logo/leave-green.svg" alt="Company logo" className="h-4 sm:h-5 absolute" />
+                </div>
               </div>
-              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white h-full w-20 sm:w-24 rounded"></div>
+              <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 relative">
+                <div className="bg-white h-full w-20 sm:w-24 rounded flex items-center justify-center">
+                  <img src="/logo/leave-green.svg" alt="Company logo" className="h-4 sm:h-5 absolute" />
+                </div>
               </div>
             </div>
           </div>

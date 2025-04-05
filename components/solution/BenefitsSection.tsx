@@ -27,8 +27,11 @@ export function BenefitsSection() {
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
             <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
-                <Users className="h-8 w-8 text-[#167d83]" />
+              <div className="w-16 h-16 relative mb-6">
+                <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-[#167d83]" />
+                </div>
               </div>
               <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Attract and Retain Talent</h3>
               <p className="text-[#7f8c8d] mb-6">
@@ -50,8 +53,11 @@ export function BenefitsSection() {
           <div className="relative group md:mt-8 lg:mt-12">
             <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
             <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
-                <BarChart className="h-8 w-8 text-[#167d83]" />
+              <div className="w-16 h-16 relative mb-6">
+                <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <BarChart className="h-8 w-8 text-[#167d83]" />
+                </div>
               </div>
               <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Improve Productivity</h3>
               <p className="text-[#7f8c8d] mb-6">
@@ -75,8 +81,11 @@ export function BenefitsSection() {
           <div className="relative group md:mt-16 lg:mt-24">
             <div className="absolute inset-0 bg-gradient-to-br from-[#e6f5f6] to-[#167d83]/5 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
             <div className="relative z-10 p-6 sm:p-8 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-[#e6f5f6] flex items-center justify-center mb-6 shadow-inner">
-                <Clock className="h-8 w-8 text-[#167d83]" />
+              <div className="w-16 h-16 relative mb-6">
+                <img src="/logo/leave-white.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Clock className="h-8 w-8 text-[#167d83]" />
+                </div>
               </div>
               <h3 className="text-xl font-bold text-[#2c3e50] mb-4">Easy Implementation</h3>
               <p className="text-[#7f8c8d] mb-6">
@@ -95,6 +104,14 @@ export function BenefitsSection() {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* 添加叶片装饰元素 */}
+      <div className="absolute top-20 right-5 hidden lg:block">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-24 h-24 opacity-10 rotate-45" />
+      </div>
+      <div className="absolute bottom-40 left-5 hidden lg:block">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-24 h-24 opacity-10 -rotate-12" />
       </div>
       
       {/* Wave separator */}

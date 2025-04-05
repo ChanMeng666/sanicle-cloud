@@ -10,8 +10,20 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]"></div>
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute top-0 -left-[10%] w-[40%] h-[40%] bg-[#EE4C23]/10 rounded-full filter blur-[120px]"></div>
-        <div className="absolute bottom-0 -right-[10%] w-[50%] h-[50%] bg-[#167d83]/20 rounded-full filter blur-[120px]"></div>
+        <div className="absolute top-0 -left-[10%] w-[40%] h-[40%]">
+          <img 
+            src="/logo/leave-pink.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-20 transform rotate-15 filter blur-[80px]"
+          />
+        </div>
+        <div className="absolute bottom-0 -right-[10%] w-[50%] h-[50%]">
+          <img 
+            src="/logo/leave-green.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-30 transform -rotate-15 filter blur-[100px]"
+          />
+        </div>
       </div>
 
       <div className="container px-4 md:px-6 py-20 md:py-32 lg:py-40 relative z-20">
@@ -43,8 +55,13 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce hidden md:block">
-        <div className="w-10 h-16 rounded-full border-2 border-white/50 flex items-center justify-center">
-          <div className="w-2 h-4 bg-white/80 rounded-full animate-pulse"></div>
+        <div className="w-10 h-16 border-2 border-white/50 flex items-center justify-center relative overflow-hidden">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf indicator" 
+            className="w-full h-full absolute opacity-20"
+          />
+          <div className="w-2 h-4 bg-white/80 rounded-full animate-pulse relative z-10"></div>
         </div>
       </div>
       
@@ -52,10 +69,17 @@ export function HeroSection() {
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 md:hidden">
         <div className="flex flex-col items-center">
           <p className="text-white/70 text-sm mb-1">Scroll Down</p>
-          <div className="w-6 h-3 flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse"></div>
-            <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse delay-75"></div>
-            <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse delay-150"></div>
+          <div className="flex justify-center items-center h-6 w-16 relative">
+            <img 
+              src="/logo/leave-white.svg" 
+              alt="Leaf indicator" 
+              className="w-full h-full absolute opacity-20 top-0 left-0"
+            />
+            <div className="flex relative z-10">
+              <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse"></div>
+              <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse delay-75"></div>
+              <div className="w-1 h-3 bg-white/70 rounded-full mx-0.5 animate-pulse delay-150"></div>
+            </div>
           </div>
         </div>
       </div>

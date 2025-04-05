@@ -7,15 +7,25 @@ import Link from "next/link"
 export function DemoHero() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-teal-light via-primary to-primary-deep text-white">
-      {/* Geometric background decorations */}
+      {/* Leaf background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-60 h-60 bg-secondary/10 rounded-full blur-2xl"></div>
+        <div className="absolute -top-10 -right-10">
+          <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-80 h-80 opacity-30 blur-3xl" />
+        </div>
+        <div className="absolute bottom-0 left-1/4">
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-60 h-60 opacity-30 blur-2xl" />
+        </div>
         
-        {/* Geometric shape decorations */}
-        <div className="absolute top-16 left-16 w-20 h-20 bg-white/10 rotate-45"></div>
-        <div className="absolute top-40 right-[20%] w-24 h-24 rounded-full border-4 border-white/10"></div>
-        <div className="absolute bottom-32 left-[10%] w-16 h-16 rounded-full border-4 border-secondary/20"></div>
+        {/* Leaf shape decorations */}
+        <div className="absolute top-16 left-16">
+          <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-20 h-20 opacity-20 rotate-45" />
+        </div>
+        <div className="absolute top-40 right-[20%]">
+          <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-24 h-24 opacity-20" />
+        </div>
+        <div className="absolute bottom-32 left-[10%]">
+          <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-16 h-16 opacity-20" />
+        </div>
         
         {/* Grid background - added opacity layer for better contrast */}
         <div className="absolute inset-0 bg-primary/70"></div>
@@ -25,11 +35,15 @@ export function DemoHero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-12 gap-16 items-center">
           <div className="md:col-span-6 relative">
-            <div className="absolute -left-16 top-0 w-12 h-12 bg-secondary rounded-lg animate-bounce-subtle"></div>
+            <div className="absolute -left-16 top-0">
+              <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-12 h-12 opacity-80 animate-bounce-subtle" />
+            </div>
             
             <div className="space-y-6">
               <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20 shadow-lg">
-                <div className="w-5 h-5 bg-secondary rounded-full mr-3 animate-pulse"></div>
+                <div className="relative w-5 h-5 mr-3">
+                  <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full absolute inset-0 animate-pulse" />
+                </div>
                 <span className="font-medium">Demo Requests Now Open</span>
               </div>
               
@@ -83,7 +97,9 @@ export function DemoHero() {
           </div>
           
           <div className="md:col-span-6 relative">
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-lg"></div>
+            <div className="absolute -top-10 -right-10">
+              <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-32 h-32 opacity-20 blur-lg" />
+            </div>
             
             {/* 3D floating device model */}
             <div className="relative mx-auto max-w-md transform perspective-1000 hover:scale-105 transition-transform duration-500">
@@ -102,11 +118,21 @@ export function DemoHero() {
                   <div className="h-10 mb-6 w-3/4 rounded bg-white/10 animate-pulse"></div>
                   
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-primary/30 h-24 rounded-lg flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-primary/80"></div>
+                    <div className="bg-primary/30 h-24 rounded-lg flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0">
+                        <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full opacity-20" />
+                      </div>
+                      <div className="relative z-10 flex items-center justify-center w-12 h-12">
+                        <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full opacity-80" />
+                      </div>
                     </div>
-                    <div className="bg-secondary/30 h-24 rounded-lg flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-secondary/80"></div>
+                    <div className="bg-secondary/30 h-24 rounded-lg flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0">
+                        <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full opacity-20" />
+                      </div>
+                      <div className="relative z-10 flex items-center justify-center w-12 h-12">
+                        <img src="/logo/leave-pink.svg" alt="Leaf icon" className="w-full h-full opacity-80" />
+                      </div>
                     </div>
                   </div>
                   

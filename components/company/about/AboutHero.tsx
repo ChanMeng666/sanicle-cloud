@@ -12,11 +12,35 @@ export function AboutHero() {
       {/* Background texture */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMzFhMSAxIDAgMSAxIDAgMiAxIDEgMCAwIDEgMC0yem05LTE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnptMCAxNGExIDEgMCAxIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bS05IDE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnptLTkgMGExIDEgMCAxIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTAtMTRhMSAxIDAgMSAxIDAgMiAxIDEgMCAwIDEgMC0yem0wLTE0YTEgMSAwIDEgMSAwIDIgMSAxIDAgMCAxIDAtMnoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')] opacity-10"></div>
 
-      {/* Animated floating shapes - increase quantity and opacity variations */}
-      <div className="absolute top-[15%] left-[20%] w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-white/10 animate-float"></div>
-      <div className="absolute bottom-[15%] right-[20%] w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-white/15 animate-float-delay"></div>
-      <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-[#EE4C23]/10 animate-pulse"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-[#EE4C23]/15 animate-pulse delay-700"></div>
+      {/* Animated floating leaf shapes */}
+      <div className="absolute top-[15%] left-[20%] w-40 h-40 sm:w-64 sm:h-64">
+        <img 
+          src="/logo/leave-white.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-30 animate-float"
+        />
+      </div>
+      <div className="absolute bottom-[15%] right-[20%] w-60 h-60 sm:w-80 sm:h-80">
+        <img 
+          src="/logo/leave-white.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-40 animate-float-delay transform rotate-180"
+        />
+      </div>
+      <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-30 animate-pulse"
+        />
+      </div>
+      <div className="absolute bottom-1/3 left-1/3 w-24 h-24 sm:w-40 sm:h-40">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-40 animate-pulse delay-700 transform rotate-45"
+        />
+      </div>
 
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -54,9 +78,14 @@ export function AboutHero() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white/80 bg-[#f8f9fa]/90 flex items-center justify-center text-[#167d83] text-xs font-bold shadow-md"
+                    className="w-8 h-8 sm:w-10 sm:h-10 relative border-2 border-white/80 bg-[#f8f9fa]/90 flex items-center justify-center text-[#167d83] text-xs font-bold shadow-md overflow-hidden"
                   >
-                    {String.fromCharCode(64 + i)}
+                    <img 
+                      src="/logo/leave-green.svg" 
+                      alt="Leaf background" 
+                      className="absolute w-full h-full opacity-20"
+                    />
+                    <span className="relative z-10">{String.fromCharCode(64 + i)}</span>
                   </div>
                 ))}
               </div>
@@ -83,11 +112,12 @@ export function AboutHero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#167d83]/40 to-transparent mix-blend-overlay"></div>
               </div>
 
-              {/* Floating info cards - enhanced visual effects and responsiveness */}
+              {/* Floating info cards with leaf background */}
               <div className="absolute top-0 -right-4 sm:-right-10 z-20 bg-white rounded-xl shadow-xl p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300 hidden sm:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center mr-3 shadow-inner">
-                    <Clock className="h-5 w-5" />
+                  <div className="w-10 h-10 relative text-[#167d83] flex items-center justify-center mr-3 shadow-inner">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="absolute w-full h-full opacity-20" />
+                    <Clock className="h-5 w-5 relative z-10" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#2c3e50]">Founded in 2022</p>
@@ -98,8 +128,9 @@ export function AboutHero() {
 
               <div className="absolute -bottom-4 sm:-bottom-10 -left-4 sm:-left-10 z-20 bg-white rounded-xl shadow-xl p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300 hidden sm:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#fef6e9] text-[#EE4C23] flex items-center justify-center mr-3 shadow-inner">
-                    <Globe className="h-5 w-5" />
+                  <div className="w-10 h-10 relative text-[#EE4C23] flex items-center justify-center mr-3 shadow-inner">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="absolute w-full h-full opacity-20" />
+                    <Globe className="h-5 w-5 relative z-10" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#2c3e50]">Global Impact</p>
@@ -111,8 +142,9 @@ export function AboutHero() {
               {/* Additional data card */}
               <div className="absolute top-1/2 -right-4 sm:-right-16 z-20 bg-white rounded-xl shadow-xl p-4 transform rotate-3 hover:rotate-0 transition-transform duration-300 hidden md:block">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#f8e9fe] text-[#9c27b0] flex items-center justify-center mr-3 shadow-inner">
-                    <Users className="h-5 w-5" />
+                  <div className="w-10 h-10 relative text-[#9c27b0] flex items-center justify-center mr-3 shadow-inner">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="absolute w-full h-full opacity-20" />
+                    <Users className="h-5 w-5 relative z-10" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#2c3e50]">120k+</p>

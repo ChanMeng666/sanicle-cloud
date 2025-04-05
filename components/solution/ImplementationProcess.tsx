@@ -33,8 +33,12 @@ export function ImplementationProcess() {
 
   return (
     <section className="w-full py-12 md:py-16 bg-[#f8f9fa] relative -mt-10 z-20 overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#e6f5f6] rounded-full opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#fef6e9] rounded-full opacity-20 transform -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute top-0 right-0">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-20 transform translate-x-1/3 -translate-y-1/3" />
+      </div>
+      <div className="absolute bottom-0 left-0">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-64 h-64 opacity-20 transform -translate-x-1/3 translate-y-1/3" />
+      </div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
@@ -58,17 +62,33 @@ export function ImplementationProcess() {
                 index % 2 === 0 ? "md:pr-12 md:text-right md:ml-0 md:mr-auto" : "md:pl-12 md:ml-auto md:mr-0"
               } md:w-1/2`}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-0 md:left-auto md:right-0 top-0 w-8 h-8 rounded-full bg-[#167d83] flex items-center justify-center z-10 transform -translate-x-1/2 md:translate-x-1/2">
-                {item.icon}
+              {/* Timeline dot - 用叶片替换圆形 */}
+              <div className="absolute left-0 md:left-auto md:right-0 top-0 w-8 h-8 transform -translate-x-1/2 md:translate-x-1/2 z-10">
+                <div className="relative w-full h-full">
+                  <img 
+                    src="/logo/leave-green.svg" 
+                    alt="Leaf timeline marker" 
+                    className="absolute inset-0 w-full h-full"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                </div>
               </div>
 
               {/* Content */}
               <div
                 className={`bg-white p-6 rounded-lg shadow-md ${index % 2 === 0 ? "md:rounded-r-none" : "md:rounded-l-none"}`}
               >
-                <div className="inline-block w-8 h-8 rounded-full bg-[#e6f5f6] text-[#167d83] flex items-center justify-center text-lg font-bold mb-3">
-                  {item.step}
+                <div className="inline-block w-8 h-8 relative mb-3">
+                  <img 
+                    src="/logo/leave-white.svg" 
+                    alt="Leaf number background" 
+                    className="w-full h-full absolute inset-0" 
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center text-lg font-bold text-[#167d83]">
+                    {item.step}
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-[#2c3e50] mb-2">{item.title}</h3>
                 <p className="text-[#7f8c8d]">{item.description}</p>

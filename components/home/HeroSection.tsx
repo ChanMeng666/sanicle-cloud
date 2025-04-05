@@ -11,16 +11,46 @@ export function HeroSection() {
     <section className="relative overflow-hidden bg-gradient-to-br from-primary-deep via-primary to-primary-light py-16 sm:py-20 lg:py-28 w-full">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] right-[5%] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-[40%] left-[25%] w-40 h-40 bg-secondary/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-[10%] right-[5%] w-64 h-64">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-20 transform rotate-45"
+          />
+        </div>
+        <div className="absolute bottom-[15%] left-[10%] w-80 h-80">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-20 transform -rotate-12"
+          />
+        </div>
+        <div className="absolute top-[40%] left-[25%] w-40 h-40">
+          <img 
+            src="/logo/leave-pink.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-30 transform rotate-90"
+          />
+        </div>
         
         {/* Grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         
         {/* Floating elements */}
-        <div className="absolute top-[20%] right-[20%] w-24 h-24 bg-white/10 rounded-xl rotate-12 animate-float hidden sm:block"></div>
-        <div className="absolute bottom-[25%] left-[15%] w-16 h-16 bg-secondary/20 rounded-full animate-float-delay hidden sm:block"></div>
+        <div className="absolute top-[20%] right-[20%] w-24 h-24 animate-float hidden sm:block">
+          <img 
+            src="/logo/leave-white.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-40 transform rotate-12"
+          />
+        </div>
+        <div className="absolute bottom-[25%] left-[15%] w-16 h-16 animate-float-delay hidden sm:block">
+          <img 
+            src="/logo/leave-pink.svg" 
+            alt="Leaf decoration" 
+            className="w-full h-full opacity-50"
+          />
+        </div>
       </div>
       
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
@@ -75,8 +105,20 @@ export function HeroSection() {
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute top-1/4 -right-8 w-16 h-16 bg-secondary rounded-lg rotate-12 animate-float-delay blur-sm"></div>
-            <div className="absolute -bottom-6 left-1/4 w-20 h-20 bg-secondary-light rounded-full animate-float blur-sm"></div>
+            <div className="absolute top-1/4 -right-8 w-16 h-16 animate-float-delay blur-sm">
+              <img 
+                src="/logo/leave-pink.svg" 
+                alt="Leaf decoration" 
+                className="w-full h-full opacity-70 transform rotate-45"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-1/4 w-20 h-20 animate-float blur-sm">
+              <img 
+                src="/logo/leave-pink.svg" 
+                alt="Leaf decoration" 
+                className="w-full h-full opacity-60"
+              />
+            </div>
           </div>
           
           {/* Simplified UI interface for mobile display */}

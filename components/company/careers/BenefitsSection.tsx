@@ -90,10 +90,25 @@ export function BenefitsSection() {
               key={index}
               className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-[#167d83]/20 hover:translate-y-[-4px] group"
             >
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#167d83]/5 to-[#EE4C23]/5 rounded-bl-3xl rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <img 
+                  src="/logo/leave-green.svg" 
+                  alt="Leaf decoration" 
+                  className="w-full h-full opacity-20"
+                />
+              </div>
               
-              <div className="p-3 rounded-xl bg-[#fff6f4] text-[#EE4C23] inline-block mb-5 group-hover:bg-[#EE4C23] group-hover:text-white transition-colors duration-300">
-                {benefit.icon}
+              <div className="p-3 rounded-xl bg-[#fff6f4] text-[#EE4C23] inline-block mb-5 group-hover:bg-[#EE4C23] group-hover:text-white transition-colors duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <img 
+                    src="/logo/leave-white.svg" 
+                    alt="Leaf background" 
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="relative z-10">
+                  {benefit.icon}
+                </div>
               </div>
               
               <h3 className="text-xl font-semibold text-[#2c3e50] mb-3 group-hover:text-[#167d83] transition-colors duration-300">
@@ -111,6 +126,21 @@ export function BenefitsSection() {
           <div className="max-w-3xl mx-auto bg-[#167d83] rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1000')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#167d83] to-[#0e5a5f]"></div>
+            
+            <div className="absolute top-0 right-0 w-40 h-40">
+              <img 
+                src="/logo/leave-white.svg" 
+                alt="Leaf decoration" 
+                className="w-full h-full opacity-10 transform rotate-45"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 w-32 h-32">
+              <img 
+                src="/logo/leave-white.svg" 
+                alt="Leaf decoration" 
+                className="w-full h-full opacity-10 transform -rotate-15"
+              />
+            </div>
             
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Are You Ready to Join Us?</h3>

@@ -10,9 +10,21 @@ export function HeroSection() {
       {/* Background decoration */}
       <div className="absolute inset-0 pattern-dots opacity-30"></div>
 
-      {/* Circular decorations */}
-      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary/10"></div>
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-secondary/10"></div>
+      {/* Leaf decorations */}
+      <div className="absolute -top-32 -right-32 w-64 h-64">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-20 transform rotate-45"
+        />
+      </div>
+      <div className="absolute -bottom-32 -left-32 w-80 h-80">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Leaf decoration" 
+          className="w-full h-full opacity-20 transform -rotate-15"
+        />
+      </div>
       
       <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-12 gap-12 items-center">
@@ -44,24 +56,27 @@ export function HeroSection() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
               <div className="bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 rounded-full bg-primary-pale flex items-center justify-center mb-3">
-                  <Users className="h-5 w-5 text-primary" />
+                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
+                  <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
+                  <Users className="h-5 w-5 text-primary relative z-10" />
                 </div>
                 <h3 className="font-semibold text-charcoal">500+</h3>
                 <p className="text-sm text-slate">Trusted by Businesses</p>
               </div>
               
               <div className="bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 rounded-full bg-secondary-light/20 flex items-center justify-center mb-3">
-                  <BarChart className="h-5 w-5 text-secondary" />
+                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
+                  <img src="/logo/leave-pink.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
+                  <BarChart className="h-5 w-5 text-secondary relative z-10" />
                 </div>
                 <h3 className="font-semibold text-charcoal">99.9%</h3>
                 <p className="text-sm text-slate">Service Availability</p>
               </div>
               
               <div className="hidden md:block bg-white rounded-xl p-4 shadow-sm border border-primary/10">
-                <div className="w-10 h-10 rounded-full bg-beige-dark flex items-center justify-center mb-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
+                <div className="w-10 h-10 flex items-center justify-center mb-3 relative">
+                  <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full absolute opacity-20" />
+                  <CheckCircle className="h-5 w-5 text-primary relative z-10" />
                 </div>
                 <h3 className="font-semibold text-charcoal">Customizable</h3>
                 <p className="text-sm text-slate">Flexible Configuration</p>

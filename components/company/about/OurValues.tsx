@@ -5,7 +5,15 @@ import { Heart, Users, Award } from "lucide-react"
 export function OurValues() {
   return (
     <section className="w-full py-16 md:py-24 bg-white relative -mt-10 z-20">
-      <div className="container px-4 md:px-6">
+      {/* 添加叶片背景装饰 */}
+      <div className="absolute top-20 right-10 hidden lg:block">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-40 h-40 opacity-5 rotate-45" />
+      </div>
+      <div className="absolute bottom-40 left-10 hidden lg:block">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-40 h-40 opacity-5 -rotate-12" />
+      </div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-[#fef6e9] text-[#EE4C23] text-sm font-medium mb-3">
             Our Values
@@ -22,6 +30,7 @@ export function OurValues() {
               description:
                 "We approach women's health issues with compassion and a deep understanding of the unique challenges in the workplace.",
               color: "from-[#EE4C23] to-[#d43d18]",
+              leafColor: "pink"
             },
             {
               icon: <Users className="h-10 w-10 text-white" />,
@@ -29,6 +38,7 @@ export function OurValues() {
               description:
                 "We believe in creating solutions that support all women, recognizing the diversity of experiences and needs.",
               color: "from-[#167d83] to-[#0e5a5f]",
+              leafColor: "green"
             },
             {
               icon: <Award className="h-10 w-10 text-white" />,
@@ -36,6 +46,7 @@ export function OurValues() {
               description:
                 "We constantly push the boundaries of what's possible in healthcare technology, delivering solutions of excellence.",
               color: "from-[#EE4C23] to-[#d43d18]",
+              leafColor: "white"
             },
           ].map((value, index) => (
             <div key={index} className="perspective-1000">
@@ -43,10 +54,22 @@ export function OurValues() {
                 {/* Card front */}
                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl">
                   <div
-                    className={`bg-gradient-to-br ${value.color} h-full w-full p-8 flex flex-col items-center justify-center text-center`}
+                    className={`bg-gradient-to-br ${value.color} h-full w-full p-8 flex flex-col items-center justify-center text-center relative`}
                   >
-                    <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-6">
-                      {value.icon}
+                    {/* 背景叶片装饰 */}
+                    <div className="absolute top-5 right-5 w-20 h-20 opacity-20">
+                      <img src={`/logo/leave-${value.leafColor}.svg`} alt="Leaf decoration" className="w-full h-full" />
+                    </div>
+                    <div className="absolute bottom-5 left-5 w-20 h-20 opacity-20 rotate-180">
+                      <img src={`/logo/leave-${value.leafColor}.svg`} alt="Leaf decoration" className="w-full h-full" />
+                    </div>
+
+                    {/* 叶片形状图标背景 */}
+                    <div className="w-20 h-20 relative mb-6">
+                      <img src={`/logo/leave-${value.leafColor}.svg`} alt="Leaf background" className="absolute inset-0 w-full h-full opacity-80" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {value.icon}
+                      </div>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
                     <p className="text-white/90">{value.description}</p>
@@ -55,7 +78,12 @@ export function OurValues() {
 
                 {/* Card back */}
                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-xl rotate-y-180">
-                  <div className="bg-white h-full w-full p-8 flex flex-col items-center justify-center text-center">
+                  <div className="bg-white h-full w-full p-8 flex flex-col items-center justify-center text-center relative">
+                    {/* 背景叶片装饰 */}
+                    <div className="absolute top-5 right-5 w-16 h-16 opacity-10">
+                      <img src={`/logo/leave-${index === 1 ? "green" : "pink"}.svg`} alt="Leaf decoration" className="w-full h-full" />
+                    </div>
+                    
                     <h3 className="text-2xl font-bold text-[#2c3e50] mb-4">{value.title}</h3>
                     <p className="text-[#7f8c8d] mb-6">{value.description}</p>
                     <p className="text-[#7f8c8d] italic">

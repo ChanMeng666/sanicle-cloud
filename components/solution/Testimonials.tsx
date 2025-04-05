@@ -48,8 +48,13 @@ export function Testimonials() {
                   "{testimonials[0].quote}"
                 </p>
                 <div className="flex items-center">
-                  <div className={`w-12 h-12 rounded-full ${testimonials[0].avatarBg} text-white flex items-center justify-center mr-4`}>
-                    {testimonials[0].initials}
+                  <div className={`w-12 h-12 relative ${testimonials[0].avatarBg} text-white flex items-center justify-center mr-4 overflow-hidden`}>
+                    <img 
+                      src="/logo/leave-white.svg" 
+                      alt="Leaf background" 
+                      className="absolute w-full h-full opacity-30"
+                    />
+                    <span className="relative z-10">{testimonials[0].initials}</span>
                   </div>
                   <div>
                     <p className="font-semibold text-[#2c3e50]">{testimonials[0].name}</p>
@@ -68,8 +73,13 @@ export function Testimonials() {
                   "{testimonials[1].quote}"
                 </p>
                 <div className="flex items-center">
-                  <div className={`w-12 h-12 rounded-full ${testimonials[1].avatarBg} text-white flex items-center justify-center mr-4`}>
-                    {testimonials[1].initials}
+                  <div className={`w-12 h-12 relative ${testimonials[1].avatarBg} text-white flex items-center justify-center mr-4 overflow-hidden`}>
+                    <img 
+                      src="/logo/leave-white.svg" 
+                      alt="Leaf background" 
+                      className="absolute w-full h-full opacity-30"
+                    />
+                    <span className="relative z-10">{testimonials[1].initials}</span>
                   </div>
                   <div>
                     <p className="font-semibold text-[#2c3e50]">{testimonials[1].name}</p>
