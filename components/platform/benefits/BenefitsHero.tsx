@@ -1,119 +1,195 @@
 "use client"
 
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Heart, Shield, Gift, Users, ArrowRight } from "lucide-react"
+import { useState } from "react"
 
 export function BenefitsHero() {
+  const [selectedBenefit, setSelectedBenefit] = useState("employees")
+
   return (
-    <section className="w-full py-12 md:py-20 lg:py-24 bg-gradient-to-b from-[#f8f9fa] to-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#167d83]/5 pattern-dots"></div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-64 md:h-64 bg-[#167d83]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-56 h-56 md:w-80 md:h-80 bg-[#EE4C23]/10 rounded-full blur-3xl"></div>
-
+    <section className="relative w-full bg-gradient-to-br from-teal-50 via-teal-50/90 to-white py-12 md:py-24 overflow-hidden">
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+      
+      {/* Decorative leaf elements */}
+      <div className="absolute top-12 right-0 -mr-20 w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-[0.08] transform -rotate-12">
+        <img 
+          src="/logo/leave-green.svg" 
+          alt="Decorative leaf" 
+          className="w-full h-full"
+        />
+      </div>
+      <div className="absolute bottom-0 left-0 -ml-20 w-[400px] h-[400px] opacity-[0.06] transform rotate-12">
+        <img 
+          src="/logo/leave-pink.svg" 
+          alt="Decorative leaf" 
+          className="w-full h-full"
+        />
+      </div>
+      
+      {/* Glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-300 rounded-full opacity-[0.08] blur-[100px]"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-coral-300 rounded-full opacity-[0.08] blur-[100px]"></div>
+      
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-8 md:mb-12">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#167d83]/10 text-[#167d83] text-sm font-medium mb-4">
-              <Gift className="h-4 w-4 mr-2" /> Comprehensive Benefits Package
-            </div>
+        <div className="flex flex-col items-center text-center space-y-4 pb-8">
+          <div className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-sm font-medium text-primary">
+            <span className="text-xs font-medium">Comprehensive women&apos;s health benefits</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 max-w-5xl">
+            Elevate Your <span className="text-primary">Workplace Wellness</span> with Our Menstrual Health Platform
+          </h1>
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+            Our platform offers comprehensive menstrual health benefits for both employers and employees, making your workplace more inclusive and supportive.
+          </p>
+        </div>
 
-            <div className="relative">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#2c3e50] leading-tight mb-4 md:mb-6">
-                Transform Your <br className="md:hidden" />
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-[#167d83]">Workplace Health</span>
-                  <span className="absolute bottom-2 left-0 w-full h-3 md:h-4 bg-[#EE4C23]/20 -z-10 transform -rotate-1"></span>
-                </span>
-              </h1>
-
-              <div className="absolute -top-8 -right-6 md:-top-10 md:-right-10 w-16 h-16 md:w-20 md:h-20 bg-[#fef6e9] rounded-full flex items-center justify-center rotate-12 shadow-lg hidden sm:flex">
-                <Heart className="h-8 w-8 md:h-10 md:w-10 text-[#EE4C23]" />
-              </div>
-
-              <div className="absolute -bottom-6 -left-6 md:-bottom-8 md:-left-8 w-12 h-12 md:w-16 md:h-16 bg-[#e6f5f6] rounded-full flex items-center justify-center -rotate-12 shadow-lg hidden sm:flex">
-                <Shield className="h-6 w-6 md:h-8 md:w-8 text-[#167d83]" />
-              </div>
-            </div>
-
-            <p className="text-lg md:text-xl text-[#7f8c8d] max-w-2xl mx-auto mb-6 md:mb-8 px-2">
-              Explore our revolutionary approach to menstrual health benefits that improves employee wellbeing, reduces absenteeism, and creates a more inclusive workplace.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-[#EE4C23] to-[#ff6347] hover:from-[#d43d18] hover:to-[#e54c2a] text-white rounded-full px-6 md:px-8 shadow-md">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] rounded-full px-6 md:px-8"
-              >
-                Schedule Demo
-              </Button>
-            </div>
+        <div className="mt-8 flex flex-col items-center">
+          <div className="inline-flex p-1 rounded-lg bg-neutral-100">
+            <button
+              onClick={() => setSelectedBenefit("employers")}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                selectedBenefit === "employers"
+                  ? "bg-white shadow-sm text-primary"
+                  : "text-neutral-600 hover:text-neutral-900"
+              }`}
+            >
+              For Employers
+            </button>
+            <button
+              onClick={() => setSelectedBenefit("employees")}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                selectedBenefit === "employees"
+                  ? "bg-white shadow-sm text-primary"
+                  : "text-neutral-600 hover:text-neutral-900"
+              }`}
+            >
+              For Employees
+            </button>
           </div>
 
-          {/* 3D Benefit Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-16">
-            {[
-              {
-                title: "Health Tracking",
-                description: "Advanced cycle tracking with AI-powered insights",
-                icon: <Heart className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-                color: "bg-gradient-to-r from-[#EE4C23] to-[#ff6347]",
-                rotation: "rotate-1 md:rotate-2",
-                shadow: "shadow-[#EE4C23]/20"
-              },
-              {
-                title: "Product Access",
-                description: "Monthly delivery of menstrual products",
-                icon: <Gift className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-                color: "bg-gradient-to-r from-[#167d83] to-[#22c0c7]",
-                rotation: "rotate-0",
-                shadow: "shadow-[#167d83]/20"
-              },
-              {
-                title: "Expert Support",
-                description: "Access to healthcare professionals",
-                icon: <Users className="h-6 w-6 md:h-8 md:w-8 text-white" />,
-                color: "bg-gradient-to-r from-[#EE4C23] to-[#ff6347]",
-                rotation: "-rotate-1 md:-rotate-2",
-                shadow: "shadow-[#EE4C23]/20"
-              },
-            ].map((card, index) => (
-              <div
-                key={index}
-                className={`relative ${card.rotation} hover:rotate-0 transition-transform duration-500`}
-              >
-                <div className="absolute inset-0 bg-black/5 rounded-2xl transform translate-x-1 translate-y-1 md:translate-x-2 md:translate-y-2"></div>
-                <div className={`${card.color} rounded-2xl p-5 md:p-6 shadow-lg ${card.shadow} relative z-10 h-full`}>
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 flex items-center justify-center mb-3 md:mb-4">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">{card.title}</h3>
-                  <p className="text-sm md:text-base text-white/80">{card.description}</p>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {selectedBenefit === "employers" && (
+              <>
+                <BenefitCard
+                  title="Improve Workplace Health Equity"
+                  description="Support your employees with comprehensive menstrual health benefits that enhance workplace wellness and demonstrate your commitment to health equity."
+                  iconSrc="/icons/health-equity.svg"
+                />
+                <BenefitCard
+                  title="Reduce Absenteeism"
+                  description="Help employees manage menstrual symptoms effectively, reducing work days missed due to period-related issues and improving overall productivity."
+                  iconSrc="/icons/calendar-check.svg"
+                />
+                <BenefitCard
+                  title="Attract & Retain Talent"
+                  description="Stand out as an employer of choice with innovative health benefits that demonstrate your commitment to supporting women's health needs."
+                  iconSrc="/icons/users.svg"
+                />
+                <BenefitCard
+                  title="Enhance Company Culture"
+                  description="Create a more inclusive workplace environment by acknowledging and supporting menstrual health as an essential aspect of overall wellbeing."
+                  iconSrc="/icons/heart-handshake.svg"
+                />
+                <BenefitCard
+                  title="Easy Implementation"
+                  description="Our platform integrates seamlessly with your existing benefits systems with minimal administrative overhead and flexible deployment options."
+                  iconSrc="/icons/puzzle.svg"
+                />
+                <BenefitCard
+                  title="Cost-Effective Solution"
+                  description="Invest in a comprehensive menstrual health platform that delivers significant ROI through improved productivity and reduced healthcare costs."
+                  iconSrc="/icons/coins.svg"
+                />
+              </>
+            )}
 
-                  <div className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-12 md:h-12 bg-white/10 rounded-full"></div>
-                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 w-6 h-6 md:w-8 md:h-8 bg-white/10 rounded-full"></div>
-                </div>
-              </div>
-            ))}
+            {selectedBenefit === "employees" && (
+              <>
+                <BenefitCard
+                  title="Personalized Cycle Insights"
+                  description="Track your menstrual cycle and receive personalized insights to better understand patterns, symptoms, and how they affect your work and wellbeing."
+                  iconSrc="/icons/chart-line.svg"
+                />
+                <BenefitCard
+                  title="Access to Menstrual Products"
+                  description="Receive a monthly allowance for menstrual products delivered to your home or office, ensuring you always have access to necessary supplies."
+                  iconSrc="/icons/box-open.svg"
+                />
+                <BenefitCard
+                  title="Expert Resources & Support"
+                  description="Access educational content, connect with healthcare providers, and join community forums for support from people with similar experiences."
+                  iconSrc="/icons/users-medical.svg"
+                />
+                <BenefitCard
+                  title="Symptom Management Tools"
+                  description="Discover personalized strategies for managing menstrual symptoms, including curated exercises, nutrition advice, and self-care practices."
+                  iconSrc="/icons/sparkles.svg"
+                />
+                <BenefitCard
+                  title="Private & Secure"
+                  description="Your health data remains completely private and secure. We never share individual data with employers or third parties without explicit consent."
+                  iconSrc="/icons/shield-check.svg"
+                />
+                <BenefitCard
+                  title="Workplace Accommodations"
+                  description="Access resources to help communicate needs with managers and request appropriate accommodations for menstrual health concerns."
+                  iconSrc="/icons/building-office.svg"
+                />
+              </>
+            )}
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-base">
+              Get Started Today
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/5 px-8 py-6 rounded-full text-base"
+            >
+              Schedule a Demo
+            </Button>
           </div>
         </div>
       </div>
-
-      {/* Wave divider */}
+      
+      {/* Wave divider at the bottom */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
-          <path
-            fill="#ffffff"
-            fillOpacity="1"
-            d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,69.3C672,85,768,107,864,101.3C960,96,1056,64,1152,48C1248,32,1344,32,1392,32L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
-          ></path>
+          <path 
+            fill="#ffffff" 
+            fillOpacity="1" 
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z">
+          </path>
         </svg>
       </div>
     </section>
+  )
+}
+
+function BenefitCard({
+  title,
+  description,
+  iconSrc,
+}: {
+  title: string
+  description: string
+  iconSrc: string
+}) {
+  return (
+    <div className="group flex flex-col p-6 bg-white rounded-xl shadow-sm border border-neutral-100 hover:border-primary/10 hover:shadow-md transition-all duration-200">
+      <div className="w-12 h-12 mb-4 p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+        {iconSrc ? (
+          <img src={iconSrc} alt={title} className="w-6 h-6" />
+        ) : (
+          <div className="w-6 h-6 bg-primary/20 rounded-md" />
+        )}
+      </div>
+      <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary transition-colors duration-200">{title}</h3>
+      <p className="text-neutral-600 text-sm flex-grow">{description}</p>
+    </div>
   )
 } 
