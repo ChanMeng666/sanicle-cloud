@@ -29,7 +29,7 @@ export function SiteFooter() {
               <div className="absolute -left-5 -bottom-5 opacity-20">
                 <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-16 h-16 transform -rotate-12" />
               </div>
-              <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-12 relative z-10" />
+              <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-20 relative z-10" />
             </Link>
             <p className="text-neutral-600 mt-4 text-sm leading-relaxed">
               Revolutionizing workplace wellbeing through comprehensive menstrual health support for modern organizations.
