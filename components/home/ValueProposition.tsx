@@ -117,7 +117,7 @@ export function ValueProposition() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-20 lg:py-24 bg-white relative" id="features">
+    <section className="w-full py-12 md:py-20 lg:py-24 bg-white relative overflow-hidden" id="features">
       <div className="absolute top-0 right-0 opacity-5">
         <img src="/logo/leave-green.svg" alt="" className="w-64 h-64 transform rotate-45" />
       </div>
@@ -125,8 +125,8 @@ export function ValueProposition() {
         <img src="/logo/leave-pink.svg" alt="" className="w-64 h-64 transform -rotate-12" />
       </div>
       
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="text-center mb-12 max-w-3xl mx-auto px-4 relative">
+      <div className="w-full px-4 md:px-8">
+        <div className="text-center mb-12 max-w-3xl mx-auto relative">
           <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-full opacity-20">
             <img src="/logo/leave-green.svg" alt="" className="w-24 h-24" />
           </div>
@@ -137,12 +137,12 @@ export function ValueProposition() {
         </div>
 
         {/* Horizontal scrollable card layout */}
-        <div className="relative px-4 md:px-8 py-4">
+        <div className="relative w-full overflow-hidden">
           {/* Left navigation arrow */}
           {showLeftArrow && (
             <button 
               onClick={() => scroll('left')} 
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-6 w-6 text-primary" />
@@ -153,7 +153,7 @@ export function ValueProposition() {
           {showRightArrow && (
             <button 
               onClick={() => scroll('right')} 
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
               aria-label="Scroll right"
             >
               <ChevronRight className="h-6 w-6 text-primary" />
@@ -163,16 +163,19 @@ export function ValueProposition() {
           {/* Horizontal scrollable container */}
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent scrollbar-hide snap-x scroll-px-4"
-            style={{ scrollbarWidth: 'thin', WebkitOverflowScrolling: 'touch' }}
+            className="overflow-x-auto no-scrollbar px-4 md:px-8 -mx-4 md:-mx-8"
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
-            <div className="flex space-x-6 md:space-x-8 pl-2 pr-8">
+            <div className="flex flex-nowrap py-4 px-4 md:px-8 gap-4 md:gap-6 w-fit">
+              {/* First spacer for desktop */}
+              <div className="hidden md:block flex-shrink-0 w-[calc(50vw-640px)] min-w-[20px]"></div>
+              
               {features.map((feature, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 w-[280px] md:w-[320px] snap-start scroll-ml-4"
+                  className="flex-shrink-0 w-[260px] md:w-[300px]"
                 >
-                  <div className={`${feature.color} rounded-2xl shadow-card-hover h-full p-6 relative overflow-hidden group transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1`}>
+                  <div className={`${feature.color} rounded-2xl shadow-card-hover h-full p-5 relative overflow-hidden group transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1`}>
                     {/* Leaf decoration */}
                     <div className="absolute -right-10 -bottom-10 opacity-20 transition-opacity duration-300 group-hover:opacity-30">
                       <img 
@@ -183,16 +186,16 @@ export function ValueProposition() {
                     </div>
                     
                     <div className="relative z-10 h-full flex flex-col">
-                      <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
                         {feature.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                      <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
                       <p className="text-white/90 text-sm flex-grow">
                         {feature.description}
                       </p>
                       
                       {/* Small leaf indicator */}
-                      <div className="w-4 h-4 mt-4 self-end opacity-60">
+                      <div className="w-4 h-4 mt-3 self-end opacity-60">
                         <img 
                           src={`/logo/leave-white.svg`} 
                           alt="" 
@@ -203,6 +206,9 @@ export function ValueProposition() {
                   </div>
                 </div>
               ))}
+              
+              {/* Last spacer for desktop */}
+              <div className="hidden md:block flex-shrink-0 w-[calc(50vw-640px)] min-w-[20px]"></div>
             </div>
           </div>
           
@@ -213,6 +219,20 @@ export function ValueProposition() {
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        html, body {
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+      `}</style>
     </section>
   )
 } 
