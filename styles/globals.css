@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 全局样式设置，防止水平滚动 */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

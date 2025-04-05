@@ -157,16 +157,16 @@ export function ValueProposition() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 relative">
+    <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 pattern-grid opacity-5"></div>
       
-      {/* Decorative leaf elements */}
-      <div className="absolute top-1/4 -left-32 transform -rotate-12">
-        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-96 h-96 opacity-5" />
+      {/* Decorative leaf elements - 减小负边距 */}
+      <div className="absolute top-1/4 -left-12 transform -rotate-12">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-64 h-64 opacity-5" />
       </div>
-      <div className="absolute top-3/4 -right-32 transform rotate-12">
-        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-96 h-96 opacity-5" />
+      <div className="absolute top-3/4 -right-12 transform rotate-12">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-64 h-64 opacity-5" />
       </div>
       
       {/* Small floating leaves */}

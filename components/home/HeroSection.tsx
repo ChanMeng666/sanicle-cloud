@@ -9,12 +9,12 @@ import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-44 overflow-hidden relative">
-      {/* Decorative leaves */}
-      <div className="absolute -right-64 top-0 transform -rotate-12 opacity-5">
-        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-[600px] h-[600px]" />
+      {/* Decorative leaves - 减小负边距值 */}
+      <div className="absolute -right-24 top-0 transform -rotate-12 opacity-5">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-[400px] h-[400px]" />
       </div>
-      <div className="absolute -left-64 bottom-40 transform rotate-12 opacity-5">
-        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-[600px] h-[600px]" />
+      <div className="absolute -left-24 bottom-40 transform rotate-12 opacity-5">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-[400px] h-[400px]" />
       </div>
       
       {/* Background color gradient */}
