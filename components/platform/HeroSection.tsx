@@ -1,9 +1,28 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, BarChart, Users } from "lucide-react"
 
 export function HeroSection() {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // Calculate rotation based on mouse position relative to container center
+    const xRotation = ((y - container.height / 2) / container.height) * 8;
+    const yRotation = ((x - container.width / 2) / container.width) * -8;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="w-full bg-gradient-to-br from-primary via-primary/90 to-teal-600 py-12 sm:py-16 md:py-24 text-white overflow-hidden relative">
       {/* Background pattern */}
@@ -68,10 +87,24 @@ export function HeroSection() {
             </div>
           </div>
           <div className="lg:col-span-6 flex justify-center mt-8 lg:mt-0">
-            <div className="platform-showcase relative w-full max-w-md sm:max-w-lg md:max-w-xl">
-              {/* Device showcase */}
-              <div className="platform-device relative z-20 bg-white rounded-xl shadow-2xl overflow-hidden border-8 border-gray-100 transform hover:rotate-1 transition-transform duration-500">
-                <img src="/placeholder.svg?height=500&width=500" alt="Platform dashboard" className="w-full" />
+            <div 
+              className="platform-showcase relative w-full max-w-md sm:max-w-lg md:max-w-xl perspective-[1000px]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Device showcase with 3D effect */}
+              <div 
+                className="platform-device relative z-20 bg-white rounded-xl shadow-2xl overflow-hidden border-8 border-gray-100 transition-transform duration-300 ease-out transform-gpu"
+                style={{ 
+                  transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <img 
+                  src="/images/11_31_21.png" 
+                  alt="AI-powered health tracking interface" 
+                  className="w-full" 
+                />
                 <div className="absolute top-0 left-0 right-0 h-6 bg-gray-100 flex items-center px-2">
                   <div className="flex space-x-1">
                     <div className="w-2 h-2 rounded-full bg-red-400"></div>
@@ -79,6 +112,9 @@ export function HeroSection() {
                     <div className="w-2 h-2 rounded-full bg-green-400"></div>
                   </div>
                 </div>
+                
+                {/* Glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
               </div>
 
               {/* Floating UI elements */}
@@ -102,6 +138,19 @@ export function HeroSection() {
                   <div className="text-xs">
                     <p className="font-semibold text-neutral-800">Analytics</p>
                     <p className="text-neutral-500">Real-time</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* New floating badge for AI features */}
+              <div className="hidden sm:block absolute -bottom-6 right-10 z-30 bg-white rounded-lg shadow-lg p-3 transform rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mr-2">
+                    <span className="text-lg">✨</span>
+                  </div>
+                  <div className="text-xs">
+                    <p className="font-semibold text-neutral-800">AI-Powered</p>
+                    <p className="text-neutral-500">Personalized Insights</p>
                   </div>
                 </div>
               </div>

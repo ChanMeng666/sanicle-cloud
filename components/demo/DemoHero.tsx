@@ -1,10 +1,29 @@
 "use client"
 
+import { useState } from "react"
 import { LucidePlayCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export function DemoHero() {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // Calculate rotation based on mouse position relative to container center
+    const xRotation = ((y - container.height / 2) / container.height) * 8;
+    const yRotation = ((x - container.width / 2) / container.width) * -8;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-primary-light via-primary to-primary-dark text-white">
       {/* Background patterns */}
@@ -105,9 +124,19 @@ export function DemoHero() {
               <img src="/logo/leave-white.svg" alt="Leaf decoration" className="w-32 h-32 opacity-20 blur-lg animate-float-delay" />
             </div>
             
-            {/* 3D floating device model */}
-            <div className="relative mx-auto max-w-md transform perspective-1000 hover:scale-105 transition-transform duration-500">
-              <div className="relative z-20 bg-charcoal rounded-2xl shadow-2xl overflow-hidden border-4 border-white/10">
+            {/* Virtual meeting image with 3D effect */}
+            <div 
+              className="relative mx-auto max-w-lg perspective-[1000px]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div 
+                className="relative z-20 bg-charcoal rounded-2xl shadow-2xl overflow-hidden border-4 border-white/10 transition-transform duration-300 ease-out transform-gpu"
+                style={{ 
+                  transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                  transformStyle: 'preserve-3d'
+                }}
+              >
                 {/* Top bar */}
                 <div className="bg-black/30 h-8 flex items-center px-4">
                   <div className="flex gap-2">
@@ -117,42 +146,37 @@ export function DemoHero() {
                   </div>
                 </div>
                 
-                {/* Main screen content */}
-                <div className="p-4 bg-black/20 min-h-[300px]">
-                  <div className="h-10 mb-6 w-3/4 rounded bg-white/10 animate-pulse"></div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-primary/30 h-24 rounded-lg flex items-center justify-center relative overflow-hidden">
-                      <div className="absolute inset-0">
-                        <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full opacity-20" />
-                      </div>
-                      <div className="relative z-10 flex items-center justify-center w-12 h-12">
-                        <img src="/logo/leave-green.svg" alt="Leaf icon" className="w-full h-full opacity-80" />
-                      </div>
-                    </div>
-                    <div className="bg-secondary/30 h-24 rounded-lg flex items-center justify-center relative overflow-hidden">
-                      <div className="absolute inset-0">
-                        <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full opacity-20" />
-                      </div>
-                      <div className="relative z-10 flex items-center justify-center w-12 h-12">
-                        <img src="/logo/leave-pink.svg" alt="Leaf icon" className="w-full h-full opacity-80" />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-6 space-y-3">
-                    <div className="h-3 bg-white/10 rounded w-full"></div>
-                    <div className="h-3 bg-white/10 rounded w-5/6"></div>
-                    <div className="h-3 bg-white/10 rounded w-4/6"></div>
-                  </div>
+                {/* Main content - HR professionals in virtual meeting */}
+                <div className="bg-black/20">
+                  <img 
+                    src="/images/11_11_36.png" 
+                    alt="HR professionals reviewing platform benefits in virtual meeting" 
+                    className="w-full h-auto" 
+                  />
                 </div>
               </div>
               
               {/* Reflection effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 z-30 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 z-30 pointer-events-none rounded-2xl"></div>
               
               {/* Shadow */}
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 h-10 bg-black/20 rounded-full blur-xl"></div>
+            </div>
+            
+            {/* Floating badge - Feature highlight */}
+            <div className="absolute -bottom-4 -right-4 bg-white p-3 rounded-xl shadow-lg z-30 rotate-6 hover:rotate-0 transition-transform duration-300">
+              <div className="flex items-center text-sm">
+                <div className="w-10 h-10 relative mr-3">
+                  <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-5 w-5 text-secondary">📊</div>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-medium text-neutral-800">Real-time collaboration</p>
+                  <p className="text-secondary font-bold text-lg">Live Demo</p>
+                </div>
+              </div>
             </div>
             
             {/* Floating decorative elements */}

@@ -1,9 +1,28 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, BarChart, Users } from "lucide-react"
 
 export function HeroSection() {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // Calculate position relative to container center
+    const xRotation = ((y - container.height / 2) / container.height) * 8;
+    const yRotation = ((x - container.width / 2) / container.width) * -8;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-teal-50/90 to-white z-0"></div>
@@ -39,14 +58,14 @@ export function HeroSection() {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-800 leading-tight">
-                Comprehensive benefits for <span className="text-primary relative">your team
+                AI-Driven Employee Wellness <span className="text-primary relative">Platform
                   <svg className="absolute bottom-0 left-0 w-full h-2 text-primary/20" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 25 9, 50 5 Q 75 1, 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
                   </svg>
                 </span>
               </h1>
               <p className="text-lg text-neutral-600 max-w-xl">
-                Attract and retain top talent by providing innovative health benefits that meet the unique needs of female employees.
+                Through advanced AI analytics and data visualization technologies, we help companies provide innovative health benefits that meet the unique needs of female employees, improving overall employee satisfaction.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -54,7 +73,7 @@ export function HeroSection() {
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 px-6 py-2.5 rounded-full transition-all">
-                  Schedule a Demo
+                  Book a Demo
                 </Button>
               </div>
 
@@ -67,7 +86,7 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-neutral-500 font-medium">Employee Retention Increase</div>
+                    <div className="text-sm text-neutral-500 font-medium">Employee Retention Increased</div>
                     <div className="text-xl font-bold text-neutral-800">+24%</div>
                   </div>
                 </div>
@@ -79,7 +98,7 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm text-neutral-500 font-medium">Absenteeism Reduction</div>
+                    <div className="text-sm text-neutral-500 font-medium">Absenteeism Reduced</div>
                     <div className="text-xl font-bold text-neutral-800">-32%</div>
                   </div>
                 </div>
@@ -88,9 +107,19 @@ export function HeroSection() {
           </div>
 
           <div className="hidden md:flex items-center justify-center py-8 relative">
-            <div className="relative mx-auto">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-75 blur-lg"></div>
-              <div className="relative bg-white rounded-xl overflow-hidden border shadow-lg transform transition-transform hover:scale-[1.02] duration-300">
+            <div 
+              className="relative mx-auto perspective-[1000px]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-75 blur-lg z-0"></div>
+              <div 
+                className="relative bg-white rounded-xl overflow-hidden border shadow-lg transition-transform duration-300 ease-out transform-gpu"
+                style={{ 
+                  transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                  transformStyle: 'preserve-3d'
+                }}
+              >
                 <div className="h-10 bg-neutral-50 border-b flex items-center px-4">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#f87171]"></div>
@@ -99,13 +128,13 @@ export function HeroSection() {
                   </div>
                 </div>
                 <img
-                  src="/placeholder.svg?height=500&width=500"
-                  alt="Employee Benefits Dashboard"
+                  src="/images/11_01_42.png"
+                  alt="AI-driven Employee Wellness Analytics Dashboard"
                   className="w-full object-cover"
                 />
               </div>
 
-              <div className="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-lg rotate-6 hover:rotate-3 transition-transform duration-300">
+              <div className="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-lg rotate-6 hover:rotate-3 transition-transform duration-300 z-20">
                 <div className="flex items-center text-sm">
                   <div className="w-10 h-10 relative mr-3">
                     <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
@@ -120,7 +149,7 @@ export function HeroSection() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-4 shadow-lg -rotate-6 hover:-rotate-3 transition-transform duration-300">
+              <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-4 shadow-lg -rotate-6 hover:-rotate-3 transition-transform duration-300 z-20">
                 <div className="flex items-center text-sm">
                   <div className="w-10 h-10 relative mr-3">
                     <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
@@ -129,7 +158,7 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-medium text-neutral-800">ROI</p>
+                    <p className="font-medium text-neutral-800">Return on Investment</p>
                     <p className="text-primary font-bold text-lg">↑ 320%</p>
                   </div>
                 </div>

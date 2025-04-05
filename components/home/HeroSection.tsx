@@ -1,12 +1,30 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, ChevronDown, Play, Star, Users } from "lucide-react"
 
 export function HeroSection() {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // 计算相对于容器中心的位置 (-1 到 1 的范围)
+    const xRotation = ((y - container.height / 2) / container.height) * 10;
+    const yRotation = ((x - container.width / 2) / container.width) * -10;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-44 overflow-hidden relative">
       {/* Decorative leaves - 减小负边距值 */}
@@ -33,7 +51,7 @@ export function HeroSection() {
               Reimagine <span className="text-primary">Menstrual Health</span> in the Workplace
             </h1>
             <p className="max-w-[600px] text-neutral-600 md:text-xl">
-              Experience period dignity with our innovative smart dispensers and comprehensive menstrual health platform.
+              Experience period dignity with our AI-powered platform providing comprehensive menstrual health insights and support.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
@@ -45,28 +63,43 @@ export function HeroSection() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="relative flex items-center">
-              <div className="absolute -left-8 -top-8 w-40 h-40 opacity-10 animate-spin-slow">
+            <div 
+              className="relative flex items-center perspective-[1000px]"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="absolute -left-8 -top-8 w-40 h-40 opacity-10 animate-spin-slow z-10">
                 <img src="/logo/leave-green.svg" alt="Spinning leaf" className="w-full h-full" />
               </div>
-              <img
-                src="/promo/dispenser-3d.png"
-                width={500}
-                height={500}
-                alt="Smart Dispenser"
-                className="mx-auto aspect-auto object-cover object-center rounded-xl shadow-xl shadow-teal-500/10 border-4 border-white relative z-10"
-              />
-              <div className="absolute -right-8 -bottom-8 w-32 h-32 opacity-20">
+              
+              <div 
+                className="transition-transform duration-200 ease-out transform-gpu"
+                style={{ 
+                  transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <img
+                  src="/images/10_48_44.png"
+                  width={500}
+                  height={500}
+                  alt="AI-powered menstrual health platform"
+                  className="mx-auto aspect-auto object-cover object-center rounded-xl shadow-xl shadow-teal-500/10 border-4 border-white relative"
+                />
+              </div>
+              
+              <div className="absolute -right-8 -bottom-8 w-32 h-32 opacity-20 z-10">
                 <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-full h-full" />
               </div>
-              {/* Floating badge */}
-              <div className="absolute -left-4 bottom-4 py-2 px-4 bg-coral/10 backdrop-blur-sm rounded-full shadow-md border border-coral/20 flex items-center gap-2">
+              
+              {/* Floating badge - 放在更高的z-index */}
+              <div className="absolute -left-4 bottom-4 py-2 px-4 bg-coral/10 backdrop-blur-sm rounded-full shadow-md border border-coral/20 flex items-center gap-2 z-20">
                 <div className="w-3 h-3 rounded-full bg-coral animate-pulse"></div>
-                <span className="text-sm font-medium text-coral">Smart Technology</span>
+                <span className="text-sm font-medium text-coral">AI-Powered</span>
               </div>
-              <div className="absolute -right-4 top-4 py-2 px-4 bg-primary/10 backdrop-blur-sm rounded-full shadow-md border border-primary/20 flex items-center gap-2">
+              <div className="absolute -right-4 top-4 py-2 px-4 bg-primary/10 backdrop-blur-sm rounded-full shadow-md border border-primary/20 flex items-center gap-2 z-20">
                 <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
-                <span className="text-sm font-medium text-primary">Coming Soon</span>
+                <span className="text-sm font-medium text-primary">Cloud SaaS</span>
               </div>
             </div>
           </div>

@@ -39,6 +39,24 @@ export const PricingToggle = ({
 }
 
 export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => void }) {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // Calculate rotation based on mouse position relative to container center
+    const xRotation = ((y - container.height / 2) / container.height) * 8;
+    const yRotation = ((x - container.width / 2) / container.width) * -8;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="w-full py-16 md:py-28 relative overflow-hidden">
       {/* Gradient background */}
@@ -71,40 +89,83 @@ export function PricingHero({ onToggle }: { onToggle: (isAnnual: boolean) => voi
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div 
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 shadow-sm backdrop-blur-sm"
-            data-aos="fade-down" 
-            data-aos-delay="100"
-          >
-            Transparent Pricing for Every Business
+        <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <div className="text-center md:text-left">
+            <div 
+              className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 shadow-sm backdrop-blur-sm"
+              data-aos="fade-down" 
+              data-aos-delay="100"
+            >
+              Transparent Pricing for Every Business
+            </div>
+
+            <h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light mb-8"
+              data-aos="fade-up" 
+              data-aos-delay="200"
+            >
+              Simple Plans for Your Organization
+            </h1>
+
+            <p 
+              className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto md:mx-0 leading-relaxed"
+              data-aos="fade-up" 
+              data-aos-delay="300"
+            >
+              Choose the plan that best fits your organization's size and needs. All plans include our core menstrual health benefits platform with top-tier security and support.
+            </p>
+
+            <div data-aos="fade-up" data-aos-delay="400" className="relative">
+              <PricingToggle onToggle={onToggle} />
+              
+              {/* Small decorative elements around toggle */}
+              <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 hidden md:block">
+                <img src="/logo/leave-green.svg" alt="" className="w-5 h-5 opacity-30 rotate-45" />
+              </div>
+              <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 hidden md:block">
+                <img src="/logo/leave-pink.svg" alt="" className="w-5 h-5 opacity-30 -rotate-12" />
+              </div>
+            </div>
           </div>
 
-          <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light mb-8"
-            data-aos="fade-up" 
-            data-aos-delay="200"
-          >
-            Simple Plans for Your Organization
-          </h1>
-
-          <p 
-            className="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed"
-            data-aos="fade-up" 
+          {/* Subscription Visualization Image with 3D effect */}
+          <div 
+            className="relative mx-auto perspective-[1000px] max-w-lg hidden md:block"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            data-aos="fade-up"
             data-aos-delay="300"
           >
-            Choose the plan that best fits your organization's size and needs. All plans include our core menstrual health benefits platform with top-tier security and support.
-          </p>
-
-          <div data-aos="fade-up" data-aos-delay="400" className="relative">
-            <PricingToggle onToggle={onToggle} />
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-xl opacity-70"></div>
             
-            {/* Small decorative elements around toggle */}
-            <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 hidden md:block">
-              <img src="/logo/leave-green.svg" alt="" className="w-5 h-5 opacity-30 rotate-45" />
+            <div 
+              className="relative z-10 transition-transform duration-300 ease-out transform-gpu rounded-xl overflow-hidden shadow-2xl border-2 border-white/50"
+              style={{ 
+                transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                transformStyle: 'preserve-3d'
+              }}
+            >
+              <img
+                src="/images/11_17_48.png"
+                alt="Premium cloud subscription visualization"
+                className="w-full h-auto"
+              />
+              
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
             </div>
-            <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 hidden md:block">
-              <img src="/logo/leave-pink.svg" alt="" className="w-5 h-5 opacity-30 -rotate-12" />
+
+            {/* Floating badge */}
+            <div className="absolute -bottom-6 -right-4 bg-white p-3 rounded-lg shadow-lg z-30 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-primary text-lg">✦</span>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-medium">Starting from</p>
+                  <p className="text-primary font-bold">$8/user</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

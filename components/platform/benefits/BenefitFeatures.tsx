@@ -1,9 +1,28 @@
 "use client"
 
+import { useState } from "react"
 import { Calendar, Gift, BookOpen, Users, Shield, CheckCircle } from "lucide-react"
 import { BenefitAccordion } from "./BenefitAccordion"
 
 export function BenefitFeatures() {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+    
+    // Calculate rotation based on mouse position relative to container center
+    const xRotation = ((y - container.height / 2) / container.height) * 6;
+    const yRotation = ((x - container.width / 2) / container.width) * -6;
+    
+    setRotation({ x: xRotation, y: yRotation });
+  };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+
   return (
     <section className="w-full py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
       {/* Top decorative elements for seamless transition */}
@@ -131,26 +150,66 @@ export function BenefitFeatures() {
                     ))}
                   </ul>
                 </div>
-                <div className="relative mt-6 md:mt-0">
+                <div 
+                  className="relative mt-6 md:mt-0 perspective-[1000px]"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-teal-400 rounded-lg opacity-10 blur-lg transform rotate-2"></div>
-                  <img
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Educational resources"
-                    className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
-                  />
+                  <div 
+                    className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto overflow-hidden transition-transform duration-300 ease-out transform-gpu"
+                    style={{ 
+                      transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <img
+                      src="/images/12_07_53.png"
+                      alt="Virtual health consultant AI interface for menopause management"
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Glass reflection effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    {/* Feature badge */}
+                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md text-xs font-medium text-primary flex items-center">
+                      <span className="mr-1">🤖</span> AI Health Consultant
+                    </div>
+                  </div>
                 </div>
               </div>
             </BenefitAccordion>
 
             <BenefitAccordion title="Expert Support" icon={<Users className="h-5 w-5" />}>
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <div className="order-2 md:order-1 relative mt-6 md:mt-0">
+                <div 
+                  className="order-2 md:order-1 relative mt-6 md:mt-0 perspective-[1000px]"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-secondary to-coral-400 rounded-lg opacity-10 blur-lg transform -rotate-2"></div>
-                  <img
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Expert support"
-                    className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
-                  />
+                  <div 
+                    className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto overflow-hidden transition-transform duration-300 ease-out transform-gpu"
+                    style={{ 
+                      transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <img
+                      src="/images/11_37_02.png"
+                      alt="Digital wellness platform with virtual support community"
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Glass reflection effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    {/* Feature badge */}
+                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md text-xs font-medium text-primary flex items-center">
+                      <span className="mr-1">✨</span> Virtual Community Support
+                    </div>
+                  </div>
                 </div>
                 <div className="order-1 md:order-2">
                   <p className="text-neutral-600 mb-4 text-sm md:text-base">
