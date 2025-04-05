@@ -52,10 +52,19 @@ export function HowItWorks() {
   ]
 
   return (
-    <section className="w-full py-12 sm:py-16 md:py-20 lg:py-24 bg-tertiary relative overflow-hidden">
-      <div className="absolute inset-0 bg-primary/5 pattern-dots"></div>
+    <section className="w-full pt-20 pb-32 sm:pt-24 sm:pb-36 md:pt-28 md:pb-40 lg:pt-32 lg:pb-44 relative overflow-hidden">
+      {/* Top wave transition */}
+      <div className="absolute top-0 left-0 right-0 transform rotate-180">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+          <path fill="#ffffff" fillOpacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
+      </div>
+      
+      {/* Gradient background from coral to white */}
+      <div className="absolute inset-0 bg-gradient-to-b from-tertiary/70 to-white z-0"></div>
+      <div className="absolute inset-0 pattern-dots opacity-5"></div>
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-4 md:px-6 relative z-10 pt-16">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-800 mb-2 md:mb-4">How it Works</h2>
         </div>
@@ -171,6 +180,13 @@ export function HowItWorks() {
             </svg>
           </a>
         </div>
+      </div>
+      
+      {/* Bottom wave transition */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+          <path fill="#ffffff" fillOpacity="1" d="M0,0L48,5.3C96,11,192,21,288,42.7C384,64,480,96,576,96C672,96,768,64,864,48C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        </svg>
       </div>
     </section>
   )

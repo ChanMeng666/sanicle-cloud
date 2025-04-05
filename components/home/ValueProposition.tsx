@@ -1,7 +1,8 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users, Brain, Sun, ChevronLeft, ChevronRight } from "lucide-react"
+import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users, Brain, Sun, ChevronLeft, ChevronRight, MoveRight } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 export function ValueProposition() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -116,123 +117,136 @@ export function ValueProposition() {
     },
   ]
 
+  const benefits = [
+    {
+      title: "Comprehensive Period Care",
+      description:
+        "Our smart dispensers offer a range of quality menstrual products, ensuring that all employees have access to the products they need, when they need them.",
+      icon: "/icons/period-care.svg",
+    },
+    {
+      title: "Data-Driven Insights",
+      description:
+        "Gain valuable insights into usage patterns and employee needs, allowing you to optimize your menstrual health offerings and support.",
+      icon: "/icons/data-insights.svg",
+    },
+    {
+      title: "Promote Inclusivity",
+      description:
+        "Demonstrate your commitment to creating an inclusive workplace where everyone feels valued and supported, regardless of their menstrual health needs.",
+      icon: "/icons/inclusivity.svg",
+    },
+    {
+      title: "Enhance Employee Well-being",
+      description:
+        "Support employees during their periods, reducing absenteeism and presenteeism while boosting overall satisfaction and productivity.",
+      icon: "/icons/wellbeing.svg",
+    },
+    {
+      title: "Easy Implementation",
+      description:
+        "Our turnkey solution includes installation, maintenance, and restocking, making it effortless to provide essential menstrual care.",
+      icon: "/icons/easy-setup.svg",
+    },
+    {
+      title: "Sustainability Focus",
+      description:
+        "Our eco-friendly products and commitment to reducing waste align with your company's environmental goals and values.",
+      icon: "/icons/sustainability.svg",
+    },
+  ]
+
   return (
-    <section className="w-full py-12 md:py-20 lg:py-24 bg-white relative overflow-hidden" id="features">
-      <div className="absolute top-0 right-0 opacity-5">
-        <img src="/logo/leave-green.svg" alt="" className="w-64 h-64 transform rotate-45" />
+    <section className="w-full py-12 md:py-24 lg:py-32 relative">
+      {/* Background patterns */}
+      <div className="absolute inset-0 pattern-grid opacity-5"></div>
+      
+      {/* Decorative leaf elements */}
+      <div className="absolute top-1/4 -left-32 transform -rotate-12">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-96 h-96 opacity-5" />
       </div>
-      <div className="absolute bottom-0 left-0 opacity-5">
-        <img src="/logo/leave-pink.svg" alt="" className="w-64 h-64 transform -rotate-12" />
+      <div className="absolute top-3/4 -right-32 transform rotate-12">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-96 h-96 opacity-5" />
       </div>
       
-      <div className="w-full px-4 md:px-8">
-        <div className="text-center mb-12 max-w-3xl mx-auto relative">
-          <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-full opacity-20">
-            <img src="/logo/leave-green.svg" alt="" className="w-24 h-24" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Sanicle.cloud is a comprehensive solution.</h2>
-          <p className="text-base md:text-lg text-neutral-600">
-            We're a B2B-B2G platform dedicated to transforming women's workplace wellbeing. Here's how:
-          </p>
-        </div>
-
-        {/* Horizontal scrollable card layout */}
-        <div className="relative w-full overflow-hidden">
-          {/* Left navigation arrow */}
-          {showLeftArrow && (
-            <button 
-              onClick={() => scroll('left')} 
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="h-6 w-6 text-primary" />
-            </button>
-          )}
-          
-          {/* Right navigation arrow */}
-          {showRightArrow && (
-            <button 
-              onClick={() => scroll('right')} 
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/80 rounded-full p-2 shadow-md border border-gray-200 hover:bg-white transition-all duration-300"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="h-6 w-6 text-primary" />
-            </button>
-          )}
-          
-          {/* Horizontal scrollable container */}
-          <div 
-            ref={scrollContainerRef}
-            className="overflow-x-auto no-scrollbar px-4 md:px-8 -mx-4 md:-mx-8"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
-            <div className="flex flex-nowrap py-4 px-4 md:px-8 gap-4 md:gap-6 w-fit">
-              {/* First spacer for desktop */}
-              <div className="hidden md:block flex-shrink-0 w-[calc(50vw-640px)] min-w-[20px]"></div>
-              
-              {features.map((feature, index) => (
-                <div 
-                  key={index} 
-                  className="flex-shrink-0 w-[260px] md:w-[300px]"
-                >
-                  <div className={`${feature.color} rounded-2xl shadow-card-hover h-full p-5 relative overflow-hidden group transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1`}>
-                    {/* Leaf decoration */}
-                    <div className="absolute -right-10 -bottom-10 opacity-20 transition-opacity duration-300 group-hover:opacity-30">
-                      <img 
-                        src={`/logo/leave-${feature.leafColor}.svg`} 
-                        alt="" 
-                        className="w-32 h-32 transform rotate-12"
-                      />
-                    </div>
-                    
-                    <div className="relative z-10 h-full flex flex-col">
-                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                        {feature.icon}
-                      </div>
-                      <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                      <p className="text-white/90 text-sm flex-grow">
-                        {feature.description}
-                      </p>
-                      
-                      {/* Small leaf indicator */}
-                      <div className="w-4 h-4 mt-3 self-end opacity-60">
-                        <img 
-                          src={`/logo/leave-white.svg`} 
-                          alt="" 
-                          className="w-full h-full transform -rotate-12"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              
-              {/* Last spacer for desktop */}
-              <div className="hidden md:block flex-shrink-0 w-[calc(50vw-640px)] min-w-[20px]"></div>
+      {/* Small floating leaves */}
+      <div className="absolute top-1/3 right-1/4 animate-float">
+        <img src="/logo/leave-green.svg" alt="Small leaf" className="w-12 h-12 opacity-20" />
+      </div>
+      <div className="absolute bottom-1/3 left-1/4 animate-float-delay">
+        <img src="/logo/leave-pink.svg" alt="Small leaf" className="w-10 h-10 opacity-15" />
+      </div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+              <span className="font-semibold">For Employers</span>
             </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-neutral-800">
+              Transform Your Workplace with Sanicle
+            </h2>
+            <p className="mx-auto max-w-[700px] text-neutral-600 md:text-lg">
+              Join forward-thinking companies that prioritize menstrual health as an essential aspect of workplace
+              wellness.
+            </p>
           </div>
-          
-          {/* Scroll indicator */}
-          <div className="flex justify-center mt-2 items-center space-x-1">
-            <div className="text-xs text-neutral-500">Scroll for more</div>
-            <ChevronRight className="h-3 w-3 text-neutral-500 animate-pulse" />
+        </div>
+        <div className="mx-auto grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="relative overflow-hidden group border-none shadow-md hover:shadow-lg transition-all duration-300 bg-white/90">
+              <div className="absolute top-0 right-0 w-24 h-24 transform translate-x-1/2 -translate-y-1/2 opacity-5 group-hover:opacity-10 transition-all duration-500">
+                <img src={index % 2 === 0 ? "/logo/leave-green.svg" : "/logo/leave-pink.svg"} alt="Leaf decoration" className="w-full h-full" />
+              </div>
+              
+              <CardContent className="p-6 pt-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <img src={benefit.icon} alt={benefit.title} className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-lg text-neutral-800">{benefit.title}</h3>
+                </div>
+                <p className="text-neutral-600">{benefit.description}</p>
+                <div className="mt-4 flex items-center text-primary group-hover:underline">
+                  <span className="text-sm font-medium">Learn more</span>
+                  <MoveRight className="h-4 w-4 ml-1" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="flex justify-center">
+          <div className="relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-teal-100 via-white to-coral-100 p-[1px] shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <div className="relative z-10 flex flex-col items-center overflow-hidden rounded-xl bg-white p-8 text-center">
+              <div className="absolute -right-8 -top-8 opacity-5">
+                <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-32 h-32" />
+              </div>
+              <div className="absolute -left-8 -bottom-8 opacity-5">
+                <img src="/logo/leave-green.svg" alt="Leaf decoration" className="w-32 h-32" />
+              </div>
+              <h3 className="mb-4 text-2xl font-bold tracking-tight text-neutral-800">Ready to get started?</h3>
+              <p className="mb-6 text-neutral-600">
+                Join the growing list of forward-thinking companies that are prioritizing menstrual health in the
+                workplace.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  href="#"
+                >
+                  Request A Demo
+                </a>
+                <a
+                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                  href="#"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        html, body {
-          max-width: 100%;
-          overflow-x: hidden;
-        }
-      `}</style>
     </section>
   )
 } 

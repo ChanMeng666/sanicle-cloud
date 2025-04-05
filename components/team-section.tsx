@@ -85,22 +85,34 @@ export function TeamSection() {
 
   return (
     <section className="w-full py-12 md:py-16 bg-white relative overflow-hidden">
-      {/* 背景装饰 */}
-      <div className="absolute inset-0 pattern-dots opacity-10"></div>
-      <div className="absolute right-0 top-1/4 transform rotate-45">
-        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="opacity-10 w-96 h-96 blur-md" />
-      </div>
-      <div className="absolute left-0 bottom-1/4 transform -rotate-45">
-        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="opacity-10 w-96 h-96 blur-md" />
+      {/* Top wave transition */}
+      <div className="absolute top-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto fill-teal-50">
+          <path d="M0,96L48,101.3C96,107,192,117,288,117.3C384,117,480,107,576,90.7C672,75,768,53,864,58.7C960,64,1056,96,1152,106.7C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
       </div>
       
-      <div className="container px-4 md:px-6 relative z-10">
+      {/* Background patterns */}
+      <div className="absolute inset-0 pattern-dots opacity-5"></div>
+      
+      {/* Colored pencil line decoration */}
+      <div className="absolute top-40 left-0 right-0 h-1 bg-gradient-to-r from-coral-100 via-primary/20 to-teal-100 opacity-30"></div>
+      
+      {/* Leaf decorations */}
+      <div className="absolute right-0 top-1/4 transform rotate-45">
+        <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="opacity-5 w-96 h-96 blur-md" />
+      </div>
+      <div className="absolute left-0 bottom-1/4 transform -rotate-45">
+        <img src="/logo/leave-green.svg" alt="Leaf decoration" className="opacity-5 w-96 h-96 blur-md" />
+      </div>
+      
+      <div className="container px-4 md:px-6 relative z-10 pt-32">
         <div className="text-center mb-10 relative">
           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-20">
             <img src="/logo/leave-black.svg" alt="Leaf decoration" className="w-24 h-24" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50]">Our Team</h2>
-          <p className="text-[#7f8c8d] mt-2">
+          <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800">Our Team</h2>
+          <p className="text-neutral-600 mt-2">
             Sanicle boasts a powerful team with diverse backgrounds and a shared passion for revolutionizing menstrual
             health.
           </p>
@@ -108,7 +120,7 @@ export function TeamSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {teamMembers.map((member, index) => (
-            <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative group">
+            <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative group bg-white/90">
               <div className="absolute -right-8 -top-8 opacity-20 group-hover:opacity-30 transition-opacity duration-300">
                 <img 
                   src={`/logo/leave-${member.leafColor}.svg`} 
@@ -118,24 +130,31 @@ export function TeamSection() {
               </div>
               <CardContent className="p-6 flex flex-col items-center text-center relative z-10">
                 <div className="relative">
-                  <Avatar className="h-24 w-24 mb-4 border-2 border-white ring-2 ring-[#167d83]/20 relative z-10">
+                  <Avatar className="h-24 w-24 mb-4 border-2 border-white ring-2 ring-primary/20 relative z-10">
                     <AvatarImage src="" alt={member.name} />
-                    <AvatarFallback className="bg-[#167d83] text-white text-xl">{member.avatar}</AvatarFallback>
+                    <AvatarFallback className="bg-primary text-white text-xl">{member.avatar}</AvatarFallback>
                   </Avatar>
                   <div className="absolute -bottom-2 -right-2 w-10 h-10 opacity-70">
                     <img src={`/logo/leave-${member.leafColor}.svg`} alt="Leaf decoration" className="w-full h-full" />
                   </div>
                 </div>
-                <h3 className="font-semibold text-lg text-[#2c3e50]">{member.name}</h3>
-                <p className="text-[#167d83] mb-2">{member.role}</p>
-                <p className="text-[#7f8c8d] text-sm mb-4">{member.bio}</p>
-                <Button variant="link" className="text-[#167d83] p-0 group-hover:text-[#126e73] transition-colors duration-300">
+                <h3 className="font-semibold text-lg text-neutral-800">{member.name}</h3>
+                <p className="text-primary mb-2">{member.role}</p>
+                <p className="text-neutral-600 text-sm mb-4">{member.bio}</p>
+                <Button variant="link" className="text-primary p-0 hover:text-teal-700 transition-colors duration-300">
                   Read Bio
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
+      </div>
+      
+      {/* Bottom wave transition for footer */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+          <path fill="#F9ECE8" fillOpacity="1" d="M0,32L48,37.3C96,43,192,53,288,80C384,107,480,149,576,154.7C672,160,768,128,864,112C960,96,1056,96,1152,85.3C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
       </div>
     </section>
   )
