@@ -10,64 +10,59 @@ interface PricingPlansProps {
 export function PricingPlans({ isAnnual }: PricingPlansProps) {
   const plans = [
     {
-      title: "Starter",
-      subtitle: "For small businesses",
+      title: "Basic",
+      subtitle: "Per month/user",
       icon: <Star className="h-5 w-5 text-primary" />,
       price: {
-        monthly: "8",
-        annual: "6",
+        monthly: "10",
+        annual: "8",
       },
       features: [
-        "Up to 50 employees",
-        "Basic menstrual health tracking",
-        "Educational resources",
-        "Standard reporting",
-        "Email support",
+        "Personalized Cycle Management",
+        "AI Chatbot - Ask Sani",
+        "Financial Wellness & Support",
       ],
       buttonText: "Get Started",
       color: "primary",
       saveText: "Save $24 per employee per year",
+      label: "B2B"
     },
     {
-      title: "Professional",
-      subtitle: "For medium businesses",
+      title: "Premium",
+      subtitle: "Per month/user",
       icon: <Zap className="h-5 w-5 text-secondary" />,
       price: {
-        monthly: "12",
-        annual: "10",
+        monthly: "15",
+        annual: "12",
       },
       features: [
-        "Up to 200 employees",
-        "Advanced health tracking",
-        "Personalized recommendations",
-        "Custom reporting",
-        "Priority support",
-        "Employee analytics insights",
+        "Basic plus this:",
+        "Educational Resources",
+        "Social Impact & Employee Rewards",
+        "Menstrual Syndrome Identification Support",
       ],
-      buttonText: "Get Professional",
+      buttonText: "Get Premium",
       highlight: true,
       color: "secondary",
-      saveText: "Save $24 per employee per year",
+      saveText: "Save $36 per employee per year",
+      label: "B2B"
     },
     {
       title: "Enterprise",
-      subtitle: "For large organizations",
+      subtitle: "Contact sales",
       icon: <Shield className="h-5 w-5 text-primary" />,
       price: {
         monthly: "Contact Us",
         annual: "Contact Us",
       },
       features: [
-        "Unlimited employees",
-        "Full feature set",
-        "In-depth analytics",
-        "Dedicated account manager",
-        "API integration",
-        "White-label solutions",
-        "24/7 technical support",
+        "Premium plus this:",
+        "Personalized Training and Consulting",
+        "Custom Features",
       ],
       buttonText: "Contact Sales",
       color: "primary",
+      label: "B2B/B2G"
     },
   ]
 
@@ -76,11 +71,8 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Choose Your Plan
+            Select the Optimal Plan for Your Business Needs
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We offer flexible options to meet the needs of any organization size
-          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -102,6 +94,7 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
                 highlight={plan.highlight}
                 color={plan.color}
                 saveText={isAnnual ? plan.saveText : undefined}
+                label={plan.label}
               />
             </div>
           ))}
@@ -109,7 +102,7 @@ export function PricingPlans({ isAnnual }: PricingPlansProps) {
 
         <div className="text-center mt-16">
           <p className="text-slate-500 text-sm">
-            All prices are in USD. See our <a href="#" className="text-primary hover:underline">pricing policy</a> for more information.
+            Sanicle.cloud offers flexible, on-demand access to menstrual and menopause health solutions for both corporate and government employers.
           </p>
         </div>
       </div>

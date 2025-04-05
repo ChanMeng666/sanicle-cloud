@@ -51,10 +51,9 @@ export function ValueProposition() {
     <section className="w-full py-12 md:py-20 lg:py-24 bg-white relative">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="text-center mb-12 max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">How We Make a Difference</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Sanicle.cloud is a comprehensive solution.</h2>
           <p className="text-base md:text-lg text-slate">
-            We're a B2B-B2G platform dedicated to creating healthier, more inclusive workplaces through comprehensive
-            menstrual health support.
+            We're a B2B-B2G platform dedicated to transforming women's workplace wellbeing. Here's how:
           </p>
         </div>
 

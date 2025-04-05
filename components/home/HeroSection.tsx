@@ -27,10 +27,10 @@ export function HeroSection() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-white text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-sm animate-slide-up">
-              Cloud Solutions<br />Empowering Your Business
+              Revolutionizing Womens' Workplace Health.
             </h1>
             <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 mx-auto lg:mx-0 max-w-lg animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              Unlock data potential, simplify operations, and accelerate business innovation. Our cloud platform provides comprehensive, high-performance digital transformation services for enterprises.
+              Sanicle.cloud offers a modular, end to end employee benefits platform with flexible menstrual health options. This frees employees from vendor fatigue and creates cost effective, attractive benefits that prioritize female well-being.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
               <Button asChild size="lg" className="rounded-full bg-secondary hover:bg-secondary-light text-white shadow-button hover:shadow-button-hover">

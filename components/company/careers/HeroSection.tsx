@@ -21,14 +21,13 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
-            Build Your <span className="relative">Career
+            Join <span className="relative">Us
               <span className="absolute bottom-2 left-0 w-full h-2 bg-[#EE4C23]/30 -rotate-1 rounded"></span>
-            </span>,<br />
-            <span className="text-[#EE4C23] drop-shadow-md">Change Lives</span>
+            </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-            At Sanicle.cloud, we're revolutionizing women's health in the workplace. Join our mission-driven team and make a real impact on people's lives.
+            We're continually seeking exceptional individuals eager to help transform how we access and finance healthcare. Join us on this journey!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

@@ -3,29 +3,50 @@
 import { CheckCircle, Heart, Users } from "lucide-react"
 
 export function HowItWorks() {
-  const steps = [
+  const employerSteps = [
     {
       number: 1,
-      title: "Partner with us",
-      description: "Simple onboarding and plan selection tailored to your organization's needs.",
+      title: "Simple Plan Management",
+      description: "Select the best plan tailored to your company's needs and budget.",
       icon: <Users className="h-6 w-6 text-white" />,
     },
     {
       number: 2,
-      title: "Explore solutions",
-      description: "Access our platform and discover the full range of menstrual health benefits.",
+      title: "Quick Employee Enrollment",
+      description: "Enroll employees effortlessly and distribute access codes in seconds.",
       icon: <Heart className="h-6 w-6 text-white" />,
     },
     {
       number: 3,
-      title: "Easy implementation",
-      description: "Seamless integration with your existing benefits system and employee onboarding.",
+      title: "Monitor Usage",
+      description: "Monitor program usage and gather feedback to measure success (available on select plans).",
+      icon: <CheckCircle className="h-6 w-6 text-white" />,
+    },
+  ]
+
+  const employeeSteps = [
+    {
+      number: 1,
+      title: "Redeem Access Code",
+      description: "Use your unique code to access Sanicle.cloud's resources.",
+      icon: <Users className="h-6 w-6 text-white" />,
+    },
+    {
+      number: 2,
+      title: "Self-Guided Resources",
+      description: "Explore a comprehensive library of articles, guides, and videos on menstrual and menopause health.",
+      icon: <Heart className="h-6 w-6 text-white" />,
+    },
+    {
+      number: 3,
+      title: "OBGYN AI Support & Expert Consultations",
+      description: "Get AI-trained OBGYN guidance or schedule video consultations with OBGYNs, gynecologists, and other menstrual and wellness experts.",
       icon: <CheckCircle className="h-6 w-6 text-white" />,
     },
     {
       number: 4,
-      title: "Continuous support",
-      description: "Ongoing assistance and resources for both employers and employees.",
+      title: "Product Recommendations",
+      description: "Discover personalized period and menopause solutions to suit your needs.",
       icon: <CheckCircle className="h-6 w-6 text-white" />,
     },
   ]
@@ -36,43 +57,72 @@ export function HowItWorks() {
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-beige text-secondary text-sm font-medium mb-3">
-            Simple Process
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-2 md:mb-4">How Sanicle.cloud Works</h2>
-          <p className="text-base sm:text-lg text-slate">
-            Our streamlined process makes it easy to implement comprehensive menstrual health benefits in your
-            workplace.
-          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-charcoal mb-2 md:mb-4">How it Works</h2>
         </div>
 
-        {/* Innovative step diagram - responsive for mobile and desktop */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Connection lines - horizontal on desktop, vertical on mobile */}
-          <div className="hidden md:block absolute left-1/2 top-1/2 w-[80%] h-1 bg-primary-pale transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-          <div className="md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-1 bg-primary-pale transform -translate-x-1/2 rounded-full"></div>
+        {/* Employers Console Section */}
+        <div className="mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-primary mb-8">Employers Console</h3>
+          
+          <div className="relative max-w-5xl mx-auto">
+            <div className="hidden md:block absolute left-1/2 top-1/2 w-[80%] h-1 bg-primary-pale transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+            <div className="md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-1 bg-primary-pale transform -translate-x-1/2 rounded-full"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="relative flex flex-col items-center text-center p-4 md:p-6 group"
-                style={{ zIndex: 10 }}
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300">
-                    <span className="text-white text-lg sm:text-xl font-bold">{step.number}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+              {employerSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="relative flex flex-col items-center text-center p-4 md:p-6 group"
+                  style={{ zIndex: 10 }}
+                >
+                  <div className="relative">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300">
+                      <span className="text-white text-lg sm:text-xl font-bold">{step.number}</span>
+                    </div>
+                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-full animate-pulse-opacity"></div>
                   </div>
-                  <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-full animate-pulse-opacity"></div>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
-                <p className="text-sm sm:text-base text-slate max-w-[220px]">{step.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
+                  <p className="text-sm sm:text-base text-slate max-w-[220px]">{step.description}</p>
 
-                <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 rounded-full items-center justify-center shadow-sm">
-                  {step.icon}
+                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 rounded-full items-center justify-center shadow-sm">
+                    {step.icon}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Employee Console Section */}
+        <div>
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-primary mb-8">Employee Console</h3>
+          
+          <div className="relative max-w-5xl mx-auto">
+            <div className="hidden md:block absolute left-1/2 top-1/2 w-[80%] h-1 bg-primary-pale transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+            <div className="md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-1 bg-primary-pale transform -translate-x-1/2 rounded-full"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
+              {employeeSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="relative flex flex-col items-center text-center p-4 md:p-6 group"
+                  style={{ zIndex: 10 }}
+                >
+                  <div className="relative">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-primary flex items-center justify-center mb-4 sm:mb-5 shadow-button group-hover:shadow-button-hover transition-shadow duration-300">
+                      <span className="text-white text-lg sm:text-xl font-bold">{step.number}</span>
+                    </div>
+                    <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-full animate-pulse-opacity"></div>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
+                  <p className="text-sm sm:text-base text-slate max-w-[220px]">{step.description}</p>
+
+                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 rounded-full items-center justify-center shadow-sm">
+                    {step.icon}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         

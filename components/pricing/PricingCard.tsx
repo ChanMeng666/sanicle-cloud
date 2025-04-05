@@ -20,6 +20,7 @@ export interface PricingCardProps {
   highlightLabel?: string
   color: string
   saveText?: string
+  label?: string
 }
 
 export function PricingCard({
@@ -34,6 +35,7 @@ export function PricingCard({
   highlightLabel = "Most Popular",
   color,
   saveText,
+  label,
 }: PricingCardProps) {
   // Determine the background and text colors based on the color prop
   const getStyles = () => {
@@ -106,6 +108,14 @@ export function PricingCard({
               </li>
             ))}
           </ul>
+          
+          {label && (
+            <div className="mt-6 pt-4 border-t border-slate-200">
+              <span className={`inline-block px-2.5 py-0.5 rounded text-xs font-medium ${styles.colorAccent} bg-slate-100`}>
+                {label}
+              </span>
+            </div>
+          )}
         </CardContent>
         
         <CardFooter className="px-6 pt-2 pb-6">

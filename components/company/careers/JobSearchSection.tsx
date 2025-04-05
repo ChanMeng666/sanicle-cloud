@@ -163,7 +163,7 @@ export function JobSearchSection() {
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-bold text-[#2c3e50]">10 Open Positions</h3>
+                  <h3 className="text-xl font-bold text-[#2c3e50]">Current Openings</h3>
                   <div className="hidden md:block">
                     <select className="text-sm border border-gray-200 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#167d83] bg-white">
                       <option>Newest First</option>
@@ -176,41 +176,26 @@ export function JobSearchSection() {
                 <div className="space-y-4">
                   {[
                     {
-                      title: "Senior Frontend Engineer",
-                      department: "Engineering",
+                      title: "Senior Data Scientists",
+                      department: "Data Science",
                       location: "Remote",
                       type: "Full-time",
-                      posted: "2 days ago",
+                      posted: "Just now",
                       color: "border-l-[#167d83]",
                       bgHover: "hover:bg-[#f7fdfd]",
+                      description: "Sanicle is seeking a Senior Data Scientist to join its core team.",
+                      contact: "Please email your CV to jobs@sanicle.cloud"
                     },
                     {
-                      title: "Product Manager",
-                      department: "Product",
-                      location: "New York",
-                      type: "Full-time",
-                      posted: "1 week ago",
-                      color: "border-l-[#EE4C23]",
-                      bgHover: "hover:bg-[#fff9f8]",
-                    },
-                    {
-                      title: "Content Marketing Specialist",
-                      department: "Marketing",
+                      title: "Senior Sales Representative",
+                      department: "Sales",
                       location: "Remote",
-                      type: "Full-time",
-                      posted: "3 days ago",
-                      color: "border-l-[#167d83]",
-                      bgHover: "hover:bg-[#f7fdfd]",
-                    },
-                    {
-                      title: "UX/UI Designer",
-                      department: "Design",
-                      location: "San Francisco",
                       type: "Full-time",
                       posted: "Just now",
                       color: "border-l-[#EE4C23]",
                       bgHover: "hover:bg-[#fff9f8]",
-                      new: true,
+                      description: "Sanicle is seeking a sales representative to join its core team.",
+                      contact: "Please email your CV to jobs@sanicle.cloud"
                     },
                   ].map((job, index) => (
                     <div
@@ -221,11 +206,6 @@ export function JobSearchSection() {
                         <div>
                           <div className="flex items-center gap-2">
                             <h4 className="font-semibold text-[#2c3e50] text-lg">{job.title}</h4>
-                            {job.new && (
-                              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                                New
-                              </span>
-                            )}
                           </div>
                           <p className="text-[#7f8c8d] mt-1">{job.department}</p>
                         </div>
@@ -238,17 +218,11 @@ export function JobSearchSection() {
                             <Clock className="h-4 w-4 text-[#167d83] mr-1.5" />
                             <span className="text-sm text-[#7f8c8d]">{job.type}</span>
                           </div>
-                          <div className="flex items-center">
-                            <span className="text-xs bg-[#e6f5f6] text-[#167d83] px-2.5 py-1 rounded-full font-medium">
-                              {job.posted}
-                            </span>
-                          </div>
                         </div>
                       </div>
-                      <div className="mt-4 flex justify-end">
-                        <Button variant="outline" className="border-[#167d83] text-[#167d83] hover:bg-[#e6f5f6] transition-all duration-300">
-                          View Details <ChevronRight className="ml-1 h-4 w-4" />
-                        </Button>
+                      <div className="mt-3">
+                        <p className="text-[#2c3e50]">{job.description}</p>
+                        <p className="text-[#167d83] mt-2">{job.contact}</p>
                       </div>
                     </div>
                   ))}

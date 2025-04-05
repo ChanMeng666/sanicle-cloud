@@ -6,27 +6,63 @@ export function TeamSection() {
   const teamMembers = [
     {
       name: "Dr. Omopeju Afanu",
-      role: "CEO",
-      bio: "Experienced healthcare professional with a passion for women's health.",
+      role: "Chief Executive Officer - CEO",
+      bio: "A passionate advocate for women's health, leads with a user-first, insight-driven approach to product innovation.",
       avatar: "OA",
     },
     {
       name: "Eliana Franco Taveras",
-      role: "CMO",
-      bio: "Marketing expert with extensive experience in healthcare technology.",
+      role: "Chief Medical Officer",
+      bio: "Scientific expertise supports Sanicle's quality and commitment to health, grounding our products in evidence-based practices.",
       avatar: "EF",
     },
     {
       name: "Chaste Inegbedion",
-      role: "CPO",
-      bio: "Product visionary focused on creating intuitive healthcare solutions.",
+      role: "Chief Product Officer",
+      bio: "Known as 'Mr. Padman,' a global leader in femtech, using expertise in product management to build inclusive solutions.",
       avatar: "CI",
     },
     {
-      name: "Jane Smith",
-      role: "CTO",
-      bio: "Technology leader with expertise in secure healthcare platforms.",
-      avatar: "JS",
+      name: "Tosin Oni",
+      role: "Chief Operating Officer",
+      bio: "A multifaceted entrepreneur who brings strategy, creativity, and a community-driven approach to Sanicle's operations.",
+      avatar: "TO",
+    },
+    {
+      name: "Olive Kabeya",
+      role: "Head of Revenue and Communications",
+      bio: "Commitment to social justice guides her leadership in revenue generation and communication strategies.",
+      avatar: "OK",
+    },
+    {
+      name: "Daryll Hall",
+      role: "AI Creative Project Manager",
+      bio: "AI and tech background, paired with experience in successful exits, fuels Sanicle's innovation.",
+      avatar: "DH",
+    },
+    {
+      name: "Roxanne Stewart",
+      role: "Chief Sales and Marketing",
+      bio: "Combines psychology with expertise in sales and finance to lead Sanicle's marketing and growth strategies.",
+      avatar: "RS",
+    },
+    {
+      name: "Chime Ifediniru",
+      role: "Chief Technology Officer",
+      bio: "With over a decade as a Senior Solutions Architect, leads Sanicle's tech initiatives, designing scalable systems.",
+      avatar: "CI",
+    },
+    {
+      name: "Gabby Hurst",
+      role: "Chief Experience Officer - CXO",
+      bio: "Excels in product management, creating innovative, customer-centric solutions with technical insight and emotional intelligence.",
+      avatar: "GH",
+    },
+    {
+      name: "Wesley Eugene",
+      role: "Chief Information Officer - CIO",
+      bio: "Expertise in Technology Business Management and a human-centered approach to driving digital transformation.",
+      avatar: "WE",
     },
   ]
 
@@ -41,7 +77,7 @@ export function TeamSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           {teamMembers.map((member, index) => (
             <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow duration-300">
               <CardContent className="p-6 flex flex-col items-center text-center">
