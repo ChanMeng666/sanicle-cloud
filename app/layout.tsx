@@ -3,6 +3,7 @@ import "@/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { MainNav } from "@/components/layout/MainNav"
 import { SiteFooter } from "@/components/layout/SiteFooter"
+import { ChatWidgetWrapper } from "@/components/chat/ChatWidgetWrapper"
 
 export const metadata = {
   title: "Sanicle.cloud",
@@ -39,6 +40,7 @@ export default function RootLayout({
               <main className="flex-1 w-full">{children}</main>
             </div>
             <SiteFooter />
+            <ChatWidgetWrapper />
           </div>
         </ThemeProvider>
       </body>
