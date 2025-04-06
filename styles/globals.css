@@ -311,3 +311,88 @@ html, body {
 .feature-panel.active {
   display: block;
 }
+
+/* Markdown Styles for Chat Widget */
+.markdown-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content pre {
+  background-color: hsl(var(--muted));
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.markdown-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+}
+
+.markdown-content a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid hsl(var(--border));
+  padding-left: 0.75rem;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem;
+}
+
+.markdown-content th {
+  background-color: hsl(var(--muted));
+  font-weight: 600;
+}

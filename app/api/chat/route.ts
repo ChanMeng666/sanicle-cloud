@@ -6,6 +6,19 @@ interface ChatMessage {
   content: string;
 }
 
+// 添加系统消息，指导AI使用正确的Markdown格式
+const SYSTEM_MESSAGE = {
+  role: "system",
+  content: `You are Sanicle's AI assistant. Format your responses using Markdown:
+  - Use proper headers with ## for main titles and ### for subtitles
+  - Format lists correctly with proper spacing
+  - Use **bold** for emphasis
+  - Separate paragraphs with blank lines
+  - Use bullet points with * or - followed by a space
+  - Number lists with 1. 2. etc. followed by a space
+  - Format your response clearly and concisely`
+};
+
 export async function POST(req: Request) {
   try {
     const { messages, streaming = false } = await req.json();
@@ -32,11 +45,10 @@ export async function POST(req: Request) {
       ? `${WATSONX_CONFIG.API_URL}/${WATSONX_CONFIG.DEPLOYMENT_ID}/ai_service_stream?version=${WATSONX_CONFIG.VERSION}`
       : `${WATSONX_CONFIG.API_URL}/${WATSONX_CONFIG.DEPLOYMENT_ID}/ai_service?version=${WATSONX_CONFIG.VERSION}`;
 
-    // IBM watsonx.ai期望的请求格式
-    // 基于提供的API示例，watsonx.ai可能期望一个简单的messages数组
-    // 我们保持原始格式，以防这是正确的
+    // 在消息列表的开头添加系统消息，指导AI使用正确的Markdown格式
+    const messagesWithSystem = [SYSTEM_MESSAGE, ...messages];
     
-    console.log("Sending to IBM watsonx.ai:", JSON.stringify({ messages }));
+    console.log("Sending to IBM watsonx.ai:", JSON.stringify({ messages: messagesWithSystem }));
 
     // 调用watsonx ai接口
     const watsonxResponse = await fetch(
@@ -48,7 +60,7 @@ export async function POST(req: Request) {
           'Accept': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
-        body: JSON.stringify({ messages })
+        body: JSON.stringify({ messages: messagesWithSystem })
       }
     );
 
