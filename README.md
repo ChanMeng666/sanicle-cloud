@@ -9,7 +9,6 @@
 > [!IMPORTANT]
 > Sanicle Cloud is a comprehensive platform designed to support women's health in the workplace, focusing on menstrual health management, menopause support, and overall workplace wellness.
 
-[English](README.md)
 
 
 # 🌟 Introduction
@@ -50,7 +49,7 @@ Sanicle Cloud is a revolutionary women's health platform specifically designed f
     - [For Health Brokers](#for-health-brokers)
   - [🔒 Privacy \& Security](#-privacy--security)
   - [📄 License](#-license)
-  - [👥 Team](#-team)
+  - [�‍♀ Author](#-author)
 
 ## 🛠️ Tech Stack
 
@@ -193,11 +192,13 @@ Sanicle Cloud prioritizes user privacy with the following measures:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [Apache License 2.0](LICENSE) file for details.
 
-## 👥 Team
+## 🙋‍♀ Author
 
-Our team is committed to creating innovative solutions for women's health in the workplace, combining expertise in healthcare, technology, and workplace wellness.
+**Chan Meng**
+- <img src="https://cdn.simpleicons.org/linkedin/0A66C2" width="16" height="16"> LinkedIn: [chanmeng666](https://www.linkedin.com/in/chanmeng666/)
+- <img src="https://cdn.simpleicons.org/github/181717" width="16" height="16"> GitHub: [ChanMeng666](https://github.com/ChanMeng666)
 
 ---
 
