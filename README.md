@@ -49,7 +49,7 @@ Sanicle Cloud is a revolutionary women's health platform specifically designed f
     - [For Health Brokers](#for-health-brokers)
   - [🔒 Privacy \& Security](#-privacy--security)
   - [📄 License](#-license)
-  - [�‍♀ Author](#-author)
+  - [🙋‍♀ Author](#-author)
 
 ## 🛠️ Tech Stack
 
