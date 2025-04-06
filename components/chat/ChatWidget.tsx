@@ -1,17 +1,22 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send } from "lucide-react";
+import { Send, X, MessageSquare, BotIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChatMessage, Message } from "./ChatMessage";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useTheme } from "next-themes";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { theme } = useTheme();
+  const isDarkTheme = theme === 'dark';
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -200,69 +205,128 @@ export function ChatWidget() {
         <PopoverTrigger asChild>
           <Button 
             size="icon" 
-            className="h-14 w-14 rounded-full shadow-lg bg-blue-600 hover:bg-blue-700"
+            className={cn(
+              "h-14 w-14 rounded-full shadow-button hover:shadow-button-hover transition-all duration-300",
+              "bg-primary hover:bg-primary-deep text-white",
+              "flex items-center justify-center relative",
+              !isOpen && "animate-bounce-subtle"
+            )}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={cn(
-                "h-6 w-6 transition-transform",
-                isOpen ? "rotate-45" : ""
-              )}
-            >
-              {isOpen ? (
-                <line x1="18" y1="6" x2="6" y2="18" />
-              ) : (
-                <>
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  <line x1="9" y1="10" x2="15" y2="10" />
-                  <line x1="12" y1="7" x2="12" y2="13" />
-                </>
-              )}
-            </svg>
+            {isOpen ? (
+              <X className="h-6 w-6 transition-transform duration-300" />
+            ) : (
+              <div className="relative">
+                <MessageSquare className="h-6 w-6" />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+                </span>
+              </div>
+            )}
           </Button>
         </PopoverTrigger>
         <PopoverContent 
           side="top" 
           align="end" 
-          className="w-[350px] sm:w-[450px] h-[500px] p-0 overflow-hidden flex flex-col"
+          className={cn(
+            "w-[350px] sm:w-[450px] h-[500px] p-0 overflow-hidden flex flex-col",
+            "border border-primary/20 shadow-card-hover rounded-xl",
+            "animate-slide-up",
+            isDarkTheme ? "bg-neutral-900" : "bg-white"
+          )}
         >
-          <div className="bg-primary p-4 text-primary-foreground font-semibold">
-            Sanicle AI Assistant
+          <div className={cn(
+            "p-4 text-white font-semibold rounded-t-xl flex justify-between items-center",
+            isDarkTheme 
+              ? "bg-primary-deep" 
+              : "bg-gradient-to-r from-primary to-primary-deep"
+          )}>
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-5 w-5" />
+              <span>Sanicle AI Assistant</span>
+            </div>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8 text-white hover:bg-white/20 rounded-full -mr-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <X className="h-4 w-4" />
+            </Button>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className={cn(
+            "flex-1 overflow-y-auto p-4 space-y-4",
+            isDarkTheme ? "bg-neutral-800" : "bg-tertiary/20"
+          )}>
             {messages.map((message, index) => (
               <ChatMessage key={index} message={message} />
             ))}
+            {isLoading && (
+              <div className="flex w-full items-start gap-4">
+                <Avatar className="h-8 w-8 ring-2 ring-primary/20 shadow-sm">
+                  <AvatarFallback className="bg-gradient-to-br from-primary to-primary-deep text-white">
+                    <BotIcon className="h-4 w-4" />
+                  </AvatarFallback>
+                </Avatar>
+                <TypingIndicator />
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
           
-          <form onSubmit={handleSubmit} className="p-4 border-t">
+          <form onSubmit={handleSubmit} className={cn(
+            "p-4 border-t border-primary/10",
+            isDarkTheme ? "bg-neutral-900" : "bg-white"
+          )}>
             <div className="flex gap-2">
               <Input
                 placeholder="Type your message..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isLoading}
-                className="flex-1"
+                className={cn(
+                  "flex-1 focus-visible:ring-primary focus-visible:border-primary rounded-lg",
+                  isDarkTheme 
+                    ? "bg-neutral-800 border-primary/30 text-white placeholder:text-neutral-400" 
+                    : "border-primary/20"
+                )}
               />
               <Button 
                 type="submit" 
                 size="icon" 
                 disabled={isLoading || input.trim() === ""}
+                className={cn(
+                  "bg-primary hover:bg-primary-deep text-white rounded-lg",
+                  "transition-all duration-300",
+                  isLoading && "opacity-70"
+                )}
               >
                 <Send className="h-4 w-4" />
               </Button>
             </div>
+            <div className={cn(
+              "text-[10px] mt-2 text-center",
+              isDarkTheme ? "text-neutral-400" : "text-muted-foreground"
+            )}>
+              Powered by Sanicle AI | IBM watsonx.ai
+            </div>
           </form>
         </PopoverContent>
       </Popover>
+    </div>
+  );
+}
+
+function TypingIndicator() {
+  return (
+    <div className="flex items-center space-x-2 text-sm text-neutral-600 dark:text-neutral-400 my-2 px-2">
+      <div className="flex space-x-1">
+        <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '0ms' }}></div>
+        <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '300ms' }}></div>
+        <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '600ms' }}></div>
+      </div>
+      <span className="text-xs text-primary dark:text-primary-light ai-assistant-typing">Sanicle AI is thinking</span>
     </div>
   );
 } 

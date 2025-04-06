@@ -314,85 +314,273 @@ html, body {
 
 /* Markdown Styles for Chat Widget */
 .markdown-content h1 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0A6066; /* primary-deep */
 }
 
 .markdown-content h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.875rem;
+  color: #167D83; /* primary */
 }
 
 .markdown-content h3 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  color: #5AACB0; /* primary-light */
 }
 
 .markdown-content p {
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.dark .markdown-content p {
+  color: #e4e4e7; /* 浅灰白色 */
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .markdown-content ul {
   list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
 }
 
 .markdown-content ol {
   list-style-type: decimal;
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
 }
 
 .markdown-content li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.dark .markdown-content li {
+  color: #e4e4e7; /* 浅灰白色 */
 }
 
 .markdown-content pre {
-  background-color: hsl(var(--muted));
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-  margin-bottom: 0.75rem;
+  background-color: #F5F7FA;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin: 1rem 0;
   overflow-x: auto;
+  border: 1px solid #E0F2F3; /* 淡青绿色 */
+}
+
+.dark .markdown-content pre {
+  background-color: #1f2937; /* 深灰色 */
+  border-color: #374151; /* 中灰色边框 */
 }
 
 .markdown-content code {
-  font-family: ui-monospace, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.875rem;
+  background-color: rgba(22, 125, 131, 0.1); /* primary 透明度10% */
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: #0A6066; /* primary-deep */
+}
+
+.dark .markdown-content code {
+  background-color: rgba(90, 172, 176, 0.15); /* primary-light 透明度15% */
+  color: #9CCFD2; /* 浅青绿色 */
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #334155; /* slate-700 */
+}
+
+.dark .markdown-content pre code {
+  color: #e4e4e7; /* 浅灰白色 */
 }
 
 .markdown-content a {
-  color: hsl(var(--primary));
+  color: #167D83; /* primary */
   text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: all 0.3s;
+}
+
+.markdown-content a:hover {
+  color: #0A6066; /* primary-deep */
+  text-decoration: none;
+}
+
+.dark .markdown-content a {
+  color: #5AACB0; /* primary-light */
+}
+
+.dark .markdown-content a:hover {
+  color: #9CCFD2; /* 更亮的主色调 */
 }
 
 .markdown-content blockquote {
-  border-left: 3px solid hsl(var(--border));
-  padding-left: 0.75rem;
+  border-left: 4px solid #E0F2F3; /* 淡青绿色 */
+  padding-left: 1rem;
+  margin: 1rem 0;
   font-style: italic;
-  margin-bottom: 0.75rem;
+  color: #64748b; /* slate-500 */
+}
+
+.dark .markdown-content blockquote {
+  border-left-color: #475569; /* slate-600 */
+  color: #94a3b8; /* slate-400 */
 }
 
 .markdown-content table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 0.75rem;
-}
-
-.markdown-content th,
-.markdown-content td {
-  border: 1px solid hsl(var(--border));
-  padding: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.875rem;
 }
 
 .markdown-content th {
-  background-color: hsl(var(--muted));
+  background-color: rgba(22, 125, 131, 0.1); /* primary 透明度10% */
   font-weight: 600;
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px solid #E0F2F3; /* 淡青绿色 */
+}
+
+.dark .markdown-content th {
+  background-color: #374151; /* 中灰色 */
+  border-color: #4b5563; /* 稍亮的灰色 */
+}
+
+.markdown-content td {
+  padding: 0.75rem;
+  border: 1px solid #E0F2F3; /* 淡青绿色 */
+}
+
+.dark .markdown-content td {
+  border-color: #4b5563; /* 稍亮的灰色 */
+}
+
+.markdown-content strong {
+  font-weight: 700;
+  color: #0A6066; /* primary-deep */
+}
+
+.dark .markdown-content strong {
+  color: #9CCFD2; /* 更亮的主色调 */
+}
+
+.markdown-content em {
+  font-style: italic;
+  color: #EE4C23; /* secondary */
+}
+
+.dark .markdown-content em {
+  color: #F39180; /* secondary-light */
+}
+
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid #E0F2F3; /* 淡青绿色 */
+  margin: 1.5rem 0;
+}
+
+.dark .markdown-content hr {
+  border-top-color: #4b5563; /* 稍亮的灰色 */
+}
+
+/* AI Chat Widget styling */
+@keyframes blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.ai-assistant-typing::after {
+  content: '...';
+  animation: blink 1.2s infinite;
+}
+
+/* 添加动画效果 */
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+/* 按钮阴影效果 */
+.shadow-button {
+  box-shadow: 0 4px 14px rgba(22, 125, 131, 0.3);
+}
+
+.shadow-button-hover {
+  box-shadow: 0 6px 20px rgba(22, 125, 131, 0.5);
+}
+
+.shadow-card {
+  box-shadow: 0 4px 10px rgba(22, 125, 131, 0.15);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 10px 25px rgba(22, 125, 131, 0.25);
+}
+
+/* 添加轻微弹跳动画，用于聊天按钮 */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
 }
