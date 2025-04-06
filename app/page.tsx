@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/home/HowItWorks"
 import { TeamSection } from "@/components/team-section"
 import { TestimonialSection } from "@/components/testimonial-section"
 import { StatisticsSection } from "@/components/statistics-section"
+import { ChatWidget } from "@/components/chat/ChatWidget"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <StatisticsSection />
       <TestimonialSection />
       <TeamSection />
+      <ChatWidget />
     </main>
   )
 }
