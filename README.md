@@ -11,6 +11,10 @@
 
 
 
+https://github.com/user-attachments/assets/d64a35c1-3ef1-4d5d-9584-869ecb99b1fc
+
+
+
 # 🌟 Introduction
 
 Sanicle Cloud is a revolutionary women's health platform specifically designed for workplace wellness. The platform offers comprehensive menstrual health support, menopause management, and mental well-being resources for female employees while providing HR departments with tools to create more inclusive and supportive work environments.
