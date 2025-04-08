@@ -63,10 +63,6 @@ export function HeroSection() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium backdrop-blur-sm transform hover:scale-105 transition-transform duration-300 mb-2">
-              <span className="flex h-2 w-2 rounded-full bg-secondary mr-2"></span>
-              Platform Overview
-            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight">
               Menstrual Health Benefits<br className="sm:hidden" />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Complete Platform</span>
