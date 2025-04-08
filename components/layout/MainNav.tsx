@@ -3,9 +3,11 @@
 import * as React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X, Cookie } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { useRouter } from 'next/navigation'
+import { useState as useHookState } from 'react'
+import { CookieSettingsDialog } from "@/components/cookie/CookieSettingsDialog"
 
 export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -14,21 +16,19 @@ export function MainNav() {
   const headerRef = useRef<HTMLElement>(null)
   const router = useRouter()
   
-  // Listen for scroll events to change navbar style and set CSS variables
+  const [cookieSettingsOpen, setCookieSettingsOpen] = useHookState(false)
+  
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      // Set scroll offset as CSS variable
       document.documentElement.style.setProperty('--scroll-offset', `${window.scrollY}px`);
       
-      // Update header height
       if (headerRef.current) {
         const headerHeight = headerRef.current.offsetHeight;
         document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
       }
     }
     
-    // Initial header height setup
     if (headerRef.current) {
       const headerHeight = headerRef.current.offsetHeight;
       document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
@@ -43,7 +43,6 @@ export function MainNav() {
     }
   }, [])
 
-  // Navigation items
   const navItems = [
     {
       title: "Platform",
@@ -140,7 +139,6 @@ export function MainNav() {
     }
   ]
 
-  // Toggle menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     if (!isMenuOpen) {
@@ -150,12 +148,10 @@ export function MainNav() {
     }
   }
 
-  // Toggle dropdown menu
   const toggleDropdown = (title: string) => {
     setActiveDropdown(activeDropdown === title ? null : title)
   }
 
-  // Handle pricing click
   const handlePricingClick = (e: React.MouseEvent) => {
     e.preventDefault()
     router.push('/pricing')
@@ -166,7 +162,6 @@ export function MainNav() {
 
   return (
     <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'}`}>
-      {/* 添加背景叶片装饰 */}
       <div className="absolute top-0 right-0 -mr-4 -mt-6 opacity-5 hidden lg:block">
         <img src="/logo/leave-green.svg" alt="" className="w-20 h-20 transform rotate-45" />
       </div>
@@ -176,7 +171,6 @@ export function MainNav() {
       
       <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6 relative">
         <Link href="/" className="flex-none relative">
-          {/* 为logo添加叶片背景装饰 */}
           <div className="absolute -left-3 -bottom-3 opacity-10">
             <img src="/logo/leave-green.svg" alt="" className="w-12 h-12 transform -rotate-12" />
           </div>
@@ -241,7 +235,6 @@ export function MainNav() {
                 {item.children.length > 0 && (
                   <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-[9990] overflow-hidden">
                     <div className="p-2 divide-y divide-gray-50 relative">
-                      {/* 叶片装饰 */}
                       <div className="absolute top-0 right-0 opacity-5">
                         <img src="/logo/leave-green.svg" alt="" className="w-16 h-16 transform rotate-45" />
                       </div>
@@ -310,19 +303,26 @@ export function MainNav() {
                 <span className="relative z-10">Request Demo</span>
               </Button>
             </Link>
+            <Button 
+              variant="ghost" 
+              className="flex items-center gap-1 text-neutral-600 hover:text-primary hover:bg-transparent"
+              onClick={() => setCookieSettingsOpen(true)}
+            >
+              <Cookie className="h-4 w-4" />
+              <span className="text-sm">Cookie Settings</span>
+            </Button>
             <Link href="/demo">
-              <Button className="bg-primary hover:bg-teal-700 text-white group relative">
+              <Button className="bg-primary hover:bg-teal-700 text-white group relative shadow-button">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
+                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
                 </div>
-                <span className="relative z-10 mr-2">Get Started</span>
+                <span className="relative z-10 mr-1">Get Started</span> 
                 <ArrowRight className="h-4 w-4 relative z-10" />
               </Button>
             </Link>
           </div>
         </div>
         
-        {/* Mobile menu button */}
         <div className="ml-auto flex items-center lg:hidden">
           <Link href="/demo">
             <Button className="mr-2 bg-primary hover:bg-teal-700 text-white text-sm hidden sm:flex">
@@ -343,7 +343,6 @@ export function MainNav() {
           </Button>
         </div>
         
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="fixed inset-x-0 top-16 sm:top-20 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] bg-white lg:hidden pt-6 pb-20 overflow-y-auto z-[9990]">
             <div className="px-4 sm:px-6">
@@ -427,20 +426,38 @@ export function MainNav() {
                 ))}
               </nav>
               
-              <div className="pt-6 border-t border-gray-200 flex flex-col space-y-4">
-                <Button variant="outline" className="w-full justify-center text-neutral-800 border-primary">
-                  Log in
-                </Button>
-                <Link href="/demo" className="w-full">
-                  <Button variant="default" className="w-full justify-center bg-primary hover:bg-teal-700 text-white">
-                    Request Demo
-                  </Button>
+              <div className="mb-4">
+                <button
+                  className="flex items-center w-full py-2 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
+                  onClick={() => {
+                    setCookieSettingsOpen(true);
+                    toggleMenu();
+                  }}
+                >
+                  <Cookie className="h-4 w-4 mr-2" />
+                  <span className="text-base font-medium">Cookie Settings</span>
+                </button>
+              </div>
+              
+              <div className="pt-2 border-t border-gray-200">
+                <Link
+                  href="/demo"
+                  className="flex items-center justify-center w-full py-3 px-4 rounded-md bg-primary hover:bg-teal-700 text-white text-base font-medium shadow-sm transition duration-150 ease-in-out"
+                  onClick={toggleMenu}
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
             </div>
           </div>
         )}
       </div>
+      
+      <CookieSettingsDialog
+        open={cookieSettingsOpen}
+        onOpenChange={setCookieSettingsOpen}
+      />
     </header>
   )
 } 

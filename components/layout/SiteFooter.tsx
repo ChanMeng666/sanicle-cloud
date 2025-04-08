@@ -278,10 +278,27 @@ export function SiteFooter() {
           <Link href="/legal/terms" className="hover:text-primary transition-colors duration-200">
             Terms of Service
           </Link>
-          <Link href="/legal/cookies" className="hover:text-primary transition-colors duration-200">
-            Cookie Policy
+          <Link 
+            href="/legal/cookies" 
+            className="hover:text-primary transition-colors duration-200 flex items-center gap-1"
+          >
+            <span>Cookie Policy</span>
           </Link>
           <ManageCookies />
+        </div>
+
+        {/* Prominent Cookie Settings Banner */}
+        <div className="mt-6 p-4 bg-muted/20 rounded-lg flex flex-wrap gap-4 justify-between items-center">
+          <div className="text-sm text-neutral-600">
+            <span className="font-medium">Cookie Settings:</span> You can customize which cookies you allow us to use. Essential cookies cannot be disabled.
+          </div>
+          <Link 
+            href="/legal/cookies" 
+            className="flex items-center gap-1 text-primary hover:text-primary/90 transition-colors duration-200 text-sm"
+          >
+            <span>View Cookie Policy</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </Link>
         </div>
       </div>
     </footer>

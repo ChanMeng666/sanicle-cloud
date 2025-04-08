@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter"
 import { ChatWidgetWrapper } from "@/components/chat/ChatWidgetWrapper"
 import { CookieConsent } from "@/components/cookie/CookieConsent"
 import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
+import { FloatingCookieButton } from "@/components/cookie/FloatingCookieButton"
 
 export const metadata = {
   title: "Sanicle",
@@ -45,6 +46,7 @@ export default function RootLayout({
               <SiteFooter />
               <ChatWidgetWrapper />
               <CookieConsent />
+              <FloatingCookieButton />
             </div>
           </CookieConsentProvider>
         </ThemeProvider>
