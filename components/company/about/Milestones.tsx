@@ -74,11 +74,8 @@ export function Milestones() {
           {/* Achievement items - using radial layout */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-12">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-green.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Users className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">500+ Companies</span>
             </div>
@@ -86,11 +83,8 @@ export function Milestones() {
 
           <div className="absolute top-[25%] right-12 transform translate-x-0 -translate-y-1/2">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-pink.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Globe className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Globe className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">12 Countries</span>
             </div>
@@ -98,11 +92,8 @@ export function Milestones() {
 
           <div className="absolute top-[75%] right-12 transform translate-x-0 translate-y-0">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-white.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Award className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Award className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">3 Industry Awards</span>
             </div>
@@ -110,11 +101,8 @@ export function Milestones() {
 
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-12">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-green.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Star className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Star className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">4.8/5 Rating</span>
             </div>
@@ -122,11 +110,8 @@ export function Milestones() {
 
           <div className="absolute top-[75%] left-12 transform -translate-x-0 translate-y-0">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-pink.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Heart className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Heart className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">10,000+ Users</span>
             </div>
@@ -134,11 +119,8 @@ export function Milestones() {
 
           <div className="absolute top-[25%] left-12 transform -translate-x-0 -translate-y-1/2">
             <div className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-110 hover:shadow-xl">
-              <div className="w-10 h-10 relative mr-3">
-                <img src="/logo/leave-white.svg" alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Sparkles className="h-6 w-6 text-primary" />
-                </div>
+              <div className="w-10 h-10 relative mr-3 flex items-center justify-center">
+                <Sparkles className="h-6 w-6 text-primary" />
               </div>
               <span className="text-slate-800 font-bold whitespace-nowrap">$5M in Funding</span>
             </div>
@@ -210,11 +192,8 @@ export function Milestones() {
                 key={index} 
                 className="bg-white rounded-xl shadow-lg p-4 flex items-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <div className="w-10 h-10 relative mr-3 flex-shrink-0">
-                  <img src={`/logo/leave-${achievement.leaf}.svg`} alt="Leaf background" className="absolute inset-0 w-full h-full" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {achievement.icon}
-                  </div>
+                <div className="w-10 h-10 relative mr-3 flex-shrink-0 flex items-center justify-center">
+                  {achievement.icon}
                 </div>
                 <span className="text-slate-800 font-bold text-sm">{achievement.title}</span>
               </div>

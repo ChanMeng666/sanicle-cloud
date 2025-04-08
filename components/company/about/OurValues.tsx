@@ -78,11 +78,8 @@ export function OurValues() {
                     </div>
 
                     {/* Leaf shape icon background */}
-                    <div className="w-20 h-20 relative mb-6">
-                      <img src={`/logo/leave-${value.leafColor}.svg`} alt="Leaf background" className="absolute inset-0 w-full h-full opacity-80" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        {value.icon}
-                      </div>
+                    <div className="w-20 h-20 relative mb-6 flex items-center justify-center">
+                      {value.icon}
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
                     <p className="text-white/90">{value.description}</p>
