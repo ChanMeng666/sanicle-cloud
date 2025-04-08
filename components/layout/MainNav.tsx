@@ -48,6 +48,7 @@ export function MainNav() {
     {
       title: "Platform",
       href: "/platform",
+      isExternal: false,
       children: [
         {
           title: "Overview",
@@ -79,6 +80,7 @@ export function MainNav() {
     {
       title: "Solutions",
       href: "/solution",
+      isExternal: false,
       children: [
         {
           title: "For Employers",
@@ -106,11 +108,13 @@ export function MainNav() {
     {
       title: "Pricing",
       href: "/pricing",
+      isExternal: false,
       children: []
     },
     {
       title: "Company",
       href: "/company",
+      isExternal: false,
       children: [
         {
           title: "About Us",
@@ -205,19 +209,34 @@ export function MainNav() {
                     </span>
                   </a>
                 ) : (
-                  <Link
-                    href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center"
-                  >
-                    {item.title}
-                    {item.children.length > 0 && (
-                      <span className="ml-1">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-200 group-hover:rotate-180">
-                          <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </span>
-                    )}
-                  </Link>
+                  item.title === "Platform" || item.title === "Solutions" || item.title === "Company" ? (
+                    <div
+                      className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center cursor-pointer"
+                    >
+                      {item.title}
+                      {item.children.length > 0 && (
+                        <span className="ml-1">
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-200 group-hover:rotate-180">
+                            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center"
+                    >
+                      {item.title}
+                      {item.children.length > 0 && (
+                        <span className="ml-1">
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform transition-transform duration-200 group-hover:rotate-180">
+                            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                      )}
+                    </Link>
+                  )
                 )}
                 {item.children.length > 0 && (
                   <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-lg shadow-card-hover bg-white ring-1 ring-black/5 transition-all duration-200 ease-in-out z-[9990] overflow-hidden">
