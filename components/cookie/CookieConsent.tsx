@@ -19,8 +19,9 @@ export function CookieConsent() {
   const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
   const { consent, setConsent, isConsentGiven } = useCookieConsent();
   
+  // First-time visit detection for the consent popup
   useEffect(() => {
-    // Show cookie consent popup after a short delay if consent not given
+    // Only show popup if consent hasn't been given
     if (!isConsentGiven) {
       const timer = setTimeout(() => {
         setConsentDialogOpen(true);
@@ -29,34 +30,55 @@ export function CookieConsent() {
     }
   }, [isConsentGiven]);
 
+  // Make sure we don't show both dialogs at once
+  useEffect(() => {
+    if (consentDialogOpen && settingsDialogOpen) {
+      setSettingsDialogOpen(false);
+    }
+  }, [consentDialogOpen, settingsDialogOpen]);
+
   const acceptAll = () => {
-    setConsent('all');
-    CookieManager.applyConsentSettings('all');
-    setConsentDialogOpen(false);
+    try {
+      setConsent('all');
+      CookieManager.applyConsentSettings('all');
+      setConsentDialogOpen(false);
+    } catch (error) {
+      console.error("Error accepting all cookies:", error);
+    }
   };
 
   const acceptNecessary = () => {
-    setConsent('necessary');
-    CookieManager.applyConsentSettings('necessary');
-    setConsentDialogOpen(false);
+    try {
+      setConsent('necessary');
+      CookieManager.applyConsentSettings('necessary');
+      setConsentDialogOpen(false);
+    } catch (error) {
+      console.error("Error accepting necessary cookies:", error);
+    }
   };
 
   const openCustomizeSettings = () => {
     setConsentDialogOpen(false);
-    setSettingsDialogOpen(true);
+    // Small delay to prevent visual glitch with two dialogs
+    setTimeout(() => {
+      setSettingsDialogOpen(true);
+    }, 100);
   };
 
-  // Apply settings whenever consent changes
-  useEffect(() => {
-    if (consent) {
-      CookieManager.applyConsentSettings(consent);
+  // Handle dialog closing via ESC key or clicking outside
+  const handleConsentDialogChange = (open: boolean) => {
+    if (!open && !isConsentGiven) {
+      // If user dismisses without making a choice, set to necessary as default
+      acceptNecessary();
+    } else {
+      setConsentDialogOpen(open);
     }
-  }, [consent]);
+  };
 
   return (
     <>
       {/* Initial popup */}
-      <Dialog open={consentDialogOpen} onOpenChange={setConsentDialogOpen}>
+      <Dialog open={consentDialogOpen} onOpenChange={handleConsentDialogChange}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Cookie Consent</DialogTitle>
@@ -76,8 +98,13 @@ export function CookieConsent() {
             </div>
           </div>
           <DialogFooter className="sm:justify-start gap-2">
-            <Button variant="default" onClick={acceptAll}>
-              Accept All
+            <Button 
+              variant="default" 
+              onClick={acceptAll}
+              className="relative overflow-hidden group"
+            >
+              <span className="relative z-10">Accept All</span>
+              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Button>
             <Button variant="outline" onClick={acceptNecessary}>
               Accept Necessary

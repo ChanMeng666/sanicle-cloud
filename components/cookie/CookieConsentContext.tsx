@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
+import { CookieManager } from './CookieManager';
 
 export type CookieConsent = 'all' | 'necessary' | null;
 
@@ -34,6 +35,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const [isConsentGiven, setIsConsentGiven] = useState(false);
   const [settings, setSettings] = useState<CookieSettings>(defaultSettings);
 
+  // Load initial consent from localStorage
   useEffect(() => {
     // Check for existing consent when component mounts
     try {
@@ -66,7 +68,14 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const setConsent = (newConsent: CookieConsent) => {
+  // Apply cookie settings when consent changes
+  useEffect(() => {
+    if (consent) {
+      CookieManager.applyConsentSettings(consent);
+    }
+  }, [consent]);
+
+  const setConsent = useCallback((newConsent: CookieConsent) => {
     try {
       if (typeof window !== 'undefined') {
         if (newConsent) {
@@ -99,23 +108,27 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       console.error("Error accessing localStorage:", error);
     }
-  };
+  }, []);
 
-  const updateSettings = (newSettings: Partial<CookieSettings>) => {
-    const updatedSettings = { ...settings, ...newSettings };
-    setSettings(updatedSettings);
-    
-    // Update consent type based on settings
-    if (updatedSettings.functional && updatedSettings.analytics && updatedSettings.advertising) {
-      setConsent('all');
-    } else {
-      setConsent('necessary');
-    }
-  };
+  const updateSettings = useCallback((newSettings: Partial<CookieSettings>) => {
+    setSettings(prevSettings => {
+      const updatedSettings = { ...prevSettings, ...newSettings };
+      
+      // Update consent type based on settings
+      if (updatedSettings.functional && updatedSettings.analytics && updatedSettings.advertising) {
+        // We need to schedule this after the state update to avoid race conditions
+        setTimeout(() => setConsent('all'), 0);
+      } else {
+        setTimeout(() => setConsent('necessary'), 0);
+      }
+      
+      return updatedSettings;
+    });
+  }, [setConsent]);
 
-  const resetConsent = () => {
+  const resetConsent = useCallback(() => {
     setConsent(null);
-  };
+  }, [setConsent]);
 
   return (
     <CookieConsentContext.Provider value={{ 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ManageCookies } from "@/components/cookie/ManageCookies";
 
 export default function CookiePolicy() {
   return (
@@ -56,6 +57,12 @@ export default function CookiePolicy() {
           You can change your cookie preferences at any time by clicking on the "Manage Cookies" link at the bottom of the website.
           Additionally, most web browsers allow you to control cookies through their browser settings. Please check your browser's help pages to learn how to manage cookies.
         </p>
+        
+        <div className="mt-6 mb-8 p-4 bg-muted/20 rounded-lg">
+          <h3 className="text-lg font-medium mb-2">Manage Your Cookie Settings</h3>
+          <p className="mb-4">You can review and change your cookie preferences at any time:</p>
+          <ManageCookies />
+        </div>
         
         <h2 className="text-xl font-semibold mt-8 mb-4">Contact Us</h2>
         <p className="mb-4">
