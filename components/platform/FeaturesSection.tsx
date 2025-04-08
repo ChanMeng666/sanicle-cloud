@@ -78,7 +78,7 @@ export function FeaturesSection() {
             Platform <span className="text-primary">Features</span>
           </h2>
           <p className="text-neutral-600 text-base sm:text-lg max-w-2xl mx-auto">
-            Explore our comprehensive platform features providing all-round health support for female employees.
+            Discover our extensive platform features for female employees.
           </p>
         </div>
 
