@@ -33,12 +33,9 @@ export function BenefitComparison() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <div className="inline-block px-3 py-1 rounded-full bg-teal-50 text-primary text-sm font-medium mb-3">
-              Compare Benefits
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-800 mb-3">Why Choose Our Platform</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-800 mb-3">Why Choose Sanicle?</h2>
             <p className="text-neutral-600 mt-2 max-w-2xl mx-auto text-sm md:text-base">
-              See how our comprehensive menstrual health platform compares to traditional benefit offerings
+              Maximize your company's potential by supporting women's menstrual health. Foster a nurturing and supportive work environment for all.
             </p>
           </div>
 
