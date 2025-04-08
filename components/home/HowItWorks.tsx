@@ -1,53 +1,46 @@
 "use client"
 
-import { CheckCircle, Heart, Users } from "lucide-react"
+import { CheckCircle, Heart, Users, FileText, UserPlus, BarChart, Key, BookOpen, HeadsetIcon, Sparkles } from "lucide-react"
 
 export function HowItWorks() {
   const employerSteps = [
     {
-      number: 1,
       title: "Simple Plan Management",
       description: "Select the best plan tailored to your company's needs and budget.",
-      icon: <Users className="h-6 w-6 text-white" />,
+      icon: <FileText className="h-6 w-6 text-white" />,
     },
     {
-      number: 2,
       title: "Quick Employee Enrollment",
       description: "Enroll employees effortlessly and distribute access codes in seconds.",
-      icon: <Heart className="h-6 w-6 text-white" />,
+      icon: <UserPlus className="h-6 w-6 text-white" />,
     },
     {
-      number: 3,
       title: "Monitor Usage",
       description: "Monitor program usage and gather feedback to measure success (available on select plans).",
-      icon: <CheckCircle className="h-6 w-6 text-white" />,
+      icon: <BarChart className="h-6 w-6 text-white" />,
     },
   ]
 
   const employeeSteps = [
     {
-      number: 1,
       title: "Redeem Access Code",
       description: "Use your unique code to access Sanicle.cloud's comprehensive women's health resources.",
-      icon: <Users className="h-6 w-6 text-white" />,
+      icon: <Key className="h-6 w-6 text-white" />,
     },
     {
-      number: 2,
       title: "Self-Guided Resources",
       description: "Explore our library of articles, guides, and videos on menstrual health, menopause management, and mental wellbeing.",
-      icon: <Heart className="h-6 w-6 text-white" />,
+      icon: <BookOpen className="h-6 w-6 text-white" />,
     },
     {
-      number: 3,
       title: "Expert AI Support & Consultations",
       description: "Get AI guidance or schedule consultations with OBGYNs, menopause specialists, and mental health professionals tailored to your needs.",
-      icon: <CheckCircle className="h-6 w-6 text-white" />,
+      icon: <HeadsetIcon className="h-6 w-6 text-white" />,
     },
     {
-      number: 4,
       title: "Personalized Solutions",
       description: "Discover personalized recommendations for your unique needs—whether for period care, menopause symptoms, or mental wellbeing support.",
-      icon: <CheckCircle className="h-6 w-6 text-white" />,
+      icon: <Sparkles className="h-6 w-6 text-white" />,
     },
   ]
 
@@ -91,7 +84,9 @@ export function HowItWorks() {
                         alt="Leaf background" 
                         className="absolute w-full h-full opacity-20"
                       />
-                      <span className="text-white text-lg sm:text-xl font-bold relative z-10">{step.number}</span>
+                      <div className="relative z-10">
+                        {step.icon}
+                      </div>
                     </div>
                     <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 animate-pulse-opacity">
                       <img 
@@ -103,17 +98,6 @@ export function HowItWorks() {
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-neutral-800 mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-sm sm:text-base text-neutral-600 max-w-[220px]">{step.description}</p>
-
-                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 items-center justify-center shadow-sm relative overflow-hidden rounded-lg">
-                    <img 
-                      src="/logo/leave-white.svg" 
-                      alt="Leaf background" 
-                      className="absolute w-full h-full opacity-30"
-                    />
-                    <div className="relative z-10">
-                      {step.icon}
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -142,7 +126,9 @@ export function HowItWorks() {
                         alt="Leaf background" 
                         className="absolute w-full h-full opacity-20"
                       />
-                      <span className="text-white text-lg sm:text-xl font-bold relative z-10">{step.number}</span>
+                      <div className="relative z-10">
+                        {step.icon}
+                      </div>
                     </div>
                     <div className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 animate-pulse-opacity">
                       <img 
@@ -154,17 +140,6 @@ export function HowItWorks() {
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-neutral-800 mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-sm sm:text-base text-neutral-600 max-w-[220px]">{step.description}</p>
-
-                  <div className="hidden md:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary/20 items-center justify-center shadow-sm relative overflow-hidden rounded-lg">
-                    <img 
-                      src="/logo/leave-white.svg" 
-                      alt="Leaf background" 
-                      className="absolute w-full h-full opacity-30"
-                    />
-                    <div className="relative z-10">
-                      {step.icon}
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>

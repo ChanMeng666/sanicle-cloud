@@ -48,10 +48,10 @@ export function HeroSection() {
               <span className="font-semibold">Introducing Sanicle Cloud</span> - The Future of Period Care
             </div>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-neutral-800">
-              Reimagine <span className="text-primary">Menstrual Health</span> in the Workplace
+              Reimagine <span className="text-primary">Menstrual Health Care</span> in the Workplace
             </h1>
             <p className="max-w-[600px] text-neutral-600 md:text-xl">
-              Experience period dignity with our AI-powered platform providing comprehensive menstrual health insights and support.
+              Our AI-powered platform offers detailed menstrual health insights and support for working women.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
