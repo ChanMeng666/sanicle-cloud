@@ -122,9 +122,9 @@ export function HeroSection() {
               <div className="absolute -top-6 -right-6 bg-white rounded-lg p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-300 z-30">
                 <div className="flex items-center text-sm">
                   <div className="w-8 h-8 relative mr-2">
-                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Heart className="h-4 w-4 text-primary" />
+                      <Heart className="h-4 w-4 text-secondary" />
                     </div>
                   </div>
                   <span className="font-medium text-neutral-800">Health Improvement <span className="text-secondary font-bold">90%</span></span>

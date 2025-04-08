@@ -47,7 +47,7 @@ export function BenefitsSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
             <div className="relative z-10 p-6 sm:p-8 border border-neutral-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
               <div className="w-16 h-16 relative mb-6">
-                <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
@@ -101,7 +101,7 @@ export function BenefitsSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl transform group-hover:scale-[1.03] transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
             <div className="relative z-10 p-6 sm:p-8 border border-neutral-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
               <div className="w-16 h-16 relative mb-6">
-                <img src="/logo/leave-white.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Clock className="h-8 w-8 text-primary" />
                 </div>

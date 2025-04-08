@@ -80,7 +80,7 @@ export function HeroSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
                 <div className="flex items-center p-3 rounded-lg bg-white/80 backdrop-blur-sm shadow-sm hover:shadow transition-all">
                   <div className="w-12 h-12 relative mr-4">
-                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Users className="h-6 w-6 text-primary" />
                     </div>
@@ -94,7 +94,7 @@ export function HeroSection() {
                   <div className="w-12 h-12 relative mr-4">
                     <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <BarChart className="h-6 w-6 text-secondary" />
+                      <BarChart className="h-6 w-6 text-primary" />
                     </div>
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export function HeroSection() {
               <div className="absolute -top-8 -right-8 bg-white rounded-xl p-4 shadow-lg rotate-6 hover:rotate-3 transition-transform duration-300 z-20">
                 <div className="flex items-center text-sm">
                   <div className="w-10 h-10 relative mr-3">
-                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Users className="h-5 w-5 text-primary" />
                     </div>
@@ -154,7 +154,7 @@ export function HeroSection() {
                   <div className="w-10 h-10 relative mr-3">
                     <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <BarChart className="h-5 w-5 text-secondary" />
+                      <BarChart className="h-5 w-5 text-primary" />
                     </div>
                   </div>
                   <div>
