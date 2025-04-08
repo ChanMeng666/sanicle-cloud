@@ -16,47 +16,47 @@ import {
 export function BenefitsSection() {
   const benefits = [
     {
-      icon: <HeartPulse className="h-6 w-6 text-secondary" />,
+      icon: <HeartPulse className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Comprehensive Health Insurance",
       description: "Includes health, dental, and vision insurance, with specialized reproductive and women's health benefits.",
     },
     {
-      icon: <Laptop className="h-6 w-6 text-secondary" />,
+      icon: <Laptop className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Remote Work Flexibility",
       description: "Hybrid work environment supporting a balance of home and office work.",
     },
     {
-      icon: <GraduationCap className="h-6 w-6 text-secondary" />,
+      icon: <GraduationCap className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Continuous Learning Budget",
       description: "Annual learning budget for courses, workshops, and professional development.",
     },
     {
-      icon: <CalendarDays className="h-6 w-6 text-secondary" />,
+      icon: <CalendarDays className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Unlimited Paid Time Off",
       description: "Flexible vacation policy allowing you to rest and recharge when needed.",
     },
     {
-      icon: <PiggyBank className="h-6 w-6 text-secondary" />,
+      icon: <PiggyBank className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Competitive Compensation",
       description: "Compensation comparable to industry standards, with employee equity incentive plans.",
     },
     {
-      icon: <Bike className="h-6 w-6 text-secondary" />,
+      icon: <Bike className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Health and Wellness",
       description: "Gym membership subsidies and subscriptions to mental wellness applications.",
     },
     {
-      icon: <Leaf className="h-6 w-6 text-secondary" />,
+      icon: <Leaf className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Paid Volunteer Time",
       description: "Annual paid volunteer hours to support causes you care about.",
     },
     {
-      icon: <Baby className="h-6 w-6 text-secondary" />,
+      icon: <Baby className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Parental Leave Benefits",
       description: "Generous paid maternity and paternity leave policies supporting new parents.",
     },
     {
-      icon: <Globe className="h-6 w-6 text-secondary" />,
+      icon: <Globe className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />,
       title: "Annual Team Retreats",
       description: "Company-sponsored retreats to foster team connections and cultural exchange.",
     },
@@ -113,22 +113,7 @@ export function BenefitsSection() {
               key={index}
               className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 hover:translate-y-[-4px] group"
             >
-              <div className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <img 
-                  src="/logo/leave-green.svg" 
-                  alt="Leaf decoration" 
-                  className="w-full h-full opacity-20"
-                />
-              </div>
-              
               <div className="p-3 rounded-xl bg-secondary/10 text-secondary inline-block mb-5 group-hover:bg-secondary group-hover:text-white transition-colors duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                  <img 
-                    src="/logo/leave-white.svg" 
-                    alt="Leaf background" 
-                    className="w-full h-full"
-                  />
-                </div>
                 <div className="relative z-10">
                   {benefit.icon}
                 </div>
