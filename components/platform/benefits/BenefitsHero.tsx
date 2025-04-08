@@ -1,6 +1,20 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { 
+  ArrowRight, 
+  Heart, 
+  CalendarCheck, 
+  Users, 
+  Handshake, 
+  PuzzleIcon, 
+  Coins,
+  LineChart, 
+  Package, 
+  UsersRound, 
+  Sparkles, 
+  ShieldCheck, 
+  Building2
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
@@ -75,32 +89,32 @@ export function BenefitsHero() {
                 <BenefitCard
                   title="Improve Workplace Health Equity"
                   description="Support your employees with comprehensive menstrual health benefits that enhance workplace wellness and demonstrate your commitment to health equity."
-                  iconSrc="/icons/health-equity.svg"
+                  icon={<Heart className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Reduce Absenteeism"
                   description="Help employees manage menstrual symptoms effectively, reducing work days missed due to period-related issues and improving overall productivity."
-                  iconSrc="/icons/calendar-check.svg"
+                  icon={<CalendarCheck className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Attract & Retain Talent"
                   description="Stand out as an employer of choice with innovative health benefits that demonstrate your commitment to supporting women's health needs."
-                  iconSrc="/icons/users.svg"
+                  icon={<Users className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Enhance Company Culture"
                   description="Create a more inclusive workplace environment by acknowledging and supporting menstrual health as an essential aspect of overall wellbeing."
-                  iconSrc="/icons/heart-handshake.svg"
+                  icon={<Handshake className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Easy Implementation"
                   description="Our platform integrates seamlessly with your existing benefits systems with minimal administrative overhead and flexible deployment options."
-                  iconSrc="/icons/puzzle.svg"
+                  icon={<PuzzleIcon className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Cost-Effective Solution"
                   description="Invest in a comprehensive menstrual health platform that delivers significant ROI through improved productivity and reduced healthcare costs."
-                  iconSrc="/icons/coins.svg"
+                  icon={<Coins className="w-6 h-6" />}
                 />
               </>
             )}
@@ -110,32 +124,32 @@ export function BenefitsHero() {
                 <BenefitCard
                   title="Personalized Cycle Insights"
                   description="Track your menstrual cycle and receive personalized insights to better understand patterns, symptoms, and how they affect your work and wellbeing."
-                  iconSrc="/icons/chart-line.svg"
+                  icon={<LineChart className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Access to Menstrual Products"
                   description="Receive a monthly allowance for menstrual products delivered to your home or office, ensuring you always have access to necessary supplies."
-                  iconSrc="/icons/box-open.svg"
+                  icon={<Package className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Expert Resources & Support"
                   description="Access educational content, connect with healthcare providers, and join community forums for support from people with similar experiences."
-                  iconSrc="/icons/users-medical.svg"
+                  icon={<UsersRound className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Symptom Management Tools"
                   description="Discover personalized strategies for managing menstrual symptoms, including curated exercises, nutrition advice, and self-care practices."
-                  iconSrc="/icons/sparkles.svg"
+                  icon={<Sparkles className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Private & Secure"
                   description="Your health data remains completely private and secure. We never share individual data with employers or third parties without explicit consent."
-                  iconSrc="/icons/shield-check.svg"
+                  icon={<ShieldCheck className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Workplace Accommodations"
                   description="Access resources to help communicate needs with managers and request appropriate accommodations for menstrual health concerns."
-                  iconSrc="/icons/building-office.svg"
+                  icon={<Building2 className="w-6 h-6" />}
                 />
               </>
             )}
@@ -173,20 +187,16 @@ export function BenefitsHero() {
 function BenefitCard({
   title,
   description,
-  iconSrc,
+  icon,
 }: {
   title: string
   description: string
-  iconSrc: string
+  icon: React.ReactNode
 }) {
   return (
     <div className="group flex flex-col p-6 bg-white rounded-xl shadow-sm border border-neutral-100 hover:border-primary/10 hover:shadow-md transition-all duration-200">
       <div className="w-12 h-12 mb-4 p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-        {iconSrc ? (
-          <img src={iconSrc} alt={title} className="w-6 h-6" />
-        ) : (
-          <div className="w-6 h-6 bg-primary/20 rounded-md" />
-        )}
+        {icon}
       </div>
       <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary transition-colors duration-200">{title}</h3>
       <p className="text-neutral-600 text-sm flex-grow">{description}</p>
