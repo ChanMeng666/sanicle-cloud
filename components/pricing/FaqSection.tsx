@@ -83,7 +83,7 @@ export function FaqSection() {
                 value={`item-${index}`} 
                 className="border border-slate-200 rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-shadow group"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-medium text-slate-800 hover:text-primary data-[state=open]:text-primary data-[state=open]:bg-primary-pale/20 transition-all relative">
+                <AccordionTrigger className="px-6 py-4 text-left font-medium text-slate-800 hover:text-primary hover:no-underline data-[state=open]:text-primary data-[state=open]:bg-primary-pale/20 transition-all relative">
                   <div className="absolute left-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100 transition-opacity">
                     <img src={index % 2 === 0 ? "/logo/leave-green.svg" : "/logo/leave-pink.svg"} alt="Decorative leaf" className="w-4 h-4" />
                   </div>
