@@ -121,6 +121,11 @@ export function MainNav() {
           description: "Learn about our mission, values, and the team behind Sanicle.cloud."
         },
         {
+          title: "News",
+          href: "/company/news",
+          description: "Stay updated with the latest news, events, and announcements from Sanicle.cloud."
+        },
+        {
           title: "Careers",
           href: "/company/careers",
           description: "Join our team and help revolutionize women's workplace health."
