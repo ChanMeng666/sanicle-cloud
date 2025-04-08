@@ -303,14 +303,6 @@ export function MainNav() {
                 <span className="relative z-10">Request Demo</span>
               </Button>
             </Link>
-            <Button 
-              variant="ghost" 
-              className="flex items-center gap-1 text-neutral-600 hover:text-primary hover:bg-transparent"
-              onClick={() => setCookieSettingsOpen(true)}
-            >
-              <Cookie className="h-4 w-4" />
-              <span className="text-sm">Cookie Settings</span>
-            </Button>
             <Link href="/demo">
               <Button className="bg-primary hover:bg-teal-700 text-white group relative shadow-button">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
@@ -425,19 +417,6 @@ export function MainNav() {
                   </div>
                 ))}
               </nav>
-              
-              <div className="mb-4">
-                <button
-                  className="flex items-center w-full py-2 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
-                  onClick={() => {
-                    setCookieSettingsOpen(true);
-                    toggleMenu();
-                  }}
-                >
-                  <Cookie className="h-4 w-4 mr-2" />
-                  <span className="text-base font-medium">Cookie Settings</span>
-                </button>
-              </div>
               
               <div className="pt-2 border-t border-gray-200">
                 <Link
