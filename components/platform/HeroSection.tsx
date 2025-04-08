@@ -64,11 +64,11 @@ export function HeroSection() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight">
-              Menstrual Health Benefits<br className="sm:hidden" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Complete Platform</span>
+              Many women suffer in silence dealing with moderate to severe symptoms during menstruation, which can negatively impact their productivity and engagement at work.<br className="sm:hidden" />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Our solution can help change that.</span>
             </h1>
             <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl">
-              Sanicle.cloud offers a modular, end-to-end employee benefits platform with flexible menstrual health options, helping employers eliminate vendor fatigue.
+              Introducing Sanicle.Cloud, an employee benefits platform that provides personalized menstrual health support for women to help them manage their symptoms effectively.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8">
