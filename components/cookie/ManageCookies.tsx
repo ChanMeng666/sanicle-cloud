@@ -20,7 +20,7 @@ export function ManageCookies() {
         className="text-neutral-500 hover:text-primary transition-colors duration-200 text-sm px-0"
         onClick={openSettings}
       >
-        管理Cookie
+        Manage Cookies
       </Button>
       
       <CookieSettingsDialog 

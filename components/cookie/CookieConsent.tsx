@@ -46,7 +46,7 @@ export function CookieConsent() {
     setSettingsDialogOpen(true);
   };
 
-  // 每当consent变化时应用设置
+  // Apply settings whenever consent changes
   useEffect(() => {
     if (consent) {
       CookieManager.applyConsentSettings(consent);
@@ -55,41 +55,41 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* 初始弹窗 */}
+      {/* Initial popup */}
       <Dialog open={consentDialogOpen} onOpenChange={setConsentDialogOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Cookie 同意</DialogTitle>
+            <DialogTitle>Cookie Consent</DialogTitle>
             <DialogDescription>
-              我们使用Cookie来增强您的浏览体验，提供个性化内容或广告，并分析我们的流量。
-              通过点击"接受所有"，您同意我们使用所有Cookie。
+              We use cookies to enhance your browsing experience, provide personalized content or ads, and analyze our traffic.
+              By clicking "Accept All", you consent to our use of all cookies.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="flex items-start space-x-2 text-sm">
               <div>
                 <p className="text-muted-foreground">
-                  本网站使用Cookie确保您获得最佳的体验。了解更多关于我们的{" "}
-                  <a href="/legal/cookies" className="text-primary underline">Cookie政策</a>。
+                  This website uses cookies to ensure you get the best experience. Learn more about our{" "}
+                  <a href="/legal/cookies" className="text-primary underline">Cookie Policy</a>.
                 </p>
               </div>
             </div>
           </div>
           <DialogFooter className="sm:justify-start gap-2">
             <Button variant="default" onClick={acceptAll}>
-              接受所有
+              Accept All
             </Button>
             <Button variant="outline" onClick={acceptNecessary}>
-              仅接受必要
+              Accept Necessary
             </Button>
             <Button variant="outline" onClick={openCustomizeSettings}>
-              自定义设置
+              Customize Settings
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
-      {/* 详细设置弹窗 */}
+      {/* Detailed settings dialog */}
       <CookieSettingsDialog 
         open={settingsDialogOpen} 
         onOpenChange={setSettingsDialogOpen} 

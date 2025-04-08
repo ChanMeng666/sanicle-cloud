@@ -5,10 +5,10 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 export type CookieConsent = 'all' | 'necessary' | null;
 
 interface CookieSettings {
-  necessary: boolean;  // 必要的，永远为true
-  functional: boolean; // 功能性
-  analytics: boolean;  // 分析
-  advertising: boolean; // 广告
+  necessary: boolean;  // Essential, always true
+  functional: boolean; // Functional
+  analytics: boolean;  // Analytics
+  advertising: boolean; // Advertising
 }
 
 interface CookieConsentContextType {
@@ -35,7 +35,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<CookieSettings>(defaultSettings);
 
   useEffect(() => {
-    // 在组件挂载时检查现有的同意状态
+    // Check for existing consent when component mounts
     try {
       if (typeof window !== 'undefined') {
         const storedConsent = localStorage.getItem('cookieConsent') as CookieConsent;
@@ -43,7 +43,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
           setConsentState(storedConsent);
           setIsConsentGiven(true);
           
-          // 根据存储的同意状态设置Cookie设置
+          // Set cookie settings based on stored consent
           if (storedConsent === 'all') {
             setSettings({
               necessary: true,
@@ -62,7 +62,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         }
       }
     } catch (error) {
-      console.error("访问localStorage时出错:", error);
+      console.error("Error accessing localStorage:", error);
     }
   }, []);
 
@@ -73,7 +73,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
           localStorage.setItem('cookieConsent', newConsent);
           setIsConsentGiven(true);
           
-          // 更新设置以匹配同意级别
+          // Update settings to match consent level
           if (newConsent === 'all') {
             setSettings({
               necessary: true,
@@ -97,7 +97,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         setConsentState(newConsent);
       }
     } catch (error) {
-      console.error("访问localStorage时出错:", error);
+      console.error("Error accessing localStorage:", error);
     }
   };
 
@@ -105,7 +105,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     const updatedSettings = { ...settings, ...newSettings };
     setSettings(updatedSettings);
     
-    // 根据设置更新consent类型
+    // Update consent type based on settings
     if (updatedSettings.functional && updatedSettings.analytics && updatedSettings.advertising) {
       setConsent('all');
     } else {
@@ -135,7 +135,7 @@ export function useCookieConsent() {
   const context = useContext(CookieConsentContext);
   
   if (context === undefined) {
-    throw new Error('useCookieConsent必须在CookieConsentProvider内部使用');
+    throw new Error('useCookieConsent must be used within a CookieConsentProvider');
   }
   
   return context;

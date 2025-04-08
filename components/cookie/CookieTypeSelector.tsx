@@ -13,7 +13,7 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
   const { settings, updateSettings } = useCookieConsent();
   
   const handleSave = () => {
-    // 保存已完成（所有更改都是通过updateSettings立即应用的）
+    // Save completed (all changes are applied immediately through updateSettings)
     onSave();
   };
 
@@ -22,9 +22,9 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-sm font-medium">必要Cookie</h4>
+            <h4 className="text-sm font-medium">Essential Cookies</h4>
             <p className="text-xs text-muted-foreground">
-              这些Cookie对网站的基本功能是必需的，不能被禁用。
+              These cookies are necessary for the basic functionality of the website and cannot be disabled.
             </p>
           </div>
           <Switch checked={settings.necessary} disabled={true} />
@@ -34,9 +34,9 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-sm font-medium">功能性Cookie</h4>
+            <h4 className="text-sm font-medium">Functional Cookies</h4>
             <p className="text-xs text-muted-foreground">
-              这些Cookie使网站能够记住您的选择，提供增强和个性化功能。
+              These cookies enable the website to remember your choices and provide enhanced, personalized features.
             </p>
           </div>
           <Switch 
@@ -50,9 +50,9 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-sm font-medium">分析Cookie</h4>
+            <h4 className="text-sm font-medium">Analytics Cookies</h4>
             <p className="text-xs text-muted-foreground">
-              这些Cookie帮助我们了解访问者如何使用我们的网站，以便我们改进用户体验。
+              These cookies help us understand how visitors interact with our website, allowing us to improve user experience.
             </p>
           </div>
           <Switch 
@@ -66,9 +66,9 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="text-sm font-medium">广告Cookie</h4>
+            <h4 className="text-sm font-medium">Advertising Cookies</h4>
             <p className="text-xs text-muted-foreground">
-              这些Cookie用于向您显示相关广告，并帮助我们衡量营销活动的有效性。
+              These cookies are used to display relevant advertisements and help us measure the effectiveness of marketing campaigns.
             </p>
           </div>
           <Switch 
@@ -84,7 +84,7 @@ export function CookieTypeSelector({ onSave }: CookieTypeSelectorProps) {
           onClick={handleSave}
           className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium"
         >
-          保存设置
+          Save Settings
         </button>
       </div>
     </div>

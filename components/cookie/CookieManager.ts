@@ -2,9 +2,9 @@
 
 import { CookieConsent } from './CookieConsentContext';
 
-// 封装Cookie管理的类
+// Class for managing cookies
 export class CookieManager {
-  // 设置Cookie
+  // Set cookie
   static setCookie(name: string, value: string, days: number, path: string = '/'): void {
     if (typeof window === 'undefined') return;
     
@@ -13,7 +13,7 @@ export class CookieManager {
     document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=${path};SameSite=Lax`;
   }
 
-  // 获取Cookie
+  // Get cookie
   static getCookie(name: string): string | null {
     if (typeof window === 'undefined') return null;
     
@@ -27,74 +27,74 @@ export class CookieManager {
     return null;
   }
 
-  // 删除Cookie
+  // Delete cookie
   static deleteCookie(name: string, path: string = '/'): void {
     if (typeof window === 'undefined') return;
     
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=${path};SameSite=Lax`;
   }
 
-  // 根据同意类型应用Cookie设置
+  // Apply consent settings
   static applyConsentSettings(consentType: CookieConsent): void {
     if (typeof window === 'undefined') return;
     
     if (consentType === 'all') {
-      // 启用所有Cookie类型
+      // Enable all cookie types
       this.enableAnalytics();
       this.enableFunctional();
       this.enableAdvertising();
     } else if (consentType === 'necessary') {
-      // 只启用必要Cookie，禁用其他
+      // Only enable necessary cookies, disable others
       this.disableAnalytics();
       this.disableFunctional();
       this.disableAdvertising();
     } else {
-      // 如果没有同意或同意被撤回，删除所有非必要Cookie
+      // If no consent or consent is withdrawn, delete all non-essential cookies
       this.clearAllNonEssentialCookies();
     }
   }
 
-  // 启用分析Cookie
+  // Enable analytics cookies
   static enableAnalytics(): void {
-    // 示例：如果项目使用Google Analytics
+    // Example: If the project uses Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('consent', 'update', {
         'analytics_storage': 'granted'
       });
     }
     
-    // 这里可以添加其他分析工具的配置
+    // Add configuration for other analytics tools here
   }
 
-  // 禁用分析Cookie
+  // Disable analytics cookies
   static disableAnalytics(): void {
-    // 示例：如果项目使用Google Analytics
+    // Example: If the project uses Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('consent', 'update', {
         'analytics_storage': 'denied'
       });
     }
     
-    // 这里可以添加其他分析工具的禁用代码
+    // Add code to disable other analytics tools here
   }
 
-  // 启用功能性Cookie
+  // Enable functional cookies
   static enableFunctional(): void {
-    // 启用功能性Cookie的逻辑
-    // 示例：设置一个功能性Cookie
+    // Logic to enable functional cookies
+    // Example: Set a functional cookie
     this.setCookie('functional_enabled', 'true', 365);
   }
 
-  // 禁用功能性Cookie
+  // Disable functional cookies
   static disableFunctional(): void {
-    // 禁用功能性Cookie的逻辑
-    // 示例：删除功能性Cookie
+    // Logic to disable functional cookies
+    // Example: Delete a functional cookie
     this.deleteCookie('functional_enabled');
   }
 
-  // 启用广告Cookie
+  // Enable advertising cookies
   static enableAdvertising(): void {
-    // 示例：如果项目使用Google Ads
+    // Example: If the project uses Google Ads
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('consent', 'update', {
         'ad_storage': 'granted'
@@ -102,9 +102,9 @@ export class CookieManager {
     }
   }
 
-  // 禁用广告Cookie
+  // Disable advertising cookies
   static disableAdvertising(): void {
-    // 示例：如果项目使用Google Ads
+    // Example: If the project uses Google Ads
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('consent', 'update', {
         'ad_storage': 'denied'
@@ -112,22 +112,22 @@ export class CookieManager {
     }
   }
 
-  // 清除所有非必要Cookie
+  // Clear all non-essential cookies
   static clearAllNonEssentialCookies(): void {
-    // 获取所有Cookie
+    // Get all cookies
     if (typeof document === 'undefined') return;
     
     const cookies = document.cookie.split(';');
     
-    // 必要Cookie的名称列表（示例）
+    // List of essential cookie names (example)
     const essentialCookies = ['session_id', 'csrf_token', 'cookieConsent'];
     
-    // 删除所有非必要Cookie
+    // Delete all non-essential cookies
     for (let i = 0; i < cookies.length; i++) {
       const cookie = cookies[i].trim();
       const cookieName = cookie.split('=')[0];
       
-      // 如果不在必要Cookie列表中，则删除
+      // If not in essential cookies list, delete it
       if (!essentialCookies.includes(cookieName)) {
         this.deleteCookie(cookieName);
       }
