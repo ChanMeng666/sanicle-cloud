@@ -46,7 +46,7 @@ export function OurStory() {
               title: "Beginning",
               description:
                 "Sanicle.cloud was founded by Dr. Chen and a team of healthcare professionals and technology experts who recognized a critical gap in workplace benefits: comprehensive support for women's menstrual health.",
-              icon: <Sparkles className="h-6 w-6 text-white" />,
+              icon: <Sparkles className="h-6 w-6 text-secondary" />,
               position: "left",
               leafColor: "green",
             },
@@ -55,7 +55,7 @@ export function OurStory() {
               title: "Seed Funding",
               description:
                 "Secured initial investment to develop the platform and build our core team, enabling us to turn our vision into reality.",
-              icon: <Star className="h-6 w-6 text-white" />,
+              icon: <Star className="h-6 w-6 text-secondary" />,
               position: "right",
               leafColor: "pink",
             },
@@ -64,7 +64,7 @@ export function OurStory() {
               title: "Platform Launch",
               description:
                 "Officially launched the Sanicle.cloud platform, partnering with our first corporate clients, marking a significant milestone in our journey.",
-              icon: <Globe className="h-6 w-6 text-white" />,
+              icon: <Globe className="h-6 w-6 text-secondary" />,
               position: "left",
               leafColor: "white",
             },
@@ -73,7 +73,7 @@ export function OurStory() {
               title: "Expansion",
               description:
                 "Grew to serve over 50 companies, expanded our team to 25 members, and extended our impact across multiple industries.",
-              icon: <Users className="h-6 w-6 text-white" />,
+              icon: <Users className="h-6 w-6 text-secondary" />,
               position: "right",
               leafColor: "black",
             },
@@ -82,7 +82,7 @@ export function OurStory() {
               title: "Series A Funding",
               description:
                 "Raised substantial funding to accelerate growth and enhance platform capabilities, setting the foundation for our next phase of development.",
-              icon: <Award className="h-6 w-6 text-white" />,
+              icon: <Award className="h-6 w-6 text-secondary" />,
               position: "left",
               leafColor: "green",
             },
@@ -103,15 +103,8 @@ export function OurStory() {
                   milestone.position === "left" ? "md:translate-x-1/2" : "md:-translate-x-1/2"
                 }`}
               >
-                <div className="relative w-full h-full">
-                  <img
-                    src={`/logo/leave-${milestone.leafColor}.svg`}
-                    alt="Leaf timeline marker"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {milestone.icon}
-                  </div>
+                <div className="relative w-full h-full flex items-center justify-center bg-white rounded-full shadow-md">
+                  {milestone.icon}
                 </div>
               </div>
 
