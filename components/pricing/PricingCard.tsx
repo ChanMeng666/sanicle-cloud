@@ -65,17 +65,16 @@ export function PricingCard({
   
   return (
     <div className={`w-full relative ${highlight ? "lg:-mt-4 z-20" : ""}`}>
+      {highlight && (
+        <div className="absolute -top-5 left-0 right-0 flex justify-center z-30">
+          <span className={`px-4 py-1.5 rounded-full text-white text-xs font-semibold ${color === 'primary' ? 'bg-primary' : 'bg-secondary'} shadow-md`}>
+            {highlightLabel}
+          </span>
+        </div>
+      )}
       <Card className={`border-2 h-full ${highlight ? `${styles.borderColor} shadow-xl` : `${styles.borderColor} shadow-md`} 
         overflow-hidden rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1`}
       >
-        {highlight && (
-          <div className="absolute -top-5 inset-x-0 flex justify-center">
-            <span className={`px-4 py-1.5 rounded-full text-white text-xs font-semibold ${color === 'primary' ? 'bg-primary' : 'bg-secondary'} shadow-md`}>
-              {highlightLabel}
-            </span>
-          </div>
-        )}
-        
         <CardHeader className={`px-6 pt-6 ${highlight ? "pt-8" : ""} pb-4 space-y-1 border-b ${styles.borderColor}`}>
           <div className="flex items-center space-x-3 mb-2">
             <div className={`w-10 h-10 rounded-full ${styles.bgAccent} flex items-center justify-center`}>
@@ -88,7 +87,7 @@ export function PricingCard({
           
           <div className="mt-4 flex items-baseline">
             <DollarSign className={`h-5 w-5 ${styles.colorAccent}`} />
-            <span className="text-4xl font-bold text-slate-800">
+            <span className={`${isNaN(Number(isAnnual ? price.annual : price.monthly)) ? 'text-2xl' : 'text-4xl'} font-bold text-slate-800`}>
               {isAnnual ? price.annual : price.monthly}
             </span>
             <span className="text-slate-500 ml-2 text-sm">per employee/month</span>
