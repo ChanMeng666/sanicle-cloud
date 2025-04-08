@@ -13,6 +13,15 @@ export default function PlatformSecurityPage() {
         <p className="text-lg text-[#7f8c8d] max-w-3xl">
           Learn how Sanicle.cloud protects your data security, ensuring your health information always receives the highest level of protection.
         </p>
+        
+        {/* Compliance Badges */}
+        <div className="flex flex-wrap items-center gap-4 mt-6 mb-8">
+          <img 
+            src="/logo/hipaa-compliance.svg" 
+            alt="HIPAA Compliant" 
+            className="h-20 md:h-16 w-auto"
+          />
+        </div>
       </div>
       
       <section className="w-full py-12 md:py-16 bg-white">
