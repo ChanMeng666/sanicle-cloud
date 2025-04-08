@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { MainNav } from "@/components/layout/MainNav"
 import { SiteFooter } from "@/components/layout/SiteFooter"
 import { ChatWidgetWrapper } from "@/components/chat/ChatWidgetWrapper"
+import { CookieConsent } from "@/components/cookie/CookieConsent"
+import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
 
 export const metadata = {
   title: "Sanicle",
@@ -34,14 +36,17 @@ export default function RootLayout({
       </head>
       <body className="antialiased overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="light">
-          <div className="relative flex min-h-screen flex-col">
-            <MainNav />
-            <div className="z-[1] relative pt-16 sm:pt-20">
-              <main className="flex-1 w-full">{children}</main>
+          <CookieConsentProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <MainNav />
+              <div className="z-[1] relative pt-16 sm:pt-20">
+                <main className="flex-1 w-full">{children}</main>
+              </div>
+              <SiteFooter />
+              <ChatWidgetWrapper />
+              <CookieConsent />
             </div>
-            <SiteFooter />
-            <ChatWidgetWrapper />
-          </div>
+          </CookieConsentProvider>
         </ThemeProvider>
       </body>
     </html>

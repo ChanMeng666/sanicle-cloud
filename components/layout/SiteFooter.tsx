@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Twitter, Instagram, Linkedin, Mail, ArrowRight } from "lucide-react"
+import { ManageCookies } from "@/components/cookie/ManageCookies"
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear()
@@ -280,6 +281,7 @@ export function SiteFooter() {
           <Link href="/legal/cookies" className="hover:text-primary transition-colors duration-200">
             Cookie Policy
           </Link>
+          <ManageCookies />
         </div>
       </div>
     </footer>
