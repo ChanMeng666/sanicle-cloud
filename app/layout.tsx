@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter"
 import { ChatWidgetWrapper } from "@/components/chat/ChatWidgetWrapper"
 
 export const metadata = {
-  title: "Sanicle.cloud",
+  title: "Sanicle",
   description:
     "A B2B-B2G platform dedicated to transforming women's workplace wellbeing through menstrual health benefits.",
   generator: 'v0.dev',
@@ -15,9 +15,9 @@ export const metadata = {
     initialScale: 1,
   },
   icons: {
-    icon: "/logo/sanicle_logo.svg",
-    shortcut: "/logo/sanicle_logo.svg",
-    apple: "/logo/sanicle_logo.svg",
+    icon: "/logo/leave-green.svg",
+    shortcut: "/logo/leave-green.svg",
+    apple: "/logo/leave-green.svg",
   },
 }
 
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/logo/sanicle_logo.svg" />
+        <link rel="icon" href="/logo/leave-green.svg" />
       </head>
       <body className="antialiased overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="light">
