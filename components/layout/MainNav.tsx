@@ -94,6 +94,12 @@ export function MainNav() {
           title: "For Brokers",
           href: "/solution/brokers",
           description: "Add innovative menstrual health offerings to your benefits portfolio."
+        },
+        {
+          title: "FemTech Health",
+          href: "https://ai.sanicle.cloud/",
+          description: "Access our workplace women's health management system.",
+          isExternal: true
         }
       ]
     },
@@ -184,6 +190,20 @@ export function MainNav() {
                   >
                     {item.title}
                   </a>
+                ) : item.isExternal ? (
+                  <a
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-neutral-800 hover:text-primary hover:bg-teal-50 rounded-md transition-colors flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                    <span className="ml-1">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform">
+                        <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </a>
                 ) : (
                   <Link
                     href={item.href}
@@ -211,21 +231,44 @@ export function MainNav() {
                       </div>
                       
                       {item.children.map((child) => (
-                        <Link
-                          key={child.title}
-                          href={child.href}
-                          className="block px-4 py-3 rounded-md hover:bg-teal-50 transition-colors relative z-10 group"
-                        >
-                          <div className="flex items-center">
-                            <div className="w-6 h-6 relative mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
+                        child.isExternal ? (
+                          <a
+                            key={child.title}
+                            href={child.href}
+                            className="block px-4 py-3 rounded-md hover:bg-teal-50 transition-colors relative z-10 group"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-6 h-6 relative mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
+                              </div>
+                              <div className="flex-1">
+                                <span className="block text-sm font-medium text-neutral-800">{child.title}</span>
+                                <span className="block mt-1 text-xs text-neutral-500">{child.description}</span>
+                              </div>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 flex-shrink-0">
+                                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
                             </div>
-                            <div>
-                              <span className="block text-sm font-medium text-neutral-800">{child.title}</span>
-                              <span className="block mt-1 text-xs text-neutral-500">{child.description}</span>
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.title}
+                            href={child.href}
+                            className="block px-4 py-3 rounded-md hover:bg-teal-50 transition-colors relative z-10 group"
+                          >
+                            <div className="flex items-center">
+                              <div className="w-6 h-6 relative mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <img src="/logo/leave-pink.svg" alt="" className="absolute inset-0 w-full h-full" />
+                              </div>
+                              <div>
+                                <span className="block text-sm font-medium text-neutral-800">{child.title}</span>
+                                <span className="block mt-1 text-xs text-neutral-500">{child.description}</span>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
@@ -288,36 +331,76 @@ export function MainNav() {
               <nav className="grid gap-y-8 mb-8">
                 {navItems.map((item) => (
                   <div key={item.title} className="relative group">
-                    <div
-                      className="flex items-center justify-between py-2 -mx-3 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
-                      onClick={() => toggleDropdown(item.title)}
-                    >
-                      <div className="flex items-center">
-                        <span className="text-base font-medium">{item.title}</span>
-                      </div>
-                      {item.children.length > 0 && (
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transform transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''}`}>
-                          <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    {item.isExternal ? (
+                      <a
+                        href={item.href}
+                        className="flex items-center justify-between py-2 -mx-3 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={toggleMenu}
+                      >
+                        <div className="flex items-center">
+                          <span className="text-base font-medium">{item.title}</span>
+                        </div>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                      )}
-                    </div>
+                      </a>
+                    ) : (
+                      <div
+                        className="flex items-center justify-between py-2 -mx-3 px-3 rounded-md text-neutral-800 hover:bg-teal-50"
+                        onClick={() => toggleDropdown(item.title)}
+                      >
+                        <div className="flex items-center">
+                          <span className="text-base font-medium">{item.title}</span>
+                        </div>
+                        {item.children.length > 0 && (
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transform transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''}`}>
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </div>
+                    )}
                     
                     {item.children.length > 0 && activeDropdown === item.title && (
                       <div className="mt-2 pl-4 space-y-2">
                         {item.children.map((child) => (
-                          <Link
-                            key={child.title}
-                            href={child.href}
-                            className="block py-2 text-neutral-600 hover:text-primary"
-                            onClick={toggleMenu}
-                          >
-                            <div className="flex items-center">
-                              <div className="w-4 h-4 relative mr-2 opacity-70">
-                                <img src="/logo/leave-green.svg" alt="" className="absolute inset-0 w-full h-full" />
+                          child.isExternal ? (
+                            <a
+                              key={child.title}
+                              href={child.href}
+                              className="block py-2 text-neutral-600 hover:text-primary"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={toggleMenu}
+                            >
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center">
+                                  <div className="w-4 h-4 relative mr-2 opacity-70">
+                                    <img src="/logo/leave-green.svg" alt="" className="absolute inset-0 w-full h-full" />
+                                  </div>
+                                  <span>{child.title}</span>
+                                </div>
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
                               </div>
-                              <span>{child.title}</span>
-                            </div>
-                          </Link>
+                            </a>
+                          ) : (
+                            <Link
+                              key={child.title}
+                              href={child.href}
+                              className="block py-2 text-neutral-600 hover:text-primary"
+                              onClick={toggleMenu}
+                            >
+                              <div className="flex items-center">
+                                <div className="w-4 h-4 relative mr-2 opacity-70">
+                                  <img src="/logo/leave-green.svg" alt="" className="absolute inset-0 w-full h-full" />
+                                </div>
+                                <span>{child.title}</span>
+                              </div>
+                            </Link>
+                          )
                         ))}
                       </div>
                     )}
