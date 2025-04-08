@@ -164,7 +164,7 @@ export function BenefitFeatures() {
                     }}
                   >
                     <img
-                      src="/images/12_07_53.png"
+                      src="/placeholder.svg?height=300&width=300"
                       alt="Virtual health consultant AI interface for menopause management"
                       className="w-full h-full object-cover"
                     />

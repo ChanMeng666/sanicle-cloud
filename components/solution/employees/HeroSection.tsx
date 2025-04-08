@@ -86,9 +86,9 @@ export function HeroSection() {
             <div className="grid grid-cols-3 gap-4 mt-12 max-w-md mx-auto lg:mx-0">
               <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-primary/10 hover:shadow-md transition-shadow">
                 <div className="w-10 h-10 relative mx-auto mb-2">
-                  <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Heart className="h-5 w-5 text-primary" />
+                    <Heart className="h-5 w-5 text-secondary" />
                   </div>
                 </div>
                 <p className="text-center text-sm text-neutral-600">Personalized Health Plans</p>
@@ -106,7 +106,7 @@ export function HeroSection() {
               
               <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-primary/10 hover:shadow-md transition-shadow">
                 <div className="w-10 h-10 relative mx-auto mb-2">
-                  <img src="/logo/leave-white.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                  <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Shield className="h-5 w-5 text-secondary" />
                   </div>
@@ -118,6 +118,32 @@ export function HeroSection() {
 
           <div className="hidden lg:block relative">
             <div className="relative z-10 perspective-1000 transform hover:scale-[1.02] transition-all duration-500">
+              {/* Health Improvement floating element - moved outside */}
+              <div className="absolute -top-6 -right-6 bg-white rounded-lg p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-300 z-30">
+                <div className="flex items-center text-sm">
+                  <div className="w-8 h-8 relative mr-2">
+                    <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Heart className="h-4 w-4 text-primary" />
+                    </div>
+                  </div>
+                  <span className="font-medium text-neutral-800">Health Improvement <span className="text-secondary font-bold">90%</span></span>
+                </div>
+              </div>
+              
+              {/* Data Protection floating element - moved outside */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg p-3 shadow-lg -rotate-6 hover:rotate-0 transition-transform duration-300 z-30">
+                <div className="flex items-center text-sm">
+                  <div className="w-8 h-8 relative mr-2">
+                    <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Shield className="h-4 w-4 text-secondary" />
+                    </div>
+                  </div>
+                  <span className="font-medium text-neutral-800">Data Protection <span className="text-primary font-bold">100%</span></span>
+                </div>
+              </div>
+              
               <div className="relative bg-white p-4 rounded-2xl shadow-xl border-8 border-white/80 overflow-hidden">
                 <div className="absolute -top-8 -right-8">
                   <img src="/logo/leave-pink.svg" alt="Leaf decoration" className="w-20 h-20 opacity-10 blur-lg" />
@@ -181,30 +207,7 @@ export function HeroSection() {
                   </div>
                 </div>
                 
-                {/* Floating elements */}
-                <div className="absolute -top-6 -right-6 bg-white rounded-lg p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-300 z-20">
-                  <div className="flex items-center text-sm">
-                    <div className="w-8 h-8 relative mr-2">
-                      <img src="/logo/leave-green.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Heart className="h-4 w-4 text-primary" />
-                      </div>
-                    </div>
-                    <span className="font-medium text-neutral-800">Health Improvement <span className="text-secondary font-bold">90%</span></span>
-                  </div>
-                </div>
-                
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-lg p-3 shadow-lg -rotate-6 hover:rotate-0 transition-transform duration-300 z-20">
-                  <div className="flex items-center text-sm">
-                    <div className="w-8 h-8 relative mr-2">
-                      <img src="/logo/leave-pink.svg" alt="Leaf background" className="w-full h-full absolute inset-0" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Shield className="h-4 w-4 text-secondary" />
-                      </div>
-                    </div>
-                    <span className="font-medium text-neutral-800">Data Protection <span className="text-primary font-bold">100%</span></span>
-                  </div>
-                </div>
+                {/* Removed floating elements from here */}
               </div>
             </div>
             
