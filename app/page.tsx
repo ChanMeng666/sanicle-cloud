@@ -6,11 +6,11 @@ import { HowItWorks } from "@/components/home/HowItWorks"
 import { TeamSection } from "@/components/team-section"
 import { TestimonialSection } from "@/components/testimonial-section"
 import { StatisticsSection } from "@/components/statistics-section"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSafeMobile } from "@/hooks/use-safe-mobile"
 import { useRouter, useSearchParams } from "next/navigation"
 
-// Check for force parameter
+// Check for force parameter - wrapped in Suspense
 function ForceView() {
   const searchParams = useSearchParams()
   
@@ -107,7 +107,11 @@ export default function Home() {
 
   return (
     <>
-      <ForceView />
+      {/* Wrap ForceView in Suspense to fix build error */}
+      <Suspense fallback={null}>
+        <ForceView />
+      </Suspense>
+      
       <main className="flex flex-col items-center w-full overflow-x-hidden">
         <div className="w-full">
           <HeroSection />
