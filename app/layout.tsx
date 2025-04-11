@@ -6,18 +6,21 @@ import { SiteFooter } from "@/components/layout/SiteFooter"
 import { ChatWidgetWrapper } from "@/components/chat/ChatWidgetWrapper"
 import { CookieConsent } from "@/components/cookie/CookieConsent"
 import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
+import { Viewport } from "next"
+
+// Separate viewport export as recommended by Next.js
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
 
 export const metadata = {
   title: "Sanicle",
   description:
     "A B2B-B2G platform dedicated to transforming women's workplace wellbeing through menstrual health benefits.",
   generator: 'v0.dev',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
   icons: {
     icon: "/logo/leave-green.svg",
     shortcut: "/logo/leave-green.svg",
