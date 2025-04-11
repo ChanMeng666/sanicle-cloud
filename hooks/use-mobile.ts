@@ -1,11 +1,17 @@
 "use client"
 
-import { useSafeMobile } from "./use-safe-mobile"
-
+// Basic hook for detecting mobile screens
 export function useMobile() {
-  const { isMobile } = useSafeMobile()
+  // Static implementation for safety
+  if (typeof window === 'undefined') {
+    return false;
+  }
   
-  // Default to non-mobile if still loading or error occurred
-  return isMobile === null ? false : isMobile
+  try {
+    return window.innerWidth < 768;
+  } catch {
+    // Return false if any errors
+    return false;
+  }
 }
 

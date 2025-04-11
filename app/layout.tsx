@@ -41,148 +41,218 @@ export default function RootLayout({
         <link rel="icon" href="/logo/leave-green.svg" />
         <script dangerouslySetInnerHTML={{
           __html: `
-            // Create a custom logging element to view logs on the device itself
-            function createLogElement() {
-              if (document.getElementById('mobile-error-log')) return;
-              
-              const logContainer = document.createElement('div');
-              logContainer.id = 'mobile-error-log';
-              logContainer.style.position = 'fixed';
-              logContainer.style.bottom = '0';
-              logContainer.style.left = '0';
-              logContainer.style.right = '0';
-              logContainer.style.maxHeight = '50vh';
-              logContainer.style.overflowY = 'auto';
-              logContainer.style.backgroundColor = 'rgba(0,0,0,0.8)';
-              logContainer.style.color = 'white';
-              logContainer.style.fontFamily = 'monospace';
-              logContainer.style.fontSize = '12px';
-              logContainer.style.padding = '10px';
-              logContainer.style.zIndex = '10000';
-              logContainer.style.display = 'none';
-              
-              const closeButton = document.createElement('button');
-              closeButton.textContent = 'Close';
-              closeButton.style.position = 'absolute';
-              closeButton.style.right = '10px';
-              closeButton.style.top = '10px';
-              closeButton.style.backgroundColor = '#555';
-              closeButton.style.border = 'none';
-              closeButton.style.color = 'white';
-              closeButton.style.padding = '5px 10px';
-              closeButton.style.borderRadius = '4px';
-              closeButton.onclick = function() {
-                logContainer.style.display = 'none';
-              };
-              
-              logContainer.appendChild(closeButton);
-              document.body.appendChild(logContainer);
-              
-              // Add toggle button
-              const toggleButton = document.createElement('button');
-              toggleButton.textContent = 'Show Logs';
-              toggleButton.style.position = 'fixed';
-              toggleButton.style.bottom = '10px';
-              toggleButton.style.right = '10px';
-              toggleButton.style.backgroundColor = 'rgba(0,0,0,0.6)';
-              toggleButton.style.color = 'white';
-              toggleButton.style.border = 'none';
-              toggleButton.style.padding = '5px 10px';
-              toggleButton.style.borderRadius = '4px';
-              toggleButton.style.zIndex = '10001';
-              
-              toggleButton.onclick = function() {
-                logContainer.style.display = logContainer.style.display === 'none' ? 'block' : 'none';
-              };
-              
-              document.body.appendChild(toggleButton);
-              
-              return logContainer;
-            }
-            
-            function logToScreen(message, type = 'info') {
-              const logContainer = createLogElement();
-              const logEntry = document.createElement('div');
-              logEntry.style.marginBottom = '5px';
-              logEntry.style.borderLeft = '4px solid ' + (type === 'error' ? 'red' : type === 'warn' ? 'orange' : 'green');
-              logEntry.style.paddingLeft = '10px';
-              
-              // Make timestamp
-              const timestamp = new Date().toISOString().slice(11, 19);
-              logEntry.innerHTML = '<span style="color:#aaa">[' + timestamp + ']</span> ' + message;
-              
-              logContainer.appendChild(logEntry);
-              logContainer.scrollTop = logContainer.scrollHeight;
-            }
-            
-            // Override console methods to also log to screen
-            const originalConsoleLog = console.log;
-            const originalConsoleError = console.error;
-            const originalConsoleWarn = console.warn;
-            
-            console.log = function() {
-              originalConsoleLog.apply(console, arguments);
-              logToScreen(Array.from(arguments).map(arg => 
-                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
-              ).join(' '));
+            // Store original console methods before doing anything
+            const originalConsole = {
+              log: console.log,
+              error: console.error,
+              warn: console.warn,
+              info: console.info
+            };
+
+            // Simple implementation first - just use the original methods
+            // This prevents errors during initial load
+            console.log = function() { 
+              originalConsole.log.apply(console, arguments);
             };
             
             console.error = function() {
-              originalConsoleError.apply(console, arguments);
-              logToScreen(Array.from(arguments).map(arg => 
-                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
-              ).join(' '), 'error');
+              originalConsole.error.apply(console, arguments);
             };
             
             console.warn = function() {
-              originalConsoleWarn.apply(console, arguments);
-              logToScreen(Array.from(arguments).map(arg => 
-                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
-              ).join(' '), 'warn');
+              originalConsole.warn.apply(console, arguments);
             };
             
-            // Global error handler
+            // Global error handler - only basic functionality until DOM is ready
             window.onerror = function(message, source, lineno, colno, error) {
-              console.error('GLOBAL ERROR:', message);
-              console.error('Source:', source);
-              console.error('Line:', lineno, 'Column:', colno);
+              originalConsole.error('GLOBAL ERROR:', message);
               if (error && error.stack) {
-                console.error('Stack:', error.stack);
+                originalConsole.error('Stack:', error.stack);
               }
-              
-              // Show log automatically on error
-              const logContainer = document.getElementById('mobile-error-log');
-              if (logContainer) {
-                logContainer.style.display = 'block';
-              }
-              
-              // Try to collect additional information about the browser/device
-              try {
-                console.log('USER AGENT:', navigator.userAgent);
-                console.log('SCREEN:', window.innerWidth + 'x' + window.innerHeight);
-                console.log('PLATFORM:', navigator.platform);
-              } catch (e) {
-                console.error('Error collecting device info:', e);
-              }
-              
               return false;
             };
             
-            // Also catch unhandled promise rejections
-            window.addEventListener('unhandledrejection', function(event) {
-              console.error('UNHANDLED PROMISE REJECTION:', event.reason);
-              
-              // Show log automatically on error
-              const logContainer = document.getElementById('mobile-error-log');
-              if (logContainer) {
-                logContainer.style.display = 'block';
+            // Wait for DOM to be fully loaded before setting up visual logging
+            document.addEventListener('DOMContentLoaded', function() {
+              // Only initialize if we have document.body
+              if (typeof document === 'undefined' || !document.body) return;
+
+              try {
+                let logContainer;
+                let logInitialized = false;
+                
+                function initLogging() {
+                  if (logInitialized) return true;
+                  if (!document.body) return false;
+                  
+                  try {
+                    logContainer = document.createElement('div');
+                    logContainer.id = 'mobile-error-log';
+                    logContainer.style.position = 'fixed';
+                    logContainer.style.bottom = '0';
+                    logContainer.style.left = '0';
+                    logContainer.style.right = '0';
+                    logContainer.style.maxHeight = '50vh';
+                    logContainer.style.overflowY = 'auto';
+                    logContainer.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                    logContainer.style.color = 'white';
+                    logContainer.style.fontFamily = 'monospace';
+                    logContainer.style.fontSize = '12px';
+                    logContainer.style.padding = '10px';
+                    logContainer.style.zIndex = '10000';
+                    logContainer.style.display = 'none';
+                    
+                    const closeButton = document.createElement('button');
+                    closeButton.textContent = 'Close';
+                    closeButton.style.position = 'absolute';
+                    closeButton.style.right = '10px';
+                    closeButton.style.top = '10px';
+                    closeButton.style.backgroundColor = '#555';
+                    closeButton.style.border = 'none';
+                    closeButton.style.color = 'white';
+                    closeButton.style.padding = '5px 10px';
+                    closeButton.style.borderRadius = '4px';
+                    closeButton.onclick = function() {
+                      logContainer.style.display = 'none';
+                    };
+                    
+                    logContainer.appendChild(closeButton);
+                    document.body.appendChild(logContainer);
+                    
+                    // Add toggle button
+                    const toggleButton = document.createElement('button');
+                    toggleButton.textContent = 'Show Logs';
+                    toggleButton.style.position = 'fixed';
+                    toggleButton.style.bottom = '10px';
+                    toggleButton.style.right = '10px';
+                    toggleButton.style.backgroundColor = 'rgba(0,0,0,0.6)';
+                    toggleButton.style.color = 'white';
+                    toggleButton.style.border = 'none';
+                    toggleButton.style.padding = '5px 10px';
+                    toggleButton.style.borderRadius = '4px';
+                    toggleButton.style.zIndex = '10001';
+                    
+                    toggleButton.onclick = function() {
+                      logContainer.style.display = logContainer.style.display === 'none' ? 'block' : 'none';
+                    };
+                    
+                    document.body.appendChild(toggleButton);
+                    logInitialized = true;
+                    
+                    return true;
+                  } catch (e) {
+                    originalConsole.error('Failed to initialize logging UI:', e);
+                    return false;
+                  }
+                }
+                
+                function safeLogToScreen(message, type = 'info') {
+                  // Don't try to log if initialization failed or isn't complete
+                  if (!initLogging() || !logContainer) return;
+                  
+                  try {
+                    const logEntry = document.createElement('div');
+                    logEntry.style.marginBottom = '5px';
+                    logEntry.style.borderLeft = '4px solid ' + (type === 'error' ? 'red' : type === 'warn' ? 'orange' : 'green');
+                    logEntry.style.paddingLeft = '10px';
+                    
+                    // Make timestamp
+                    const timestamp = new Date().toISOString().slice(11, 19);
+                    logEntry.innerHTML = '<span style="color:#aaa">[' + timestamp + ']</span> ' + message;
+                    
+                    logContainer.appendChild(logEntry);
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                  } catch (e) {
+                    originalConsole.error('Error writing to log display:', e);
+                  }
+                }
+                
+                // Now override the console methods with safe versions
+                console.log = function() {
+                  originalConsole.log.apply(console, arguments);
+                  try {
+                    safeLogToScreen(Array.from(arguments).map(arg => 
+                      typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+                    ).join(' '));
+                  } catch (e) {
+                    originalConsole.error('Error in console.log override:', e);
+                  }
+                };
+                
+                console.error = function() {
+                  originalConsole.error.apply(console, arguments);
+                  try {
+                    safeLogToScreen(Array.from(arguments).map(arg => 
+                      typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+                    ).join(' '), 'error');
+                  } catch (e) {
+                    originalConsole.error('Error in console.error override:', e);
+                  }
+                };
+                
+                console.warn = function() {
+                  originalConsole.warn.apply(console, arguments);
+                  try {
+                    safeLogToScreen(Array.from(arguments).map(arg => 
+                      typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+                    ).join(' '), 'warn');
+                  } catch (e) {
+                    originalConsole.error('Error in console.warn override:', e);
+                  }
+                };
+                
+                // Also update our error handlers
+                window.onerror = function(message, source, lineno, colno, error) {
+                  originalConsole.error('GLOBAL ERROR:', message);
+                  originalConsole.error('Source:', source);
+                  originalConsole.error('Line:', lineno, 'Column:', colno);
+                  
+                  try {
+                    safeLogToScreen('GLOBAL ERROR: ' + message, 'error');
+                    if (error && error.stack) {
+                      safeLogToScreen('Stack: ' + error.stack, 'error');
+                    }
+                    
+                    // Try to collect additional information about the browser/device
+                    const deviceInfo = {
+                      userAgent: navigator.userAgent,
+                      screen: window.innerWidth + 'x' + window.innerHeight,
+                      platform: navigator.platform
+                    };
+                    
+                    safeLogToScreen('Device info: ' + JSON.stringify(deviceInfo), 'info');
+                    
+                    // Show log automatically on error
+                    if (logContainer) {
+                      logContainer.style.display = 'block';
+                    }
+                  } catch (e) {
+                    originalConsole.error('Error in onerror handler:', e);
+                  }
+                  
+                  return false;
+                };
+                
+                // Catch unhandled promise rejections
+                window.addEventListener('unhandledrejection', function(event) {
+                  try {
+                    originalConsole.error('UNHANDLED PROMISE REJECTION:', event.reason);
+                    safeLogToScreen('UNHANDLED PROMISE REJECTION: ' + event.reason, 'error');
+                    
+                    // Show log automatically on error
+                    if (logContainer) {
+                      logContainer.style.display = 'block';
+                    }
+                  } catch (e) {
+                    originalConsole.error('Error in unhandledrejection handler:', e);
+                  }
+                });
+                
+                // Log initial page load
+                console.log('PAGE LOADED: ' + window.location.href);
+              } catch (e) {
+                originalConsole.error('Failed to set up logging system:', e);
               }
-            });
-            
-            // Log initial page load
-            window.addEventListener('load', function() {
-              console.log('PAGE LOADED: ' + window.location.href);
-              createLogElement(); // Create the log element on page load
             });
           `
         }} />

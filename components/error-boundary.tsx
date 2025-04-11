@@ -34,19 +34,11 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // You can log the error to an error reporting service
-    console.error("ErrorBoundary caught an error", error, errorInfo)
+    // Store error info without logging
     this.setState({
       error,
       errorInfo
     })
-    
-    // Log additional debugging info
-    if (typeof window !== 'undefined') {
-      console.log('Window Width:', window.innerWidth)
-      console.log('Window Height:', window.innerHeight)
-      console.log('User Agent:', navigator.userAgent)
-    }
   }
 
   handleReset = (): void => {
@@ -73,7 +65,11 @@ class ErrorBoundary extends Component<Props, State> {
             
             <div className="mb-4 overflow-auto max-h-40 text-left bg-gray-100 p-3 rounded text-xs font-mono">
               <p className="text-red-600">{this.state.error?.toString()}</p>
-              <p className="text-gray-600 mt-2">{this.state.errorInfo?.componentStack}</p>
+              {this.state.errorInfo && (
+                <p className="text-gray-600 mt-2">
+                  {this.state.errorInfo.componentStack?.split('\n').slice(0, 3).join('\n')}
+                </p>
+              )}
             </div>
             
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
