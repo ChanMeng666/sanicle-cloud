@@ -129,7 +129,9 @@ export function MainNav() {
           title: "Careers",
           href: "/company/careers",
           description: "Join our team and help revolutionize women's workplace health."
-        },
+        }
+        // Commenting out pages that don't exist yet to prevent 404 errors
+        /* 
         {
           title: "Blog",
           href: "/company/blog",
@@ -140,6 +142,7 @@ export function MainNav() {
           href: "/company/contact",
           description: "Get in touch with our team for questions, demos, or partnerships."
         }
+        */
       ]
     }
   ]
