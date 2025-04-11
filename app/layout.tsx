@@ -8,6 +8,7 @@ import { CookieConsent } from "@/components/cookie/CookieConsent"
 import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
 import { Viewport } from "next"
 import { ErrorBoundary } from "@/components/error-boundary"
+import { MobileFallback } from "@/components/mobile-fallback"
 
 // Separate viewport export as recommended by Next.js
 export const viewport: Viewport = {
@@ -256,22 +257,83 @@ export default function RootLayout({
             });
           `
         }} />
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Handle chunk loading errors
+            window.__NEXT_CHUNK_LOAD_RETRY = function() {
+              const originalNextLoad = window.__NEXT_LOAD_CHUNKS__ || {};
+              window.__NEXT_LOAD_CHUNKS__ = function(fn) {
+                return originalNextLoad(function() {
+                  try {
+                    return fn.apply(this, arguments);
+                  } catch (error) {
+                    if (error && 
+                        (error.message || '').includes('ChunkLoadError') || 
+                        (error.message || '').includes('Loading chunk')) {
+                      console.error("Chunk loading error detected:", error);
+                      // Attempt to reload the page on chunk error
+                      if (window.location) {
+                        console.log("Reloading page to recover from chunk error...");
+                        window.location.reload();
+                      }
+                    }
+                    throw error;
+                  }
+                });
+              };
+            };
+            window.__NEXT_CHUNK_LOAD_RETRY();
+          `
+        }} />
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Polyfill for RegExp named capture groups
+            // This handles the "invalid group specifier name" error on iOS
+            (function() {
+              const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              
+              if (isSafari || isIOS) {
+                // Safely replace any problematic regex in the app
+                window.__SAFE_REGEX = function(pattern, flags) {
+                  try {
+                    // Try to create the regex normally
+                    return new RegExp(pattern, flags);
+                  } catch (e) {
+                    if (e instanceof SyntaxError && e.message.includes('group specifier')) {
+                      // If it fails with the named groups error, replace named groups with normal capturing groups
+                      // Convert (?<name>pattern) to (pattern)
+                      const safePattern = pattern.replace(/\(\?<[^>]+>/g, '(');
+                      console.log("Fixed regex pattern to be compatible with this browser");
+                      return new RegExp(safePattern, flags);
+                    }
+                    throw e;
+                  }
+                };
+              }
+            })();
+          `
+        }} />
       </head>
       <body className="antialiased overflow-x-hidden">
         <ErrorBoundary>
-          <ThemeProvider attribute="class" defaultTheme="light">
-            <CookieConsentProvider>
-              <div className="relative flex min-h-screen flex-col">
-                <MainNav />
-                <div className="z-[1] relative pt-16 sm:pt-20">
-                  <main className="flex-1 w-full">{children}</main>
+          <MobileFallback>
+            <ThemeProvider attribute="class" defaultTheme="light">
+              <CookieConsentProvider>
+                <div className="relative flex min-h-screen flex-col">
+                  <MainNav />
+                  <div className="z-[1] relative pt-16 sm:pt-20">
+                    <main className="flex-1 w-full">{children}</main>
+                  </div>
+                  <SiteFooter />
+                  <ChatWidgetWrapper />
+                  <CookieConsent />
                 </div>
-                <SiteFooter />
-                <ChatWidgetWrapper />
-                <CookieConsent />
-              </div>
-            </CookieConsentProvider>
-          </ThemeProvider>
+              </CookieConsentProvider>
+            </ThemeProvider>
+          </MobileFallback>
         </ErrorBoundary>
       </body>
     </html>
