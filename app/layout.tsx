@@ -42,6 +42,35 @@ export default function RootLayout({
         <link rel="icon" href="/logo/leave-green.svg" />
         <script dangerouslySetInnerHTML={{
           __html: `
+            // Immediate iOS check - run this before anything else
+            (function() {
+              try {
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                
+                if (isIOS) {
+                  console.log("Mobile browser detected, checking for compatibility...");
+                  console.log("Screen size: " + window.innerWidth + " x " + window.innerHeight);
+                  console.log("User agent: " + navigator.userAgent);
+                  
+                  // Set a flag to inform the app we're on iOS
+                  window.__IS_IOS = true;
+                  
+                  // Prevent errors from breaking the page load
+                  window.addEventListener('error', function(e) {
+                    console.log("Caught error during page load: " + e.message);
+                    e.preventDefault();
+                    return true; // Prevent default error handling
+                  }, true); // Use capture phase to catch errors before they propagate
+                }
+              } catch (e) {
+                console.error("Error in iOS detection:", e);
+              }
+            })();
+          `
+        }} />
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
             // Store original console methods before doing anything
             const originalConsole = {
               log: console.log,
@@ -296,22 +325,39 @@ export default function RootLayout({
               const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
               
               if (isSafari || isIOS) {
-                // Safely replace any problematic regex in the app
-                window.__SAFE_REGEX = function(pattern, flags) {
+                // Store the original RegExp constructor
+                const OriginalRegExp = RegExp;
+                
+                // Replace the RegExp constructor with our safe version
+                window.RegExp = function(pattern, flags) {
                   try {
-                    // Try to create the regex normally
-                    return new RegExp(pattern, flags);
+                    // Try to create the regex normally first
+                    return new OriginalRegExp(pattern, flags);
                   } catch (e) {
                     if (e instanceof SyntaxError && e.message.includes('group specifier')) {
                       // If it fails with the named groups error, replace named groups with normal capturing groups
                       // Convert (?<name>pattern) to (pattern)
-                      const safePattern = pattern.replace(/\(\?<[^>]+>/g, '(');
-                      console.log("Fixed regex pattern to be compatible with this browser");
-                      return new RegExp(safePattern, flags);
+                      console.log("Converting named capture groups to regular capture groups for iOS compatibility");
+                      const safePattern = typeof pattern === 'string' ? 
+                        pattern.replace(/\\(\\?<[^>]+>/g, '(') : 
+                        pattern;
+                      return new OriginalRegExp(safePattern, flags);
                     }
                     throw e;
                   }
                 };
+                
+                // Copy properties from original RegExp
+                for (const prop in OriginalRegExp) {
+                  if (OriginalRegExp.hasOwnProperty(prop)) {
+                    window.RegExp[prop] = OriginalRegExp[prop];
+                  }
+                }
+                
+                // Fix prototype chain
+                window.RegExp.prototype = OriginalRegExp.prototype;
+                
+                console.log("RegExp polyfill installed for iOS compatibility");
               }
             })();
           `

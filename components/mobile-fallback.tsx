@@ -37,6 +37,7 @@ export const MobileFallback = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (e) {
         // If we hit any errors, default to non-mobile
+        console.error("Error in mobile detection:", e);
         setIsMobile(false)
       }
     }
@@ -44,9 +45,21 @@ export const MobileFallback = ({ children }: { children: React.ReactNode }) => {
     checkMobile()
     
     // Listen for errors that may occur after initial render
-    const handleError = () => {
-      if (isMobile) {
-        setHasError(true)
+    const handleError = (event: ErrorEvent | PromiseRejectionEvent) => {
+      console.log("Mobile specific error:", event);
+      
+      // Check if the error is related to RegExp syntax
+      const errorMessage = event instanceof ErrorEvent ? event.message : 
+                          (event as PromiseRejectionEvent).reason?.message || '';
+      
+      if (errorMessage.includes('group specifier') || 
+          errorMessage.includes('regular expression')) {
+        setHasError(true);
+      }
+      
+      // Also set error if we detect any critical errors in iOS
+      if (isMobile && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        setHasError(true);
       }
     }
     
@@ -79,18 +92,27 @@ export const MobileFallback = ({ children }: { children: React.ReactNode }) => {
           </p>
           
           <div className="space-y-3 mb-8">
-            <Button 
-              className="w-full"
-              onClick={() => window.location.reload()}
+            <button 
+              className="w-full flex items-center justify-center bg-primary text-white px-4 py-2 rounded"
+              onClick={() => {
+                console.log("Attempting to refresh page...");
+                window.location.reload();
+              }}
             >
               <RefreshCw className="mr-2 h-4 w-4" /> Refresh Page
-            </Button>
+            </button>
             
-            <Link href="/" className="block w-full">
-              <Button variant="outline" className="w-full">
-                <ArrowLeft className="mr-2 h-4 w-4" /> Go to Homepage
-              </Button>
-            </Link>
+            <a 
+              href="/" 
+              className="w-full flex items-center justify-center border border-gray-300 text-primary px-4 py-2 rounded"
+              onClick={(e) => {
+                console.log("Attempting to navigate to homepage...");
+                window.location.href = '/';
+                e.preventDefault();
+              }}
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" /> Go to Homepage
+            </a>
           </div>
           
           <div className="text-xs text-gray-400">
