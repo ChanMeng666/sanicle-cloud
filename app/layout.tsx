@@ -8,7 +8,6 @@ import { CookieConsent } from "@/components/cookie/CookieConsent"
 import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
 import { Viewport } from "next"
 import { ErrorBoundary } from "@/components/error-boundary"
-import { MobileCompatibilityCheck } from "@/components/mobile-compatibility"
 
 // Separate viewport export as recommended by Next.js
 export const viewport: Viewport = {
@@ -190,21 +189,19 @@ export default function RootLayout({
       </head>
       <body className="antialiased overflow-x-hidden">
         <ErrorBoundary>
-          <MobileCompatibilityCheck>
-            <ThemeProvider attribute="class" defaultTheme="light">
-              <CookieConsentProvider>
-                <div className="relative flex min-h-screen flex-col">
-                  <MainNav />
-                  <div className="z-[1] relative pt-16 sm:pt-20">
-                    <main className="flex-1 w-full">{children}</main>
-                  </div>
-                  <SiteFooter />
-                  <ChatWidgetWrapper />
-                  <CookieConsent />
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <CookieConsentProvider>
+              <div className="relative flex min-h-screen flex-col">
+                <MainNav />
+                <div className="z-[1] relative pt-16 sm:pt-20">
+                  <main className="flex-1 w-full">{children}</main>
                 </div>
-              </CookieConsentProvider>
-            </ThemeProvider>
-          </MobileCompatibilityCheck>
+                <SiteFooter />
+                <ChatWidgetWrapper />
+                <CookieConsent />
+              </div>
+            </CookieConsentProvider>
+          </ThemeProvider>
         </ErrorBoundary>
       </body>
     </html>
