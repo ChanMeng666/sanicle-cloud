@@ -14,13 +14,34 @@ const DynamicChatWidget = dynamic(
 
 export function ChatWidgetWrapper() {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // 确保组件仅在客户端渲染
+  // 确保组件仅在客户端渲染，并检测是否为移动设备
   useEffect(() => {
     setMounted(true);
+    
+    try {
+      // Check if we're on a mobile device
+      const isMobileDevice = /iPhone|iPad|iPod|Android|Mobile|webOS|BlackBerry/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(isMobileDevice && isSmallScreen);
+      
+      // Also check if we have the global flag set
+      if (typeof window !== 'undefined' && (window as any).__DISABLE_WIDGETS_ON_MOBILE) {
+        setIsMobile(true);
+      }
+      
+      // Log the decision for debugging
+      if (isMobileDevice && isSmallScreen) {
+        console.log("Mobile device detected - chat widget disabled");
+      }
+    } catch (e) {
+      console.error("Error detecting mobile device:", e);
+    }
   }, []);
 
-  if (!mounted) return null;
+  // Don't render on mobile or when not mounted
+  if (!mounted || isMobile) return null;
 
   return (
     <Suspense fallback={null}>

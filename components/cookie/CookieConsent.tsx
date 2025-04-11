@@ -18,17 +18,48 @@ export function CookieConsent() {
   const [consentDialogOpen, setConsentDialogOpen] = useState(false);
   const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
   const { consent, setConsent, isConsentGiven } = useCookieConsent();
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if we're on a mobile device - do this first
+  useEffect(() => {
+    try {
+      // Check for mobile browser
+      const checkMobile = () => {
+        const isMobileDevice = /iPhone|iPad|iPod|Android|Mobile|webOS|BlackBerry/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth < 768;
+        setIsMobile(isMobileDevice && isSmallScreen);
+      };
+      
+      // Check right away
+      checkMobile();
+      
+      // Also check on resize
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    } catch (e) {
+      console.error("Error in mobile detection for cookie consent:", e);
+    }
+  }, []);
   
   // First-time visit detection for the consent popup
   useEffect(() => {
-    // Only show popup if consent hasn't been given
-    if (!isConsentGiven) {
+    // Only show popup if consent hasn't been given AND we're not on mobile
+    if (!isConsentGiven && !isMobile) {
       const timer = setTimeout(() => {
         setConsentDialogOpen(true);
       }, 1500);
       return () => clearTimeout(timer);
+    } else if (!isConsentGiven && isMobile) {
+      // On mobile, automatically use necessary cookies only without showing dialog
+      try {
+        console.log("Mobile detected - automatically setting necessary cookies only");
+        setConsent('necessary');
+        CookieManager.applyConsentSettings('necessary');
+      } catch (e) {
+        console.error("Error applying default cookie settings on mobile:", e);
+      }
     }
-  }, [isConsentGiven]);
+  }, [isConsentGiven, isMobile, setConsent]);
 
   // Make sure we don't show both dialogs at once
   useEffect(() => {
@@ -74,6 +105,11 @@ export function CookieConsent() {
       setConsentDialogOpen(open);
     }
   };
+
+  // Don't render anything on mobile devices
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

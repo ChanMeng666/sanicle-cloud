@@ -8,7 +8,30 @@ import { TestimonialSection } from "@/components/testimonial-section"
 import { StatisticsSection } from "@/components/statistics-section"
 import { useEffect, useState } from "react"
 import { useSafeMobile } from "@/hooks/use-safe-mobile"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+
+// Check for force parameter
+function ForceView() {
+  const searchParams = useSearchParams()
+  
+  useEffect(() => {
+    try {
+      const force = searchParams.get('force')
+      if (force === 'true') {
+        // Set the session storage to force continue
+        sessionStorage.setItem('sanicle-mobile-force-continue', 'true')
+        
+        // Remove the force parameter from URL to keep it clean
+        const newUrl = window.location.pathname
+        window.history.replaceState({}, document.title, newUrl)
+      }
+    } catch (e) {
+      console.error("Error handling force parameter:", e)
+    }
+  }, [searchParams])
+  
+  return null
+}
 
 export default function Home() {
   const router = useRouter()
@@ -83,16 +106,19 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col items-center w-full overflow-x-hidden">
-      <div className="w-full">
-        <HeroSection />
-      </div>
-      <ValueProposition />
-      <HowItWorks />
-      <StatisticsSection />
-      <TestimonialSection />
-      <TeamSection />
-    </main>
+    <>
+      <ForceView />
+      <main className="flex flex-col items-center w-full overflow-x-hidden">
+        <div className="w-full">
+          <HeroSection />
+        </div>
+        <ValueProposition />
+        <HowItWorks />
+        <StatisticsSection />
+        <TestimonialSection />
+        <TeamSection />
+      </main>
+    </>
   )
 }
 

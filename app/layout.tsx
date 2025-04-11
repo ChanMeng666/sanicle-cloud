@@ -40,27 +40,79 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/logo/leave-green.svg" />
+        
+        {/* RegExp Polyfill - MUST BE FIRST to run before any other code */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                
+                // Create a global flag for other scripts to check
+                window.__IS_IOS = isIOS;
+                
+                // Immediately apply RegExp polyfill for iOS
+                if (isIOS || isSafari) {
+                  // Store the original RegExp constructor
+                  const OriginalRegExp = RegExp;
+                  
+                  // Replace the RegExp constructor with our safe version
+                  window.RegExp = function(pattern, flags) {
+                    try {
+                      // Try to create the regex normally first
+                      return new OriginalRegExp(pattern, flags);
+                    } catch (e) {
+                      if (e instanceof SyntaxError && (e.message || '').includes('group specifier')) {
+                        // If it fails with the named groups error, replace named groups with normal capturing groups
+                        // Convert (?<name>pattern) to (pattern)
+                        if (typeof pattern === 'string') {
+                          const safePattern = pattern.replace(/\\(\\?<[^>]+>/g, '(').replace(/\(\?<[^>]+>/g, '(');
+                          return new OriginalRegExp(safePattern, flags);
+                        }
+                      }
+                      throw e;
+                    }
+                  };
+                  
+                  // Copy properties from original RegExp
+                  for (const prop in OriginalRegExp) {
+                    if (OriginalRegExp.hasOwnProperty(prop)) {
+                      window.RegExp[prop] = OriginalRegExp[prop];
+                    }
+                  }
+                  
+                  // Fix prototype chain
+                  window.RegExp.prototype = OriginalRegExp.prototype;
+                }
+                
+                // Prevent errors from breaking the page load
+                window.addEventListener('error', function(e) {
+                  if (e && e.message && e.message.includes('group specifier')) {
+                    console.log("Caught RegExp error:", e.message);
+                    e.preventDefault();
+                    return true;
+                  }
+                }, true);
+                
+              } catch (e) {
+                console.error("Error in RegExp polyfill:", e);
+              }
+            })();
+          `
+        }} />
+        
         <script dangerouslySetInnerHTML={{
           __html: `
             // Immediate iOS check - run this before anything else
             (function() {
               try {
-                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                const isIOS = window.__IS_IOS || /iPad|iPhone|iPod/.test(navigator.userAgent);
                 
                 if (isIOS) {
                   console.log("Mobile browser detected, checking for compatibility...");
                   console.log("Screen size: " + window.innerWidth + " x " + window.innerHeight);
                   console.log("User agent: " + navigator.userAgent);
-                  
-                  // Set a flag to inform the app we're on iOS
-                  window.__IS_IOS = true;
-                  
-                  // Prevent errors from breaking the page load
-                  window.addEventListener('error', function(e) {
-                    console.log("Caught error during page load: " + e.message);
-                    e.preventDefault();
-                    return true; // Prevent default error handling
-                  }, true); // Use capture phase to catch errors before they propagate
                 }
               } catch (e) {
                 console.error("Error in iOS detection:", e);
@@ -289,6 +341,37 @@ export default function RootLayout({
         
         <script dangerouslySetInnerHTML={{
           __html: `
+            // Disable Cookie Consent and AI Chat Widget on mobile devices
+            (function() {
+              try {
+                const isMobile = /iPhone|iPad|iPod|Android|Mobile|webOS|BlackBerry/i.test(navigator.userAgent);
+                
+                // Set a global flag that can be checked by components
+                window.__DISABLE_WIDGETS_ON_MOBILE = isMobile;
+                
+                if (isMobile) {
+                  console.log("Mobile browser detected - disabling cookie consent and chat widget");
+                  
+                  // Create style element to hide widgets on mobile
+                  document.addEventListener('DOMContentLoaded', function() {
+                    const style = document.createElement('style');
+                    style.textContent = 
+                      "@media (max-width: 768px) {" +
+                      "  #cookie-consent-container { display: none !important; }" +
+                      "  #chat-widget-container { display: none !important; }" +
+                      "}";
+                    document.head.appendChild(style);
+                  });
+                }
+              } catch (e) {
+                console.error("Error in mobile widget detection:", e);
+              }
+            })();
+          `
+        }} />
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
             // Handle chunk loading errors
             window.__NEXT_CHUNK_LOAD_RETRY = function() {
               const originalNextLoad = window.__NEXT_LOAD_CHUNKS__ || {};
@@ -315,53 +398,6 @@ export default function RootLayout({
             window.__NEXT_CHUNK_LOAD_RETRY();
           `
         }} />
-        
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            // Polyfill for RegExp named capture groups
-            // This handles the "invalid group specifier name" error on iOS
-            (function() {
-              const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-              
-              if (isSafari || isIOS) {
-                // Store the original RegExp constructor
-                const OriginalRegExp = RegExp;
-                
-                // Replace the RegExp constructor with our safe version
-                window.RegExp = function(pattern, flags) {
-                  try {
-                    // Try to create the regex normally first
-                    return new OriginalRegExp(pattern, flags);
-                  } catch (e) {
-                    if (e instanceof SyntaxError && e.message.includes('group specifier')) {
-                      // If it fails with the named groups error, replace named groups with normal capturing groups
-                      // Convert (?<name>pattern) to (pattern)
-                      console.log("Converting named capture groups to regular capture groups for iOS compatibility");
-                      const safePattern = typeof pattern === 'string' ? 
-                        pattern.replace(/\\(\\?<[^>]+>/g, '(') : 
-                        pattern;
-                      return new OriginalRegExp(safePattern, flags);
-                    }
-                    throw e;
-                  }
-                };
-                
-                // Copy properties from original RegExp
-                for (const prop in OriginalRegExp) {
-                  if (OriginalRegExp.hasOwnProperty(prop)) {
-                    window.RegExp[prop] = OriginalRegExp[prop];
-                  }
-                }
-                
-                // Fix prototype chain
-                window.RegExp.prototype = OriginalRegExp.prototype;
-                
-                console.log("RegExp polyfill installed for iOS compatibility");
-              }
-            })();
-          `
-        }} />
       </head>
       <body className="antialiased overflow-x-hidden">
         <ErrorBoundary>
@@ -374,8 +410,14 @@ export default function RootLayout({
                     <main className="flex-1 w-full">{children}</main>
                   </div>
                   <SiteFooter />
-                  <ChatWidgetWrapper />
-                  <CookieConsent />
+                  {/* Only render ChatWidgetWrapper on desktop */}
+                  <div id="chat-widget-container">
+                    <ChatWidgetWrapper />
+                  </div>
+                  {/* Only render CookieConsent on desktop */}
+                  <div id="cookie-consent-container">
+                    <CookieConsent />
+                  </div>
                 </div>
               </CookieConsentProvider>
             </ThemeProvider>
