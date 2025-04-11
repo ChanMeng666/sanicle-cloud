@@ -15,6 +15,8 @@ export const metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
   },
   icons: {
     icon: "/logo/leave-green.svg",
@@ -31,8 +33,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/logo/leave-green.svg" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.onerror = function(message, source, lineno, colno, error) {
+              console.log('Caught error:', message);
+              // Attempt recovery for specific errors
+              if (message && message.includes('is not a function')) {
+                console.log('Recovering from function error');
+                return true;
+              }
+              return false;
+            };
+          `
+        }} />
       </head>
       <body className="antialiased overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="light">

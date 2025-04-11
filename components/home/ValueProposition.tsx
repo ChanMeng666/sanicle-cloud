@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users, Brain, Sun, ChevronLeft, ChevronRight, MoveRight } from "lucide-react"
+import { CheckCircle, Heart, LockIcon, Network, ShieldIcon, Users, Brain, Sun, ChevronLeft, ChevronRight, MoveRight, LineChart, Sparkles, PuzzleIcon, Leaf } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function ValueProposition() {
@@ -9,6 +9,7 @@ export function ValueProposition() {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isIconError, setIconError] = useState(false);
   
   // Check scroll position to show/hide navigation arrows
   const checkScrollPosition = () => {
@@ -123,36 +124,42 @@ export function ValueProposition() {
       description:
         "Our smart dispensers offer a range of quality menstrual products, ensuring that all employees have access to the products they need, when they need them.",
       icon: "/icons/period-care.svg",
+      fallbackIcon: <Heart className="h-6 w-6 text-primary" />
     },
     {
       title: "Data-Driven Insights",
       description:
         "Gain valuable insights into usage patterns and employee needs, allowing you to optimize your menstrual health offerings and support.",
       icon: "/icons/data-insights.svg",
+      fallbackIcon: <LineChart className="h-6 w-6 text-primary" />
     },
     {
       title: "Promote Inclusivity",
       description:
         "Demonstrate your commitment to creating an inclusive workplace where everyone feels valued and supported, regardless of their menstrual health needs.",
       icon: "/icons/inclusivity.svg",
+      fallbackIcon: <Users className="h-6 w-6 text-primary" />
     },
     {
       title: "Enhance Employee Well-being",
       description:
         "Support employees during their periods, reducing absenteeism and presenteeism while boosting overall satisfaction and productivity.",
       icon: "/icons/wellbeing.svg",
+      fallbackIcon: <Sparkles className="h-6 w-6 text-primary" />
     },
     {
       title: "Easy Implementation",
       description:
         "Our turnkey solution includes installation, maintenance, and restocking, making it effortless to provide essential menstrual care.",
       icon: "/icons/easy-setup.svg",
+      fallbackIcon: <PuzzleIcon className="h-6 w-6 text-primary" />
     },
     {
       title: "Sustainability Focus",
       description:
         "Our eco-friendly products and commitment to reducing waste align with your company's environmental goals and values.",
       icon: "/icons/sustainability.svg",
+      fallbackIcon: <Leaf className="h-6 w-6 text-primary" />
     },
   ]
 
@@ -201,8 +208,18 @@ export function ValueProposition() {
               
               <CardContent className="p-6 pt-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <img src={benefit.icon} alt={benefit.title} className="h-6 w-6" />
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    {isIconError ? benefit.fallbackIcon : (
+                      <img 
+                        src={benefit.icon} 
+                        alt="" 
+                        className="w-6 h-6" 
+                        onError={(e) => {
+                          setIconError(true);
+                          console.log(`Failed to load icon: ${benefit.icon}`);
+                        }}
+                      />
+                    )}
                   </div>
                   <h3 className="font-semibold text-lg text-neutral-800">{benefit.title}</h3>
                 </div>

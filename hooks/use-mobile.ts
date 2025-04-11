@@ -6,19 +6,27 @@ export function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
-    }
+    if (typeof window === 'undefined') return
 
-    // Set initial value
-    handleResize()
+    try {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
+      }
 
-    // Listen for window resize events
-    window.addEventListener("resize", handleResize)
+      // Set initial value
+      handleResize()
 
-    // Clean up event listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize)
+      // Listen for window resize events
+      window.addEventListener("resize", handleResize)
+
+      // Clean up event listener on unmount
+      return () => {
+        window.removeEventListener("resize", handleResize)
+      }
+    } catch (error) {
+      console.error("Error in useMobile hook:", error)
+      // Default to desktop if there's an error
+      setIsMobile(false)
     }
   }, [])
 
