@@ -29,6 +29,7 @@ Sanicle Cloud is a revolutionary women's health platform specifically designed f
 - 🔒 **Enhanced Data Privacy** - Enterprise-grade protection of sensitive health data
 - 🔄 **Seamless HR Integration** - Easy implementation with existing HR systems
 - 🌿 **Sustainability Focus** - Eco-friendly products aligned with company values
+- 🤖 **AI-Powered Analytics** - Advanced insights for personalized health support
 
 > [!NOTE]
 > - Node.js >= 18.0.0 required
@@ -96,15 +97,15 @@ Sanicle Cloud is a revolutionary women's health platform specifically designed f
 ```
 sanicle-cloud/
 ├── app/                  # Next.js app directory
-│   ├── platform/         # Platform features and details
-│   ├── solution/         # Solution pages for different stakeholders
+│   ├── platform/         # Platform features, benefits, security, and integration
+│   ├── solution/         # Solution pages for employers, employees, and brokers
 │   ├── company/          # Company information pages
 │   ├── pricing/          # Pricing information
 │   └── demo/             # Demo request pages
 ├── components/           # Reusable UI components
-│   ├── home/             # Homepage components
+│   ├── home/             # Homepage components (HeroSection, ValueProposition, HowItWorks)
 │   ├── platform/         # Platform-specific components
-│   ├── solution/         # Solution-specific components
+│   ├── solution/         # Solution-specific components for different stakeholders
 │   ├── layout/           # Layout components
 │   ├── ui/               # UI library components
 │   └── shared/           # Shared utility components
@@ -112,7 +113,10 @@ sanicle-cloud/
 │   ├── images/           # Image assets
 │   ├── logo/             # Logo files including leaf decorations
 │   └── docs/             # Documentation files
-└── styles/               # Global styles and Tailwind configuration
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions and shared code
+├── styles/               # Global styles and Tailwind configuration
+└── watsonx-docs/         # Documentation for AI integration
 ```
 
 ## 🚀 Getting Started
@@ -172,6 +176,7 @@ yarn dev
 - **Menopause Support**: Resources and guidance for navigating menopause in the workplace
 - **Mental Health Integration**: Support for psychological aspects connected to hormonal health
 - **Educational Resources**: Access to information about women's health topics
+- **Health Tracking**: Tools to monitor and manage hormonal health cycles
 
 ### For HR Managers
 
@@ -179,12 +184,14 @@ yarn dev
 - **Data-Driven Insights**: Anonymous usage data to optimize health offerings
 - **Easy Implementation**: Turnkey solution with simple integration
 - **Benefits Management**: Tools to better manage women's health benefits
+- **Employee Satisfaction Metrics**: Track improvements in workplace satisfaction and retention
 
 ### For Health Brokers
 
 - **Network Building**: Connect employers with leading healthcare providers
 - **Comprehensive Solutions**: Offer complete women's health packages to clients
 - **Value Demonstration**: Show clear ROI for implementing women's health programs
+- **Analytics Dashboard**: Access to aggregated health benefits performance data
 
 ## 🔒 Privacy & Security
 
@@ -193,6 +200,7 @@ Sanicle Cloud prioritizes user privacy with the following measures:
 - **Data Protection**: Enterprise-grade security for all sensitive health information
 - **Compliance**: Adherence to relevant health data regulations
 - **Secure Implementation**: Protection of all user data across the platform
+- **Anonymized Analytics**: Ensuring individual health data remains private while providing valuable insights
 
 ## 📄 License
 
