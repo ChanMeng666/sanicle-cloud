@@ -201,6 +201,9 @@ export default function RootLayout({
                     logContainer.appendChild(closeButton);
                     document.body.appendChild(logContainer);
                     
+                    logInitialized = true;
+                    
+                    /* Temporarily commented out the log toggle button
                     // Add toggle button
                     const toggleButton = document.createElement('button');
                     toggleButton.textContent = 'Show Logs';
@@ -219,8 +222,7 @@ export default function RootLayout({
                     };
                     
                     document.body.appendChild(toggleButton);
-                    logInitialized = true;
-                    
+                    */
                     return true;
                   } catch (e) {
                     originalConsole.error('Failed to initialize logging UI:', e);
