@@ -120,26 +120,26 @@ export function ValueProposition() {
 
   const benefits = [
     {
-      title: "Comprehensive Period Care",
+      title: "Comprehensive Menstrual and Menopausal Care",
       description:
-        "Our smart dispensers offer a range of quality menstrual products, ensuring that all employees have access to the products they need, when they need them.",
+        "Ensure that all women employees have access to resources, benefits, and support during their menstrual and menopausal phases.",
       icon: "/icons/period-care.svg",
       fallbackIcon: <Heart className="h-6 w-6 text-primary" />
     },
     {
       title: "Data-Driven Insights",
       description:
-        "Gain valuable insights into usage patterns and employee needs, allowing you to optimize your menstrual health offerings and support.",
+        "Gain valuable insights into usage patterns and employee needs, allowing you to optimize your menstrual and menopausal health offerings and support.",
       icon: "/icons/data-insights.svg",
       fallbackIcon: <LineChart className="h-6 w-6 text-primary" />
     },
-    {
-      title: "Promote Inclusivity",
-      description:
-        "Demonstrate your commitment to creating an inclusive workplace where everyone feels valued and supported, regardless of their menstrual health needs.",
-      icon: "/icons/inclusivity.svg",
-      fallbackIcon: <Users className="h-6 w-6 text-primary" />
-    },
+    // {
+    //   title: "Promote Inclusivity",
+    //   description:
+    //     "Demonstrate your commitment to creating an inclusive workplace where everyone feels valued and supported, regardless of their menstrual health needs.",
+    //   icon: "/icons/inclusivity.svg",
+    //   fallbackIcon: <Users className="h-6 w-6 text-primary" />
+    // },
     {
       title: "Enhance Employee Well-being",
       description:
@@ -147,20 +147,20 @@ export function ValueProposition() {
       icon: "/icons/wellbeing.svg",
       fallbackIcon: <Sparkles className="h-6 w-6 text-primary" />
     },
-    {
-      title: "Easy Implementation",
-      description:
-        "Our turnkey solution includes installation, maintenance, and restocking, making it effortless to provide essential menstrual care.",
-      icon: "/icons/easy-setup.svg",
-      fallbackIcon: <PuzzleIcon className="h-6 w-6 text-primary" />
-    },
-    {
-      title: "Sustainability Focus",
-      description:
-        "Our eco-friendly products and commitment to reducing waste align with your company's environmental goals and values.",
-      icon: "/icons/sustainability.svg",
-      fallbackIcon: <Leaf className="h-6 w-6 text-primary" />
-    },
+    // {
+    //   title: "Easy Implementation",
+    //   description:
+    //     "Our turnkey solution includes installation, maintenance, and restocking, making it effortless to provide essential menstrual care.",
+    //   icon: "/icons/easy-setup.svg",
+    //   fallbackIcon: <PuzzleIcon className="h-6 w-6 text-primary" />
+    // },
+    // {
+    //   title: "Sustainability Focus",
+    //   description:
+    //     "Our eco-friendly products and commitment to reducing waste align with your company's environmental goals and values.",
+    //   icon: "/icons/sustainability.svg",
+    //   fallbackIcon: <Leaf className="h-6 w-6 text-primary" />
+    // },
   ]
 
   return (
@@ -187,16 +187,15 @@ export function ValueProposition() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-              <span className="font-semibold">For Employers</span>
-            </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-neutral-800">
               Transform Your Workplace with Sanicle
             </h2>
             <p className="mx-auto max-w-[700px] text-neutral-600 md:text-lg">
-              Join forward-thinking companies that prioritize menstrual health as an essential aspect of workplace
-              wellness.
+              Join forward-thinking companies that prioritize menstrual and menopausal health as an essential aspect of workplace wellness.
             </p>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+              <span className="font-semibold">For Employers</span>
+            </div>
           </div>
         </div>
         <div className="mx-auto grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
