@@ -12,32 +12,11 @@ export function TeamSection() {
       leafColor: "green"
     },
     {
-      name: "Eliana Franco Taveras",
-      role: "Chief Medical Officer",
-      bio: "Scientific expertise supports Sanicle's quality and commitment to health, grounding our products in evidence-based practices.",
-      avatar: "EF",
-      leafColor: "pink"
-    },
-    {
       name: "Chaste Inegbedion",
       role: "Chief Product Officer",
       bio: "Known as 'Mr. Padman,' a global leader in femtech, using expertise in product management to build inclusive solutions.",
       avatar: "CI",
       leafColor: "white"
-    },
-    {
-      name: "Tosin Oni",
-      role: "Chief Operating Officer",
-      bio: "A multifaceted entrepreneur who brings strategy, creativity, and a community-driven approach to Sanicle's operations.",
-      avatar: "TO",
-      leafColor: "green"
-    },
-    {
-      name: "Olive Kabeya",
-      role: "Head of Revenue and Communications",
-      bio: "Commitment to social justice guides her leadership in revenue generation and communication strategies.",
-      avatar: "OK",
-      leafColor: "pink"
     },
     {
       name: "Daryll Hall",
@@ -47,32 +26,11 @@ export function TeamSection() {
       leafColor: "white"
     },
     {
-      name: "Roxanne Stewart",
-      role: "Chief Sales and Marketing",
-      bio: "Combines psychology with expertise in sales and finance to lead Sanicle's marketing and growth strategies.",
-      avatar: "RS",
-      leafColor: "green"
-    },
-    {
-      name: "Chime Ifediniru",
-      role: "Chief Technology Officer",
-      bio: "With over a decade as a Senior Solutions Architect, leads Sanicle's tech initiatives, designing scalable systems.",
-      avatar: "CI",
-      leafColor: "pink"
-    },
-    {
       name: "Gabby Hurst",
       role: "Chief Experience Officer - CXO",
       bio: "Excels in product management, creating innovative, customer-centric solutions with technical insight and emotional intelligence.",
       avatar: "GH",
       leafColor: "white"
-    },
-    {
-      name: "Wesley Eugene",
-      role: "Chief Information Officer - CIO",
-      bio: "Expertise in Technology Business Management and a human-centered approach to driving digital transformation.",
-      avatar: "WE",
-      leafColor: "green"
     },
     {
       name: "Chan Meng",
