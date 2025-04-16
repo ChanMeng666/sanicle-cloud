@@ -160,7 +160,7 @@ export default function PlatformIntegrationPage() {
                 />
               </div>
               <img
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/IntegrationPartners.png"
                 alt="System Integration"
                 className="relative z-10 rounded-lg shadow-lg w-full object-cover"
               />

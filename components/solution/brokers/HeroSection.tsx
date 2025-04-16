@@ -84,7 +84,7 @@ export function HeroSection() {
               
               <div className="relative z-10 overflow-hidden rounded-2xl">
                 <img
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/images/ExpandedBenefits.png"
                   alt="Benefits broker meeting with client"
                   className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
                 />

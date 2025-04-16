@@ -59,7 +59,7 @@ export default function PlatformSecurityPage() {
             <div className="relative mt-8 md:mt-0">
               <div className="absolute inset-0 bg-gradient-to-r from-[#167d83] to-[#22c0c7] rounded-lg opacity-10 blur-lg transform rotate-2"></div>
               <img
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/Security.png"
                 alt="Data Security"
                 className="relative z-10 rounded-lg shadow-lg w-full object-cover"
               />

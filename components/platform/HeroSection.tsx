@@ -64,7 +64,7 @@ export function HeroSection() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight">
-              Many women suffer in silence dealing with moderate to severe symptoms during menstruation, which can negatively impact their productivity and engagement at work.<br className="sm:hidden" />
+              Many women suffer in silence while dealing with menstruation or menopause symptoms at work.<br className="sm:hidden" />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Our solution can help change that.</span>
             </h1>
             <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl">

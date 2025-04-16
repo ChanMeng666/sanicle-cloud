@@ -91,7 +91,7 @@ export function BenefitFeatures() {
                 <div className="relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-teal-400 rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
-                    src="/placeholder.svg?height=300&width=300"
+                    src="/images/AdvancedCycleTracking.png"
                     alt="Cycle tracking interface"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
@@ -104,7 +104,7 @@ export function BenefitFeatures() {
                 <div className="order-2 md:order-1 relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-secondary to-coral-400 rounded-lg opacity-10 blur-lg transform -rotate-2"></div>
                   <img
-                    src="/placeholder.svg?height=300&width=300"
+                    src="/images/MenstrualProductAccess.png"
                     alt="Menstrual products"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
@@ -164,7 +164,7 @@ export function BenefitFeatures() {
                     }}
                   >
                     <img
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/images/EducationalResources.png"
                       alt="Virtual health consultant AI interface for menopause management"
                       className="w-full h-full object-cover"
                     />
@@ -257,7 +257,7 @@ export function BenefitFeatures() {
                 <div className="relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-teal-400 rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
-                    src="/placeholder.svg?height=300&width=300"
+                    src="/images/PrivacyAndSecurity.png"
                     alt="Privacy and security"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />

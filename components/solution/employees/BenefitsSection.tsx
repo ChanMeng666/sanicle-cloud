@@ -92,7 +92,7 @@ export function BenefitsSection() {
               <div className="relative">
                 <div className="absolute inset-0 bg-secondary/20 rounded-2xl opacity-30 blur-xl transform rotate-3"></div>
                 <img
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/PersonalizedHealthTracking.png"
                   alt="Health Tracking"
                   className="relative z-10 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300"
                 />
@@ -117,7 +117,7 @@ export function BenefitsSection() {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/20 rounded-2xl opacity-30 blur-xl transform -rotate-3"></div>
                 <img
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/ExpertResourcesandSupport.png"
                   alt="Expert Resources"
                   className="relative z-10 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300"
                 />
@@ -206,7 +206,7 @@ export function BenefitsSection() {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/30 rounded-2xl opacity-40 blur-xl transform rotate-3"></div>
                 <img
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/PrivacyandSecurity.png"
                   alt="Data Privacy and Security"
                   className="relative z-10 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300"
                 />
