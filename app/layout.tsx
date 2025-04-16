@@ -9,6 +9,7 @@ import { CookieConsentProvider } from "@/components/cookie/CookieConsentContext"
 import { Viewport } from "next"
 import { ErrorBoundary } from "@/components/error-boundary"
 import { MobileFallback } from "@/components/mobile-fallback"
+import { Analytics } from "@vercel/analytics/react"
 
 // Separate viewport export as recommended by Next.js
 export const viewport: Viewport = {
@@ -425,6 +426,7 @@ export default function RootLayout({
             </ThemeProvider>
           </MobileFallback>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   )
