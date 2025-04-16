@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function TeamSection() {
   const teamMembers = [
@@ -9,40 +10,50 @@ export function TeamSection() {
       role: "Chief Executive Officer - CEO",
       bio: "A passionate advocate for women's health, leads with a user-first, insight-driven approach to product innovation.",
       avatar: "OA",
-      leafColor: "green"
+      image: "/images/team/OmopejuAfanu.jpg",
+      leafColor: "green",
+      slug: "omopeju-afanu"
     },
     {
       name: "Chaste Inegbedion",
       role: "Chief Product Officer",
       bio: "Known as 'Mr. Padman,' a global leader in femtech, using expertise in product management to build inclusive solutions.",
       avatar: "CI",
-      leafColor: "white"
+      image: "/images/team/ChasteInegbedion.jpg",
+      leafColor: "white",
+      slug: "chaste-inegbedion"
     },
     {
       name: "Daryll Hall",
       role: "AI Creative Project Manager",
       bio: "AI and tech background, paired with experience in successful exits, fuels Sanicle's innovation.",
       avatar: "DH",
-      leafColor: "white"
+      image: "/images/team/DaryllHall.jpg",
+      leafColor: "white",
+      slug: "daryll-hall"
     },
     {
       name: "Gabby Hurst",
       role: "Chief Experience Officer - CXO",
       bio: "Excels in product management, creating innovative, customer-centric solutions with technical insight and emotional intelligence.",
       avatar: "GH",
-      leafColor: "white"
+      image: "/images/team/GabbyHurst.jpg",
+      leafColor: "white",
+      slug: "gabby-hurst"
     },
     {
       name: "Chan Meng",
       role: "Senior AI/ML Infrastructure Engineer",
       bio: "Full-stack developer leading AI-powered solutions for women's workplace health, with expertise in cloud-native architecture and mentorship for women in STEM.",
       avatar: "CM",
-      leafColor: "pink"
+      image: "/images/team/ChanMeng.jpg",
+      leafColor: "pink",
+      slug: "chan-meng"
     },
   ]
 
   return (
-    <section className="w-full py-12 md:py-16 bg-white relative overflow-hidden">
+    <section id="team" className="w-full py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Top wave transition */}
       <div className="absolute top-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto fill-teal-50">
@@ -89,7 +100,7 @@ export function TeamSection() {
               <CardContent className="p-6 flex flex-col items-center text-center relative z-10">
                 <div className="relative">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-white ring-2 ring-primary/20 relative z-10">
-                    <AvatarImage src="" alt={member.name} />
+                    <AvatarImage src={member.image} alt={member.name} className="object-cover" />
                     <AvatarFallback className="bg-primary text-white text-xl">{member.avatar}</AvatarFallback>
                   </Avatar>
                   <div className="absolute -bottom-2 -right-2 w-10 h-10 opacity-70">
@@ -99,9 +110,9 @@ export function TeamSection() {
                 <h3 className="font-semibold text-lg text-neutral-800">{member.name}</h3>
                 <p className="text-primary mb-2">{member.role}</p>
                 <p className="text-neutral-600 text-sm mb-4">{member.bio}</p>
-                <Button variant="link" className="text-primary p-0 hover:text-teal-700 transition-colors duration-300">
+                <Link href={`/team/${member.slug}`} className="text-primary hover:text-teal-700 transition-colors duration-300 font-medium">
                   Read Bio
-                </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
