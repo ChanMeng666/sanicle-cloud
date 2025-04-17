@@ -312,8 +312,8 @@ export const teamMembers: TeamMember[] = [
     avatar: "CM",
     images: [
       "/images/team/ChanMeng.jpg",
-      "/images/team/chan-coding.jpg",
-      "/images/team/chan-mentoring.jpg"
+      "/images/team/ChanMeng-1.webp",
+      "/images/team/ChanMeng-2.webp"
     ],
     leafColor: "pink",
     slug: "chan-meng",
