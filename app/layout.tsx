@@ -169,6 +169,7 @@ export default function RootLayout({
                   if (!document.body) return false;
                   
                   try {
+                    /* Temporarily disabled log container display
                     logContainer = document.createElement('div');
                     logContainer.id = 'mobile-error-log';
                     logContainer.style.position = 'fixed';
@@ -201,6 +202,7 @@ export default function RootLayout({
                     
                     logContainer.appendChild(closeButton);
                     document.body.appendChild(logContainer);
+                    */
                     
                     logInitialized = true;
                     
@@ -235,6 +237,7 @@ export default function RootLayout({
                   // Don't try to log if initialization failed or isn't complete
                   if (!initLogging() || !logContainer) return;
                   
+                  /* Temporarily disabled log display
                   try {
                     const logEntry = document.createElement('div');
                     logEntry.style.marginBottom = '5px';
@@ -250,11 +253,13 @@ export default function RootLayout({
                   } catch (e) {
                     originalConsole.error('Error writing to log display:', e);
                   }
+                  */
                 }
                 
                 // Now override the console methods with safe versions
                 console.log = function() {
                   originalConsole.log.apply(console, arguments);
+                  /* Temporarily disabled visual logging
                   try {
                     safeLogToScreen(Array.from(arguments).map(arg => 
                       typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
@@ -262,10 +267,12 @@ export default function RootLayout({
                   } catch (e) {
                     originalConsole.error('Error in console.log override:', e);
                   }
+                  */
                 };
                 
                 console.error = function() {
                   originalConsole.error.apply(console, arguments);
+                  /* Temporarily disabled visual logging
                   try {
                     safeLogToScreen(Array.from(arguments).map(arg => 
                       typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
@@ -273,10 +280,12 @@ export default function RootLayout({
                   } catch (e) {
                     originalConsole.error('Error in console.error override:', e);
                   }
+                  */
                 };
                 
                 console.warn = function() {
                   originalConsole.warn.apply(console, arguments);
+                  /* Temporarily disabled visual logging
                   try {
                     safeLogToScreen(Array.from(arguments).map(arg => 
                       typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
@@ -284,6 +293,7 @@ export default function RootLayout({
                   } catch (e) {
                     originalConsole.error('Error in console.warn override:', e);
                   }
+                  */
                 };
                 
                 // Also update our error handlers
@@ -292,6 +302,7 @@ export default function RootLayout({
                   originalConsole.error('Source:', source);
                   originalConsole.error('Line:', lineno, 'Column:', colno);
                   
+                  /* Temporarily disabled visual logging
                   try {
                     safeLogToScreen('GLOBAL ERROR: ' + message, 'error');
                     if (error && error.stack) {
@@ -314,6 +325,7 @@ export default function RootLayout({
                   } catch (e) {
                     originalConsole.error('Error in onerror handler:', e);
                   }
+                  */
                   
                   return false;
                 };
@@ -322,12 +334,14 @@ export default function RootLayout({
                 window.addEventListener('unhandledrejection', function(event) {
                   try {
                     originalConsole.error('UNHANDLED PROMISE REJECTION:', event.reason);
+                    /* Temporarily disabled visual logging
                     safeLogToScreen('UNHANDLED PROMISE REJECTION: ' + event.reason, 'error');
                     
                     // Show log automatically on error
                     if (logContainer) {
                       logContainer.style.display = 'block';
                     }
+                    */
                   } catch (e) {
                     originalConsole.error('Error in unhandledrejection handler:', e);
                   }
