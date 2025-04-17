@@ -72,7 +72,7 @@ export function ProfileHeader({ member }: ProfileHeaderProps) {
                 </Link>
               )}
               {member.contact.github && (
-                <Link href={`https://${member.contact.github}`} target="_blank" rel="noopener noreferrer">
+                <Link href={member.contact.github} target="_blank" rel="noopener noreferrer">
                   <Badge variant="outline" className="flex gap-1.5 items-center hover:bg-primary/5 transition-colors px-3 py-1.5 border-primary/20">
                     <GithubIcon className="h-3.5 w-3.5 text-primary" />
                     <span className="font-medium">GitHub</span>
@@ -80,7 +80,7 @@ export function ProfileHeader({ member }: ProfileHeaderProps) {
                 </Link>
               )}
               {member.contact.portfolio || member.contact.personal && (
-                <Link href={`https://${member.contact.portfolio || member.contact.personal}`} target="_blank" rel="noopener noreferrer">
+                <Link href={member.contact.portfolio || member.contact.personal} target="_blank" rel="noopener noreferrer">
                   <Badge variant="outline" className="flex gap-1.5 items-center hover:bg-primary/5 transition-colors px-3 py-1.5 border-primary/20">
                     <GlobeIcon className="h-3.5 w-3.5 text-primary" />
                     <span className="font-medium">Portfolio</span>

@@ -334,39 +334,39 @@ export const teamMembers: TeamMember[] = [
     education: [
       {
         institution: "Lincoln University (NZ)",
-        degree: "Level 9 - Master's Degree, Applied Computing",
+        degree: "Master's Degree, Applied Computing",
         period: "November 2023 - December 2024"
       },
       {
-        institution: "江苏师范大学",
-        degree: "Level 7 - Bachelor's Degree, Geography Science",
+        institution: "Jiangsu Normal University",
+        degree: "Bachelor's Degree, Geography Science",
         period: "September 2012 - June 2016"
       }
     ],
     certifications: [
-      "Problem Solving (Basic) Certificate",
-      "Java (Basic) Certificate",
-      "React (Basic) Certificate",
-      "Angular (Basic) Certificate",
-      "Python (Basic) Certificate"
+      "HackerRank Software Engineer Certificate",
+      "HackerRank Frontend Developer (React)",
+      "HackerRank Problem Solving (Intermediate)",
+      "Microsoft Career Essentials in Software Development",
+      "GitHub Professional Certificate"
     ],
     skills: [
       "Artificial Intelligence (AI)",
       "Full-Stack Development",
       "Machine Learning Infrastructure",
       "React",
-      "Angular",
-      "Java Spring Boot",
-      "AWS",
-      "Azure DevOps"
+      "Next.js",
+      "TypeScript",
+      "Cloud-Native Architecture",
+      "PostgreSQL"
     ],
     contact: {
       email: "chanmeng.career@gmail.com",
       phone: "+64 02885235858",
-      linkedin: "http://www.linkedin.com/in/chanmeng",
-      github: "github.com/ChanMeng",
-      personal: "chanmeng.live/",
-      huggingface: "huggingface.co/ChanMeng"
+      linkedin: "https://www.linkedin.com/in/chanmeng666/",
+      github: "https://github.com/ChanMeng666",
+      personal: "https://www.chanmeng.live/",
+      huggingface: "https://huggingface.co/ChanMeng666"
     },
     languages: [
       "Japanese (Limited Working)",
