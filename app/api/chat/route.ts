@@ -7,17 +7,14 @@ interface ChatMessage {
 }
 
 // 添加系统消息，指导AI使用正确的Markdown格式
-const SYSTEM_MESSAGE = {
-  role: "system",
-  content: `You are Sanicle's AI assistant. Format your responses using Markdown:
+const SYSTEM_PROMPT = `You are Sanicle's AI assistant. Format your responses using Markdown:
   - Use proper headers with ## for main titles and ### for subtitles
   - Format lists correctly with proper spacing
   - Use **bold** for emphasis
   - Separate paragraphs with blank lines
   - Use bullet points with * or - followed by a space
   - Number lists with 1. 2. etc. followed by a space
-  - Format your response clearly and concisely`
-};
+  - Format your response clearly and concisely`;
 
 export async function POST(req: Request) {
   try {
@@ -40,15 +37,43 @@ export async function POST(req: Request) {
     const tokenData = await tokenResponse.json();
     const accessToken = tokenData.access_token;
 
-    // 选择正确的端点URL（流式或非流式）
-    const endpointUrl = streaming
-      ? `${WATSONX_CONFIG.API_URL}/${WATSONX_CONFIG.DEPLOYMENT_ID}/ai_service_stream?version=${WATSONX_CONFIG.VERSION}`
-      : `${WATSONX_CONFIG.API_URL}/${WATSONX_CONFIG.DEPLOYMENT_ID}/ai_service?version=${WATSONX_CONFIG.VERSION}`;
-
-    // 在消息列表的开头添加系统消息，指导AI使用正确的Markdown格式
-    const messagesWithSystem = [SYSTEM_MESSAGE, ...messages];
+    // 准备消息数组
+    const messagesForAPI = [
+      {
+        role: "system",
+        content: SYSTEM_PROMPT
+      }
+    ];
     
-    console.log("Sending to IBM watsonx.ai:", JSON.stringify({ messages: messagesWithSystem }));
+    // 添加用户和助手的对话历史
+    for (const msg of messages) {
+      if (msg.role === 'user' || msg.role === 'assistant') {
+        messagesForAPI.push({
+          role: msg.role,
+          content: msg.content
+        });
+      }
+    }
+
+    // 设置API端点
+    const baseUrl = 'https://us-south.ml.cloud.ibm.com';
+    const endpointUrl = `${baseUrl}/ml/v1/text/chat?version=2023-05-29`;
+    
+    // 准备请求体
+    const requestBody = {
+      messages: messagesForAPI,
+      model_id: WATSONX_CONFIG.MODEL_ID,
+      project_id: WATSONX_CONFIG.PROJECT_ID,
+      frequency_penalty: 0,
+      max_tokens: 2000,
+      presence_penalty: 0,
+      temperature: 0.7,
+      top_p: 1
+    };
+    
+    console.log("Sending to watsonx.ai chat API endpoint:", endpointUrl);
+    console.log("Using model:", WATSONX_CONFIG.MODEL_ID);
+    console.log("Messages count:", messagesForAPI.length);
 
     // 调用watsonx ai接口
     const watsonxResponse = await fetch(
@@ -60,7 +85,7 @@ export async function POST(req: Request) {
           'Accept': 'application/json',
           'Authorization': `Bearer ${accessToken}`
         },
-        body: JSON.stringify({ messages: messagesWithSystem })
+        body: JSON.stringify(requestBody)
       }
     );
 
@@ -70,22 +95,12 @@ export async function POST(req: Request) {
       throw new Error(`Failed to get response from watsonx ai: ${watsonxResponse.status} ${errorText}`);
     }
 
-    // 根据是否是流式请求处理响应
-    if (streaming) {
-      // 如果是流式传输，直接返回响应流
-      return new Response(watsonxResponse.body, {
-        headers: {
-          'Content-Type': 'text/event-stream',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive'
-        }
-      });
-    } else {
-      // 如果不是流式传输，返回JSON响应
-      const responseData = await watsonxResponse.json();
-      console.log("watsonx.ai response:", JSON.stringify(responseData));
-      return Response.json(responseData);
-    }
+    // 处理响应
+    const responseData = await watsonxResponse.json();
+    console.log("watsonx.ai response:", JSON.stringify(responseData));
+    
+    // 直接返回watsonx.ai的完整响应
+    return Response.json(responseData);
   } catch (error: unknown) {
     console.error('Error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';

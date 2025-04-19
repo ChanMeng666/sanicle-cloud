@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, X, MessageSquare, BotIcon } from "lucide-react";
+import { Send, X, MessageSquare, BotIcon, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChatMessage, Message } from "./ChatMessage";
@@ -33,11 +33,10 @@ export function ChatWidget() {
     }
   }, [messages]);
 
-  // 使用非流式API
-  async function handleSubmitStandard(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (input.trim() === "") return;
+    if (input.trim() === "" || isLoading) return;
     
     const userMessage: Message = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
@@ -45,6 +44,7 @@ export function ChatWidget() {
     setIsLoading(true);
     
     try {
+      // Send all conversation history for better context
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
@@ -61,32 +61,44 @@ export function ChatWidget() {
       }
       
       const data = await response.json();
-      console.log("API response:", data); // 日志记录完整响应
+      console.log("Response data:", data); // Debug the response
       
-      // 根据watsonx.ai返回的数据结构调整解析逻辑
-      let assistantMessage = "Sorry, I couldn't process your request. Please try again.";
+      // Extract the assistant message from IBM watsonx AI response format
+      let assistantContent = "Sorry, I couldn't process your request. Please try again.";
       
-      // 根据错误信息添加日志
+      // Check for error message from API
       if (data.error) {
         console.error("Error from API:", data.error, data.details);
-        assistantMessage = `Error: ${data.error}`;
-      } else {
-        // 检查不同的可能响应结构
-        if (data.results && data.results[0]?.generated_text) {
-          assistantMessage = data.results[0].generated_text;
-        } else if (data.generated_text) {
-          assistantMessage = data.generated_text;
-        } else if (data.result && data.result.generated_text) {
-          assistantMessage = data.result.generated_text;
-        } else if (data.choices && data.choices[0]?.message?.content) {
-          assistantMessage = data.choices[0].message.content;
+        assistantContent = `Error: ${data.error}`;
+      } 
+      // 处理不同格式的API响应
+      else if (data.generated_text) {
+        assistantContent = data.generated_text;
+      }
+      // 如果响应包含choices数组（OpenAI格式）
+      else if (data.choices && data.choices.length > 0) {
+        const choice = data.choices[0];
+        if (choice.message && choice.message.content) {
+          assistantContent = choice.message.content;
+        } else if (choice.text) {
+          assistantContent = choice.text;
         }
       }
+      // 如果响应直接包含文本内容
+      else if (typeof data === 'string') {
+        assistantContent = data;
+      }
+      // 如果响应是直接从watsonx.ai传回的
+      else if (data.results && data.results.length > 0) {
+        assistantContent = data.results[0].generated_text || data.results[0].content || assistantContent;
+      }
       
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: assistantMessage },
-      ]);
+      const assistantMessage: Message = { 
+        role: 'assistant', 
+        content: assistantContent
+      };
+      
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Error:", error);
       setMessages((prev) => [
@@ -99,105 +111,7 @@ export function ChatWidget() {
     } finally {
       setIsLoading(false);
     }
-  }
-
-  // 使用流式API
-  async function handleSubmitStreaming(e: React.FormEvent) {
-    e.preventDefault();
-    
-    if (input.trim() === "") return;
-    
-    const userMessage: Message = { role: "user", content: input };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-    setIsLoading(true);
-    
-    // 创建一个初始的AI响应消息
-    setMessages((prev) => [
-      ...prev,
-      { role: "assistant", content: "" },
-    ]);
-    
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: [...messages, userMessage],
-          streaming: true,
-        }),
-      });
-      
-      if (!response.ok) {
-        throw new Error("Failed to get response");
-      }
-      
-      // 处理SSE响应
-      const reader = response.body?.getReader();
-      if (!reader) throw new Error("Response body is null");
-      
-      let partialResponse = "";
-      
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        
-        // 解码chunk
-        const chunk = new TextDecoder().decode(value);
-        console.log("Streaming chunk:", chunk); // 日志记录流式响应
-        
-        // 解析SSE数据
-        const lines = chunk.split('\n');
-        let parsedChunk = "";
-        
-        for (const line of lines) {
-          if (line.startsWith('data:')) {
-            try {
-              const jsonData = JSON.parse(line.substring(5));
-              if (jsonData.generated_text) {
-                parsedChunk += jsonData.generated_text;
-              } else if (jsonData.choices && jsonData.choices[0]?.delta?.content) {
-                parsedChunk += jsonData.choices[0].delta.content;
-              }
-            } catch (e) {
-              console.error("Failed to parse JSON from SSE", e);
-            }
-          }
-        }
-        
-        // 更新partialResponse
-        partialResponse += parsedChunk;
-        
-        // 更新最后一条消息
-        setMessages((prev) => {
-          const updatedMessages = [...prev];
-          updatedMessages[updatedMessages.length - 1] = {
-            role: "assistant",
-            content: partialResponse,
-          };
-          return updatedMessages;
-        });
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      // 更新错误消息
-      setMessages((prev) => {
-        const updatedMessages = [...prev];
-        updatedMessages[updatedMessages.length - 1] = {
-          role: "assistant",
-          content: "Sorry, there was an error processing your request. Please try again later.",
-        };
-        return updatedMessages;
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  // 使用标准API，如果实现流式API遇到问题，可以切换为handleSubmitStreaming
-  const handleSubmit = handleSubmitStandard;
+  };
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -302,7 +216,11 @@ export function ChatWidget() {
                   isLoading && "opacity-70"
                 )}
               >
-                <Send className="h-4 w-4" />
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
               </Button>
             </div>
             <div className={cn(
