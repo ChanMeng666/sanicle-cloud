@@ -15,6 +15,11 @@ const DynamicChatWidget = dynamic(
 export function ChatWidgetWrapper() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleCollapsed = () => {
+    setIsCollapsed(prev => !prev);
+  };
 
   // 确保组件仅在客户端渲染，并检测是否为移动设备
   useEffect(() => {
@@ -45,7 +50,10 @@ export function ChatWidgetWrapper() {
 
   return (
     <Suspense fallback={null}>
-      <DynamicChatWidget />
+      <DynamicChatWidget 
+        isCollapsed={isCollapsed}
+        toggleCollapsed={toggleCollapsed}
+      />
     </Suspense>
   );
 } 

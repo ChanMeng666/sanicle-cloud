@@ -1,50 +1,76 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { Send, X, MessageSquare, BotIcon, Loader2 } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Send, X, MessageSquare, BotIcon, Loader2, RefreshCw, Maximize2, Minimize2, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChatMessage, Message } from "./ChatMessage";
+import { PresetQuestions, PRESET_ANSWERS, PresetAnswerKey } from "./PresetQuestions";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useTheme } from "next-themes";
+import { Textarea } from "@/components/ui/textarea";
 
-export function ChatWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+export function ChatWidget({
+  isCollapsed,
+  toggleCollapsed,
+  className,
+}: {
+  isCollapsed: boolean;
+  toggleCollapsed: () => void;
+  className?: string;
+}) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPresetQuestions, setShowPresetQuestions] = useState(true);
   const { theme } = useTheme();
-  const isDarkTheme = theme === 'dark';
-  
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content: "Hi, I'm Sanicle's AI assistant. How can I help you today?",
-    },
-  ]);
-  
+  const [messages, setMessages] = useState<{ role: "user" | "assistant", content: string }[]>([]);
+  const [content, setContent] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const isDarkTheme = theme === "dark";
   
   useEffect(() => {
-    // Scroll to bottom when messages change
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const togglePresetQuestions = useCallback(() => {
+    setShowPresetQuestions((prev) => !prev);
+  }, []);
+
+  const handleSelectPresetQuestion = useCallback((question: string) => {
+    const userMessage: Message = { role: "user", content: question };
+    setMessages(prev => [...prev, userMessage]);
     
-    if (input.trim() === "" || isLoading) return;
+    if (Object.keys(PRESET_ANSWERS).includes(question)) {
+      const presetQuestion = question as PresetAnswerKey;
+      const assistantMessage: Message = { 
+        role: "assistant", 
+        content: PRESET_ANSWERS[presetQuestion]
+      };
+      
+      setTimeout(() => {
+        setMessages(prev => [...prev, assistantMessage]);
+      }, 500);
+      
+      setShowPresetQuestions(false);
+    } else {
+      setInput(question);
+    }
+  }, []);
+
+  const handleSendMessage = async (messageText: string) => {
+    if (messageText.trim() === "" || isLoading) return;
     
-    const userMessage: Message = { role: "user", content: input };
+    const userMessage: Message = { role: "user", content: messageText };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
     
     try {
-      // Send all conversation history for better context
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
@@ -61,21 +87,17 @@ export function ChatWidget() {
       }
       
       const data = await response.json();
-      console.log("Response data:", data); // Debug the response
+      console.log("Response data:", data);
       
-      // Extract the assistant message from IBM watsonx AI response format
       let assistantContent = "Sorry, I couldn't process your request. Please try again.";
       
-      // Check for error message from API
       if (data.error) {
         console.error("Error from API:", data.error, data.details);
         assistantContent = `Error: ${data.error}`;
       } 
-      // 处理不同格式的API响应
       else if (data.generated_text) {
         assistantContent = data.generated_text;
       }
-      // 如果响应包含choices数组（OpenAI格式）
       else if (data.choices && data.choices.length > 0) {
         const choice = data.choices[0];
         if (choice.message && choice.message.content) {
@@ -84,11 +106,9 @@ export function ChatWidget() {
           assistantContent = choice.text;
         }
       }
-      // 如果响应直接包含文本内容
       else if (typeof data === 'string') {
         assistantContent = data;
       }
-      // 如果响应是直接从watsonx.ai传回的
       else if (data.results && data.results.length > 0) {
         assistantContent = data.results[0].generated_text || data.results[0].content || assistantContent;
       }
@@ -113,125 +133,173 @@ export function ChatWidget() {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await handleSendMessage(input);
+  };
+
+  const clear = useCallback(() => {
+    setMessages([]);
+    setInput("");
+    setShowPresetQuestions(true);
+  }, []);
+
+  // If collapsed, just show the chat button
+  if (isCollapsed) {
+    return (
+      <button
+        onClick={toggleCollapsed}
+        className={cn(
+          "fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full",
+          "bg-primary text-primary-foreground flex items-center justify-center",
+          "shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105",
+          "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50",
+          className
+        )}
+      >
+        <MessageSquare className="h-6 w-6" />
+      </button>
+    );
+  }
+  
+  // Expanded chat interface
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <Popover open={isOpen} onOpenChange={setIsOpen}>
-        <PopoverTrigger asChild>
-          <Button 
-            size="icon" 
-            className={cn(
-              "h-14 w-14 rounded-full shadow-button hover:shadow-button-hover transition-all duration-300",
-              "bg-primary hover:bg-primary-deep text-white",
-              "flex items-center justify-center relative",
-              !isOpen && "animate-bounce-subtle"
-            )}
-          >
-            {isOpen ? (
-              <X className="h-6 w-6 transition-transform duration-300" />
-            ) : (
-              <div className="relative">
-                <MessageSquare className="h-6 w-6" />
-                <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
-                </span>
-              </div>
-            )}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent 
-          side="top" 
-          align="end" 
-          className={cn(
-            "w-[350px] sm:w-[450px] h-[500px] p-0 overflow-hidden flex flex-col",
-            "border border-primary/20 shadow-card-hover rounded-xl",
-            "animate-slide-up",
-            isDarkTheme ? "bg-neutral-900" : "bg-white"
-          )}
-        >
-          <div className={cn(
-            "p-4 text-white font-semibold rounded-t-xl flex justify-between items-center",
-            isDarkTheme 
-              ? "bg-primary-deep" 
-              : "bg-gradient-to-r from-primary to-primary-deep"
-          )}>
-            <div className="flex items-center gap-2">
-              <MessageSquare className="h-5 w-5" />
-              <span>Sanicle AI Assistant</span>
-            </div>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="h-8 w-8 text-white hover:bg-white/20 rounded-full -mr-2"
-              onClick={() => setIsOpen(false)}
-            >
-              <X className="h-4 w-4" />
-            </Button>
+    <div className={cn(
+      "fixed bottom-5 right-5 z-50 w-[380px] max-w-[95vw]",
+      "rounded-2xl flex flex-col shadow-xl",
+      "h-[550px] max-h-[80vh]",
+      "bg-background border border-border",
+      className
+    )}>
+      {/* Header */}
+      <div 
+        className={cn(
+          "flex items-center justify-between p-4",
+          "bg-primary text-primary-foreground rounded-t-2xl"
+        )}
+      >
+        <div className="flex items-center space-x-3">
+          <BotAvatar />
+          <div>
+            <p className="font-semibold">
+              Sanicle AI Assistant
+            </p>
+            <p className="text-xs opacity-90">
+              Ask me anything about Sanicle
+            </p>
           </div>
-          
-          <div className={cn(
-            "flex-1 overflow-y-auto p-4 space-y-4",
-            isDarkTheme ? "bg-neutral-800" : "bg-tertiary/20"
-          )}>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={clear}
+            className="h-8 w-8 p-0"
+            variant="ghost"
+          >
+            <RefreshCw className="h-4 w-4" />
+            <span className="sr-only">Reset conversation</span>
+          </Button>
+          <Button
+            onClick={toggleCollapsed}
+            className="h-8 w-8 p-0"
+            variant="ghost"
+          >
+            <X className="h-5 w-5" />
+            <span className="sr-only">Close</span>
+          </Button>
+        </div>
+      </div>
+
+      {/* Chat messages area with proper scrolling */}
+      <div 
+        ref={chatContainerRef}
+        className="flex-1 overflow-y-auto p-4 scroll-smooth"
+      >
+        {messages.length === 0 ? (
+          <div className="flex flex-col h-full">
+            <div className="space-y-4 mb-6">
+              <h3 className="text-xl font-semibold text-center">
+                Welcome to Sanicle AI Assistant
+              </h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Get immediate answers about Sanicle's platform, benefits, and services.
+              </p>
+            </div>
+            
+            <PresetQuestions
+              isHidden={!showPresetQuestions}
+              onSelectQuestion={handleSelectPresetQuestion}
+              onToggleVisibility={togglePresetQuestions}
+              className="mt-2"
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
             {messages.map((message, index) => (
-              <ChatMessage key={index} message={message} />
+              <ChatMessage 
+                key={`${message.role}-${index}`}
+                message={message}
+              />
             ))}
             {isLoading && (
-              <div className="flex w-full items-start gap-4">
-                <Avatar className="h-8 w-8 ring-2 ring-primary/20 shadow-sm">
-                  <AvatarFallback className="bg-gradient-to-br from-primary to-primary-deep text-white">
-                    <BotIcon className="h-4 w-4" />
-                  </AvatarFallback>
-                </Avatar>
-                <TypingIndicator />
-              </div>
+              <ChatMessage
+                message={{
+                  role: "assistant",
+                  content: content || "Thinking..."
+                }}
+                isLoading={true}
+              />
             )}
             <div ref={messagesEndRef} />
           </div>
-          
-          <form onSubmit={handleSubmit} className={cn(
-            "p-4 border-t border-primary/10",
-            isDarkTheme ? "bg-neutral-900" : "bg-white"
-          )}>
-            <div className="flex gap-2">
-              <Input
-                placeholder="Type your message..."
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                disabled={isLoading}
-                className={cn(
-                  "flex-1 focus-visible:ring-primary focus-visible:border-primary rounded-lg",
-                  isDarkTheme 
-                    ? "bg-neutral-800 border-primary/30 text-white placeholder:text-neutral-400" 
-                    : "border-primary/20"
-                )}
-              />
-              <Button 
-                type="submit" 
-                size="icon" 
-                disabled={isLoading || input.trim() === ""}
-                className={cn(
-                  "bg-primary hover:bg-primary-deep text-white rounded-lg",
-                  "transition-all duration-300",
-                  isLoading && "opacity-70"
-                )}
-              >
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Send className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
-            <div className={cn(
-              "text-[10px] mt-2 text-center",
-              isDarkTheme ? "text-neutral-400" : "text-muted-foreground"
-            )}>
-              Powered by Sanicle AI | IBM watsonx.ai
-            </div>
-          </form>
-        </PopoverContent>
-      </Popover>
+        )}
+      </div>
+
+      {/* Input area */}
+      <div className="p-4 border-t">
+        {messages.length > 0 && !isLoading && showPresetQuestions && (
+          <PresetQuestions
+            isHidden={false}
+            onSelectQuestion={handleSelectPresetQuestion}
+            onToggleVisibility={togglePresetQuestions}
+            className="mb-3 -mx-1"
+          />
+        )}
+        <form onSubmit={handleSubmit} className="flex gap-2 items-end">
+          <Textarea
+            disabled={isLoading}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Ask about Sanicle..."
+            className="resize-none flex-1 py-2 px-3 min-h-[44px] max-h-[120px]"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e as any);
+              }
+            }}
+          />
+          <Button
+            disabled={isLoading || !input.trim()}
+            type="submit"
+            size="icon"
+            className="h-[44px] w-[44px] shrink-0"
+          >
+            <Send className="h-5 w-5" />
+            <span className="sr-only">Send message</span>
+          </Button>
+        </form>
+        {messages.length > 0 && !showPresetQuestions && (
+          <Button
+            onClick={togglePresetQuestions}
+            variant="ghost"
+            size="sm"
+            className="text-xs mt-2 h-auto py-1 w-full text-muted-foreground hover:text-foreground gap-1.5"
+          >
+            <HelpCircle className="h-3 w-3" />
+            <span>Show suggested questions</span>
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
@@ -246,5 +314,15 @@ function TypingIndicator() {
       </div>
       <span className="text-xs text-primary dark:text-primary-light ai-assistant-typing">Sanicle AI is thinking</span>
     </div>
+  );
+}
+
+function BotAvatar() {
+  return (
+    <Avatar className="h-10 w-10 ring-2 ring-primary/20 shadow-sm">
+      <AvatarFallback className="bg-gradient-to-br from-primary to-primary-deep text-white">
+        <BotIcon className="h-5 w-5" />
+      </AvatarFallback>
+    </Avatar>
   );
 } 

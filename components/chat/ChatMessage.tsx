@@ -16,6 +16,7 @@ export interface Message {
 
 interface ChatMessageProps {
   message: Message;
+  isLoading?: boolean;
 }
 
 // 优化markdown格式化以处理IBM watsonx.ai返回的各种markdown问题
@@ -44,7 +45,7 @@ function formatMarkdown(text: string): string {
   return formattedText;
 }
 
-export function ChatMessage({ message }: ChatMessageProps) {
+export function ChatMessage({ message, isLoading = false }: ChatMessageProps) {
   const { theme } = useTheme();
   const isDarkTheme = theme === 'dark';
 
@@ -81,211 +82,222 @@ export function ChatMessage({ message }: ChatMessageProps) {
               : "bg-white border border-primary/10 text-slate-700 shadow-sm"
         )}
       >
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
-          components={{
-            h1: ({ node, ...props }) => (
-              <h1 
-                className={cn(
-                  "text-2xl font-bold my-4",
-                  isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary-deep"
-                )} 
-                {...props} 
-              />
-            ),
-            h2: ({ node, ...props }) => (
-              <h2 
-                className={cn(
-                  "text-xl font-bold my-3",
-                  isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary-deep"
-                )} 
-                {...props} 
-              />
-            ),
-            h3: ({ node, ...props }) => (
-              <h3 
-                className={cn(
-                  "text-lg font-bold my-2",
-                  isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary"
-                )} 
-                {...props} 
-              />
-            ),
-            p: ({ node, ...props }) => (
-              <p 
-                className="my-2" 
-                {...props} 
-              />
-            ),
-            ul: ({ node, ...props }) => (
-              <ul 
-                className="list-disc pl-5 my-2" 
-                {...props} 
-              />
-            ),
-            ol: ({ node, ...props }) => (
-              <ol 
-                className="list-decimal pl-5 my-2" 
-                {...props} 
-              />
-            ),
-            li: ({ node, ...props }) => (
-              <li 
-                className="my-1" 
-                {...props} 
-              />
-            ),
-            a: ({ node, ...props }) => (
-              <a 
-                className={cn(
-                  "underline hover:no-underline",
-                  isUser 
-                    ? "text-white/90 hover:text-white" 
-                    : isDarkTheme 
-                      ? "text-blue-300 hover:text-blue-200" 
-                      : "text-blue-600 hover:text-blue-800"
-                )}
-                target="_blank"
-                rel="noopener noreferrer" 
-                {...props} 
-              />
-            ),
-            code: ({ node, inline, ...props }: any) => (
-              inline ? (
-                <code 
+        {isLoading ? (
+          <div className="flex items-center space-x-2">
+            <div className="flex space-x-1">
+              <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '300ms' }}></div>
+              <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '600ms' }}></div>
+            </div>
+            <span className="text-sm">Thinking...</span>
+          </div>
+        ) : (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+            components={{
+              h1: ({ node, ...props }) => (
+                <h1 
                   className={cn(
-                    "px-1 py-0.5 rounded text-sm font-mono",
+                    "text-2xl font-bold my-4",
+                    isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary-deep"
+                  )} 
+                  {...props} 
+                />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2 
+                  className={cn(
+                    "text-xl font-bold my-3",
+                    isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary-deep"
+                  )} 
+                  {...props} 
+                />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3 
+                  className={cn(
+                    "text-lg font-bold my-2",
+                    isUser ? "text-white" : isDarkTheme ? "text-white" : "text-primary"
+                  )} 
+                  {...props} 
+                />
+              ),
+              p: ({ node, ...props }) => (
+                <p 
+                  className="my-2" 
+                  {...props} 
+                />
+              ),
+              ul: ({ node, ...props }) => (
+                <ul 
+                  className="list-disc pl-5 my-2" 
+                  {...props} 
+                />
+              ),
+              ol: ({ node, ...props }) => (
+                <ol 
+                  className="list-decimal pl-5 my-2" 
+                  {...props} 
+                />
+              ),
+              li: ({ node, ...props }) => (
+                <li 
+                  className="my-1" 
+                  {...props} 
+                />
+              ),
+              a: ({ node, ...props }) => (
+                <a 
+                  className={cn(
+                    "underline hover:no-underline",
                     isUser 
-                      ? "bg-black/20 text-white" 
+                      ? "text-white/90 hover:text-white" 
                       : isDarkTheme 
-                        ? "bg-neutral-700 text-neutral-200" 
-                        : "bg-neutral-100 text-primary-deep"
+                        ? "text-blue-300 hover:text-blue-200" 
+                        : "text-blue-600 hover:text-blue-800"
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  {...props} 
+                />
+              ),
+              code: ({ node, inline, ...props }: any) => (
+                inline ? (
+                  <code 
+                    className={cn(
+                      "px-1 py-0.5 rounded text-sm font-mono",
+                      isUser 
+                        ? "bg-black/20 text-white" 
+                        : isDarkTheme 
+                          ? "bg-neutral-700 text-neutral-200" 
+                          : "bg-neutral-100 text-primary-deep"
+                    )}
+                    {...props} 
+                  />
+                ) : (
+                  <code 
+                    className={cn(
+                      "block p-3 rounded-md text-sm font-mono overflow-x-auto my-3",
+                      isUser 
+                        ? "bg-black/20 text-white" 
+                        : isDarkTheme 
+                          ? "bg-neutral-900 text-neutral-200 border border-neutral-700" 
+                          : "bg-neutral-100 text-primary-deep border border-neutral-200"
+                    )}
+                    {...props} 
+                  />
+                )
+              ),
+              pre: ({ node, ...props }) => (
+                <pre 
+                  className={cn(
+                    "my-4 rounded-md overflow-x-auto",
+                    isUser 
+                      ? "bg-black/20" 
+                      : isDarkTheme 
+                        ? "bg-neutral-900" 
+                        : "bg-neutral-100"
                   )}
                   {...props} 
                 />
-              ) : (
-                <code 
+              ),
+              blockquote: ({ node, ...props }) => (
+                <blockquote 
                   className={cn(
-                    "block p-3 rounded-md text-sm font-mono overflow-x-auto my-3",
+                    "border-l-4 pl-4 my-4 italic",
                     isUser 
-                      ? "bg-black/20 text-white" 
+                      ? "border-white/30 text-white/90" 
                       : isDarkTheme 
-                        ? "bg-neutral-900 text-neutral-200 border border-neutral-700" 
-                        : "bg-neutral-100 text-primary-deep border border-neutral-200"
+                        ? "border-neutral-600 text-neutral-400" 
+                        : "border-neutral-300 text-neutral-600"
                   )}
                   {...props} 
                 />
-              )
-            ),
-            pre: ({ node, ...props }) => (
-              <pre 
-                className={cn(
-                  "my-4 rounded-md overflow-x-auto",
-                  isUser 
-                    ? "bg-black/20" 
-                    : isDarkTheme 
-                      ? "bg-neutral-900" 
-                      : "bg-neutral-100"
-                )}
-                {...props} 
-              />
-            ),
-            blockquote: ({ node, ...props }) => (
-              <blockquote 
-                className={cn(
-                  "border-l-4 pl-4 my-4 italic",
-                  isUser 
-                    ? "border-white/30 text-white/90" 
-                    : isDarkTheme 
-                      ? "border-neutral-600 text-neutral-400" 
-                      : "border-neutral-300 text-neutral-600"
-                )}
-                {...props} 
-              />
-            ),
-            // 表格样式
-            table: ({ node, ...props }) => (
-              <div className="overflow-x-auto my-4">
-                <table 
+              ),
+              // 表格样式
+              table: ({ node, ...props }) => (
+                <div className="overflow-x-auto my-4">
+                  <table 
+                    className={cn(
+                      "min-w-full divide-y rounded-md",
+                      isUser 
+                        ? "divide-white/20" 
+                        : isDarkTheme 
+                          ? "divide-neutral-700" 
+                          : "divide-neutral-200"
+                    )}
+                    {...props} 
+                  />
+                </div>
+              ),
+              thead: ({ node, ...props }) => (
+                <thead 
                   className={cn(
-                    "min-w-full divide-y rounded-md",
                     isUser 
-                      ? "divide-white/20" 
+                      ? "bg-black/10" 
                       : isDarkTheme 
-                        ? "divide-neutral-700" 
-                        : "divide-neutral-200"
+                        ? "bg-neutral-800" 
+                        : "bg-neutral-100"
                   )}
                   {...props} 
                 />
-              </div>
-            ),
-            thead: ({ node, ...props }) => (
-              <thead 
-                className={cn(
-                  isUser 
-                    ? "bg-black/10" 
-                    : isDarkTheme 
-                      ? "bg-neutral-800" 
-                      : "bg-neutral-100"
-                )}
-                {...props} 
-              />
-            ),
-            th: ({ node, ...props }) => (
-              <th 
-                className="px-4 py-2 text-left font-medium text-sm" 
-                {...props} 
-              />
-            ),
-            td: ({ node, ...props }) => (
-              <td 
-                className="px-4 py-2 text-sm border-t" 
-                {...props} 
-              />
-            ),
-            tr: ({ node, ...props }) => (
-              <tr 
-                className={cn(
-                  isUser 
-                    ? "border-t border-white/10" 
-                    : isDarkTheme 
-                      ? "border-t border-neutral-800" 
-                      : "border-t border-neutral-200"
-                )}
-                {...props} 
-              />
-            ),
-            // 强调
-            strong: ({ node, ...props }) => (
-              <strong 
-                className="font-bold" 
-                {...props} 
-              />
-            ),
-            em: ({ node, ...props }) => (
-              <em 
-                className="italic" 
-                {...props} 
-              />
-            ),
-            hr: ({ node, ...props }) => (
-              <hr 
-                className={cn(
-                  "my-4",
-                  isUser 
-                    ? "border-white/20" 
-                    : isDarkTheme 
-                      ? "border-neutral-700" 
-                      : "border-neutral-200"
-                )}
-                {...props} 
-              />
-            ),
-          }}
-        >
-          {formatMarkdown(message.content)}
-        </ReactMarkdown>
+              ),
+              th: ({ node, ...props }) => (
+                <th 
+                  className="px-4 py-2 text-left font-medium text-sm" 
+                  {...props} 
+                />
+              ),
+              td: ({ node, ...props }) => (
+                <td 
+                  className="px-4 py-2 text-sm border-t" 
+                  {...props} 
+                />
+              ),
+              tr: ({ node, ...props }) => (
+                <tr 
+                  className={cn(
+                    isUser 
+                      ? "border-t border-white/10" 
+                      : isDarkTheme 
+                        ? "border-t border-neutral-800" 
+                        : "border-t border-neutral-200"
+                  )}
+                  {...props} 
+                />
+              ),
+              // 强调
+              strong: ({ node, ...props }) => (
+                <strong 
+                  className="font-bold" 
+                  {...props} 
+                />
+              ),
+              em: ({ node, ...props }) => (
+                <em 
+                  className="italic" 
+                  {...props} 
+                />
+              ),
+              hr: ({ node, ...props }) => (
+                <hr 
+                  className={cn(
+                    "my-4",
+                    isUser 
+                      ? "border-white/20" 
+                      : isDarkTheme 
+                        ? "border-neutral-700" 
+                        : "border-neutral-200"
+                  )}
+                  {...props} 
+                />
+              ),
+            }}
+          >
+            {formatMarkdown(message.content)}
+          </ReactMarkdown>
+        )}
       </div>
       
       {isUser && (
