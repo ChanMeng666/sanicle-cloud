@@ -1,20 +1,11 @@
 import { WATSONX_CONFIG } from '@/lib/env';
+import { COMBINED_SYSTEM_PROMPT } from '@/lib/prompts';
 
 // 定义消息类型接口
 interface ChatMessage {
   role: string;
   content: string;
 }
-
-// 添加系统消息，指导AI使用正确的Markdown格式
-const SYSTEM_PROMPT = `You are Sanicle's AI assistant. Format your responses using Markdown:
-  - Use proper headers with ## for main titles and ### for subtitles
-  - Format lists correctly with proper spacing
-  - Use **bold** for emphasis
-  - Separate paragraphs with blank lines
-  - Use bullet points with * or - followed by a space
-  - Number lists with 1. 2. etc. followed by a space
-  - Format your response clearly and concisely`;
 
 export async function POST(req: Request) {
   try {
@@ -41,7 +32,7 @@ export async function POST(req: Request) {
     const messagesForAPI = [
       {
         role: "system",
-        content: SYSTEM_PROMPT
+        content: COMBINED_SYSTEM_PROMPT
       }
     ];
     

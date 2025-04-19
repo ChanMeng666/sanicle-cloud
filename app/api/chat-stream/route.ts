@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { WATSONX_CONFIG } from '@/lib/env';
+import { COMBINED_SYSTEM_PROMPT } from '@/lib/prompts';
 
 // IBM watsonx AI Service Streaming Endpoint
 const AI_SERVICE_STREAM_URL = `https://us-south.ml.cloud.ibm.com/ml/v4/deployments/${WATSONX_CONFIG.DEPLOYMENT_ID}/ai_service_stream?version=${WATSONX_CONFIG.VERSION}`;
@@ -37,6 +38,12 @@ export async function POST(request: NextRequest) {
     const tokenData = await tokenResponse.json();
     const token = tokenData.access_token;
 
+    // Add system prompt to messages if not already present
+    const messagesWithSystemPrompt = [
+      { role: "system", content: COMBINED_SYSTEM_PROMPT },
+      ...messages.filter((msg: any) => msg.role !== "system")
+    ];
+
     const response = await fetch(AI_SERVICE_STREAM_URL, {
       method: 'POST',
       headers: {
@@ -44,7 +51,7 @@ export async function POST(request: NextRequest) {
         'Accept': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({ messages }),
+      body: JSON.stringify({ messages: messagesWithSystemPrompt }),
     });
 
     if (!response.ok) {
