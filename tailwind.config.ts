@@ -160,6 +160,40 @@ const config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-5px)' },
         },
+        "ping-slow": {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '75%, 100%': { transform: 'scale(2)', opacity: '0' },
+        },
+        "ultra-slow-ping": {
+          '0%': { transform: 'scale(1)', opacity: '0.7' },
+          '50%': { transform: 'scale(1.3)', opacity: '0.3' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
+        "subtle-bounce": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        "fade-in-out": {
+          '0%': { opacity: '0' },
+          '50%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        "shimmer": {
+          '0%': { transform: 'translateX(-100%) translateY(100%)' },
+          '100%': { transform: 'translateX(100%) translateY(-100%)' },
+        },
+        "gentle-float": {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-4px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        "ultra-slow-float": {
+          '0%': { transform: 'translateY(0)' },
+          '25%': { transform: 'translateY(-2px)' },
+          '50%': { transform: 'translateY(-3px)' },
+          '75%': { transform: 'translateY(-1px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -173,6 +207,13 @@ const config = {
         "zoom-in": "zoom-in 0.5s ease-out",
         "rotate-slow": "rotate-slow 20s linear infinite",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+        "ping-slow": "ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "subtle-bounce": "subtle-bounce 3s ease-in-out infinite",
+        "fade-in-out": "fade-in-out 3s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite",
+        "gentle-float": "gentle-float 6s ease-in-out infinite",
+        "ultra-slow-float": "ultra-slow-float 12s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "ultra-slow-ping": "ultra-slow-ping 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       boxShadow: {
         'glow': '0 0 15px rgba(22, 125, 131, 0.5)',

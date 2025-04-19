@@ -147,18 +147,41 @@ export function ChatWidget({
   // If collapsed, just show the chat button
   if (isCollapsed) {
     return (
-      <button
-        onClick={toggleCollapsed}
-        className={cn(
-          "fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full",
-          "bg-primary text-primary-foreground flex items-center justify-center",
-          "shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105",
-          "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50",
-          className
-        )}
-      >
-        <MessageSquare className="h-6 w-6" />
-      </button>
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end group">
+        {/* Tooltip text that appears above the button */}
+        <div className="mb-2 px-3 py-2 bg-white dark:bg-neutral-800 rounded-full shadow-lg text-sm text-primary dark:text-primary-light font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="whitespace-nowrap">Questions? Chat with me!</p>
+        </div>
+        
+        <button
+          onClick={toggleCollapsed}
+          className={cn(
+            "relative w-16 h-16 rounded-full",
+            "bg-gradient-to-r from-primary to-primary-deep text-primary-foreground",
+            "flex items-center justify-center",
+            "shadow-lg hover:shadow-xl transition-all duration-300",
+            "hover:scale-110 active:scale-95",
+            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50",
+            "animate-ultra-slow-float",
+            "before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-primary-light/20",
+            "before:animate-ultra-slow-ping before:opacity-75",
+            "overflow-hidden",
+            className
+          )}
+          aria-label="Open chat assistant"
+        >
+          {/* Add shimmer effect */}
+          <span className="absolute w-40 h-40 -top-20 -left-20 bg-white/10 rotate-45 transform translate-x-0 -translate-y-full animate-shimmer"></span>
+          
+          <div className="relative">
+            <MessageSquare className="h-7 w-7 text-white z-10" />
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-success"></span>
+            </span>
+          </div>
+        </button>
+      </div>
     );
   }
   
