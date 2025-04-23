@@ -178,16 +178,21 @@ export function MainNav() {
       </div>
       
       <div className="container flex h-16 sm:h-20 items-center px-4 sm:px-6 relative">
-        <Link href="/" className="flex-none relative">
-          <div className="absolute -left-3 -bottom-3 opacity-10">
-            <img src="/logo/leave-green.svg" alt="" className="w-12 h-12 transform -rotate-12" />
-          </div>
-          <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-10 sm:h-12 relative z-10" />
-        </Link>
-        <div className="hidden lg:flex ml-auto items-center gap-1">
-          <nav className="flex items-center space-x-1">
+        {/* Left column: Logo */}
+        <div className="flex-shrink-0 w-[180px]">
+          <Link href="/" className="relative">
+            <div className="absolute -left-3 -bottom-3 opacity-10">
+              <img src="/logo/leave-green.svg" alt="" className="w-12 h-12 transform -rotate-12" />
+            </div>
+            <img src="/logo/sanicle_logo.svg" alt="Sanicle.cloud Logo" className="h-10 sm:h-12 relative z-10" />
+          </Link>
+        </div>
+        
+        {/* Center: Main Navigation */}
+        <div className="hidden lg:flex flex-1 justify-center items-center">
+          <nav className="flex items-center">
             {navItems.map((item) => (
-              <div key={item.title} className="relative group" style={{ isolation: 'isolate' }}>
+              <div key={item.title} className="relative group mx-2" style={{ isolation: 'isolate' }}>
                 {item.title === "Pricing" ? (
                   <a 
                     href="#"
@@ -296,40 +301,36 @@ export function MainNav() {
               </div>
             ))}
           </nav>
-          <div className="ml-6 flex items-center space-x-4">
-            <Button variant="ghost" className="text-neutral-800 hover:text-primary hover:bg-teal-50 relative group">
+        </div>
+        
+        {/* Right: Action Buttons */}
+        <div className="hidden lg:flex flex-shrink-0 w-[180px] justify-end items-center space-x-4">
+          <Link href="/demo">
+            <Button variant="outline" className="text-neutral-800 border-primary hover:bg-teal-50 relative group">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                <img src="/logo/leave-white.svg" alt="" className="w-full h-full" />
+                <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
               </div>
-              <span className="relative z-10">Log in</span>
+              <span className="relative z-10">Request Demo</span>
             </Button>
-            <Link href="/demo">
-              <Button variant="outline" className="text-neutral-800 border-primary hover:bg-teal-50 relative group">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                  <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
-                </div>
-                <span className="relative z-10">Request Demo</span>
-              </Button>
-            </Link>
-            <Link href="/demo">
-              <Button className="bg-primary hover:bg-teal-700 text-white group relative shadow-button">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                  <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
-                </div>
-                <span className="relative z-10 mr-1">Get Started</span> 
-                <ArrowRight className="h-4 w-4 relative z-10" />
-              </Button>
-            </Link>
-          </div>
+          </Link>
+          <a href="https://ai.sanicle.cloud/login" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-primary hover:bg-teal-700 text-white group relative shadow-button">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                <img src="/logo/leave-white.svg" alt="" className="w-full h-full object-cover" />
+              </div>
+              <span className="relative z-10 mr-1">Get Started</span> 
+              <ArrowRight className="h-4 w-4 relative z-10" />
+            </Button>
+          </a>
         </div>
         
         <div className="ml-auto flex items-center lg:hidden">
-          <Link href="/demo">
+          <a href="https://ai.sanicle.cloud/login" target="_blank" rel="noopener noreferrer">
             <Button className="mr-2 bg-primary hover:bg-teal-700 text-white text-sm hidden sm:flex">
               <span className="mr-1">Get Started</span>
               <ArrowRight className="h-3 w-3" />
             </Button>
-          </Link>
+          </a>
           <Button
             onClick={toggleMenu}
             variant="ghost"
@@ -427,14 +428,16 @@ export function MainNav() {
               </nav>
               
               <div className="pt-2 border-t border-gray-200">
-                <Link
-                  href="/demo"
+                <a
+                  href="https://ai.sanicle.cloud/login"
                   className="flex items-center justify-center w-full py-3 px-4 rounded-md bg-primary hover:bg-teal-700 text-white text-base font-medium shadow-sm transition duration-150 ease-in-out"
                   onClick={toggleMenu}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
