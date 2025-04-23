@@ -4,6 +4,7 @@ import { PageLayout } from "@/components/team/PageLayout"
 import { ProfileHeader } from "@/components/team/ProfileHeader"
 import { Sidebar } from "@/components/team/Sidebar"
 import { MainContent } from "@/components/team/MainContent"
+import { ImageModal } from "@/components/ui/common/ImageModal"
 import Image from "next/image"
 
 // 使用generateStaticParams预生成所有可能的路径
@@ -45,11 +46,10 @@ export default async function Page({ params }: PageProps) {
             {/* Large Profile Image */}
             <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 shrink-0 rounded-xl overflow-hidden shadow-xl border-4 border-white">
               {member.images && member.images.length > 0 ? (
-                <Image 
+                <ImageModal 
                   src={member.images[0]} 
-                  alt={member.name} 
-                  fill
-                  className="object-cover" 
+                  alt={member.name}
+                  className="w-full h-full"
                   priority
                   sizes="(max-width: 768px) 12rem, (max-width: 1024px) 16rem, 20rem"
                 />

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { TeamMember } from "@/data/team"
+import { ImageModal } from "@/components/ui/common/ImageModal"
 
 interface GallerySectionProps {
   member: TeamMember
@@ -19,19 +20,31 @@ export function GallerySection({ member }: GallerySectionProps) {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {galleryImages.map((image, index) => (
-          <div key={index} className="group relative rounded-xl overflow-hidden shadow-md border border-neutral-100 transition-transform hover:scale-[1.01] duration-300">
+          <div key={index} className="group relative rounded-xl overflow-hidden shadow-md border border-neutral-100 transition-transform hover:scale-[1.02] duration-300">
             <div className="aspect-[4/3] relative">
-              <Image 
+              <ImageModal 
                 src={image} 
                 alt={`${member.name} - Photo ${index + 2}`} 
-                fill 
-                className="object-cover"
+                className="w-full h-full z-10 relative"
                 sizes="(max-width: 768px) 100vw, 500px"
               />
+              
+              {/* Expand indicator overlay - with pointer-events: none so clicks pass through */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+                <div className="bg-white/30 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="text-white text-sm font-medium">Photo {index + 1}</span>
+            
+            {/* Photo label - with pointer-events: none so clicks pass through */}
+            <div className="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-medium px-3 py-1 rounded-full pointer-events-none">
+              Photo {index + 1}
             </div>
           </div>
         ))}
