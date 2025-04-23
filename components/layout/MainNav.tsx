@@ -306,7 +306,7 @@ export function MainNav() {
         {/* Right: Action Buttons */}
         <div className="hidden lg:flex flex-shrink-0 w-[180px] justify-end items-center space-x-4">
           <Link href="/demo">
-            <Button variant="outline" className="text-neutral-800 border-primary hover:bg-teal-50 relative group">
+            <Button variant="outline" className="text-neutral-800 border-primary hover:bg-primary/20 hover:text-primary hover:border-primary hover:shadow-md relative group">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                 <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
               </div>
@@ -428,6 +428,14 @@ export function MainNav() {
               </nav>
               
               <div className="pt-2 border-t border-gray-200">
+                <Link href="/demo" onClick={toggleMenu}>
+                  <Button variant="outline" className="text-neutral-800 border-primary hover:bg-primary/20 hover:text-primary hover:border-primary hover:shadow-md relative group w-full mb-3">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                      <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
+                    </div>
+                    <span className="relative z-10">Request Demo</span>
+                  </Button>
+                </Link>
                 <a
                   href="https://ai.sanicle.cloud/login"
                   className="flex items-center justify-center w-full py-3 px-4 rounded-md bg-primary hover:bg-teal-700 text-white text-base font-medium shadow-sm transition duration-150 ease-in-out"
