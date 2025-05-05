@@ -53,10 +53,18 @@ Sanicle Cloud is a revolutionary women's health platform specifically designed f
     - [For Employees](#for-employees)
     - [For HR Managers](#for-hr-managers)
     - [For Health Brokers](#for-health-brokers)
-  - [🧠 IBM watsonx AI Integration](#-ibm-watsonx-ai-integration)
-    - [🤖 AI Chat Assistant](#-ai-chat-assistant)
-    - [🔍 Intelligent Health Analytics](#-intelligent-health-analytics)
-    - [🔗 Enterprise Integration](#-enterprise-integration)
+  - [🧠 IBM Cloud Watson X AI Integration](#-ibm-cloud-watson-x-ai-integration)
+    - [Overview](#overview)
+    - [Features](#features)
+    - [Architecture](#architecture)
+    - [Authentication Flow](#authentication-flow)
+    - [API Integration](#api-integration)
+    - [Configuration](#configuration)
+    - [Setup Instructions](#setup-instructions)
+    - [System Prompt Implementation](#system-prompt-implementation)
+    - [Technical Implementation Details](#technical-implementation-details)
+    - [Error Handling and Fallbacks](#error-handling-and-fallbacks)
+    - [Security Considerations](#security-considerations)
   - [🔒 Privacy \& Security](#-privacy--security)
   - [📄 License](#-license)
   - [🙋‍♀ Author](#-author)
@@ -216,34 +224,169 @@ yarn dev
 - **Analytics Dashboard**: Access to aggregated health benefits performance data
 - **AI-Enhanced Recommendations**: Intelligent suggestions for health benefits packages
 
-## 🧠 IBM watsonx AI Integration
+## 🧠 IBM Cloud Watson X AI Integration
 
-> [!HIGHLIGHT]
-> **Sanicle Cloud is powered by IBM Cloud watsonx AI**, providing intelligent health assistance and personalized support for women's health in the workplace.
+### Overview
 
-The platform features a cutting-edge AI integration that enhances the user experience in multiple ways:
+The platform leverages IBM's Watson X AI to provide comprehensive women's health support through a convenient chat widget located in the bottom-right corner of the employee dashboard. This integration uses the Meta Llama 4 Maverick model (17B parameters) hosted on IBM's watsonx.ai platform to deliver intelligent, contextually relevant responses to women's health inquiries.
 
-### 🤖 AI Chat Assistant
+### Features
 
-- **24/7 Health Information**: Provides instant answers to women's health questions
-- **Personalized Guidance**: Offers tailored advice based on individual health profiles
-- **Markdown-Formatted Responses**: Clean, well-structured health information
-- **Streaming Responses**: Real-time AI interaction with minimal latency
-- **Privacy-Focused**: All conversations handled with enterprise-grade security
+- **Accessible Chat Widget**: Floating chat interface in the bottom-right corner of the employee dashboard
+- **Specialized Health Focus**: Custom system prompt trained for women's health in the workplace
+- **Real-time Streaming Responses**: Both standard and streaming API options for responsive interactions
+- **Enterprise-Grade Security**: Server-side token authentication with IBM Cloud IAM
+- **Contextual Understanding**: Maintains conversation history for more relevant responses
+- **Mobile-Responsive Design**: Automatically adapts to different screen sizes (disables on small mobile screens)
+- **Preset Question Templates**: Frequently asked health questions for quick access
 
-### 🔍 Intelligent Health Analytics
+### Architecture
 
-- **Pattern Recognition**: Identifies trends in health data to provide better support
-- **Predictive Insights**: Anticipates health needs based on historical data
-- **Custom Recommendations**: Suggests resources and accommodations based on individual needs
+The Watson X AI integration follows a comprehensive client-server architecture:
 
-### 🔗 Enterprise Integration
+#### Frontend Implementation
 
-- **HR System Connection**: Seamlessly integrates with existing HR infrastructure
-- **Secure API Implementation**: Enterprise-grade security for all AI interactions
-- **Scalable Architecture**: Handles growing user bases with consistent performance
+- **ChatWidgetWrapper.tsx**: Handles widget mounting, mobile detection, and collapse state
+- **ChatWidget.tsx**: Main UI component with expandable chat interface, message history, and input handling
+- **ChatMessage.tsx**: Renders individual messages with Markdown formatting support
+- **PresetQuestions.tsx**: Provides templated questions for common user inquiries
+- **Responsive Design**: Automatically disables on mobile devices with small screens
+- **Dynamic Typing Indicator**: Visual feedback during AI response generation
 
-Our IBM watsonx AI integration follows best practices for both technical implementation and ethical AI use, ensuring that all health information is accurate, private, and beneficial to users.
+#### Backend Implementation
+
+- **Authentication Route** (`/api/ibm-token`): Securely obtains IBM Cloud IAM tokens
+- **Standard Chat API** (`/api/chat`): Processes non-streaming chat requests
+- **Streaming Chat API** (`/api/chat-stream`): Handles Server-Sent Events for real-time responses
+- **System Prompt Management**: Comprehensive company and health context in `lib/prompts.ts`
+- **Environment Configuration**: Centralized credential and endpoint management in `lib/env.ts`
+
+### Authentication Flow
+
+The integration implements a secure token-based authentication flow:
+
+1. Backend API routes fetch an IBM Cloud IAM token using the configured API key
+2. The token is obtained by making a POST request to IBM's IAM token endpoint: `https://iam.cloud.ibm.com/identity/token`
+3. This token is then used to authenticate subsequent API calls to watsonx.ai services
+4. All authentication happens server-side, ensuring API keys never reach client browsers
+5. Tokens are refreshed as needed, with built-in error handling for authentication failures
+
+### API Integration
+
+The platform integrates with two primary watsonx.ai endpoints:
+
+#### Standard Chat API
+```
+POST https://us-south.ml.cloud.ibm.com/ml/v1/text/chat?version=2023-05-29
+```
+
+#### Streaming Chat API
+```
+POST https://us-south.ml.cloud.ibm.com/ml/v4/deployments/{deployment_id}/ai_service_stream?version={version}
+```
+
+Both endpoints receive a structured payload including:
+- System prompt defining the assistant's capabilities and knowledge
+- Conversation history for contextual understanding
+- User's current message
+- Model parameters (temperature, max tokens, etc.)
+
+### Configuration
+
+To use the IBM watsonx AI feature, you need to configure the following environment variables in your `.env.local` file:
+
+```env
+# IBM watsonx AI Configuration
+NEXT_PUBLIC_WATSONX_API_URL=https://us-south.ml.cloud.ibm.com/ml/v4/deployments
+WATSONX_API_KEY=your_watsonx_api_key
+WATSONX_DEPLOYMENT_ID=your_deployment_id
+WATSONX_TOKEN_URL=https://iam.cloud.ibm.com/identity/token
+WATSONX_VERSION=2021-05-01
+WATSONX_PROJECT_ID=your_project_id
+WATSONX_ASSET_ID=your_asset_id
+WATSONX_MODEL_ID=meta-llama/llama-4-maverick-17b-128e-instruct-fp8
+```
+
+### Setup Instructions
+
+1. **Create an IBM Cloud Account**: Sign up at [IBM Cloud](https://cloud.ibm.com/)
+2. **Provision watsonx.ai Service**: Navigate to AI/Machine Learning services and provision watsonx.ai
+3. **Create a Project**: Set up a new project in the watsonx.ai dashboard
+4. **Deploy the Llama 4 Model**: Deploy the meta-llama/llama-4-maverick-17b-128e-instruct-fp8 model
+5. **Generate API Credentials**: Create an IBM Cloud API key with appropriate permissions
+6. **Note Configuration Details**: Record your deployment ID, project ID, and other required parameters
+7. **Configure Environment Variables**: Add all variables to your project's `.env.local` file
+8. **Restart Application**: Ensure the application loads the new environment variables
+
+### System Prompt Implementation
+
+The chat system uses a comprehensive prompt structure defined in `lib/prompts.ts`:
+
+- **Company Background**: Information about Sanicle's mission and history
+- **Platform Details**: Technical specifications and capabilities
+- **Product Offerings**: Available services and subscription tiers
+- **Leadership Team**: Information about company executives
+- **Problem Statement**: The women's health challenges being addressed
+- **Formatting Instructions**: Guidelines for consistent Markdown formatting
+- **Example Q&A Pairs**: Sample interactions for training response patterns
+
+This structured prompt ensures the assistant provides accurate, consistent information about women's health in the workplace context.
+
+### Technical Implementation Details
+
+#### Client-Side Implementation
+
+1. **Widget Initialization**:
+   - Dynamically loaded with Next.js for optimal performance
+   - Suspense and fallback handling for smooth loading
+   - Mobile detection to disable on small screens
+
+2. **User Interaction Flow**:
+   - Message input handling with both textarea and button submission
+   - Message history management with React state
+   - Responsive UI that expands/collapses on demand
+
+3. **Response Rendering**:
+   - Markdown parsing for formatted responses
+   - Type-safe message handling
+   - Scroll management to follow new messages
+
+#### Server-Side Implementation
+
+1. **API Route Handlers**:
+   - Next.js API routes with proper error handling
+   - Request validation and sanitization
+   - Response formatting for compatibility with frontend
+
+2. **IBM Cloud Integration**:
+   - Token acquisition and management
+   - API request formatting according to IBM specifications
+   - Error handling with appropriate fallbacks
+
+3. **Context Management**:
+   - System prompt injection
+   - Conversation history tracking
+   - Dynamic parameter adjustment
+
+### Error Handling and Fallbacks
+
+The system implements comprehensive error handling at multiple levels:
+
+- **Authentication Errors**: Detailed logging and appropriate HTTP status codes
+- **API Request Failures**: Graceful degradation with user-friendly error messages
+- **Response Parsing Issues**: Format detection and fallback handling
+- **Network Problems**: Timeout management and retry logic
+- **Mobile Compatibility**: Automatic feature disabling on incompatible devices
+
+### Security Considerations
+
+- **API Key Protection**: All sensitive credentials stored server-side only
+- **Token Management**: Short-lived access tokens with proper refresh mechanisms
+- **Request Validation**: Input sanitization to prevent injection attacks
+- **Response Sanitization**: Output processing to prevent XSS vulnerabilities
+- **Rate Limiting**: Protection against excessive API usage
+- **Error Exposure Control**: Limited error details in production environments
+- **Logging Security**: Sensitive information omitted from logs
 
 ## 🔒 Privacy & Security
 
