@@ -257,7 +257,7 @@ export function BenefitFeatures() {
                 <div className="relative mt-6 md:mt-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-teal-400 rounded-lg opacity-10 blur-lg transform rotate-2"></div>
                   <img
-                    src="/images/PrivacyAndSecurity.png"
+                    src="/images/11_37_02_0.png"
                     alt="Privacy and security"
                     className="relative z-10 rounded-lg shadow-lg w-full h-48 md:h-auto object-cover"
                   />
