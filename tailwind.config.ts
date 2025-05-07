@@ -227,9 +227,17 @@ const config = {
         'auto-fill-250': 'repeat(auto-fill, minmax(250px, 1fr))',
         'auto-fill-300': 'repeat(auto-fill, minmax(300px, 1fr))',
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config
 
 export default config

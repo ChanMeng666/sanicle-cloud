@@ -1,49 +1,31 @@
 import React from 'react'
 import Link from 'next/link'
-
-// Updated mock data for news categories
-const newsCategoriesData = [
-  {
-    id: 'company-news',
-    title: 'Company News',
-    description: 'Updates about Sanicle.cloud, including AI-powered product launches, healthcare partnerships, and corporate announcements.',
-    articleCount: 18
-  },
-  {
-    id: 'industry-insights',
-    title: 'Industry Insights',
-    description: 'Expert analysis on trends, research, and developments in menstrual health technology and workplace wellness innovations.',
-    articleCount: 23
-  },
-  {
-    id: 'best-practices',
-    title: 'Best Practices',
-    description: 'Practical guides for HR professionals on implementing effective menstrual and menopause health programs in the workplace.',
-    articleCount: 15
-  },
-  {
-    id: 'research',
-    title: 'Research & Reports',
-    description: 'In-depth research findings on menstrual and menopause health impacts on workplace productivity and employee well-being.',
-    articleCount: 9
-  },
-  {
-    id: 'events',
-    title: 'Events & Webinars',
-    description: 'Information about upcoming and past events focused on advancing workplace health equity and menstrual wellness.',
-    articleCount: 12
-  },
-  {
-    id: 'customer-stories',
-    title: 'Customer Stories',
-    description: 'Success stories from organizations implementing Sanicle.cloud\'s AI-powered menstrual health solutions in their workplace.',
-    articleCount: 7
-  }
-]
+import { newsArticles } from '@/data/news'
+import { categoryInfo } from '@/app/company/news/category/[id]/page'
 
 export function NewsCategories() {
+  // 计算每个分类的文章数量
+  const categoryCounts: Record<string, number> = {}
+  
+  // 计算每个分类的文章数量
+  newsArticles.forEach(article => {
+    if (categoryCounts[article.category]) {
+      categoryCounts[article.category]++
+    } else {
+      categoryCounts[article.category] = 1
+    }
+  })
+
+  // 准备分类数据，包括统计信息
+  const categories = Object.entries(categoryInfo).map(([id, info]) => ({
+    id,
+    title: info.title,
+    description: info.description,
+    articleCount: categoryCounts[info.title] || 0
+  }))
+
   return (
-    <section className="w-full bg-white py-12">
+    <section id="categories" className="w-full bg-white py-12 scroll-mt-16">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="border-b border-gray-200 pb-4 mb-8">
@@ -51,7 +33,7 @@ export function NewsCategories() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newsCategoriesData.map((category) => (
+            {categories.map((category) => (
               <Link 
                 key={category.id} 
                 href={`/company/news/category/${category.id}`}

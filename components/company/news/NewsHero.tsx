@@ -11,12 +11,12 @@ export function NewsHero() {
             Stay informed with the latest news about how Sanicle.cloud is revolutionizing workplace health equity through AI-powered solutions for menstrual and menopause health.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link 
-              href="/company/news/featured" 
+            <a 
+              href="#featured-stories" 
               className="inline-flex items-center justify-center px-5 py-2.5 border border-transparent rounded-md font-medium text-white bg-teal-600 hover:bg-teal-700"
             >
               Featured Stories
-            </Link>
+            </a>
             <Link 
               href="/company/news/categories" 
               className="inline-flex items-center justify-center px-5 py-2.5 border border-gray-300 rounded-md font-medium text-gray-700 bg-white hover:bg-gray-50"
