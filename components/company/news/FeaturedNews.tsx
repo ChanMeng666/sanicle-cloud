@@ -2,45 +2,33 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Mock data for featured news
+// Updated mock data for featured news
 const featuredNewsData = [
   {
     id: 4,
-    title: 'Sanicle.cloud Recognized as Top FemTech Innovator',
-    excerpt: 'Our platform has been recognized for its groundbreaking approach to women\'s health in the workplace.',
+    title: 'Sanicle.cloud Recognized as Top FemTech Innovator for Workplace Solutions',
+    excerpt: 'Our AI-powered platform has been recognized for its groundbreaking approach to menstrual and menopause health support in the workplace.',
     date: 'Apr 1, 2024',
     readTime: '4 min read',
-    author: {
-      name: 'Emma Watson',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/award.jpg',
+    image: 'https://picsum.photos/800/600?random=4',
     category: 'Company News'
   },
   {
     id: 5,
-    title: 'The Future of Women\'s Health Technology',
-    excerpt: 'How emerging technologies are shaping the future of women\'s health management in corporate environments.',
+    title: 'The Future of Menstrual Health Technology in Enterprise Settings',
+    excerpt: 'How Sanicle\'s Vertex AI integration is shaping the future of menstrual and menopause health management in corporate environments.',
     date: 'Mar 22, 2024',
     readTime: '6 min read',
-    author: {
-      name: 'David Park',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/technology.jpg',
+    image: 'https://picsum.photos/800/600?random=5',
     category: 'Industry Insights'
   },
   {
     id: 6,
-    title: 'Supporting Employee Wellness: A Guide for HR Leaders',
-    excerpt: 'Practical strategies for human resources professionals to better support women\'s health in the workplace.',
+    title: 'Supporting Menstrual Health: A Comprehensive Guide for HR Leaders',
+    excerpt: 'Practical strategies for human resources professionals to better support menstrual and menopause health in the workplace using data-driven approaches.',
     date: 'Mar 10, 2024',
     readTime: '7 min read',
-    author: {
-      name: 'Jessica Miller',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/hr-guide.jpg',
+    image: 'https://picsum.photos/800/600?random=6',
     category: 'Best Practices'
   }
 ]
@@ -77,24 +65,10 @@ export function FeaturedNews() {
                   <p className="text-gray-600 mb-4 line-clamp-2">
                     {item.excerpt}
                   </p>
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-200 mr-3">
-                      <Image 
-                        src={item.author.avatar} 
-                        alt={item.author.name}
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <span className="text-sm font-medium text-gray-900 block">{item.author.name}</span>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <span>{item.date}</span>
-                        <span className="mx-1">·</span>
-                        <span>{item.readTime}</span>
-                      </div>
-                    </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <span>{item.date}</span>
+                    <span className="mx-1">·</span>
+                    <span>{item.readTime}</span>
                   </div>
                 </div>
               </div>

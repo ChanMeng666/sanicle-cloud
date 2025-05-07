@@ -6,9 +6,9 @@ export function NewsHero() {
     <section className="w-full bg-white py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Sanicle.cloud News</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Latest Updates</h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8">
-            Stay informed with the latest updates, announcements, and stories from Sanicle.cloud
+            Stay informed with the latest news about how Sanicle.cloud is revolutionizing workplace health equity through AI-powered solutions for menstrual and menopause health.
           </p>
           <div className="flex justify-center space-x-4">
             <Link 

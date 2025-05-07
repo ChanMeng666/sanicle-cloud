@@ -1,42 +1,42 @@
 import React from 'react'
 import Link from 'next/link'
 
-// Mock data for news categories
+// Updated mock data for news categories
 const newsCategoriesData = [
   {
     id: 'company-news',
     title: 'Company News',
-    description: 'Updates about Sanicle.cloud, including product launches, partnerships, and corporate announcements.',
+    description: 'Updates about Sanicle.cloud, including AI-powered product launches, healthcare partnerships, and corporate announcements.',
     articleCount: 18
   },
   {
     id: 'industry-insights',
     title: 'Industry Insights',
-    description: 'Expert analysis on trends, research, and developments in women\'s health and workplace wellness.',
+    description: 'Expert analysis on trends, research, and developments in menstrual health technology and workplace wellness innovations.',
     articleCount: 23
   },
   {
     id: 'best-practices',
     title: 'Best Practices',
-    description: 'Practical guides and recommendations for implementing effective workplace health programs.',
+    description: 'Practical guides for HR professionals on implementing effective menstrual and menopause health programs in the workplace.',
     articleCount: 15
   },
   {
     id: 'research',
     title: 'Research & Reports',
-    description: 'In-depth research findings, surveys, and data analysis on women\'s health in the workplace.',
+    description: 'In-depth research findings on menstrual and menopause health impacts on workplace productivity and employee well-being.',
     articleCount: 9
   },
   {
     id: 'events',
     title: 'Events & Webinars',
-    description: 'Information about upcoming and past events, conferences, and online presentations.',
+    description: 'Information about upcoming and past events focused on advancing workplace health equity and menstrual wellness.',
     articleCount: 12
   },
   {
     id: 'customer-stories',
     title: 'Customer Stories',
-    description: 'Success stories and testimonials from organizations using Sanicle.cloud\'s solutions.',
+    description: 'Success stories from organizations implementing Sanicle.cloud\'s AI-powered menstrual health solutions in their workplace.',
     articleCount: 7
   }
 ]
@@ -74,7 +74,7 @@ export function NewsCategories() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-6 md:mb-0">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Subscribe to our Newsletter</h3>
-                <p className="text-gray-600">Get the latest news and updates delivered directly to your inbox</p>
+                <p className="text-gray-600">Stay updated on the latest innovations in workplace menstrual health solutions</p>
               </div>
               <div className="w-full md:w-auto">
                 <form className="flex flex-col sm:flex-row gap-3">

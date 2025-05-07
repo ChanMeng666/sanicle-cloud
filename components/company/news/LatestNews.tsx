@@ -2,43 +2,31 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Mock data for latest news
+// Updated mock data for latest news
 const latestNewsData = [
   {
     id: 1,
-    title: 'Sanicle.cloud Partners with Major Healthcare Providers',
-    excerpt: 'Exciting new partnerships to expand women\'s health services across the country, bringing innovative solutions to more workplaces.',
+    title: 'Sanicle.cloud Secures Partnerships with Leading Healthcare Providers',
+    excerpt: 'Sanicle expands workplace menstrual health services through strategic partnerships with major healthcare providers, bringing innovative AI-powered solutions to more organizations.',
     date: 'Apr 5, 2024',
     readTime: '3 min read',
-    author: {
-      name: 'Sarah Johnson',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/partnership.jpg'
+    image: 'https://picsum.photos/800/600?random=1'
   },
   {
     id: 2,
-    title: 'New Features for Workplace Wellness Programs',
-    excerpt: 'Our latest platform update introduces advanced analytics and improved integration capabilities for better workplace wellness management.',
+    title: 'New AI-Powered Features Enhance Workplace Wellness Programs',
+    excerpt: 'Our latest platform update introduces advanced analytics utilizing Vertex AI to provide customized menstrual health support and improved integration capabilities for HR professionals.',
     date: 'Mar 28, 2024',
     readTime: '5 min read',
-    author: {
-      name: 'Michael Chen',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/wellness.jpg'
+    image: 'https://picsum.photos/800/600?random=2'
   },
   {
     id: 3,
-    title: 'Women\'s Health in the Modern Workplace: A Study',
-    excerpt: 'Our research team shares insights from a comprehensive study on women\'s health needs in contemporary workplace environments.',
+    title: 'Menstrual and Menopause Health in Modern Workplaces: New Research',
+    excerpt: 'Sanicle research team shares insights from a comprehensive study on menstrual and menopause health needs in contemporary workplace environments, revealing significant productivity impacts.',
     date: 'Mar 15, 2024',
     readTime: '8 min read',
-    author: {
-      name: 'Dr. Amanda Rodriguez',
-      avatar: '/images/team/avatar-placeholder.png'
-    },
-    image: '/images/news/research.jpg'
+    image: 'https://picsum.photos/800/600?random=3'
   }
 ]
 
@@ -64,22 +52,10 @@ export function LatestNews() {
                     {item.excerpt}
                   </p>
                   <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-200 mr-3">
-                      <Image 
-                        src={item.author.avatar} 
-                        alt={item.author.name}
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <span className="text-sm font-medium text-gray-900 block">{item.author.name}</span>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <span>{item.date}</span>
-                        <span className="mx-1">·</span>
-                        <span>{item.readTime}</span>
-                      </div>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <span>{item.date}</span>
+                      <span className="mx-1">·</span>
+                      <span>{item.readTime}</span>
                     </div>
                   </div>
                 </div>
