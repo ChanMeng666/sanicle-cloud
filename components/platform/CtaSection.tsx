@@ -93,7 +93,7 @@ export function CtaSection() {
           </div>
           
           {/* Trust badges */}
-          <div className="mt-12 sm:mt-16">
+          {/* <div className="mt-12 sm:mt-16">
             <p className="text-white/60 text-xs sm:text-sm mb-6">Trusted by industry leading companies</p>
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
               <div className="h-6 sm:h-8 opacity-70 hover:opacity-100 transition-opacity duration-300 relative">
@@ -117,7 +117,7 @@ export function CtaSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       

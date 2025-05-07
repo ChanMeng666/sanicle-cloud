@@ -68,7 +68,7 @@ export function HeroSection() {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Our solution can help change that.</span>
             </h1>
             <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-xl">
-              Introducing Sanicle.Cloud, an employee benefits platform that provides personalized menstrual health support for women to help them manage their symptoms effectively.
+              Introducing Sanicle.Cloud, an employee benefits platform that provides personalized health support for women to help them manage their symptoms effectively.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8">
