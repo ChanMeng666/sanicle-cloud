@@ -4,6 +4,7 @@ import { NewsHero } from "@/components/company/news/NewsHero"
 import { LatestNews } from "@/components/company/news/LatestNews"
 import { FeaturedNews } from "@/components/company/news/FeaturedNews"
 import { NewsCategories } from "@/components/company/news/NewsCategories"
+import { NewsVideos } from "@/components/company/news/NewsVideos"
 
 export default function NewsPage() {
   return (
@@ -13,6 +14,7 @@ export default function NewsPage() {
       </div>
       <LatestNews />
       <FeaturedNews />
+      <NewsVideos />
       <NewsCategories />
     </main>
   )

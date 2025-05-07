@@ -77,7 +77,7 @@ export function AboutHero() {
             </div>
             
             {/* Trust badges */}
-            <div className="mt-12 flex items-center">
+            {/* <div className="mt-12 flex items-center">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
@@ -98,7 +98,7 @@ export function AboutHero() {
                   Trusted by <span className="font-semibold text-white">500+</span> companies
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Image showcase area - responsive adjustments and visual enhancements */}
@@ -107,7 +107,7 @@ export function AboutHero() {
               {/* Main image - increased responsive control and visual effects */}
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white/20 backdrop-blur-md mx-auto lg:mx-0 max-w-sm sm:max-w-md">
                 <img 
-                  src="/placeholder.svg?height=600&width=500" 
+                  src="/images/screencapture-sanicle-ai.png" 
                   alt="Diverse team members" 
                   className="w-full object-cover"
                   loading="lazy"

@@ -10,7 +10,7 @@ export function TeamSection() {
       role: "Chief Executive Officer - CEO",
       bio: "A passionate advocate for women's health, leads with a user-first, insight-driven approach to product innovation.",
       avatar: "OA",
-      image: "/images/team/OmopejuAfanu.jpg",
+      image: "/images/team/OmopejuAfanu-white-background.svg",
       leafColor: "green",
       slug: "omopeju-afanu"
     },
@@ -19,7 +19,7 @@ export function TeamSection() {
       role: "Chief Product Officer",
       bio: "Known as 'Mr. Padman,' a global leader in femtech, using expertise in product management to build inclusive solutions.",
       avatar: "CI",
-      image: "/images/team/ChasteInegbedion.jpg",
+      image: "/images/team/ChasteInegbedion-white-background.svg",
       leafColor: "white",
       slug: "chaste-inegbedion"
     },
@@ -28,7 +28,7 @@ export function TeamSection() {
       role: "AI Creative Project Manager",
       bio: "AI and tech background, paired with experience in successful exits, fuels Sanicle's innovation.",
       avatar: "DH",
-      image: "/images/team/DaryllHall.jpg",
+      image: "/images/team/DaryllHall-white-background.svg",
       leafColor: "white",
       slug: "daryll-hall"
     },
@@ -37,7 +37,7 @@ export function TeamSection() {
       role: "Chief Experience Officer - CXO",
       bio: "Excels in product management, creating innovative, customer-centric solutions with technical insight and emotional intelligence.",
       avatar: "GH",
-      image: "/images/team/GabbyHurst.jpg",
+      image: "/images/team/GabbyHurst-white-background.svg",
       leafColor: "white",
       slug: "gabby-hurst"
     },
@@ -46,7 +46,7 @@ export function TeamSection() {
       role: "Senior AI/ML Infrastructure Engineer",
       bio: "Full-stack developer leading AI-powered solutions for women's workplace health, with expertise in cloud-native architecture and mentorship for women in STEM.",
       avatar: "CM",
-      image: "/images/team/ChanMeng.jpg",
+      image: "/images/team/ChanMeng-white-background.svg",
       leafColor: "pink",
       slug: "chan-meng"
     },
@@ -110,9 +110,9 @@ export function TeamSection() {
                 <h3 className="font-semibold text-lg text-neutral-800">{member.name}</h3>
                 <p className="text-primary mb-2">{member.role}</p>
                 <p className="text-neutral-600 text-sm mb-4">{member.bio}</p>
-                <Link href={`/team/${member.slug}`} className="text-primary hover:text-teal-700 transition-colors duration-300 font-medium">
+                {/* <Link href={`/team/${member.slug}`} className="text-primary hover:text-teal-700 transition-colors duration-300 font-medium">
                   Read Bio
-                </Link>
+                </Link> */}
               </CardContent>
             </Card>
           ))}

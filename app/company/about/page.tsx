@@ -13,11 +13,11 @@ export default function AboutPage() {
       <div className="w-full">
         <AboutHero />
       </div>
-      <FounderQuote />
-      <OurStory />
+      {/* <FounderQuote /> */}
+      {/* <OurStory /> */}
       <TeamSection />
       <OurValues />
-      <Milestones />
+      {/* <Milestones /> */}
     </main>
   )
 }
