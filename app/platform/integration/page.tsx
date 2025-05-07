@@ -129,41 +129,40 @@ export default function PlatformIntegrationPage() {
       
       <section className="w-full py-12 md:py-16 bg-[#f8f9fa]">
         <div className="container px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50] mb-4">
-                Integration Partners
-              </h2>
-              <p className="text-[#7f8c8d] mb-6">
-                We partner with leading health benefits management platforms and HR system providers 
-                to ensure Sanicle.cloud seamlessly fits into your existing technology stack.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="bg-white p-3 rounded-md shadow-sm flex items-center justify-center h-20 relative overflow-hidden">
-                    <img 
-                      src="/logo/leave-green.svg" 
-                      alt="Leaf background" 
-                      className="absolute w-full h-full opacity-10 transform rotate-15"
-                    />
-                    <span className="text-[#7f8c8d] text-sm relative z-10">Partner {i}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative mt-8 md:mt-0">
-              <div className="absolute inset-0 blur-lg transform rotate-2">
-                <img 
-                  src="/logo/leave-green.svg" 
-                  alt="Leaf decoration" 
-                  className="w-full h-full opacity-20"
-                />
-              </div>
+          <div className="relative rounded-lg overflow-hidden">
+            {/* Background image */}
+            <div className="absolute inset-0 w-full h-full">
               <img
                 src="/images/IntegrationPartners.png"
-                alt="System Integration"
-                className="relative z-10 rounded-lg shadow-lg w-full object-cover"
+                alt="Integration Partners Background"
+                className="w-full h-full object-cover opacity-1"
               />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa]/70 to-[#f8f9fa]/90"></div>
+            </div>
+            
+            {/* Content overlay */}
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="max-w-3xl">
+                <h2 className="text-2xl md:text-3xl font-semibold text-[#2c3e50] mb-4">
+                  Integration Partners
+                </h2>
+                <p className="text-[#7f8c8d] mb-6">
+                  We partner with leading health benefits management platforms and HR system providers 
+                  to ensure Sanicle.cloud seamlessly fits into your existing technology stack.
+                </p>
+                {/* <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="bg-white p-3 rounded-md shadow-sm flex items-center justify-center h-20 relative overflow-hidden">
+                      <img 
+                        src="/logo/leave-green.svg" 
+                        alt="Leaf background" 
+                        className="absolute w-full h-full opacity-10 transform rotate-15"
+                      />
+                      <span className="text-[#7f8c8d] text-sm relative z-10">Partner {i}</span>
+                    </div>
+                  ))}
+                </div> */}
+              </div>
             </div>
           </div>
         </div>
