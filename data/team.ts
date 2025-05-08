@@ -45,7 +45,7 @@ export interface TeamMember {
 // Team members data
 export const teamMembers: TeamMember[] = [
   {
-    name: "Dr. Omopeju Afanu",
+    name: "Dr.Omopeju Afanu",
     role: "Chief Executive Officer - CEO",
     bio: "A passionate advocate for women's health, leads with a user-first, insight-driven approach to product innovation.",
     longBio: `Dr. Omopeju Afanu is the visionary CEO of Sanicle, bringing her extensive medical expertise and passion for women's health to revolutionize menstrual wellness.
@@ -55,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     Under her leadership, Sanicle has developed innovative AI-powered technology that makes personalized menstrual health accessible to everyone. Dr. Afanu regularly speaks at global health conferences about the importance of integrating technology with healthcare to improve outcomes for women worldwide.`,
     avatar: "OA",
     images: [
-      "/images/team/OmopejuAfanu.jpg",
+      "/images/team/OmopejuAfanu-white-background.svg",
       "/images/team/omopeju-speaking.jpg",
       "/images/team/omopeju-research.jpg"
     ],
@@ -117,7 +117,7 @@ export const teamMembers: TeamMember[] = [
     Chaste is passionate about breaking taboos around menstrual health and ensuring that technology serves diverse populations. Under his guidance, Sanicle's product strategy emphasizes accessibility, privacy, and personalization.`,
     avatar: "CI",
     images: [
-      "/images/team/ChasteInegbedion.jpg",
+      "/images/team/ChasteInegbedion-white-background.svg",
       "/images/team/chaste-workshop.jpg",
       "/images/team/chaste-product.jpg"
     ],
@@ -176,16 +176,16 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Daryll Hall",
-    role: "AI Creative Project Manager",
+    role: "Chief AI Officer",
     bio: "AI and tech background, paired with experience in successful exits, fuels Sanicle's innovation.",
-    longBio: `Daryll Hall serves as Sanicle's AI Creative Project Manager, bringing a unique blend of technical expertise and creative vision to the company's AI initiatives.
+    longBio: `Daryll Hall serves as Sanicle's Chief AI Officer, bringing a unique blend of technical expertise and creative vision to the company's AI initiatives.
     
     With extensive experience in artificial intelligence and machine learning, Daryll has previously led teams that created innovative AI solutions in healthcare. His track record includes successful exits from tech startups, giving him valuable insights into scaling innovative technologies.
     
     At Sanicle, Daryll oversees the development of our AI capabilities, ensuring they are both technically sound and creatively applied to solve real-world menstrual health challenges. His leadership has been instrumental in developing Sanicle's personalized health insights and predictive analytics features.`,
     avatar: "DH",
     images: [
-      "/images/team/DaryllHall.jpg",
+      "/images/team/DaryllHall-white-background.svg",
       "/images/team/daryll-coding.jpg",
       "/images/team/daryll-presentation.jpg"
     ],
@@ -251,7 +251,7 @@ export const teamMembers: TeamMember[] = [
     Gabby's passion for improving women's health experiences stems from her own journey and the recognition that technology can play a transformative role when designed with genuine empathy. At Sanicle, she has pioneered user research methodologies that center diverse voices and experiences.`,
     avatar: "GH",
     images: [
-      "/images/team/GabbyHurst.jpg",
+      "/images/team/GabbyHurst-white-background.svg",
       "/images/team/gabby-design.jpg",
       "/images/team/gabby-workshop.jpg"
     ],
@@ -311,7 +311,7 @@ export const teamMembers: TeamMember[] = [
     Beyond her technical contributions, Chan is passionate about increasing representation in STEM fields. She actively mentors women in technology and leads Sanicle's initiatives to create more inclusive AI systems that work for diverse populations.`,
     avatar: "CM",
     images: [
-      "/images/team/ChanMeng.jpg",
+      "/images/team/ChanMeng-white-background.svg",
       "/images/team/ChanMeng-1.webp",
       "/images/team/ChanMeng-2.webp"
     ],

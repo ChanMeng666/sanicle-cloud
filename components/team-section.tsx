@@ -25,7 +25,7 @@ export function TeamSection() {
     },
     {
       name: "Daryll Hall",
-      role: "AI Creative Project Manager",
+      role: "Chief AI Officer",
       bio: "AI and tech background, paired with experience in successful exits, fuels Sanicle's innovation.",
       avatar: "DH",
       image: "/images/team/DaryllHall-white-background.svg",
