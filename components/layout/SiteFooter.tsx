@@ -250,23 +250,26 @@ export function SiteFooter() {
               © {currentYear} Sanicle.cloud. All rights reserved.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center space-x-6">
-            <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
-              <Facebook className="h-5 w-5" />
-              <span className="sr-only">Facebook</span>
-            </Link>
-            <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
-              <Instagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
+          
+          <div className="flex flex-col sm:flex-row items-center">
+            <div className="flex flex-wrap justify-center space-x-6">
+              <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
+                <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
+              </Link>
+              <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link href="#" className="text-neutral-500 hover:text-primary transition-colors duration-200">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+            </div>
           </div>
         </div>
         
@@ -278,6 +281,13 @@ export function SiteFooter() {
               src="/logo/hipaa-compliance.svg" 
               alt="HIPAA Compliant" 
               className="h-10 w-auto"
+            />
+          </div>
+          <div className="flex items-center mb-4 md:mb-0">
+            <img 
+              src="/logo/IBM_Partner_Plus_silver_partner_black.svg" 
+              alt="IBM Partner Plus Silver Partner Badge" 
+              className="h-20 sm:h-20 w-auto"
             />
           </div>
           <Link href="/legal/privacy" className="hover:text-primary transition-colors duration-200">
