@@ -44,9 +44,9 @@ export function HeroSection() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
-            <div className="inline-block rounded-lg bg-white/80 backdrop-blur px-3 py-1 text-sm text-primary shadow-md border border-primary/10 mb-4">
+            {/* <div className="inline-block rounded-lg bg-white/80 backdrop-blur px-3 py-1 text-sm text-primary shadow-md border border-primary/10 mb-4">
               <span className="font-semibold">Introducing Sanicle Cloud</span> - The Future of Period Care
-            </div>
+            </div> */}
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-neutral-800">
               Harnessing AI to optimize women's <span className="text-primary">Reproductive Healthcare</span> in the Workplace
             </h1>
