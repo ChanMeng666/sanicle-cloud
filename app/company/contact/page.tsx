@@ -123,7 +123,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">929-488-0608</p>
                     <p className="text-sm text-gray-500 mt-1">Monday-Friday, 9am-5pm EST</p>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-gray-600">hello@sanicle.cloud</p>
+                    <p className="text-gray-600">hello@sanicle.us</p>
                     <p className="text-sm text-gray-500 mt-1">We'll respond as quickly as possible</p>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Office</h3>
-                    <p className="text-gray-600">123 Innovation Drive, San Francisco, CA 94103</p>
+                    <p className="text-gray-600">2930 E 94th St, Suite 608, Tulsa, OK 74137</p>
                     <p className="text-sm text-gray-500 mt-1">Please schedule an appointment before visiting</p>
                   </div>
                 </div>
