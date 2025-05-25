@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, BarChart, Users } from "lucide-react"
+import Link from "next/link"
 
 export function HeroSection() {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -74,12 +75,14 @@ export function HeroSection() {
               <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8">
                 Explore Features <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-white text-white bg-white/15 hover:bg-white/25 hover:border-white/80 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8 shadow-glow"
-              >
-                Request Demo
-              </Button>
+              <Link href="/company/contact">
+                <Button 
+                  variant="outline" 
+                  className="border-white text-white bg-white/15 hover:bg-white/25 hover:border-white/80 transition-all duration-300 rounded-lg text-base sm:text-lg py-6 px-8 shadow-glow"
+                >
+                  Request Demo
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="lg:col-span-6 flex justify-center mt-8 lg:mt-0">

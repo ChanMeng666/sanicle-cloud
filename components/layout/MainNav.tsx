@@ -305,7 +305,7 @@ export function MainNav() {
         
         {/* Right: Action Buttons */}
         <div className="hidden lg:flex flex-shrink-0 w-[180px] justify-end items-center space-x-4">
-          <Link href="/demo">
+          <Link href="/company/contact">
             <Button variant="outline" className="text-neutral-800 border-primary hover:bg-primary/20 hover:text-primary hover:border-primary hover:shadow-md relative group">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                 <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
@@ -428,7 +428,7 @@ export function MainNav() {
               </nav>
               
               <div className="pt-2 border-t border-gray-200">
-                <Link href="/demo" onClick={toggleMenu}>
+                <Link href="/company/contact" onClick={toggleMenu}>
                   <Button variant="outline" className="text-neutral-800 border-primary hover:bg-primary/20 hover:text-primary hover:border-primary hover:shadow-md relative group w-full mb-3">
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                       <img src="/logo/leave-green.svg" alt="" className="w-full h-full" />
