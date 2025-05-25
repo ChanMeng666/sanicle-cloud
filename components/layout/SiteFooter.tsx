@@ -276,13 +276,13 @@ export function SiteFooter() {
         {/* Legal links */}
         <div className="flex flex-col md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-8 mt-8 text-sm text-neutral-500">
           {/* Compliance badges */}
-          <div className="flex items-center mb-4 md:mb-0">
+          {/* <div className="flex items-center mb-4 md:mb-0">
             <img 
               src="/logo/hipaa-compliance.svg" 
               alt="HIPAA Compliant" 
               className="h-10 w-auto"
             />
-          </div>
+          </div> */}
           <div className="flex items-center mb-4 md:mb-0">
             <img 
               src="/logo/IBM_Partner_Plus_silver_partner_black.svg" 

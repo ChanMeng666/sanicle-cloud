@@ -15,13 +15,13 @@ export default function PlatformSecurityPage() {
         </p>
         
         {/* Compliance Badges */}
-        <div className="flex flex-wrap items-center gap-4 mt-6 mb-8">
+        {/* <div className="flex flex-wrap items-center gap-4 mt-6 mb-8">
           <img 
             src="/logo/hipaa-compliance.svg" 
             alt="HIPAA Compliant" 
             className="h-20 md:h-16 w-auto"
           />
-        </div>
+        </div> */}
       </div>
       
       <section className="w-full py-12 md:py-16 bg-white">
