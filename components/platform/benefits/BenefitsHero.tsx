@@ -123,7 +123,7 @@ export function BenefitsHero() {
               <>
                 <BenefitCard
                   title="Personalized Cycle Insights"
-                  description="Track your menstrual cycle and receive personalized insights to better understand patterns, symptoms, and how they affect your work and wellbeing."
+                  description="Track your menstrual and menopausal cycles and receive predictive insights to better understand patterns, symptoms, and how they affect your work and well-being."
                   icon={<LineChart className="w-6 h-6" />}
                 />
                 <BenefitCard
@@ -133,12 +133,12 @@ export function BenefitsHero() {
                 />
                 <BenefitCard
                   title="Expert Resources & Support"
-                  description="Access educational content, connect with healthcare providers, and join community forums for support from people with similar experiences."
+                  description="Access educational content, connect with Sani AI Assistant for real time support, Connect with healthcare providers, and join community forums for support from people with similar experiences."
                   icon={<UsersRound className="w-6 h-6" />}
                 />
                 <BenefitCard
                   title="Symptom Management Tools"
-                  description="Discover personalized strategies for managing menstrual symptoms, including curated exercises, nutrition advice, and self-care practices."
+                  description="Discover personalized strategies for managing menstrual and menopausal symptoms, including curated exercises, nutrition advice, and self-care practices."
                   icon={<Sparkles className="w-6 h-6" />}
                 />
                 <BenefitCard

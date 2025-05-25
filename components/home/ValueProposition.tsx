@@ -133,13 +133,6 @@ export function ValueProposition() {
       icon: "/icons/data-insights.svg",
       fallbackIcon: <LineChart className="h-6 w-6 text-primary" />
     },
-    // {
-    //   title: "Promote Inclusivity",
-    //   description:
-    //     "Demonstrate your commitment to creating an inclusive workplace where everyone feels valued and supported, regardless of their menstrual health needs.",
-    //   icon: "/icons/inclusivity.svg",
-    //   fallbackIcon: <Users className="h-6 w-6 text-primary" />
-    // },
     {
       title: "Enhance Employee Well-being",
       description:
@@ -147,20 +140,30 @@ export function ValueProposition() {
       icon: "/icons/wellbeing.svg",
       fallbackIcon: <Sparkles className="h-6 w-6 text-primary" />
     },
-    // {
-    //   title: "Easy Implementation",
-    //   description:
-    //     "Our turnkey solution includes installation, maintenance, and restocking, making it effortless to provide essential menstrual care.",
-    //   icon: "/icons/easy-setup.svg",
-    //   fallbackIcon: <PuzzleIcon className="h-6 w-6 text-primary" />
-    // },
-    // {
-    //   title: "Sustainability Focus",
-    //   description:
-    //     "Our eco-friendly products and commitment to reducing waste align with your company's environmental goals and values.",
-    //   icon: "/icons/sustainability.svg",
-    //   fallbackIcon: <Leaf className="h-6 w-6 text-primary" />
-    // },
+  ]
+
+  const employeeBenefits = [
+    {
+      title: "Personalized Cycle Insights",
+      description:
+        "Track your menstrual and menopausal cycles and receive predictive insights to better understand patterns, symptoms, and how they affect your work and well-being.",
+      icon: "/icons/personalized-insights.svg",
+      fallbackIcon: <PuzzleIcon className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "Symptoms Management Tools",
+      description:
+        "Discover personalized strategies for managing menstrual and menopausal symptoms, including curated exercises, nutrition advice, and self-care practices.",
+      icon: "/icons/symptom-management.svg",
+      fallbackIcon: <Sparkles className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "Expert Resource Support",
+      description:
+        "Access educational content, connect with Sani AI Assistant for real time support, Connect with healthcare providers, and join community forums for support from people with similar experiences.",
+      icon: "/icons/expert-support.svg",
+      fallbackIcon: <Users className="h-6 w-6 text-primary" />
+    },
   ]
 
   return (
@@ -231,6 +234,55 @@ export function ValueProposition() {
             </Card>
           ))}
         </div>
+
+        {/* For Employees Section */}
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mt-20">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-neutral-800">
+              Personal Health Management
+            </h2>
+            <p className="mx-auto max-w-[700px] text-neutral-600 md:text-lg">
+              Take control of your menstrual and menopausal health with personalized tools and resources.
+            </p>
+            <div className="inline-block rounded-lg bg-secondary/10 px-3 py-1 text-sm text-secondary">
+              <span className="font-semibold">For Employees</span>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+          {employeeBenefits.map((benefit, index) => (
+            <Card key={index} className="relative overflow-hidden group border-none shadow-md hover:shadow-lg transition-all duration-300 bg-white/90">
+              <div className="absolute top-0 right-0 w-24 h-24 transform translate-x-1/2 -translate-y-1/2 opacity-5 group-hover:opacity-10 transition-all duration-500">
+                <img src={index % 2 === 0 ? "/logo/leave-pink.svg" : "/logo/leave-green.svg"} alt="Leaf decoration" className="w-full h-full" />
+              </div>
+              
+              <CardContent className="p-6 pt-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                    {isIconError ? benefit.fallbackIcon : (
+                      <img 
+                        src={benefit.icon} 
+                        alt="" 
+                        className="w-6 h-6" 
+                        onError={(e) => {
+                          setIconError(true);
+                          console.log(`Failed to load icon: ${benefit.icon}`);
+                        }}
+                      />
+                    )}
+                  </div>
+                  <h3 className="font-semibold text-lg text-neutral-800">{benefit.title}</h3>
+                </div>
+                <p className="text-neutral-600">{benefit.description}</p>
+                <div className="mt-4 flex items-center text-secondary group-hover:underline">
+                  <span className="text-sm font-medium">Learn more</span>
+                  <MoveRight className="h-4 w-4 ml-1" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
         <div className="flex justify-center">
           <div className="relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-teal-100 via-white to-coral-100 p-[1px] shadow-xl transition-all duration-300 hover:shadow-2xl">
             <div className="relative z-10 flex flex-col items-center overflow-hidden rounded-xl bg-white p-8 text-center">
