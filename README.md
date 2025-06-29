@@ -74,6 +74,27 @@ Powered by **IBM Cloud watsonx AI** for intelligent health insights and personal
 
 </details>
 
+## 🎬 Project Introduction Video
+
+> [!TIP]
+> Watch our comprehensive platform demonstration to see Sanicle Cloud in action and understand how we're revolutionizing women's workplace health.
+
+<div align="center">
+  <a href="https://youtu.be/3i0TAVO1yJs?si=TCr6SVV5eN006zU2" target="_blank">
+    <img src="https://img.youtube.com/vi/3i0TAVO1yJs/maxresdefault.jpg" alt="Sanicle Cloud Platform Demo" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);"/>
+  </a>
+  <p><em>🎥 Click to watch: Sanicle Cloud Platform Overview & Demo</em></p>
+</div>
+
+**What you'll see in the video:**
+- 🏥 **Platform Overview**: Complete tour of our women's health workplace solution
+- 🤖 **AI Assistant Demo**: "Ask Sani" chatbot providing health guidance
+- 📊 **Analytics Dashboard**: HR insights and workforce health metrics
+- 🔒 **Privacy & Security**: HIPAA-compliant data protection features
+- 💼 **Enterprise Integration**: Seamless HR system connectivity
+
+[![🎬 Watch on YouTube](https://img.shields.io/badge/🎬_Watch_on-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/3i0TAVO1yJs?si=TCr6SVV5eN006zU2)
+
 **Tech Stack Badges:**
 
 <div align="center">
@@ -99,6 +120,7 @@ Powered by **IBM Cloud watsonx AI** for intelligent health insights and personal
 
 - [🌸 Sanicle CloudWomen's Health Platform for Workplace Wellness](#-sanicle-cloudwomens-health-platform-for-workplace-wellness)
   - [📸 Platform Screenshots](#-platform-screenshots)
+  - [🎬 Project Introduction Video](#-project-introduction-video)
       - [TOC](#toc)
       - [](#)
   - [🌟 Introduction](#-introduction)
