@@ -365,7 +365,7 @@ export const teamMembers: TeamMember[] = [
       phone: "+64 02885235858",
       linkedin: "https://www.linkedin.com/in/chanmeng666/",
       github: "https://github.com/ChanMeng666",
-      personal: "https://www.chanmeng.live/",
+      personal: "https://www.chanmeng.org/",
       huggingface: "https://huggingface.co/ChanMeng666"
     },
     languages: [
