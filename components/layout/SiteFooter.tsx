@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, ArrowRight } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Mail, ArrowRight, Github } from "lucide-react"
 import { ManageCookies } from "@/components/cookie/ManageCookies"
 
 export function SiteFooter() {
@@ -296,12 +296,42 @@ export function SiteFooter() {
           <Link href="/legal/terms" className="hover:text-primary transition-colors duration-200">
             Terms of Service
           </Link>
-          <Link 
-            href="/legal/cookies" 
+          <Link
+            href="/legal/cookies"
             className="hover:text-primary transition-colors duration-200 flex items-center gap-1"
           >
             <span>Cookie Policy</span>
           </Link>
+        </div>
+
+        {/* Developer brand credit — Chan Meng */}
+        <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col items-center text-center gap-2">
+          <a
+            href="https://github.com/ChanMeng666"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 group"
+          >
+            <img src="/brand/chan-meng-monkey.svg" alt="Chan Meng" className="h-7 w-7" />
+            <span className="font-semibold text-neutral-800">Chan Meng</span>
+          </a>
+          <p className="text-neutral-500 text-sm">Need a custom app like this one? I build them.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+            <a
+              href="mailto:chanmeng.dev@gmail.com"
+              className="text-neutral-600 hover:text-primary inline-flex items-center gap-1.5 transition-colors duration-200"
+            >
+              <Mail className="h-4 w-4" /> chanmeng.dev@gmail.com
+            </a>
+            <a
+              href="https://github.com/ChanMeng666"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-600 hover:text-primary inline-flex items-center gap-1.5 transition-colors duration-200"
+            >
+              <Github className="h-4 w-4" /> @ChanMeng666
+            </a>
+          </div>
         </div>
       </div>
     </footer>
